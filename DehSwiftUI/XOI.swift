@@ -17,6 +17,7 @@ struct XOI: Identifiable {
     var xoiCategory: String
     var detail: String
     var viewNumbers: Int
+    var mediaCategory: String
     var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: latitude,

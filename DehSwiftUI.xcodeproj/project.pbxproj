@@ -12,9 +12,11 @@
 		5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
 		5961A0C925777ABD0022CD72 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C825777ABD0022CD72 /* MapView.swift */; };
 		5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CA25777DD50022CD72 /* CircleImage.swift */; };
+		5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
+		5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65916257611020038AD61 /* ContentView.swift */; };
+		5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		59A65913257611020038AD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65912257611020038AD61 /* AppDelegate.swift */; };
 		59A65915257611020038AD61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		59A65917257611020038AD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65916257611020038AD61 /* ContentView.swift */; };
 		59A65919257611040038AD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A65918257611040038AD61 /* Assets.xcassets */; };
 		59A6591C257611040038AD61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A6591B257611040038AD61 /* Preview Assets.xcassets */; };
 		59A6591F257611040038AD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A6591D257611040038AD61 /* LaunchScreen.storyboard */; };
@@ -31,6 +33,9 @@
 		5961A0C6257775B10022CD72 /* XOIDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIDetail.swift; sourceTree = "<group>"; };
 		5961A0C825777ABD0022CD72 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5961A0CA25777DD50022CD72 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		5961A0CD25778BC30022CD72 /* XOIRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIRow.swift; sourceTree = "<group>"; };
+		5961A0CF2577CAF60022CD72 /* testfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testfile.swift; sourceTree = "<group>"; };
+		5961A0D52577DFAB0022CD72 /* TabViewElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewElement.swift; sourceTree = "<group>"; };
 		59A6590F257611020038AD61 /* DehSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DehSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A65912257611020038AD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59A65914257611020038AD61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 				59A65912257611020038AD61 /* AppDelegate.swift */,
 				59A65914257611020038AD61 /* SceneDelegate.swift */,
 				59A65916257611020038AD61 /* ContentView.swift */,
+				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59A6592C257633790038AD61 /* MainView.swift */,
 				59A65918257611040038AD61 /* Assets.xcassets */,
 				59A6591D257611040038AD61 /* LaunchScreen.storyboard */,
@@ -106,7 +112,9 @@
 				59A6591A257611040038AD61 /* Preview Content */,
 				59396FD52577661D00EA94DF /* NetworkConnector.swift */,
 				5961A0C425776F550022CD72 /* XOI.swift */,
+				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
+				5961A0CF2577CAF60022CD72 /* testfile.swift */,
 			);
 			path = DehSwiftUI;
 			sourceTree = "<group>";
@@ -252,15 +260,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5961A0C525776F550022CD72 /* XOI.swift in Sources */,
+				5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */,
 				5961A0C0257768390022CD72 /* NetworkConnector.swift in Sources */,
 				59A65913257611020038AD61 /* AppDelegate.swift in Sources */,
 				59A65915257611020038AD61 /* SceneDelegate.swift in Sources */,
-				59A65917257611020038AD61 /* ContentView.swift in Sources */,
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
 				59A6592D257633790038AD61 /* MainView.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
+				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
+				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

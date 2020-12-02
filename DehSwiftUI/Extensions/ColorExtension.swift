@@ -8,6 +8,20 @@
 
 import Foundation
 import SwiftUI
+let lightGreen: String = "#24c08c" // navigation bar background
+let darkGreen : String = "#1c8864" // member page background
+let grassGreen: String = "#16AA79" // setting header
+let lightLime : String = "#D4E157"
+let lightTeel : String = "#26A69A"
+let lightGray : String = "#fafafa" // navigation bar title
+let white     : String = "#ffffff" // information(label) color
+
+// transparent color
+let t_lightGreen: String = "#24c08c88" // navigation bar background
+let t_darkGreen : String = "#1c886488" // member page background
+
+
+
 extension UIColor {
     
     public convenience init(rgba: String) {

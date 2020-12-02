@@ -7,17 +7,18 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "member_back-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "member_back.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
