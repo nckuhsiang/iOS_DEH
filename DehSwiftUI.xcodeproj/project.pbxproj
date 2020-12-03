@@ -25,6 +25,7 @@
 		59CE6C0C2578CC1D00553EBA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0B2578CC1D00553EBA /* Setting.swift */; };
 		59CE6C102578D32100553EBA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* Map.swift */; };
 		59CE6C122578D7BB00553EBA /* testfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CF2577CAF60022CD72 /* testfile.swift */; };
+		59CE6C152578E38200553EBA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C142578E38200553EBA /* Data.swift */; };
 		9D8E7AC035F460090534DF96 /* Pods_DehSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		59A6592C257633790038AD61 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		59CE6C0B2578CC1D00553EBA /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		59CE6C0F2578D32100553EBA /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		59CE6C142578E38200553EBA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FC821083DB9C0FD0F36E5A23 /* Pods-DehSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 				59A6591A257611040038AD61 /* Preview Content */,
 				59396FD52577661D00EA94DF /* NetworkConnector.swift */,
 				5961A0C425776F550022CD72 /* XOI.swift */,
+				59CE6C142578E38200553EBA /* Data.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
 				5961A0CF2577CAF60022CD72 /* testfile.swift */,
@@ -281,6 +284,7 @@
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
+				59CE6C152578E38200553EBA /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
