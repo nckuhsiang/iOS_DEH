@@ -42,12 +42,13 @@ struct TabViewElement: View {
             }
 //        .padding()
         }
+        .background(Color.init(UIColor(rgba: lightGreen)))
         .tabItem{
             Image("member_favorite")
             Text("favorite")
                 .foregroundColor(.white)
         }
-        .background(Color.init(UIColor(rgba: lightGreen)))
+        
     }
 }
 
