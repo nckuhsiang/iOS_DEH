@@ -30,16 +30,13 @@ struct TabViewElement: View {
                     Image(image2)
                 }
             }
-//            .padding([.top, .leading, .trailing])
+            .padding([.top, .leading, .trailing])
             //                        .frame(height: 30.0)
             //                        .offset(x:0,y:5)
             
             
-            List{
-                Text("Hello, World")
-                Text("Hello, World")
-                Text("Hello, World")
-                Text("Hello, World")
+            List(testxoi){xoi in
+                XOIRow(xoi:xoi)
                 
 //                .padding()
             }

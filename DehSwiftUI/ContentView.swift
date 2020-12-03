@@ -10,25 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     init(){
-        if #available(iOS 14.0, *) {
-            // iOS 14 doesn't have extra separators below the list by default.
-        } else {
-            // To remove only extra separators below the list:
-            UITableView.appearance().tableFooterView = UIView()
-        }
-        
-        // To remove all separators including the actual ones:
-        UITableView.appearance().separatorStyle = .none
-        
-        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-        UITableViewCell.appearance().backgroundColor = .clear
-        //解決tab bar半透明的問題
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
-        UITabBar.appearance().isTranslucent = true
-        UITabBar.appearance().backgroundColor = UIColor(rgba: lightGreen)
-        
-        UINavigationBar.appearance().backgroundColor = UIColor(rgba: darkGreen)
+//        if #available(iOS 14.0, *) {
+//            // iOS 14 doesn't have extra separators below the list by default.
+//        } else {
+//            // To remove only extra separators below the list:
+//            UITableView.appearance().tableFooterView = UIView()
+//        }
+//        
+//        // To remove all separators including the actual ones:
+//        UITableView.appearance().separatorStyle = .none
+//        
+//        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+//        UITableViewCell.appearance().backgroundColor = .clear
+//        //解決tab bar半透明的問題
+//        UITabBar.appearance().shadowImage = UIImage()
+//        UITabBar.appearance().backgroundImage = UIImage()
+//        UITabBar.appearance().isTranslucent = true
+//        UITabBar.appearance().backgroundColor = UIColor(rgba: lightGreen)
+//        
+//        UINavigationBar.appearance().backgroundColor = UIColor(rgba: darkGreen)
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
     @State var nameText = "Guest"
@@ -60,136 +60,37 @@ struct ContentView: View {
                 .padding()
                 .background(Color.init(UIColor(rgba: darkGreen)))
                 TabView{
+                    TabViewElement(title: "page2", image1: "member_grouplist", image2: "search")
+                    TabViewElement(title: "page3", image1: "member_grouplist", image2: "search")
+                    TabViewElement(title: "page4", image1: "member_grouplist", image2: "search")
 //                    VStack{
-//
 //                        HStack{
-//                            Text("page1")
-//                                .foregroundColor(Color.white)
-//                            Spacer()
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("member_grouplist")
-//                            }
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("search")
-//                            }
+//                            Text("123")
 //                        }
-//                        .padding([.top, .leading, .trailing])
-////                        .frame(height: 30.0)
-////                        .offset(x:0,y:5)
-//
-//
-//                        List{
-//                            Text("Hello, World")
-//                        }
+//                    List{
+//                        Text("123")
+//                    }
+//                        Text("123")
 //                    }
 //                    .tabItem{
 //                        Image("member_favorite")
 //                        Text("favorite")
 //                            .foregroundColor(.white)
 //                    }
-//                    .background(Color.init(UIColor(rgba: lightGreen)))
-                    TabViewElement(title: "page1", image1: "member_grouplist", image2: "search")
-                    TabViewElement(title: "page1", image1: "member_grouplist", image2: "search")
-                    TabViewElement(title: "page1", image1: "member_grouplist", image2: "search")
-                    TabViewElement(title: "page1", image1: "member_grouplist", image2: "search")
 //                    VStack{
 //                        HStack{
-//                            Text("page2")
-//                                .foregroundColor(Color.white)
-//                            Spacer()
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("member_grouplist")
-//                            }
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("search")
-//                            }
+//                            Text("123")
 //                        }
-//                        .padding([.top, .leading, .trailing])
-////                        .frame(height: 29.0)
-////                        .offset(x:0,y:5)
-//
-//                        List{
-//                            Text("Hello, World")
-//                        }
+//                    List{
+//                        Text("123")
+//                    }
+//                        Text("12")
 //                    }
 //                    .tabItem{
-//                        Image("map_locate")
-//                        Text("nearby")
+//                        Image("member_favorite")
+//                        Text("favorite")
 //                            .foregroundColor(.white)
 //                    }
-//                    .background(Color.init(UIColor(rgba: lightGreen)))
-//
-//                    VStack{
-//
-//                        HStack{
-//                            Text("page3")
-//                                .foregroundColor(Color.white)
-//                            Spacer()
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("member_grouplist")
-//                            }
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("search")
-//                            }
-//                        }
-//                        .padding([.top, .leading, .trailing])
-//                        .frame(height: 29.998)
-////                        .offset(x:0,y:5)
-//
-//
-//                        List{
-//                            Text("Hello, World")
-//                        }
-//                    }
-//                    .tabItem{
-//                        Image("member_group")
-//                        Text("group")
-//                            .foregroundColor(.white)
-//                    }
-//                    .background(Color.init(UIColor(rgba: lightGreen)))
-//
-//                    VStack{
-//
-//                        HStack{
-//                            Text("page4")
-//                                .foregroundColor(Color.white)
-//                            Spacer()
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("member_grouplist")
-//                            }
-//                            Button(action: {
-//                                print("User icon pressed...")
-//                            }){
-//                                Image("search")
-//                            }
-//                        }
-//                        .padding([.top, .leading, .trailing])
-//                        .frame(height: 29.997)
-////                        .offset(x:0,y:5)
-//                        List{
-//                            Text("Hello, World")
-//                        }
-//                    }
-//                    .tabItem{
-//                        Image("member_interests")
-//                        Text("mine")
-//                            .foregroundColor(.white)
-//                    }
-//                    .background(Color.init(UIColor(rgba: lightGreen)))
                 }
                 .navigationBarItems(leading:
                     Image("heart"))

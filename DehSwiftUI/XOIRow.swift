@@ -26,7 +26,7 @@ struct XOIRow: View {
 
 struct LandmarkRow_Previews: PreviewProvider {
     static var previews: some View {
-        XOIRow(xoi: testxoi)
+        XOIRow(xoi: testxoi[0])
 
         .previewLayout(.fixed(width: 300, height: 70))
     }
