@@ -12,7 +12,10 @@ struct TabViewElement: View {
     var title: String
     var image1: String
     var image2: String
+    var tabItemImage: String
+    var tabItemName: String
     var body: some View {
+
         VStack{
             
             HStack{
@@ -31,29 +34,25 @@ struct TabViewElement: View {
                 }
             }
             .padding([.top, .leading, .trailing])
-            //                        .frame(height: 30.0)
-            //                        .offset(x:0,y:5)
-            
-            
-            List(testxoi){xoi in
-                XOIRow(xoi:xoi)
-                
-//                .padding()
+            List{
+                ForEach(testxoi){xoi in
+                    XOIRow(xoi:xoi)
+                        .padding(.horizontal)
+                }
+                .listRowBackground(Color.init(UIColor(rgba: darkGreen)))
             }
-//        .padding()
         }
         .background(Color.init(UIColor(rgba: lightGreen)))
         .tabItem{
-            Image("member_favorite")
-            Text("favorite")
+            Image(tabItemImage)
+            Text(tabItemName)
                 .foregroundColor(.white)
         }
-        
     }
 }
 
 struct TabViewElement_Previews: PreviewProvider {
     static var previews: some View {
-        TabViewElement(title: "page2", image1: "member_grouplist", image2: "search")
+        TabViewElement(title: "page2", image1: "member_grouplist", image2: "search",tabItemImage: "member_favorite",tabItemName: "favorite")
     }
 }

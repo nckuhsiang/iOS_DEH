@@ -21,7 +21,7 @@ struct ContentView: View {
         UITableView.appearance().separatorStyle = .none
         
         UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-        UITableViewCell.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .green
         //解決tab bar半透明的問題
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
@@ -36,46 +36,38 @@ struct ContentView: View {
     //若使用classModel的值則必須使用observation pattern
     //https://stackoverflow.com/questions/60744017/how-do-i-update-a-text-label-in-swiftui
     
-    
+    @State var selection: Int? = nil
     var body: some View {
         NavigationView {
+            
             VStack(spacing: 0){
-                HStack{
-                    Button(action: {
-                        print("User icon pressed...")
-                    }){
-                        Image("member_setting")
-                    }
-                    Spacer()
-                    Text("HI, " + nameText)
-                        .font(.largeTitle)
-                        .foregroundColor(Color.white)
-                    Spacer()
-                    Button(action: {
-                        print("User icon pressed...")
-                    }){
-                        Image("member_back")
-                    }
-                }
-                .padding()
-                .background(Color.init(UIColor(rgba: darkGreen)))
-                
                 TabView{
-                    TabViewElement(title: "page2", image1: "member_grouplist", image2: "search")
-                    
-                    TabViewElement(title: "page3", image1: "member_grouplist", image2: "search")
-                    TabViewElement(title: "page4", image1: "member_grouplist", image2: "search")
+                    TabViewElement(title: "page2", image1: "member_grouplist", image2: "search",tabItemImage: "member_favorite",tabItemName: "favorite")
+                    TabViewElement(title: "page3", image1: "member_grouplist", image2: "search",tabItemImage:"map_locate",tabItemName: "nearby")
+                    TabViewElement(title: "page4", image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                    TabViewElement(title: "page5", image1: "member_grouplist", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
-//                .navigationBarItems(leading:
-//                    Image("heart"))
-                
             }
-            .edgesIgnoringSafeArea(.top)
+            .navigationBarTitle(Text("HI, " + nameText), displayMode: .inline)
+            .navigationBarItems(leading: NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
+                Button(action: {
+                    print("setting tapped")
+                    self.selection = 1
+                }) {
+                    Image("member_setting")
+                }
+            }
+            
+            ,trailing: NavigationLink(destination: Map(), tag: 2, selection: $selection) {
+                Button(action: {
+                    print("map tapped")
+                    self.selection = 2
+                }) {
+                    Image("member_back")
+                }
+            })
             
         }
-        
-//            .edgesIgnoringSafeArea(.top)
-        
     }
 }
 
