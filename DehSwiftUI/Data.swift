@@ -7,3 +7,9 @@
 //
 
 import SwiftUI
+
+var testxoi:[XOI] = [XOI(id: 0, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
+                     XOI(id: 1, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
+                     XOI(id: 2, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image")]
+
+//@Published var XOIs:[XOI] = []

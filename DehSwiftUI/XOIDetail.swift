@@ -13,7 +13,7 @@ struct XOIDetail: View {
     var body: some View{
         NavigationView{
             VStack {
-                MapView(coordinate: xoi.locationCoordinate)
+                MapView(coordinate: xoi.getLocationCoordinate())
 //                    .edgesIgnoringSafeArea(.top)
                     .frame(height: 300)
                 
@@ -70,6 +70,3 @@ PreviewProvider {
     }
 }
 
-var testxoi:[XOI] = [XOI(id: 0, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
-                     XOI(id: 1, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
-                     XOI(id: 2, name: "name", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image")]
