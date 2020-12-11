@@ -24,6 +24,7 @@ import CoreLocation
 
 
 class XOI:Identifiable {
+    var ContainedXOIs:[XOI]!
     var id: Int = 0
     var name: String = ""
     var latitude: Double = 0.0
@@ -48,6 +49,9 @@ class XOI:Identifiable {
         self.detail = detail
         self.viewNumbers = viewNumbers
         self.mediaCategory = mediaCategory
+    }
+    func setContainedXOI(XOIs:[XOI]){
+        self.ContainedXOIs = XOIs
     }
 }
 class POI: XOI{

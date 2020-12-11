@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct ContentView: View {
     init(){
@@ -16,11 +17,17 @@ struct ContentView: View {
             // To remove only extra separators below the list:
             UITableView.appearance().tableFooterView = UIView()
         }
+//        let request = AF.request("https://swapi.dev/api/films")
+//            // 2
+//            request.responseJSON { (data) in
+//              print(data)
+//            }
         
         // To remove all separators including the actual ones:
         UITableView.appearance().separatorStyle = .none
-        
+        //list底下的背景色
         UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+        
         UITableViewCell.appearance().backgroundColor = .green
         //解決tab bar半透明的問題
         UITabBar.appearance().shadowImage = UIImage()
@@ -43,7 +50,7 @@ struct ContentView: View {
             VStack(spacing: 0){
                 TabView{
                     TabViewElement(title: "page2", image1: "member_grouplist", image2: "search",tabItemImage: "member_favorite",tabItemName: "favorite")
-                    TabViewElement(title: "page3", image1: "member_grouplist", image2: "search",tabItemImage:"map_locate",tabItemName: "nearby")
+                    TabViewElement(title: "page3", image1: "member_grouplist", image2: "search",tabItemImage:"member_searched",tabItemName: "nearby")
                     TabViewElement(title: "page4", image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
                     TabViewElement(title: "page5", image1: "member_grouplist", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
@@ -74,5 +81,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SettingStorage())
     }
 }

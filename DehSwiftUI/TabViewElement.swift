@@ -14,6 +14,7 @@ struct TabViewElement: View {
     var image2: String
     var tabItemImage: String
     var tabItemName: String
+    @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
 
         VStack{
@@ -29,13 +30,14 @@ struct TabViewElement: View {
                 }
                 Button(action: {
                     print("User icon pressed...")
+                    self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
                 }){
                     Image(image2)
                 }
             }
             .padding([.top, .leading, .trailing])
             List{
-                ForEach(testxoi){xoi in
+                ForEach(self.settingStorage.XOIs[tabItemName] ?? []){xoi in
                     XOIRow(xoi:xoi)
                         .padding(.horizontal)
                 }
@@ -54,5 +56,6 @@ struct TabViewElement: View {
 struct TabViewElement_Previews: PreviewProvider {
     static var previews: some View {
         TabViewElement(title: "page2", image1: "member_grouplist", image2: "search",tabItemImage: "member_favorite",tabItemName: "favorite")
+            .environmentObject(SettingStorage())
     }
 }

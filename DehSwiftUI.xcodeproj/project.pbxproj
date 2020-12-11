@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		592AFD8F2583499300E623A8 /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
+		5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
 		5961A0C0257768390022CD72 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59396FD52577661D00EA94DF /* NetworkConnector.swift */; };
 		5961A0C525776F550022CD72 /* XOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOI.swift */; };
 		5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DehSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EB02DF55C94A1AE2B9CE4E /* Pods-DehSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		592AFD8E2583499300E623A8 /* MD5Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Extension.swift; sourceTree = "<group>"; };
+		5938A2F925824F9E000F1869 /* SettingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
 		59396FD52577661D00EA94DF /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		5961A0C425776F550022CD72 /* XOI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOI.swift; sourceTree = "<group>"; };
 		5961A0C6257775B10022CD72 /* XOIDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIDetail.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 				59A65916257611020038AD61 /* ContentView.swift */,
 				59CE6C0F2578D32100553EBA /* Map.swift */,
 				59CE6C0B2578CC1D00553EBA /* Setting.swift */,
+				5938A2F925824F9E000F1869 /* SettingStorage.swift */,
 				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59A6592C257633790038AD61 /* MainView.swift */,
 				59A65918257611040038AD61 /* Assets.xcassets */,
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				59A6592625761F5E0038AD61 /* ColorExtension.swift */,
+				592AFD8E2583499300E623A8 /* MD5Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592AFD8F2583499300E623A8 /* MD5Extension.swift in Sources */,
 				5961A0C525776F550022CD72 /* XOI.swift in Sources */,
 				59CE6C122578D7BB00553EBA /* testfile.swift in Sources */,
 				5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */,
@@ -280,6 +287,7 @@
 				59A6592D257633790038AD61 /* MainView.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
+				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
 				59CE6C102578D32100553EBA /* Map.swift in Sources */,
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
