@@ -28,7 +28,7 @@ struct ContentView: View {
         //list底下的背景色
         UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
         
-        UITableViewCell.appearance().backgroundColor = .green
+//        UITableViewCell.appearance().backgroundColor = .green
         //解決tab bar半透明的問題
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
