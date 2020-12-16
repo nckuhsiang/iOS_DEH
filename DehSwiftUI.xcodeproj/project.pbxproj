@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,16 +25,14 @@
 		59A6591F257611040038AD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A6591D257611040038AD61 /* LaunchScreen.storyboard */; };
 		59A659292576237B0038AD61 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6592625761F5E0038AD61 /* ColorExtension.swift */; };
 		59A6592D257633790038AD61 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6592C257633790038AD61 /* MainView.swift */; };
+		59C90DF7258A08390038554E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 59C90DF6258A08390038554E /* Alamofire */; };
 		59CE6C0C2578CC1D00553EBA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0B2578CC1D00553EBA /* Setting.swift */; };
 		59CE6C102578D32100553EBA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* Map.swift */; };
 		59CE6C122578D7BB00553EBA /* testfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CF2577CAF60022CD72 /* testfile.swift */; };
 		59CE6C152578E38200553EBA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C142578E38200553EBA /* Data.swift */; };
-		9D8E7AC035F460090534DF96 /* Pods_DehSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DehSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05EB02DF55C94A1AE2B9CE4E /* Pods-DehSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		592AFD8E2583499300E623A8 /* MD5Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Extension.swift; sourceTree = "<group>"; };
 		592AFD952588A60600E623A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		5938A2F925824F9E000F1869 /* SettingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 		59CE6C0B2578CC1D00553EBA /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		59CE6C0F2578D32100553EBA /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		59CE6C142578E38200553EBA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		FC821083DB9C0FD0F36E5A23 /* Pods-DehSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,21 +64,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8E7AC035F460090534DF96 /* Pods_DehSwiftUI.framework in Frameworks */,
+				59C90DF7258A08390038554E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AE2CCDEED233F24685FB18F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5961A0CC25777DEC0022CD72 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +85,6 @@
 			children = (
 				59A65911257611020038AD61 /* DehSwiftUI */,
 				59A65910257611020038AD61 /* Products */,
-				62D51FA71C970E1BDCC9EBA8 /* Pods */,
-				2AE2CCDEED233F24685FB18F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,15 +141,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		62D51FA71C970E1BDCC9EBA8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				05EB02DF55C94A1AE2B9CE4E /* Pods-DehSwiftUI.debug.xcconfig */,
-				FC821083DB9C0FD0F36E5A23 /* Pods-DehSwiftUI.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,17 +148,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59A65923257611040038AD61 /* Build configuration list for PBXNativeTarget "DehSwiftUI" */;
 			buildPhases = (
-				C1C276A55D73695439A503AB /* [CP] Check Pods Manifest.lock */,
 				59A6590B257611020038AD61 /* Sources */,
 				59A6590C257611020038AD61 /* Frameworks */,
 				59A6590D257611020038AD61 /* Resources */,
-				5AA0CF83B7F24F90F7492D01 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DehSwiftUI;
+			packageProductDependencies = (
+				59C90DF6258A08390038554E /* Alamofire */,
+			);
 			productName = DehSwiftUI;
 			productReference = 59A6590F257611020038AD61 /* DehSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +188,9 @@
 				Base,
 			);
 			mainGroup = 59A65906257611020038AD61;
+			packageReferences = (
+				59C90DF5258A08390038554E /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 59A65910257611020038AD61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,48 +212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5AA0CF83B7F24F90F7492D01 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1C276A55D73695439A503AB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DehSwiftUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59A6590B257611020038AD61 /* Sources */ = {
@@ -432,7 +372,6 @@
 		};
 		59A65924257611040038AD61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05EB02DF55C94A1AE2B9CE4E /* Pods-DehSwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,7 +392,6 @@
 		};
 		59A65925257611040038AD61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC821083DB9C0FD0F36E5A23 /* Pods-DehSwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +432,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		59C90DF5258A08390038554E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		59C90DF6258A08390038554E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59C90DF5258A08390038554E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 59A65907257611020038AD61 /* Project object */;
 }

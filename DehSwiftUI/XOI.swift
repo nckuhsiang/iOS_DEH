@@ -63,5 +63,3 @@ class POI: XOI{
 
 
 
-
-

@@ -50,6 +50,7 @@ final class SettingStorage:ObservableObject{
             UserDefaults.standard.set(loginState,forKey: "loginState")
         }
     }
+    //正常來說不應該擺在這邊
     @Published var XOIs:[String:[XOI]] = [
         "favorite" : [testxoi[0]],
         "nearby" : [testxoi[1]],
