@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		592AFD8F2583499300E623A8 /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
+		592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD952588A60600E623A8 /* ViewExtension.swift */; };
 		5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
 		5961A0C0257768390022CD72 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59396FD52577661D00EA94DF /* NetworkConnector.swift */; };
 		5961A0C525776F550022CD72 /* XOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOI.swift */; };
@@ -35,6 +36,7 @@
 		049771A78CFBC4FD35D4DFF9 /* Pods_DehSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DehSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EB02DF55C94A1AE2B9CE4E /* Pods-DehSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-DehSwiftUI/Pods-DehSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		592AFD8E2583499300E623A8 /* MD5Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Extension.swift; sourceTree = "<group>"; };
+		592AFD952588A60600E623A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		5938A2F925824F9E000F1869 /* SettingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
 		59396FD52577661D00EA94DF /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		5961A0C425776F550022CD72 /* XOI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOI.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				59A6592625761F5E0038AD61 /* ColorExtension.swift */,
 				592AFD8E2583499300E623A8 /* MD5Extension.swift */,
+				592AFD952588A60600E623A8 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
 				59CE6C102578D32100553EBA /* Map.swift in Sources */,
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
+				592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
 				59CE6C152578E38200553EBA /* Data.swift in Sources */,
@@ -361,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -416,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

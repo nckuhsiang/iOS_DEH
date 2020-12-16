@@ -16,7 +16,7 @@ struct TabViewElement: View {
     var tabItemName: String
     @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
-
+        
         VStack{
             
             HStack{
@@ -26,13 +26,14 @@ struct TabViewElement: View {
                 Button(action: {
                     print("User icon pressed...")
                 }){
-                    Image(image1)
+                    Image(image1).hidden(image1=="")
                 }
+                
                 Button(action: {
                     print("User icon pressed...")
                     self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
                 }){
-                    Image(image2)
+                        Image(image2).hidden(image2=="")
                 }
             }
             .padding([.top, .leading, .trailing])
@@ -59,3 +60,4 @@ struct TabViewElement_Previews: PreviewProvider {
             .environmentObject(SettingStorage())
     }
 }
+

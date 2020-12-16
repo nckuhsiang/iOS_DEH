@@ -9,4 +9,6 @@
 import Foundation
 import Alamofire
 
-
+func login() -> Bool{
+    return true
+}

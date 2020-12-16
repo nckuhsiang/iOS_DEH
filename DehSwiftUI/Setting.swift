@@ -15,11 +15,12 @@ struct Setting: View {
     @State var searchNumber = 50.0
     @State var account = ""
     @State var password = ""
+    @State var loginButtonText = "login"
     @State var loginState = false
     @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
         Form{
-            
+            // toggle trigger warning 
             Toggle("Advanced Setting", isOn: $advancedSetting)
                 .foregroundColor(.blue)
             
@@ -40,18 +41,23 @@ struct Setting: View {
                 }
             }
             
-            Section(header: Text("Login").foregroundColor(.blue)){
+            Section(header: Text(self.loginButtonText).foregroundColor(.blue)){
                 TextField("Account", text: $account)
                     .keyboardType(.asciiCapable)
-                
+                    
                 SecureField("Password", text: $password)
                     .keyboardType(.asciiCapable)
             }
             Button(action: {
-                self.settingStorage.account = self.account
-                self.settingStorage.password = self.password.md5()
+                //MARK:- 尚未實作登入
+                if(self.settingStorage.loginState == false){
+                    login()
+                }
+                else{
+                    logout()
+                }
             }, label: {
-                Text("Login")
+                Text(self.loginButtonText)
             })
             
         }
@@ -61,6 +67,9 @@ struct Setting: View {
             self.advancedSetting = self.settingStorage.advancedSetting
             self.searchDistance = self.settingStorage.searchDistance
             self.searchNumber = self.settingStorage.searchNumber
+            self.account = self.settingStorage.account
+            if(self.settingStorage.loginState == true){
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("Settings",displayMode: .inline)
@@ -89,6 +98,20 @@ struct Setting: View {
             })
         )
         
+    }
+    func login(){
+        self.settingStorage.account = self.account
+        self.settingStorage.password = self.password.md5()
+        self.loginState = true
+        self.loginButtonText = "logout"
+    }
+    func logout(){
+        self.settingStorage.account = ""
+        self.settingStorage.password = ""
+        self.account = ""
+        self.password = ""
+        self.loginState = false
+        self.loginButtonText = "login"
     }
 }
 

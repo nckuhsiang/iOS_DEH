@@ -14,7 +14,7 @@ final class SettingStorage:ObservableObject{
             "advancedSetting" : false,
             "searchDistance" : 10.0,
             "searchNumber" : 50.0,
-            "account" : "",
+            "account" : "Guest",
             "password" : "",
             "loginState" : false,
         ])
