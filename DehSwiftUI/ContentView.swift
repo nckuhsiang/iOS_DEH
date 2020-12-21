@@ -45,10 +45,10 @@ struct ContentView: View {
             
             VStack(spacing: 0){
                 TabView{
-                    TabViewElement(title: "My Favorite", image1: "", image2: "",tabItemImage: "member_favorite",tabItemName: "favorite")
-                    TabViewElement(title: "Searched Xois", image1: "", image2: "",tabItemImage:"member_searched",tabItemName: "nearby")
+                    TabViewElement(title: "My Favorite", image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
+                    TabViewElement(title: "Searched Xois", image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
                     TabViewElement(title: "Group Interests", image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
-                    TabViewElement(title: "My Xois", image1: "", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
+                    TabViewElement(title: "My Xois", image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
             }
             .navigationBarTitle(Text("HI, " + self.settingStorage.account), displayMode: .inline)

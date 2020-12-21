@@ -26,15 +26,17 @@ struct TabViewElement: View {
                 Button(action: {
                     print("User icon pressed...")
                 }){
-                    Image(image1).hidden(image1=="")
+                    Image(image1).hidden(image1=="Empty")
                 }
+                .disabled(image1=="Empty")
                 
                 Button(action: {
                     print("User icon pressed...")
                     self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
                 }){
-                        Image(image2).hidden(image2=="")
+                        Image(image2).hidden(image2=="Empty")
                 }
+                .disabled(image2=="Empty")
             }
             .padding([.top, .leading, .trailing])
             List{
