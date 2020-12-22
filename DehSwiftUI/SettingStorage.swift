@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+//import Combine
 
 final class SettingStorage:ObservableObject{
+//    let objectWillChange = PassthroughSubject<Void, Never>()
     init(){
         UserDefaults.standard.register(defaults: [
             "advancedSetting" : false,
@@ -19,7 +21,7 @@ final class SettingStorage:ObservableObject{
             "loginState" : false,
         ])
     }
-    // 讀取跟讀取設定 當變更時立即儲存
+    // 讀取跟讀取設定 當變更時所有用到的人都會自動變更
     @Published var advancedSetting:Bool = UserDefaults.standard.bool(forKey: "advancedSetting"){
         didSet{
             UserDefaults.standard.set(advancedSetting,forKey: "advancedSetting")

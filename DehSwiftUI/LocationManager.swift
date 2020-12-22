@@ -6,6 +6,9 @@
 //  Copyright © 2020 mmlab. All rights reserved.
 //
 //https://stackoverflow.com/questions/57681885/how-to-get-current-location-using-swiftui-without-viewcontrollers
+//subjects
+//https://stackoverflow.com/questions/60482737/what-is-passthroughsubject-currentvaluesubject
+
 import Foundation
 import CoreLocation
 import Combine
