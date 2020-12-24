@@ -9,24 +9,36 @@
 import SwiftUI
 import MapKit
 struct Map: View {
-//    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var locationManager = LocationManager()
+    
+    var userLatitude: Double {
+        return locationManager.lastLocation?.coordinate.latitude ?? 23.58_323
+    }
+    
+    var userLongitude: Double {
+        return locationManager.lastLocation?.coordinate.longitude ?? 120.58_260
+    }
     
     var body: some View {
         
         
         MapView(coordinate: CLLocationCoordinate2D(
-                    latitude: 23.58_323, longitude: 120.58_260))
-            .navigationBarItems(trailing: Button(action: {
-                print("map_locate tapped")
-            }) {
-                Image("map_locate")
-            })
+                    latitude: userLatitude, longitude: userLongitude))
+            .navigationBarItems(trailing:HStack{
+                Text("filter")
+                                    Button(action: {
+                                        print("map_locate tapped")
+                                    }) {
+                                        Image("map_locate")
+                                    }})
+            
             .overlay(
                 VStack{
                     Spacer()
                     HStack{
                         Button(action: {
                             print("gps tapped")
+                            locationManager.updateLocation()
                         }) {
                             Image("gps")
                         }
@@ -51,6 +63,7 @@ struct Map: View {
         
         
     }
+    
 }
 
 struct Map_Previews: PreviewProvider {

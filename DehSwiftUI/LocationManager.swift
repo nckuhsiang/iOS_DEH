@@ -14,13 +14,13 @@ import CoreLocation
 import Combine
 
 class LocationManager: NSObject, ObservableObject {
-
+    var listeningOnce:Int = 0
     override init() {
         super.init()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+//        self.locationManager.startUpdatingLocation()
     }
 
     @Published var locationStatus: CLAuthorizationStatus? {
@@ -66,7 +66,25 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         self.lastLocation = location
+        if(location.horizontalAccuracy > 0 && listeningOnce > 0){
+            listeningOnce -= 1
+            if(listeningOnce == 0){
+                self.locationManager.stopUpdatingLocation()
+            }
+            
+        }
         print(#function, location)
+    }
+    func startUpdate(){
+        self.locationManager.startUpdatingLocation()
+    }
+    func stopUpdate(){
+        self.locationManager.stopUpdatingLocation()
+    }
+    func updateLocation(){
+        //避免浪費電，如果只開一次會無法更新
+        self.locationManager.startUpdatingLocation()
+        listeningOnce = 3
     }
 
 }

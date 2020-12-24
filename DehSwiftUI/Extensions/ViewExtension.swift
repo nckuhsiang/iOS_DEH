@@ -4,7 +4,7 @@
 //
 //  Created by 阮盟雄 on 2020/12/15.
 //  Copyright © 2020 mmlab. All rights reserved.
-//
+//https://github.com/George-J-E/HidingViews
 
 import Foundation
 import SwiftUI
