@@ -22,6 +22,7 @@ import CoreLocation
 //    func getLocationCoordinate()-> CLLocationCoordinate2D
 //}
 
+import MapKit
 
 class XOI:Identifiable {
     var ContainedXOIs:[XOI]!
@@ -34,10 +35,20 @@ class XOI:Identifiable {
     var detail: String = ""
     var viewNumbers: Int = 0
     var mediaCategory: String = ""
-    func getLocationCoordinate() -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(
-            latitude: latitude,
-            longitude: longitude)
+    var coordinate:CLLocationCoordinate2D!{
+        get{
+            return CLLocationCoordinate2D(
+                latitude: latitude,
+                longitude: longitude)
+        }
+    }
+//    func getLocationCoordinate() -> CLLocationCoordinate2D {
+//        return CLLocationCoordinate2D(
+//            latitude: latitude,
+//            longitude: longitude)
+//    }
+    func region() -> MKCoordinateRegion{
+        return MKCoordinateRegion(center: coordinate, latitudinalMeters:20000,longitudinalMeters:20000)
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){
         self.id = id

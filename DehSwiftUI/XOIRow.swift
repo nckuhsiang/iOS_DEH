@@ -10,17 +10,20 @@ import SwiftUI
 
 struct XOIRow: View {
     var xoi: XOI
-    
+    @State var selection: Int? = nil
     var body: some View {
-        HStack{
-            Image(xoi.xoiCategory)
-            Image(xoi.creatorCategory)
-            Image(xoi.mediaCategory)
-            Text(xoi.name)
-                .foregroundColor(Color.white)
-            Spacer()
+        NavigationLink(destination:  XOIDetail(xoi:xoi), tag: 1, selection: $selection){
+            HStack{
+                Image(xoi.xoiCategory)
+                Image(xoi.creatorCategory)
+                Image(xoi.mediaCategory)
+                Text(xoi.name)
+                    .foregroundColor(Color.white)
+                Spacer()
+            }
+            .background(Color.init(UIColor(rgba:darkGreen)))
+            
         }
-        .background(Color.init(UIColor(rgba:darkGreen)))
     }
 }
 

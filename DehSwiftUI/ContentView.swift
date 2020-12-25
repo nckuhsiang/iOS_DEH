@@ -30,6 +30,9 @@ struct ContentView: View {
         UITabBar.appearance().backgroundColor = UIColor(rgba: lightGreen)
         
         UINavigationBar.appearance().backgroundColor = UIColor(rgba: darkGreen)
+        //選取不反白
+        UITableViewCell.appearance().selectionStyle = .none
+        
         
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
@@ -61,7 +64,7 @@ struct ContentView: View {
                 }
             }
             
-            ,trailing: NavigationLink(destination: Map(), tag: 2, selection: $selection) {
+            ,trailing: NavigationLink(destination: DEHMap(), tag: 2, selection: $selection) {
                 Button(action: {
                     print("map tapped")
                     self.selection = 2
