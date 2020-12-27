@@ -61,7 +61,7 @@ struct Setting: View {
             })
             
         }
-        
+        //讀取存在手機內的設定
         .onAppear(){
             UITableView.appearance().backgroundColor = .systemGroupedBackground
             self.advancedSetting = self.settingStorage.advancedSetting

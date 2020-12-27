@@ -20,6 +20,31 @@ final class SettingStorage:ObservableObject{
             "password" : "",
             "loginState" : false,
         ])
+        if let data = UserDefaults.standard.data(forKey: "favorite") {
+            if let decoded = try? JSONDecoder().decode([String:[XOI]].self, from: data) {
+//                    self.XOIs["favorite"] = decoded
+                    
+                    XOIs = decoded
+                    return
+                }
+                else{
+                    XOIs = [
+                        "favorite" : [],
+                        "nearby" : [testxoi[1]],
+                        "group" : [testxoi[2]],
+                        "mine" : [],
+                    ]
+                }
+            }
+        else{
+            XOIs = [
+                "favorite" : [],
+                "nearby" : [testxoi[1]],
+                "group" : [testxoi[2]],
+                "mine" : [],
+            ]
+        }
+//        XOIs["favorite"] = []
     }
     // 讀取跟讀取設定 當變更時所有用到的人都會自動變更
     @Published var advancedSetting:Bool = UserDefaults.standard.bool(forKey: "advancedSetting"){
@@ -53,10 +78,20 @@ final class SettingStorage:ObservableObject{
         }
     }
     //正常來說不應該擺在這邊
-    @Published var XOIs:[String:[XOI]] = [
-        "favorite" : [testxoi[0]],
-        "nearby" : [testxoi[1]],
-        "group" : [testxoi[2]],
-        "mine" : [testxoi[3]],
+    @Published var XOIs:[String:[XOI]]!{
+        didSet{
+            save()
+        }
+    }
+    
+    let defaultXOIs = ["favorite" : [],
+    "nearby" : [],
+    "group" : [],
+    "mine" : [],
     ]
+    func save() {
+        if let encoded = try? JSONEncoder().encode(XOIs) {
+            UserDefaults.standard.set(encoded, forKey: "favorite")
+        }
+    }
 }

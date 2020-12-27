@@ -24,7 +24,7 @@ import CoreLocation
 
 import MapKit
 
-class XOI:Identifiable {
+class XOI:Identifiable,Decodable,Encodable {
     var ContainedXOIs:[XOI]!
     var id: Int = 0
     var name: String = ""

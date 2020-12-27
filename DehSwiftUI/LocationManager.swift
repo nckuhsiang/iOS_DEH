@@ -9,10 +9,10 @@
 //subjects
 //https://stackoverflow.com/questions/60482737/what-is-passthroughsubject-currentvaluesubject
 
-import Foundation
+import SwiftUI
 import CoreLocation
 import Combine
-
+import MapKit
 class LocationManager: NSObject, ObservableObject {
     var listeningOnce:Int = 0
     override init() {
@@ -31,10 +31,16 @@ class LocationManager: NSObject, ObservableObject {
 
     @Published var lastLocation: CLLocation? {
         willSet {
+            coordinateRegion = MKCoordinateRegion(center:CLLocationCoordinate2D(
+                                                    latitude: lastLocation?.coordinate.latitude ?? 23.58_323, longitude: lastLocation?.coordinate.longitude ?? 120.58_260),span:MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
             objectWillChange.send()
         }
     }
-
+    @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 22.997, longitude: 120.221),
+        span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+    )
+    
     var statusString: String {
         guard let status = locationStatus else {
             return "unknown"

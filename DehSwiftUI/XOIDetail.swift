@@ -9,6 +9,8 @@
 import SwiftUI
 struct XOIDetail: View {
     var xoi: XOI
+    //only for favorite used
+    @EnvironmentObject var settingStorage:SettingStorage
     var body: some View{
 
             VStack {
@@ -23,13 +25,14 @@ struct XOIDetail: View {
                         Image(xoi.creatorCategory)
                         
                         Button(action: {
-                            print("button pressed")
+                            print("favorite pressed")
+                            settingStorage.XOIs["favorite"]?.append(xoi)
                         }) {
                             Image("heart")
                         }
                         
                         Button(action: {
-                            print("button pressed")
+                            print("more pressed")
                         }) {
                             Image("more")
                         }
@@ -114,6 +117,7 @@ struct XOIDetail_Previews:
 PreviewProvider {
     static var previews: some View {
         XOIDetail(xoi:testxoi[0])
+            .environmentObject(SettingStorage())
     }
 }
 

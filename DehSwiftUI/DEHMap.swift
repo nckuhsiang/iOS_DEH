@@ -16,40 +16,29 @@ struct DEHMap: View {
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
     @State var selection: Int? = nil
-    var userLatitude: Double {
-        return locationManager.lastLocation?.coordinate.latitude ?? 23.58_323
-    }
     
-    var userLongitude: Double {
-        return locationManager.lastLocation?.coordinate.longitude ?? 120.58_260
-    }
-    func setCoordinateRegion(){
-        coordinateRegion =
-            MKCoordinateRegion(center:CLLocationCoordinate2D(
-                                latitude: userLatitude, longitude: userLongitude),span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-        
-    }
     var body: some View {
         
         
         //        MapView(coordinate: CLLocationCoordinate2D(
         //                    latitude: userLatitude, longitude: userLongitude))
-        Map(coordinateRegion: $coordinateRegion, annotationItems: settingStorage.XOIs["favorite"] ?? testxoi){xoi in
+        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["favorite"] ?? testxoi){xoi in
             MapAnnotation(
                 coordinate: xoi.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
             ) {
                 NavigationLink(destination:  XOIDetail(xoi:xoi), tag: 1, selection: $selection){
-                Button(action: {
-                    print("map tapped")
-                    self.selection = 1
-//                    XOIDetail(xoi:xoi)
-                }) {
-                    VStack{
-                        Text(xoi.name)
-                        Image("player_pin")
+                    Button(action: {
+                        print("map tapped")
+                        self.selection = 1
+                        
+                        //                    XOIDetail(xoi:xoi)
+                    }) {
+                        VStack{
+                            Text(xoi.name)
+                            Image("player_pin")
+                        }
                     }
-                }
                     
                 }
                 
@@ -75,6 +64,7 @@ struct DEHMap: View {
                     Button(action: {
                         print("gps tapped")
                         locationManager.updateLocation()
+//                        setCoordinateRegion()
                     }) {
                         Image("gps")
                     }
