@@ -24,7 +24,13 @@ import CoreLocation
 
 import MapKit
 
-class XOI:Identifiable,Decodable,Encodable {
+class XOI:Identifiable,Decodable,Encodable,Hashable {
+    static func == (lhs: XOI, rhs: XOI) -> Bool {
+        return lhs.id == rhs.id && lhs.xoiCategory == rhs.xoiCategory
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     var ContainedXOIs:[XOI]!
     var id: Int = 0
     var name: String = ""

@@ -84,7 +84,7 @@ final class SettingStorage:ObservableObject{
         }
     }
     
-    let defaultXOIs = ["favorite" : [],
+    let emptyXOIs = ["favorite" : [],
     "nearby" : [],
     "group" : [],
     "mine" : [],
