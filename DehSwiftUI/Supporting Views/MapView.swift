@@ -16,13 +16,13 @@ struct MapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        let coordinate = CLLocationCoordinate2D(
-            latitude: 23.58_323, longitude: 120.58_260)
-        let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
+//        let coordinate = CLLocationCoordinate2D(latitude: 23.58_323, longitude: 120.58_260)
+//        let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters:20000,longitudinalMeters:20000)
         uiView.setRegion(region, animated: true)
     }
 }
+
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {

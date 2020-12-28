@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ResponseFormat.init(from:):ResponseFormat.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.XOIs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Map.body.getter:Map.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userLongitude">
+            </PersistentString>
+            <PersistentString
+               value = "userLatitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationManager.updateLocation():LocationManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "locationStatus">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

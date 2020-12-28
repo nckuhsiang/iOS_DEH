@@ -14,7 +14,6 @@ import Combine
 
 final class NetworkConnector:APIHandler, Identifiable{
     var isLoading = false
-    
     let objectWillChange = PassthroughSubject<Void, Never>()
             
     func getData(url: String, para: Dictionary<String, String>) {
@@ -25,7 +24,7 @@ final class NetworkConnector:APIHandler, Identifiable{
         AF.request(url, method: .post, parameters: para).responseDecodable { [weak self] (response: DataResponse<ResponseFormat, AFError>) in
             guard let weakSelf = self else { return }
             
-            guard let response = weakSelf.handleResponse(response) as? ResponseFormat else {
+            guard let response = weakSelf.handleResponse(response)  else {
                 weakSelf.isLoading = false
                 print("response error...")
                 return
