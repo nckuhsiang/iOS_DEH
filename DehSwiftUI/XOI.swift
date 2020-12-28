@@ -25,13 +25,7 @@ import CoreLocation
 import MapKit
 
 
-class XOI:Identifiable,Decodable,Encodable,Hashable {
-    static func == (lhs: XOI, rhs: XOI) -> Bool {
-        return lhs.id == rhs.id && lhs.xoiCategory == rhs.xoiCategory
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+class XOI:Identifiable,Decodable {
 
     var ContainedXOIs:[XOI]!
     var id: Int = 0
@@ -50,25 +44,11 @@ class XOI:Identifiable,Decodable,Encodable,Hashable {
                 longitude: longitude)
         }
     }
-//    func getLocationCoordinate() -> CLLocationCoordinate2D {
-//        return CLLocationCoordinate2D(
-//            latitude: latitude,
-//            longitude: longitude)
-//    }
-    func region() -> MKCoordinateRegion{
-        return MKCoordinateRegion(center: coordinate, latitudinalMeters:20000,longitudinalMeters:20000)
-    }
-    
     enum CodingKeys: String, CodingKey{
         case id = "POI_id"
         case name = "POI_title"
         case latitude
         case longitude
-//        case identifier
-//        case subject
-//        case POI_description
-//            case viewNumbers
-//            case mediaCategory
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){
         self.id = id
@@ -81,12 +61,25 @@ class XOI:Identifiable,Decodable,Encodable,Hashable {
         self.viewNumbers = viewNumbers
         self.mediaCategory = mediaCategory
     }
+    
+}
+
+extension XOI:Hashable,Encodable{
+    static func == (lhs: XOI, rhs: XOI) -> Bool {
+        return lhs.id == rhs.id && lhs.xoiCategory == rhs.xoiCategory
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    func region() -> MKCoordinateRegion{
+        return MKCoordinateRegion(center: coordinate, latitudinalMeters:20000,longitudinalMeters:20000)
+    }
+    
     func setContainedXOI(XOIs:[XOI]){
         self.ContainedXOIs = XOIs
     }
-}
-class POI: XOI{
-//    super.init()
 }
 
 

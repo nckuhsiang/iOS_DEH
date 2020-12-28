@@ -18,10 +18,6 @@ struct DEHMap: View {
     @State var selection: Int? = nil
     
     var body: some View {
-        
-        
-        //        MapView(coordinate: CLLocationCoordinate2D(
-        //                    latitude: userLatitude, longitude: userLongitude))
         Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["favorite"] ?? testxoi){xoi in
             MapAnnotation(
                 coordinate: xoi.coordinate,
@@ -31,32 +27,25 @@ struct DEHMap: View {
                     Button(action: {
                         print("map tapped")
                         self.selection = 1
-                        
-                        //                    XOIDetail(xoi:xoi)
                     }) {
                         VStack{
                             Text(xoi.name)
                             Image("player_pin")
                         }
                     }
-                    
                 }
-                
-                //                Image("player_pin")
-                //                    .stroke(Color.green)
-                //                    .frame(width: 44, height: 44)
             }
         }
         
-        
         .navigationBarItems(trailing:HStack{
-                                Text("filter")
-                                Button(action: {
-                                    print("map_locate tapped")
-                                }) {
-                                    Image("map_locate")
-                                }})
-        
+            Text("filter")
+            Button(action: {
+                print("map_locate tapped")
+            }
+            ) {
+                Image("map_locate")
+            }
+        })
         .overlay(
             VStack{
                 Spacer()
@@ -64,7 +53,6 @@ struct DEHMap: View {
                     Button(action: {
                         print("gps tapped")
                         locationManager.updateLocation()
-//                        setCoordinateRegion()
                     }) {
                         Image("gps")
                     }
@@ -76,20 +64,11 @@ struct DEHMap: View {
                         Image("alert")
                     }
                     .padding(.trailing, 10.0)
-                    
                 }
                 .padding(.bottom,30.0)
-                
             }
         )
-        
-        
-        //                .padding(.bottom,60)
-        
-        
-        
     }
-    
 }
 
 struct DEHMap_Previews: PreviewProvider {

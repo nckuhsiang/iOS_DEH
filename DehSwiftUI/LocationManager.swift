@@ -20,7 +20,6 @@ class LocationManager: NSObject, ObservableObject {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-//        self.locationManager.startUpdatingLocation()
     }
 
     @Published var locationStatus: CLAuthorizationStatus? {
@@ -77,16 +76,18 @@ extension LocationManager: CLLocationManagerDelegate {
             if(listeningOnce == 0){
                 self.locationManager.stopUpdatingLocation()
             }
-            
         }
         print(#function, location)
     }
+    
     func startUpdate(){
         self.locationManager.startUpdatingLocation()
     }
+    
     func stopUpdate(){
         self.locationManager.stopUpdatingLocation()
     }
+    
     func updateLocation(){
         //避免浪費電，如果只開一次會無法更新
         self.locationManager.startUpdatingLocation()

@@ -14,5 +14,3 @@ var testxoi:[XOI] = [
     XOI(id: 2, name: "name2", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
     XOI(id: 3, name: "name3", latitude: 0.0, longitude: 0.0, creatorCategory: "user",  xoiCategory: "poi", detail: "Testing", viewNumbers: 100, mediaCategory: "image"),
 ]
-
-//@Published var XOIs:[XOI] = []

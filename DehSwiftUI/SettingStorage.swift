@@ -19,11 +19,9 @@ final class SettingStorage:ObservableObject{
             "account" : "Guest",
             "password" : "",
             "loginState" : false,
-//            "favorite" : [testxoi[0]],
         ])
         if let data = UserDefaults.standard.data(forKey: "favorite") {
             if let decoded = try? JSONDecoder().decode([String:[XOI]].self, from: data) {
-//                    self.XOIs["favorite"] = decoded
                     
                     XOIs = decoded
                     return
@@ -45,7 +43,6 @@ final class SettingStorage:ObservableObject{
                 "mine" : [],
             ]
         }
-//        XOIs["favorite"] = []
     }
     // 讀取跟讀取設定 當變更時所有用到的人都會自動變更
     @Published var advancedSetting:Bool = UserDefaults.standard.bool(forKey: "advancedSetting"){

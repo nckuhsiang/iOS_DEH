@@ -63,7 +63,6 @@ struct ContentView: View {
                     Image("member_setting")
                 }
             }
-            
             ,trailing: NavigationLink(destination: DEHMap(), tag: 2, selection: $selection) {
                 Button(action: {
                     print("map tapped")
@@ -72,7 +71,6 @@ struct ContentView: View {
                     Image("member_back")
                 }
             })
-            
         }
         .onAppear(){
         }
