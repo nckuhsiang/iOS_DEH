@@ -15,8 +15,8 @@ struct TabViewElement: View {
     var image2: String
     var tabItemImage: String
     var tabItemName: String
-    let xoiHandler = XOIHandler()
     @EnvironmentObject var settingStorage:SettingStorage
+//    let xoiHandler = XOIHandler()
     var body: some View {
         
         VStack{
@@ -35,7 +35,7 @@ struct TabViewElement: View {
                 Button(action: {
                     print("User icon pressed...")
 //                    self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
-                    xoiHandler.getPOI()
+                    XOIHandler(x: settingStorage).getPOI()
                 }){
                         Image(image2).hidden(image2=="Empty")
                 }

@@ -123,7 +123,6 @@
 		59A65911257611020038AD61 /* DehSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				B1702331258B41BE00DF2167 /* Network */,
 				5961A0CC25777DEC0022CD72 /* Supporting Views */,
 				59A6592825761F800038AD61 /* Extensions */,
@@ -131,6 +130,7 @@
 				59A65914257611020038AD61 /* SceneDelegate.swift */,
 				59A65916257611020038AD61 /* ContentView.swift */,
 				59CE6C0F2578D32100553EBA /* DEHMap.swift */,
+				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				592F48E1259478E300C01722 /* TestMapView2.swift */,
 				59C60C8C25931C7E00463E67 /* MapViewModel.swift */,
 				59B784AC25914041008F16B8 /* LocationManager.swift */,

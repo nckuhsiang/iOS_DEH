@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ResponseFormat.init(from:):ResponseFormat.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.XOIs">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "Map.body.getter:Map.swift">
          <PersistentStrings>
             <PersistentString
@@ -22,10 +14,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ResponseFormat.init(from:):ResponseFormat.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.XOIs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LocationManager.updateLocation():LocationManager.swift">
          <PersistentStrings>
             <PersistentString
                value = "locationStatus">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in closure #1 in closure #1 in TabViewElement.body.getter:TabViewElement.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "settingStorage.XOIs[&quot;favorite&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "settingStorage">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
