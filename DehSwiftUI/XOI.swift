@@ -23,7 +23,7 @@ import CoreLocation
 //}
 
 
-class XOI:Identifiable {
+class XOI:Identifiable ,Decodable{
     var ContainedXOIs:[XOI]!
     var id: Int = 0
     var name: String = ""
@@ -38,6 +38,18 @@ class XOI:Identifiable {
         return CLLocationCoordinate2D(
             latitude: latitude,
             longitude: longitude)
+    }
+    
+    enum CodingKeys: String, CodingKey{
+        case id = "POI_id"
+        case name = "POI_title"
+        case latitude
+        case longitude
+//        case identifier
+//        case subject
+//        case POI_description
+//            case viewNumbers
+//            case mediaCategory
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){
         self.id = id

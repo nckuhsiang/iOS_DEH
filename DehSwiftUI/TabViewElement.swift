@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TabViewElement: View {
     var title: String
@@ -14,6 +15,7 @@ struct TabViewElement: View {
     var image2: String
     var tabItemImage: String
     var tabItemName: String
+    let xoiHandler = XOIHandler()
     @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
         
@@ -32,7 +34,8 @@ struct TabViewElement: View {
                 
                 Button(action: {
                     print("User icon pressed...")
-                    self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
+//                    self.settingStorage.XOIs[tabItemName]?.append(testxoi[0])
+                    xoiHandler.getPOI()
                 }){
                         Image(image2).hidden(image2=="Empty")
                 }
