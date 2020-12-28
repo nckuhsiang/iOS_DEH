@@ -19,6 +19,7 @@ final class SettingStorage:ObservableObject{
             "account" : "Guest",
             "password" : "",
             "loginState" : false,
+//            "favorite" : [testxoi[0]],
         ])
         if let data = UserDefaults.standard.data(forKey: "favorite") {
             if let decoded = try? JSONDecoder().decode([String:[XOI]].self, from: data) {
