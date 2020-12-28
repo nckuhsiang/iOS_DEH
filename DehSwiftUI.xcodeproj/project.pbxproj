@@ -37,6 +37,11 @@
 		59CE6C152578E38200553EBA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C142578E38200553EBA /* Data.swift */; };
 		B1702333258B41EA00DF2167 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1702332258B41EA00DF2167 /* RequestModel.swift */; };
 		B1702335258B41FB00DF2167 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1702334258B41FB00DF2167 /* ResponseModel.swift */; };
+		B17023372592F26C00DF2167 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023362592F26C00DF2167 /* LoginHandler.swift */; };
+		B17023392592F2CD00DF2167 /* ResponseFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* ResponseFormat.swift */; };
+		B170233B2592F38300DF2167 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
+		B170233D2593264C00DF2167 /* XOIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233C2593264C00DF2167 /* XOIHandler.swift */; };
+		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,11 @@
 		59CE6C142578E38200553EBA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B1702332258B41EA00DF2167 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		B1702334258B41FB00DF2167 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		B17023362592F26C00DF2167 /* LoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
+		B17023382592F2CD00DF2167 /* ResponseFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseFormat.swift; sourceTree = "<group>"; };
+		B170233A2592F38300DF2167 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		B170233C2593264C00DF2167 /* XOIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIHandler.swift; sourceTree = "<group>"; };
+		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 		59A65911257611020038AD61 /* DehSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				B1702331258B41BE00DF2167 /* Network */,
 				5961A0CC25777DEC0022CD72 /* Supporting Views */,
 				59A6592825761F800038AD61 /* Extensions */,
@@ -126,7 +137,6 @@
 				59B784AF2591406F008F16B8 /* TestMapView.swift */,
 				59CE6C0B2578CC1D00553EBA /* Setting.swift */,
 				5938A2F925824F9E000F1869 /* SettingStorage.swift */,
-				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59A6592C257633790038AD61 /* MainView.swift */,
 				59A65918257611040038AD61 /* Assets.xcassets */,
 				59A6591D257611040038AD61 /* LaunchScreen.storyboard */,
@@ -137,6 +147,7 @@
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
 				5961A0CF2577CAF60022CD72 /* testfile.swift */,
+				B170233E259326D500DF2167 /* URLList.swift */,
 			);
 			path = DehSwiftUI;
 			sourceTree = "<group>";
@@ -162,10 +173,14 @@
 		B1702331258B41BE00DF2167 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B17023382592F2CD00DF2167 /* ResponseFormat.swift */,
 				59396FD52577661D00EA94DF /* NetworkConnector.swift */,
 				B1702332258B41EA00DF2167 /* RequestModel.swift */,
 				B1702334258B41FB00DF2167 /* ResponseModel.swift */,
 				59B784B22591F084008F16B8 /* TestAlamofire.swift */,
+				B17023362592F26C00DF2167 /* LoginHandler.swift */,
+				B170233A2592F38300DF2167 /* APIHandler.swift */,
+				B170233C2593264C00DF2167 /* XOIHandler.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -256,6 +271,7 @@
 				592F48E2259478E300C01722 /* TestMapView2.swift in Sources */,
 				59C60C8D25931C7E00463E67 /* MapViewModel.swift in Sources */,
 				59A65913257611020038AD61 /* AppDelegate.swift in Sources */,
+				B17023392592F2CD00DF2167 /* ResponseFormat.swift in Sources */,
 				59CE6C0C2578CC1D00553EBA /* Setting.swift in Sources */,
 				59A65915257611020038AD61 /* SceneDelegate.swift in Sources */,
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
@@ -263,16 +279,20 @@
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
 				59B784B02591406F008F16B8 /* TestMapView.swift in Sources */,
+				B170233B2592F38300DF2167 /* APIHandler.swift in Sources */,
 				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
+				B170233D2593264C00DF2167 /* XOIHandler.swift in Sources */,
 				59B784AD25914041008F16B8 /* LocationManager.swift in Sources */,
 				59CE6C102578D32100553EBA /* DEHMap.swift in Sources */,
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
 				B1702333258B41EA00DF2167 /* RequestModel.swift in Sources */,
 				592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */,
+				B170233F259326D500DF2167 /* URLList.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
 				59B784B32591F084008F16B8 /* TestAlamofire.swift in Sources */,
 				59CE6C152578E38200553EBA /* Data.swift in Sources */,
+				B17023372592F26C00DF2167 /* LoginHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
