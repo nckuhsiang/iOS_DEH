@@ -35,8 +35,8 @@ struct Data: Decodable{
 }
 
 final class ResponseFormat:ObservableObject, Decodable{
-    @EnvironmentObject var XOIs:SettingStorage
-    var result:[String:[XOI]] = [
+//    @EnvironmentObject var XOIs:SettingStorage
+    @Published var XOIs:[String:[XOI]] = [
         "favorite" : [testxoi[0]],
         "nearby" : [testxoi[1]],
         "group" : [testxoi[2]],
@@ -46,7 +46,7 @@ final class ResponseFormat:ObservableObject, Decodable{
     
     
     enum CodingKeys: String, CodingKey {
-        case result = "results"
+        case XOIs = "results"
     }
     init(){}
     
@@ -54,8 +54,8 @@ final class ResponseFormat:ObservableObject, Decodable{
         print("start decode...")
         do{
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.XOIs.XOIs["group"] = try container.decode([XOI].self, forKey: .result)
-            print(self.XOIs.XOIs["group"]?.first?.id ?? 8787)
+            self.XOIs["group"] = try container.decode([XOI].self, forKey: .XOIs)
+            //print(self.XOIs["group"]?.first?.id ?? 8787)
         }catch{
             print("出現錯誤 ： \(error)")
         }
@@ -86,24 +86,22 @@ final class ResponseFormat:ObservableObject, Decodable{
         }
     }
     
-//    func getData(url: String, para: Dictionary<String, String>) {
-//        print("getData..."+url)
-//    // isLoading = true
-//
-//        
-//        AF.request(url, method: .post, parameters: para).responseDecodable { [weak self] (response: DataResponse<ResponseFormat, AFError>) in
-//            guard let weakSelf = self else { return }
-//            
-//            guard let response = weakSelf.handleResponse(response) as? ResponseFormat else {
-//                //weakSelf.isLoading = false
-//                print("response error...")
-//                return
-//            }
-//            
-//            //weakSelf.isLoading = false
-//            weakSelf.XOIs = response.XOIs
-////            print(self?.ResponseFormat?.results.first?.POI_id ?? 8787)
-//        }
-//    }
+    func getData(url: String, para: Dictionary<String, String>) {
+        print("getData..."+url)
+    // isLoading = true
+
+        
+        AF.request(url, method: .post, parameters: para).responseDecodable { [weak self] (response: DataResponse<ResponseFormat, AFError>) in
+            guard let weakSelf = self else { return }
+            
+            guard let response = weakSelf.handleResponse(response) as? ResponseFormat else {
+                //weakSelf.isLoading = false
+                print("response error...")
+                return
+            }
+            self?.XOIs = response.XOIs
+            print(self?.XOIs["group"]?.first?.id ?? 8787)
+        }
+    }
 }
 

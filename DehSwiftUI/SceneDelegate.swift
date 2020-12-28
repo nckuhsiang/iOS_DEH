@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.overrideUserInterfaceStyle = .light
             }
             window.rootViewController = UIHostingController(rootView: ContentView().environmentObject(SettingStorage()))
-            
             self.window = window
             window.makeKeyAndVisible()
         }
