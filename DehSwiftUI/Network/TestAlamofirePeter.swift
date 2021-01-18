@@ -22,37 +22,38 @@ struct ContentView2_Previews: PreviewProvider {
     }
 
 struct ContentView2: View {
-//    var baby = Baby()
-    @State private var links = [URL]()
     @State private var cancellable: AnyCancellable?
     
-    func uploadImagePublisher(uiImage: UIImage) ->  DataResponsePublisher<UploadImageResult> {
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "Client-ID aa1111aaaa",
+    func upload2(){
+        let parameters:Parameters = [
+            "user_name" : "GuestFromIosLite/Micro",
+            "coi_name" : "deh",
         ]
-        return AF.upload(multipartFormData: { (data) in
-            let imageData = uiImage.jpegData(compressionQuality: 0.9)
-            data.append(imageData!, withName: "image")
-            
-        }, to: "https://api.imgur.com/3/upload", headers: headers)
-            .publishDecodable(type: UploadImageResult.self, queue: .main)
-        
-        
+        let url = GroupGetListUrl
+        let publisher = NetworkConnector().getDataPublisher(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+//                print(values.data?.JsonPrint())
+                print("")
+            })
     }
-    
-    func upload() {
-        
-        let publisher1 = self.uploadImagePublisher(uiImage: UIImage(named: "peter1")!)
-        let publisher2 = self.uploadImagePublisher(uiImage: UIImage(named: "peter2")!)
-        
-        self.cancellable = publisher1.zip(publisher2)
-            .sink(receiveValue: { (values) in
-                if let link = values.0.value?.data.link {
-                    self.links.append(link)
+    func upload(){
+        let parameters:Parameters = [
+            "username" : "et0",
+            "password" : "et00".md5(),
+            "coi_name" : "deh",
+            "ula" : "22.997",
+            "ulo" : "120.221",
+        ]
+        let url = UserLoginUrl
+        let publisher:DataResponsePublisher<LoginModel> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                if let _ = values.value?.message{
+                    print("\(String(describing: values.value?.message))")
                 }
-                if let link = values.1.value?.data.link {
-                    self.links.append(link)
+                else{
+                    print(values.value?.username)
                 }
             })
     }
@@ -61,12 +62,6 @@ struct ContentView2: View {
         
         
         VStack(spacing: 15) {
-            ForEach(links, id: \.self) { (link) in
-                Text("\(link)")
-                    .onTapGesture {
-                        UIApplication.shared.open(link)
-                }
-            }
             Button(action: {
                 self.upload()
             }) {
@@ -79,3 +74,4 @@ struct ContentView2: View {
         
     }
 }
+

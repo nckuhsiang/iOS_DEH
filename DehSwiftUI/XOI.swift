@@ -23,6 +23,15 @@ import CoreLocation
 //}
 
 import MapKit
+class XOIList:Decodable{
+    let results: [XOI]
+}
+struct media_set:Codable{
+    var media_type:String
+    var media_format:Int
+    var media_url:String
+//    var foreignKey:Int
+}
 
 
 class XOI:Identifiable,Decodable {
@@ -37,6 +46,8 @@ class XOI:Identifiable,Decodable {
     var detail: String = ""
     var viewNumbers: Int = 0
     var mediaCategory: String = ""
+    var distance: Double = 0.0
+    var media_set: [media_set]!
     var coordinate:CLLocationCoordinate2D!{
         get{
             return CLLocationCoordinate2D(
@@ -45,10 +56,12 @@ class XOI:Identifiable,Decodable {
         }
     }
     enum CodingKeys: String, CodingKey{
-        case id = "POI_id"
-        case name = "POI_title"
-        case latitude
-        case longitude
+        case id = "XOI_id"
+        case name = "XOI_title"
+        case detail = "XOI_description"
+        case media_set = "media_set"
+        case creatorCategory = "identifier"
+        case xoiCategory
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){
         self.id = id

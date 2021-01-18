@@ -43,7 +43,8 @@ final class XOIViewModel:ObservableObject, Decodable{
     
     func getData(url: String, para: Dictionary<String, String>) {
         print("getData..."+url)
-        AF.request(url, method: .post, parameters: para).responseDecodable { [weak self] (response: DataResponse<XOIViewModel, AFError>) in
+        AF.request(url, method: .post, parameters: para)
+            .responseDecodable { [weak self] (response: DataResponse<XOIViewModel, AFError>) in
             guard let weakSelf = self else { return }
             
             guard let response = weakSelf.handleResponse(response) as? XOIViewModel else {

@@ -44,7 +44,7 @@ class LocationManager: NSObject, ObservableObject {
         guard let status = locationStatus else {
             return "unknown"
         }
-
+        
         switch status {
         case .notDetermined: return "notDetermined"
         case .authorizedWhenInUse: return "authorizedWhenInUse"
@@ -63,9 +63,14 @@ class LocationManager: NSObject, ObservableObject {
 
 extension LocationManager: CLLocationManagerDelegate {
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.locationStatus = status
-        print(#function, statusString)
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        self.locationStatus = status
+//        print(#function, statusString)
+//    }
+    // up is old version
+    //seems not essentially to do now
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager){
+        self.locationStatus = manager.authorizationStatus 
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

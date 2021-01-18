@@ -47,6 +47,10 @@ let getXois = [
     "/API/userLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/loisJSON",
     "/API/userAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSON",
     "/API/userSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSON",
-    
-
+]
+let getTestXois = [
+    "searchMyPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSONResponseNormalize",
+    "searchMyLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/loisJSONResponseNormalize",
+    "searchMyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSONResponseNormalize",
+    "searchMySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSONResponseNormalize",
 ]

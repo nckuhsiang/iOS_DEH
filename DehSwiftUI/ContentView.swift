@@ -8,9 +8,24 @@
 
 import SwiftUI
 import Alamofire
-
+// the personal entry is here
+#if DEH
+let coi = "deh"
+#else
+let coi = "deh_default"
+#endif
 struct ContentView: View {
     init(){
+        UserDefaults.standard.register(defaults: [
+            "advancedSetting" : false,
+            "searchDistance" : 10.0,
+            "searchNumber" : 50.0,
+            "account" : "",
+            "password" : "",
+            "loginState" : false,
+            "userID" : "0",
+        ])
+        
         if #available(iOS 14.0, *) {
             // iOS 14 doesn't have extra separators below the list by default.
         } else {

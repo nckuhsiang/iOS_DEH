@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Alamofire
+import Combine
 
 struct Setting: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -17,7 +19,9 @@ struct Setting: View {
     @State var password = ""
     @State var loginButtonText = "login"
     @State var loginState = false
+    @State var loginTriggerAlert = false
     @EnvironmentObject var settingStorage:SettingStorage
+    @State private var cancellable: AnyCancellable?
     var body: some View {
         Form{
             // toggle trigger warning 
@@ -44,13 +48,17 @@ struct Setting: View {
             Section(header: Text(self.loginButtonText).foregroundColor(.blue)){
                 TextField("Account", text: $account)
                     .keyboardType(.asciiCapable)
-                    
+                    .disableAutocorrection(true)
+                    .disabled(loginState)
+                
                 SecureField("Password", text: $password)
                     .keyboardType(.asciiCapable)
+                    .disableAutocorrection(true)
+                    .disabled(loginState)
             }
             Button(action: {
                 //MARK:- 尚未實作登入
-                if(self.settingStorage.loginState == false){
+                if(loginState == false){
                     login()
                 }
                 else{
@@ -59,7 +67,11 @@ struct Setting: View {
             }, label: {
                 Text(self.loginButtonText)
             })
-            
+            .alert(isPresented: $loginTriggerAlert) {() -> Alert in
+                        let greetingMessage = "Login Success"
+                        return Alert(title: Text(greetingMessage))
+            }
+
         }
         //讀取存在手機內的設定
         .onAppear(){
@@ -68,7 +80,14 @@ struct Setting: View {
             self.searchDistance = self.settingStorage.searchDistance
             self.searchNumber = self.settingStorage.searchNumber
             self.account = self.settingStorage.account
+            
+            self.loginState = self.settingStorage.loginState
             if(self.settingStorage.loginState == true){
+                loginButtonText = "Logout"
+                self.password = "00000000"
+            }
+            else{
+                loginButtonText = "Login"
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -100,16 +119,35 @@ struct Setting: View {
         
     }
     func login(){
-        self.settingStorage.account = self.account
-        self.settingStorage.password = self.password.md5()
-        self.loginState = true
-        self.loginButtonText = "logout"
+        let parameters:Parameters = [
+            "username" : self.account,
+            "password" : self.password.md5(),
+            "coi_name" : coi,
+        ]
+        let url = UserLoginUrl
+        let publisher:DataResponsePublisher<LoginModel> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                if let _ = values.value?.message{
+                    print("User" + "\(values.value?.message ?? "Not Found")")
+                }
+                else{
+                    self.settingStorage.account = self.account
+                    self.settingStorage.password = self.password.md5()
+                    self.settingStorage.userID = "\(values.value?.user_id ?? 0)"
+                    self.settingStorage.loginState = true
+                    self.loginState = true
+                    self.loginButtonText = "logout"
+                    self.loginTriggerAlert = true
+                }
+            })
     }
     func logout(){
         self.settingStorage.account = ""
         self.settingStorage.password = ""
         self.account = ""
         self.password = ""
+        self.settingStorage.loginState = false
         self.loginState = false
         self.loginButtonText = "login"
     }

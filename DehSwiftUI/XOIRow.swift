@@ -14,9 +14,10 @@ struct XOIRow: View {
     var body: some View {
         NavigationLink(destination:  XOIDetail(xoi:xoi), tag: 1, selection: $selection){
             HStack{
-                Image(xoi.xoiCategory)
-                Image(xoi.creatorCategory)
-                Image(xoi.mediaCategory)
+                Image(xoi.xoiCategory.checkImageExist(defaultPic: "none"))
+                Image(xoi.creatorCategory.checkImageExist(defaultPic: "none"))
+//                多媒體處理尚未解決
+                Image(xoi.mediaCategory.checkImageExist(defaultPic: "none"))
                 Text(xoi.name)
                     .foregroundColor(Color.white)
                 Spacer()
