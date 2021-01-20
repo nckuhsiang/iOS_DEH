@@ -17,6 +17,9 @@ let UserRegistUrl:          String = "http://deh.csie.ncku.edu.tw/regist/"
 let UserLoginUrl:           String = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/loginJSON"
 
 let GetCOIListUrl:  String = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/checkCOI"
+//MARK:- XOIUrl
+let POIClickCountUrl: String = "http://deh.csie.ncku.edu.tw:8080/api/v1/poi_count_click_with_column_name"
+
 //MARK:- GroupUrl
 let GroupMemberJoinUrl: String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/memberJoin"
 let GroupGetNotifiUrl:  String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/notification"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5923E25725B58FC800371AB1 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
+		5923E25B25B808B900371AB1 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		592AFD8F2583499300E623A8 /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
 		592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD952588A60600E623A8 /* ViewExtension.swift */; };
 		592F48E2259478E300C01722 /* TestMapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592F48E1259478E300C01722 /* TestMapView2.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5923E25625B58FC800371AB1 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
+		5923E25A25B808B900371AB1 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		592AFD8E2583499300E623A8 /* MD5Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Extension.swift; sourceTree = "<group>"; };
 		592AFD952588A60600E623A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		592F48E1259478E300C01722 /* TestMapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMapView2.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		5961A0CC25777DEC0022CD72 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				5923E25625B58FC800371AB1 /* PagingView.swift */,
 				5961A0C825777ABD0022CD72 /* MapView.swift */,
 				5961A0CA25777DD50022CD72 /* CircleImage.swift */,
 			);
@@ -140,6 +145,7 @@
 				59CE6C142578E38200553EBA /* Data.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
+				5923E25A25B808B900371AB1 /* Sounds.swift */,
 				5961A0CF2577CAF60022CD72 /* testfile.swift */,
 				B170233E259326D500DF2167 /* URLList.swift */,
 			);
@@ -274,12 +280,14 @@
 				B170233B2592F38300DF2167 /* APIHandler.swift in Sources */,
 				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
 				59B784AD25914041008F16B8 /* LocationManager.swift in Sources */,
+				5923E25725B58FC800371AB1 /* PagingView.swift in Sources */,
 				59CE6C102578D32100553EBA /* DEHMap.swift in Sources */,
 				59A659292576237B0038AD61 /* ColorExtension.swift in Sources */,
 				592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */,
 				B170233F259326D500DF2167 /* URLList.swift in Sources */,
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
 				59FF3DC0259ABCC10011EAF7 /* NetworkConnector.swift in Sources */,
+				5923E25B25B808B900371AB1 /* Sounds.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
 				59B784B32591F084008F16B8 /* TestAlamofirePeter.swift in Sources */,
 				59C4B92525B02EB100E05785 /* NetworkReceiveModel.swift in Sources */,

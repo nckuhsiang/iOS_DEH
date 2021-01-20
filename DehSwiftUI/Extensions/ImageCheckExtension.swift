@@ -8,19 +8,12 @@
 
 import SwiftUI
 
-//extension Image{
-//    func setDefault(defaultPic:String) -> Image{
-//        if ( != nil){
-//            return self
-//        }
-//        else{
-//            return Image(defaultPic)
-//        }
-//    }
-//}
 extension String{
     func checkImageExist(defaultPic:String) -> String{
-        if let _ = UIImage(named: self){
+        if self == ""{
+            return defaultPic
+        }
+        else if let _ = UIImage(named: self){
             return self
         }
         else{

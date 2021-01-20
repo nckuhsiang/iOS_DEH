@@ -17,3 +17,11 @@ extension View {
         }
     }
 }
+extension String {
+    func hidden(_ shouldHide: Bool) ->String{
+        switch shouldHide {
+        case true: return ""
+        case false: return self
+        }
+    }
+}

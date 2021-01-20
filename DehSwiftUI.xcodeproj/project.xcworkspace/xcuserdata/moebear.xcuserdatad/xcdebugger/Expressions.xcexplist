@@ -14,13 +14,40 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #2 in Setting.body.getter:Setting.swift">
+         contextName = "closure #4 in closure #1 in Setting.body.getter:Setting.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.account">
+               value = "self.searchDistance">
             </PersistentString>
             <PersistentString
                value = "loginState">
+            </PersistentString>
+            <PersistentString
+               value = "self.searchNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ResponseFormat.init(from:):ResponseFormat.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.XOIs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in XOIDetail.getMedia():XOIDetail.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "values.debugDescription">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TabViewElement.searchXOIs(action:):TabViewElement.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "values.value?.results">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -36,6 +63,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in XOIDetail.getViewNumber():XOIDetail.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewNumbers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in ContentView2.upload():TestAlamofirePeter.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,7 +79,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in TabViewElement.searchXOIs(action:):TabViewElement.swift">
+         contextName = "closure #1 in TabViewElement.searchXOIs():TabViewElement.swift">
          <PersistentStrings>
             <PersistentString
                value = "values.value?.results">
@@ -52,16 +87,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #4 in closure #1 in Setting.body.getter:Setting.swift">
+         contextName = "XOIDetail.getMedia():XOIDetail.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.searchDistance">
+               value = "xoi">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in Setting.body.getter:Setting.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.account">
             </PersistentString>
             <PersistentString
                value = "loginState">
-            </PersistentString>
-            <PersistentString
-               value = "self.searchNumber">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -81,22 +121,6 @@
          <PersistentStrings>
             <PersistentString
                value = "locationStatus">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ResponseFormat.init(from:):ResponseFormat.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.XOIs">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in TabViewElement.searchXOIs():TabViewElement.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "values.value?.results">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

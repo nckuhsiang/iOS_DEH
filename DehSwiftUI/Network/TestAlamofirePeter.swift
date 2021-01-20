@@ -23,7 +23,8 @@ struct ContentView2_Previews: PreviewProvider {
 
 struct ContentView2: View {
     @State private var cancellable: AnyCancellable?
-    
+    @State var image:UIImage = UIImage()
+    let testImage = "http://deh.csie.ncku.edu.tw/player_pictures/media/20200723024057_Hyb-WnUev.jpeg"
     func upload2(){
         let parameters:Parameters = [
             "user_name" : "GuestFromIosLite/Micro",
@@ -38,23 +39,29 @@ struct ContentView2: View {
             })
     }
     func upload(){
-        let parameters:Parameters = [
-            "username" : "et0",
+        let _:Parameters = [
+            "username" : "et00",
             "password" : "et00".md5(),
             "coi_name" : "deh",
-            "ula" : "22.997",
-            "ulo" : "120.221",
+            "lat" : "22.997",
+            "lng" : "120.221",
+            "dis" : "10000",
+            "num" : "3",
+            "action":"",
+            "dveviceID":"",
+            "poi_id" : "7",
+            "user_id": "2947",
+            
         ]
-        let url = UserLoginUrl
-        let publisher:DataResponsePublisher<LoginModel> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        let url = testImage
+        
+            
+        let publisher:DataResponsePublisher = NetworkConnector().getDataPublisher(url: url, para: Parameters())
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-                if let _ = values.value?.message{
-                    print("\(String(describing: values.value?.message))")
-                }
-                else{
-                    print(values.value?.username)
-                }
+//                print(values.data?.JsonPrint())
+                print(values.value.debugDescription)
+                image = UIImage(data: values.data ?? Data()) ?? UIImage()
             })
     }
     
@@ -62,6 +69,7 @@ struct ContentView2: View {
         
         
         VStack(spacing: 15) {
+            Image(uiImage: image).resizable()
             Button(action: {
                 self.upload()
             }) {

@@ -15,12 +15,16 @@ class NetworkConnector{
             .publishDecodable(type: T.self, queue: .main)
             
     }
-    func getDataPublisherDecodable2(url: String, para: Parameters) ->  DataResponsePublisher<XOI> {
+    func getDataPublisherData(url: String, para: Parameters) ->  DataResponsePublisher<XOI> {
         return AF.request(url, method: .post, parameters: para)
             .publishDecodable(type: XOI.self, queue: .main)
     }
     func getDataPublisher(url: String, para: Parameters) -> DataResponsePublisher<Data> {
         return AF.request(url, method: .post, parameters: para)
+            .publishData()
+    }
+    func getMediaPublisher(url: String) -> DataResponsePublisher<Data> {
+        return AF.request(url, method: .get, parameters: Parameters())
             .publishData()
     }
     
