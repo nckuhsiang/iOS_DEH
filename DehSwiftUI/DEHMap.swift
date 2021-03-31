@@ -8,29 +8,35 @@
 
 import SwiftUI
 import MapKit
+import Combine
+import Alamofire
 struct DEHMap: View {
-    @ObservedObject var locationManager = LocationManager()
+    //use stateobject to avoid renew the variable
+    @StateObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
     @State var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 22.997, longitude: 120.221),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
     @State var selection: Int? = nil
+    @State var selectSearchXOI = false
+    @State private var cancellable: AnyCancellable?
     
     var body: some View {
-        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["favorite"] ?? testxoi){xoi in
+        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["nearby"] ?? testxoi){xoi in
             MapAnnotation(
                 coordinate: xoi.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
             ) {
-                NavigationLink(destination:  XOIDetail(xoi:xoi), tag: 1, selection: $selection){
+                NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs["nearby"]?.firstIndex(of: xoi) ?? 0, selection: $selection){
                     Button(action: {
                         print("map tapped")
-                        self.selection = 1
+                        self.selection = settingStorage.XOIs["nearby"]?.firstIndex(of: xoi)
                     }) {
                         VStack{
                             Text(xoi.name)
-                            Image("player_pin")
+                            
+                            pinSelector(creatorCategory:xoi.creatorCategory)
                         }
                     }
                 }
@@ -41,12 +47,32 @@ struct DEHMap: View {
             Text("filter")
             Button(action: {
                 print("map_locate tapped")
+                selectSearchXOI = true
             }
             ) {
                 Image("map_locate")
             }
+            .actionSheet(isPresented: $selectSearchXOI) {
+                ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                    .default(Text("POI")) { searchXOIs(action: "searchNearbyPOI") },
+                    .default(Text("LOI")) { searchXOIs(action: "searchNearbyLOI") },
+                    .default(Text("AOI")) { searchXOIs(action: "searchNearbyAOI") },
+                    .default(Text("SOI")) { searchXOIs(action: "searchNearbySOI") },
+                    .cancel()
+                ])
+            }
         })
         .overlay(
+            ZStack{
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Image("sniper_target")
+                        Spacer()
+                    }
+                    Spacer()
+                }
             VStack{
                 Spacer()
                 HStack{
@@ -67,7 +93,58 @@ struct DEHMap: View {
                 }
                 .padding(.bottom,30.0)
             }
+            }
         )
+    }
+}
+
+extension DEHMap{
+    
+    func searchXOIs(action:String){
+        print("User icon pressed...")
+        print(locationManager.coordinateRegion.center.latitude)
+        let parameters:[String:String] = [
+            "username": "\(settingStorage.account)",
+            "lat" :"\(locationManager.coordinateRegion.center.latitude)",
+            "lng": "\(locationManager.coordinateRegion.center.longitude)",
+            "dis": "\(settingStorage.searchDistance * 1000)",
+            "num": "\(settingStorage.searchNumber)",
+            "coi_name": coi,
+            "action": action,
+            "user_id": "\(settingStorage.userID)",
+            "password":"\(settingStorage.password)",
+            "language":"中文"
+        ]
+        let url = getNearbyXois[action] ?? ""
+        let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                //                print(values.data?.JsonPrint())
+                print(values.debugDescription)
+                //                print(values.value?.results[0].containedXOIs)
+                self.settingStorage.XOIs["nearby"] = values.value?.results
+                //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
+                print(locationManager.coordinateRegion.center.latitude)
+            })
+    }
+    @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
+        switch xoi.xoiCategory {
+        case "poi": XOIDetail(xoi:xoi)
+        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
+        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
+        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
+        default:
+            Text("error")
+        }
+    }
+    @ViewBuilder func pinSelector(creatorCategory:String) -> some View{
+        switch creatorCategory{
+        case "docent": Image("docent_pin")
+        case "expert": Image("expert_pin")
+        case "user": Image("player_pin")
+        default: Image("player_pin")
+           
+        }
     }
 }
 

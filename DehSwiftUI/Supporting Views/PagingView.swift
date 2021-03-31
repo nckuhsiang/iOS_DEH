@@ -78,7 +78,7 @@ struct PageControl: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            ForEach(0...maxIndex, id: \.self) { index in
+            ForEach(0...maxIndex.lowBound(0), id: \.self) { index in
                 Circle()
                     .fill(index == self.index ? Color.white : Color.gray)
                     .frame(width: 8, height: 8)

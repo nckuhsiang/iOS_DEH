@@ -21,6 +21,7 @@ final class SettingStorage:ObservableObject{
                     "nearby" : [],
                     "group" : [],
                     "mine" : [],
+                    "temp": [],
                 ]
             }
             else{

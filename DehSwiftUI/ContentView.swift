@@ -14,6 +14,7 @@ let coi = "deh"
 #else
 let coi = "deh_default"
 #endif
+var language = ""
 struct ContentView: View {
     init(){
         UserDefaults.standard.register(defaults: [
@@ -25,7 +26,11 @@ struct ContentView: View {
             "loginState" : false,
             "userID" : "0",
         ])
-        
+        let languageList = ["zh": "中文",
+                            "jp": "日文",
+                            "en": "英文",
+        ]
+        language = languageList[Locale.current.languageCode ?? ""] ?? "英文"
         if #available(iOS 14.0, *) {
             // iOS 14 doesn't have extra separators below the list by default.
         } else {

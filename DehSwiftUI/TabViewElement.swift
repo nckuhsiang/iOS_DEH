@@ -56,7 +56,7 @@ struct TabViewElement: View {
             .padding([.top, .leading, .trailing])
             List{
                 ForEach(self.settingStorage.XOIs[tabItemName] ?? []){xoi in
-                    XOIRow(xoi:xoi)
+                    XOIRow(xoi:xoi,tabItemName:tabItemName)
                         .padding(.horizontal)
                 }
                 .listRowBackground(Color.init(UIColor(rgba: darkGreen)))
@@ -79,19 +79,21 @@ extension TabViewElement{
             "lat" :"\(locationManager.coordinateRegion.center.latitude)",
             "lng": "\(locationManager.coordinateRegion.center.longitude)",
             "dis": "\(settingStorage.searchDistance * 1000)",
-            "num": "3", //"\(settingStorage.searchNumber)",
+            "num": "\(settingStorage.searchNumber)",
             "coi_name": coi,
             "action": action,
             "user_id": "\(settingStorage.userID)",
             "password":"\(settingStorage.password)",
         ]
-        let url = getTestXois[action] ?? ""
+        let url = getMyXois[action] ?? ""
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
+//                print(values.data?.JsonPrint())
                 print(values.debugDescription)
-                //                print(values.value?.results[0])
+//                print(values.value?.results[0].containedXOIs)
                 self.settingStorage.XOIs["mine"] = values.value?.results
+//                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
             })
         
     }

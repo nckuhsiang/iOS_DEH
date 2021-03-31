@@ -10,6 +10,7 @@ import SwiftUI
 
 extension String{
     func checkImageExist(defaultPic:String) -> String{
+//        print(self)
         if self == ""{
             return defaultPic
         }

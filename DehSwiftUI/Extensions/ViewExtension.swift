@@ -6,7 +6,6 @@
 //  Copyright © 2020 mmlab. All rights reserved.
 //https://github.com/George-J-E/HidingViews
 
-import Foundation
 import SwiftUI
 //to hide view without error
 extension View {

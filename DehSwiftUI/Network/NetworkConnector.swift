@@ -24,7 +24,12 @@ class NetworkConnector{
             .publishData()
     }
     func getMediaPublisher(url: String) -> DataResponsePublisher<Data> {
-        return AF.request(url, method: .get, parameters: Parameters())
+        return AF.request(url, method: .get)
+            .validate()
+              .responseData(emptyResponseCodes: [200, 204, 205]) { response in
+               debugPrint(response)
+              }
+            
             .publishData()
     }
     

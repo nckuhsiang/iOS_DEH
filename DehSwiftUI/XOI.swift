@@ -36,7 +36,7 @@ struct media_set:Codable{
 
 class XOI:Identifiable,Decodable {
 
-    var ContainedXOIs:[XOI]!
+    var containedXOIs:[XOI]?
     var id: Int = 0
     var name: String = ""
     var latitude: Double = 0.0
@@ -48,6 +48,7 @@ class XOI:Identifiable,Decodable {
     var mediaCategory: String = ""
     var distance: Double = 0.0
     var media_set: [media_set]!
+    var open: Bool = false
     var coordinate:CLLocationCoordinate2D!{
         get{
             return CLLocationCoordinate2D(
@@ -62,6 +63,12 @@ class XOI:Identifiable,Decodable {
         case media_set = "media_set"
         case creatorCategory = "identifier"
         case xoiCategory
+        case mediaCategory = "mediaCategory"
+        case open
+        case containedXOIs = "containedXOIs"
+        case latitude
+        case longitude
+//        case viewNumbers
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){
         self.id = id
@@ -74,6 +81,10 @@ class XOI:Identifiable,Decodable {
         self.viewNumbers = viewNumbers
         self.mediaCategory = mediaCategory
     }
+//    required init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.ContainedXOIs = try container.decode([XOI].self, forKey: .ContainedXOIs)
+//    }
     
 }
 
@@ -91,7 +102,7 @@ extension XOI:Hashable,Encodable{
     }
     
     func setContainedXOI(XOIs:[XOI]){
-        self.ContainedXOIs = XOIs
+        self.containedXOIs = XOIs
     }
 }
 
