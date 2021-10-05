@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Alamofire
+import CryptoKit
 // the personal entry is here
 #if DEH
 let coi = "deh"
@@ -39,7 +40,7 @@ struct ContentView: View {
         }
         
         // To remove all separators including the actual ones:
-        UITableView.appearance().separatorStyle = .none
+//        UITableView.appearance().separatorStyle = .none
         //list底下的背景色
         UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
         
@@ -53,7 +54,7 @@ struct ContentView: View {
         //選取不反白
         UITableViewCell.appearance().selectionStyle = .none
         
-        
+
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
     
@@ -74,25 +75,45 @@ struct ContentView: View {
                     TabViewElement(title: "My Xois", image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
             }
+            
             .navigationBarTitle(Text("HI, " + self.settingStorage.account), displayMode: .inline)
+           
             .navigationBarItems(leading: NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
                 Button(action: {
                     print("setting tapped")
                     self.selection = 1
                 }) {
                     Image("member_setting")
+                        .foregroundColor(.blue)
                 }
             }
             ,trailing: NavigationLink(destination: DEHMap(), tag: 2, selection: $selection) {
-                Button(action: {
-                    print("map tapped")
-                    self.selection = 2
-                }) {
-                    Image("member_back")
+                HStack{
+                    NavigationLink(destination: GameView(), tag: 3, selection: $selection){
+                        Button(action: {
+                            print("game tap")
+                            self.selection = 3
+                        }) {
+                            Image(systemName: "gamecontroller")
+//                                .renderingMode(.original)
+//                                .foregroundColor(.white)
+                        }
+                    }
+                    Button(action: {
+                        print("map tapped")
+                        self.selection = 2
+                    }) {
+                        Image("member_back")
+                            .foregroundColor(.blue)
+                    }
                 }
             })
         }
+        //this line to avoid lots of warning
+        //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(){
+print("123")
         }
     }
 }

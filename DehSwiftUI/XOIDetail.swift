@@ -13,7 +13,6 @@ struct XOIDetail: View {
     var xoi: XOI
     //only for favorite used
     @EnvironmentObject var settingStorage:SettingStorage
-    @State var isFavorite = false
     @State var viewNumbers = -1
     @State private var cancellable: AnyCancellable?
     @State private var mediaCancellable: [AnyCancellable] = []
@@ -21,18 +20,11 @@ struct XOIDetail: View {
     @State private var medias:[MediaMulti] = []
     @State private var commentary:MediaMulti = MediaMulti(data: Data(), format: .Default)
     @State var index = 0
+    @State private var showingAlert = false
     var body: some View{
         ScrollView {
         VStack {
-//            ZStack{
-//                Image("audio_picture")
-//            }
-            PagingView(index: $index.animation(), maxIndex: medias.count - 1) {
-                ForEach(self.medias, id: \.data) {
-                    singleMedia in
-                    singleMedia.view()
-                }
-            }
+            XOIMediaSelector(xoi: xoi)
             .frame(height: 400.0)
             
             VStack(alignment: .leading) {
@@ -49,15 +41,17 @@ struct XOIDetail: View {
                         // if exist then remove or not exist then add
                         if let index = settingStorage.XOIs["favorite"]?.firstIndex(of: xoi){
                             settingStorage.XOIs["favorite"]?.remove(at: index)
-                            isFavorite = false
                         }
                         else{
                             settingStorage.XOIs["favorite"]?.append(xoi)
+                            showingAlert = true
                         }
-                        
                     }) {
                         Image("heart")
                         
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Add to favorite"))
                     }
                     
                     Button(action: {
@@ -76,7 +70,10 @@ struct XOIDetail: View {
                 .background(Color.init(UIColor(rgba:"#24c08c")))
                 Text("View Numbers: " + String(viewNumbers).hidden(viewNumbers == -1))
                 Text(xoi.detail)
+//                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
 //                    .fixedSize(horizontal: false, vertical: true)
+                    
             }
             .padding()
             Spacer()
@@ -90,6 +87,23 @@ struct XOIDetail: View {
 }
 }
 extension XOIDetail{
+    @ViewBuilder func XOIMediaSelector(xoi:XOI) -> some View{
+        switch xoi.xoiCategory {
+        case "poi":
+            PagingView(index: $index.animation(), maxIndex: medias.count - 1) {
+            ForEach(self.medias, id: \.data) {
+                singleMedia in
+                singleMedia.view()
+            }
+        }
+        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        default:
+            Text("error")
+        }
+    }
+    
     
     func getViewerNumber(){
         let parameters:Parameters = [

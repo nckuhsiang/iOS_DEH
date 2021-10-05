@@ -32,6 +32,31 @@ class NetworkConnector{
             
             .publishData()
     }
+    func getMediaPublisher(url: URL) -> DataResponsePublisher<Data> {
+        return AF.request(url, method: .get)
+            .validate()
+              .responseData(emptyResponseCodes: [200, 204, 205]) { response in
+               debugPrint(response)
+              }
+            
+            .publishData()
+    }
+    func uploadMediaPublisher<T:Decodable>(url: String, para: Parameters,inputData:Data)->  DataResponsePublisher<T>{
+        return AF.upload(multipartFormData: { (data) in
+//                    let imageData = UIImage().jpegData(compressionQuality: 0.9)
+            for(key,value) in para{
+                if let valueData = (value as? String)?.data(using: String.Encoding.utf8){
+                    data.append(valueData, withName: key)
+                }
+                
+                
+            }
+                    data.append(inputData, withName: "imageData")
+                    
+                }, to: url)
+                    .publishDecodable(type: T.self, queue: .main)
+    }
+    
     
 }
 

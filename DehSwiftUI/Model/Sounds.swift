@@ -12,6 +12,10 @@ import AVFoundation
 class Sounds {
     
     static var audioPlayer:AVAudioPlayer?
+    var audioRecoder:AVAudioRecorder?
+    var tempVideoFileUrl: URL {
+        return FileManager.default.temporaryDirectory.appendingPathComponent("tempAudio")
+    }
     
     static func playSounds(soundfile: String) {
         
@@ -36,8 +40,25 @@ class Sounds {
         catch {
             print("Error")
         }
-        
-        
+    }
+    
+    func recordSounds(){
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 44100,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        do{
+            audioRecoder = try AVAudioRecorder(url: tempVideoFileUrl,settings: settings)
+            audioRecoder?.record()
+        }
+        catch{
+            
+        }
+    }
+    func stopRecord(){
+        audioRecoder?.stop()
         
     }
     

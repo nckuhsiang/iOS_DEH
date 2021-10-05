@@ -11,7 +11,7 @@ import Combine
 import Alamofire
 
 struct TabViewElement: View {
-    var title: String
+    @State var title: String
     var image1: String
     var image2: String
     var tabItemImage: String
@@ -21,20 +21,26 @@ struct TabViewElement: View {
     @ObservedObject var locationManager = LocationManager()
     @State var selectSearchXOI = false
     @State private var cancellable: AnyCancellable?
+    @State var group = Group(id: 0, name: "-111")
     var body: some View {
         
         VStack{
             
             HStack{
                 Text(title)
+                    .onAppear{
+                        if(group.name != "-111"){
+                            title = group.name
+                        }
+                    }
                     .foregroundColor(Color.white)
                 Spacer()
-                Button(action: {
-                    print("User icon pressed...")
-                }){
+                //this will cause an warning but no idea about it
+                NavigationLink(destination: GroupList(group: $group)) {
                     Image(image1).hidden(image1=="Empty")
                 }
                 .disabled(image1=="Empty")
+
                 
                 Button(action: {
 //                    searchXOIs()
@@ -44,13 +50,7 @@ struct TabViewElement: View {
                 }
                 .disabled(image2=="Empty")
                 .actionSheet(isPresented: $selectSearchXOI) {
-                    ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                        .default(Text("POI")) { searchXOIs(action: "searchMyPOI") },
-                        .default(Text("LOI")) { searchXOIs(action: "searchMyLOI") },
-                        .default(Text("AOI")) { searchXOIs(action: "searchMyAOI") },
-                        .default(Text("SOI")) { searchXOIs(action: "searchMySOI") },
-                        .cancel()
-                    ])
+                    actionSheetBuilder(tabItemName:tabItemName)
                 }
             }
             .padding([.top, .leading, .trailing])
@@ -60,6 +60,7 @@ struct TabViewElement: View {
                         .padding(.horizontal)
                 }
                 .listRowBackground(Color.init(UIColor(rgba: darkGreen)))
+                
             }
         }
         .background(Color.init(UIColor(rgba: lightGreen)))
@@ -83,19 +84,51 @@ extension TabViewElement{
             "coi_name": coi,
             "action": action,
             "user_id": "\(settingStorage.userID)",
-            "password":"\(settingStorage.password)",
+            "group_id": "\(group.id)",
+            "language": "中文",
+//            "password":"\(settingStorage.password)",
+            
+            
         ]
-        let url = getMyXois[action] ?? ""
+        let url = getXois[action] ?? ""
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
 //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
 //                print(values.value?.results[0].containedXOIs)
-                self.settingStorage.XOIs["mine"] = values.value?.results
+                self.settingStorage.XOIs[tabItemName] = values.value?.results
 //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
             })
         
+    }
+    func actionSheetBuilder(tabItemName:String) -> ActionSheet{
+        if(tabItemName == "group"){
+            return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                .default(Text("Group POI")) { searchXOIs(action: "searchGroupPOI") },
+                .default(Text("Group LOI")) { searchXOIs(action: "searchGroupLOI") },
+                .default(Text("Group AOI")) { searchXOIs(action: "searchGroupAOI") },
+                .default(Text("Group SOI")) { searchXOIs(action: "searchGroupSOI") },
+                .default(Text("Group My POI")) { searchXOIs(action: "searchGroupMyPOI") },
+                .default(Text("Group My LOI")) { searchXOIs(action: "searchGroupMyLOI") },
+                .default(Text("Group My AOI")) { searchXOIs(action: "searchGroupMyAOI") },
+                .default(Text("Group My SOI")) { searchXOIs(action: "searchGroupMySOI") },
+
+                
+                
+                
+                .cancel()
+            ])
+        }
+        else{
+            return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                .default(Text("POI")) { searchXOIs(action: "searchMyPOI") },
+                .default(Text("LOI")) { searchXOIs(action: "searchMyLOI") },
+                .default(Text("AOI")) { searchXOIs(action: "searchMyAOI") },
+                .default(Text("SOI")) { searchXOIs(action: "searchMySOI") },
+                .cancel()
+            ])
+        }
     }
 }
 

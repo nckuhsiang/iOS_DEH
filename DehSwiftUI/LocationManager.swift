@@ -31,7 +31,7 @@ class LocationManager: NSObject, ObservableObject {
     @Published var lastLocation: CLLocation? {
         willSet {
             coordinateRegion = MKCoordinateRegion(center:CLLocationCoordinate2D(
-                                                    latitude: lastLocation?.coordinate.latitude ?? 23.58_323, longitude: lastLocation?.coordinate.longitude ?? 120.58_260),span:MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                                                    latitude: lastLocation?.coordinate.latitude ?? 23.58_323, longitude: lastLocation?.coordinate.longitude ?? 121.58_260),span:MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
             objectWillChange.send()
         }
     }
@@ -97,6 +97,24 @@ extension LocationManager: CLLocationManagerDelegate {
         //避免浪費電，如果只開一次會無法更新
         self.locationManager.startUpdatingLocation()
         listeningOnce = 3
+    }
+    
+    func setToXoiLocation(xoi:XOI)-> Void{
+        self.coordinateRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: xoi.latitude, longitude: xoi.longitude),
+            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        )
+        objectWillChange.send()
+    }
+    func getDistanceFromCurrentPlace(coordinate:CLLocationCoordinate2D) -> Double{
+        
+        let latitude = coordinate.latitude
+        let longitude = coordinate.longitude
+        let currentLatitude = self.coordinateRegion.center.latitude
+        let currentlongitude = self.coordinateRegion.center.longitude
+        
+        return CLLocation(latitude: currentLatitude, longitude: currentlongitude).distance(from: CLLocation(latitude: latitude, longitude: longitude))
+        
     }
 
 }

@@ -5,13 +5,14 @@
 //  Created by 阮盟雄 on 2021/3/5.
 //  Copyright © 2021 mmlab. All rights reserved.
 //
-
+//used for
 import SwiftUI
 import MapKit
 struct DEHMapInner: View {
     var xois:[XOI]
     @ObservedObject var locationManager = LocationManager()
     @State var selection: Int? = nil
+    var xoiCategory = ""
     
     var body: some View {
         Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: xois){xoi in
@@ -27,12 +28,19 @@ struct DEHMapInner: View {
                         VStack{
                             Text(xoi.name)
                             
-                            Image("player_pin")
+//                            Image("player_pin")
+                            //還沒把index收下來
+                            pinSelector(number:xoi.index ?? 0,xoiCategory:xoiCategory)
                         }
                     }
                 }
             }
         }
+        .onAppear(
+            perform: {
+                locationManager.setToXoiLocation(xoi: xois[0])
+            }
+        )
         .overlay(
             VStack{
                 Spacer()
@@ -55,15 +63,29 @@ struct DEHMapInner: View {
                 .padding(.bottom,30.0)
             }
         )
+
     }
 }
+
 extension DEHMapInner{
     @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {
         case "poi": XOIDetail(xoi:xoi)
-        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
-        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
-        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
+        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        default:
+            Text("error")
+        }
+    }
+}
+extension DEHMapInner{
+    @ViewBuilder func pinSelector(number:Int,xoiCategory:String) -> some View{
+        switch xoiCategory {
+        case "poi": Image("player_pin")
+        case "loi": ImageWithNumber(number: number)
+        case "aoi": Image("player_pin")
+        case "soi": ImageWithNumber(number: number)
         default:
             Text("error")
         }

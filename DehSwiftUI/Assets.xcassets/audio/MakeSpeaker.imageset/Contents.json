@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "member_back-2.png",
+      "filename" : "speaker.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "speaker-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "speaker-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

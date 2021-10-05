@@ -4,7 +4,8 @@
 //
 //  Created by 阮盟雄 on 2020/12/3.
 //  Copyright © 2020 mmlab. All rights reserved.
-//
+// warning nw_protocol_get_quic_image_block_invoke dlopen libquic failed 只會發生在模擬器上，請忽略
+// [AXRuntimeCommon] Unknown client: DehSwiftUI 似乎這個也是
 
 import SwiftUI
 import Alamofire
@@ -57,9 +58,12 @@ struct Setting: View {
                     .disabled(loginState)
             }
             Button(action: {
-                //MARK:- 尚未實作登入
+                //MARK:-
                 if(loginState == false){
                     login()
+//                    UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+//
+//                    self.presentationMode.wrappedValue.dismiss()
                 }
                 else{
                     logout()
@@ -69,8 +73,18 @@ struct Setting: View {
             })
             .alert(isPresented: $loginTriggerAlert) {() -> Alert in
                         let greetingMessage = "Login Success"
-                        return Alert(title: Text(greetingMessage))
+                return Alert(title: Text(greetingMessage),
+                             dismissButton:.default(Text("Ok"), action: {
+                                UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+
+                                self.presentationMode.wrappedValue.dismiss()
+                             })
+                             )
             }
+
+
+                
+            
 
         }
         //讀取存在手機內的設定
@@ -116,6 +130,9 @@ struct Setting: View {
                 
             })
         )
+//        .onTapGesture {
+//            self.hideKeyboard()
+//        }
         
     }
     func login(){
@@ -139,6 +156,8 @@ struct Setting: View {
                     self.loginState = true
                     self.loginButtonText = "logout"
                     self.loginTriggerAlert = true
+                    
+
                 }
             })
     }
@@ -147,6 +166,7 @@ struct Setting: View {
         self.settingStorage.password = ""
         self.account = ""
         self.password = ""
+        self.settingStorage.userID = "-1"
         self.settingStorage.loginState = false
         self.loginState = false
         self.loginButtonText = "login"

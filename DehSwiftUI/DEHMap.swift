@@ -44,13 +44,16 @@ struct DEHMap: View {
         }
         
         .navigationBarItems(trailing:HStack{
-            Text("filter")
+//            Text("filter")
+            Image("filter")
+                .foregroundColor(.blue)
             Button(action: {
                 print("map_locate tapped")
                 selectSearchXOI = true
             }
             ) {
-                Image("map_locate")
+                Image("location")
+                    .foregroundColor(.blue)
             }
             .actionSheet(isPresented: $selectSearchXOI) {
                 ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
@@ -119,9 +122,10 @@ extension DEHMap{
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-                //                print(values.data?.JsonPrint())
-                print(values.debugDescription)
-                //                print(values.value?.results[0].containedXOIs)
+//                                print(values.data?.JsonPrint())
+//                print(values.debugDescription)
+//                print(values.value?.results.debugDescription)
+//                print(values.value?.results[0].containedXOIs?[0])
                 self.settingStorage.XOIs["nearby"] = values.value?.results
                 //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
                 print(locationManager.coordinateRegion.center.latitude)
@@ -130,9 +134,9 @@ extension DEHMap{
     @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {
         case "poi": XOIDetail(xoi:xoi)
-        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
-        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
-        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi)
+        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
         default:
             Text("error")
         }

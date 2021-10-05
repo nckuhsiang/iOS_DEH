@@ -66,7 +66,7 @@ final class SettingStorage:ObservableObject{
     }
     @Published var userID:String = UserDefaults.standard.string(forKey: "userID") ?? "-1"{
         didSet{
-            UserDefaults.standard.set(loginState,forKey: "userID")
+            UserDefaults.standard.set(userID,forKey: "userID")
         }
     }
     

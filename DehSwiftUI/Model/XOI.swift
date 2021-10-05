@@ -49,6 +49,7 @@ class XOI:Identifiable,Decodable {
     var distance: Double = 0.0
     var media_set: [media_set]!
     var open: Bool = false
+    var index: Int? = -1
     var coordinate:CLLocationCoordinate2D!{
         get{
             return CLLocationCoordinate2D(
@@ -68,6 +69,7 @@ class XOI:Identifiable,Decodable {
         case containedXOIs = "containedXOIs"
         case latitude
         case longitude
+        case index
 //        case viewNumbers
     }
     init(id: Int,name: String,latitude: Double,longitude: Double,creatorCategory: String,xoiCategory: String,detail: String,viewNumbers: Int,mediaCategory: String){

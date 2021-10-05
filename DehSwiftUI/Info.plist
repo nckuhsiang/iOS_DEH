@@ -58,6 +58,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>get location</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To answer game with photo</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

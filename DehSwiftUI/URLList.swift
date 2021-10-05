@@ -29,6 +29,7 @@ let GroupGetMemberUrl:  String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups
 let GroupCreatUrl:      String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/add"
 let GroupUpdateUrl:     String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/update"
 let GroupGetListUrl:    String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/groupList"
+let GroupGetUserGroupListUrl:    String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/searchUserGroups"
 
 //MARK:- GameUrl
 let NEW_DEH_API                = "http://deh.csie.ncku.edu.tw:8080/api/v1"
@@ -43,24 +44,52 @@ let GameStartUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/start_game"
 let GameHistoryUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/get_game_history"
 let GameDataUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1//get_game_data"
 
+let privateGetGroupList = "http://deh.csie.ncku.edu.tw:8080/api/v1/getGroupList"
+let getRoomList = "http://deh.csie.ncku.edu.tw:8080/api/v1/getRoomList"
+let getGameHistory = "http://deh.csie.ncku.edu.tw:8080/api/v1/getGameHistory"
+let getChestList = "http://deh.csie.ncku.edu.tw:8080/api/v1/getChestList"
+let getChestMediaUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/getChestMedia"
+let insertAnswerUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/insertAnswer"
+let chestMinusUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/chestMinus"
+let getMemberPointUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/getMemberPoint"
+
 //MARK:- XoiUrl
 let getPois = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSON"
+//let getXois = [
+//    "/API/userPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSON",
+//    "/API/userLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/loisJSON",
+//    "/API/userAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSON",
+//    "/API/userSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSON",
+//]
 let getXois = [
-    "/API/userPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSON",
-    "/API/userLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/loisJSON",
-    "/API/userAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSON",
-    "/API/userSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSON",
-]
-let getMyXois = [
     "searchMyPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSONResponseNormalize",
     "searchMyLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/loisJSONResponseNormalize",
     "searchMyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSONResponseNormalize",
     "searchMySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSONResponseNormalize",
+    
+    "searchGroupMyPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userPOIs",
+    "searchGroupMyLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userLOIs",
+    "searchGroupMyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userAOIs",
+    "searchGroupMySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userSOIs",
+    
+    "searchGroupPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbyPOIs",
+    "searchGroupLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbyLOIs",
+    "searchGroupAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbyAOIs",
+    "searchGroupSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbySOIs",
+    
+    
 ]
 
 let getNearbyXois = [
     "searchNearbyPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/pois",
     "searchNearbyLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/lois",
-    "searchMyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/aoisJSONResponseNormalize",
-    "searchMySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/users/soisJSONResponseNormalize",
+    "searchNearbyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/aois",
+    "searchNearbySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/sois",
 ]
+
+//let getGroupXois = [
+//    "searchGroupPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userPOIs",
+//    "searchGroupLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userLOIs",
+//    "searchGroupAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userAOIs",
+//    "searchGroupSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userSOIs",
+//]
