@@ -27,14 +27,14 @@ struct SessionView: View {
                             }
                             .actionSheet(isPresented: $showingSheet) {
                                 ActionSheet(
-                                    title: Text("What do you want to do?"),
+                                    title: Text("What do you want to do?".localized),
     //                                message: Text("There's only one choice..."),
                                     buttons: [
-                                        .default(Text("History"),action: {
+                                        .default(Text("History".localized),action: {
                                             selection = 1
                                             selectedSession = session
                                         }),
-                                        .default(Text("Game"),action: {
+                                        .default(Text("Game".localized),action: {
                                             selection = 2
                                             selectedSession = session
                                         }),

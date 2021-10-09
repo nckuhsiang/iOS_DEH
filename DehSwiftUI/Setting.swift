@@ -26,10 +26,10 @@ struct Setting: View {
     var body: some View {
         Form{
             // toggle trigger warning 
-            Toggle("Advanced Setting", isOn: $advancedSetting)
+            Toggle("Advanced Setting".localized, isOn: $advancedSetting)
                 .foregroundColor(.blue)
             
-            Section(header: Text("Search Distance")
+            Section(header: Text("Search Distance".localized)
                         .foregroundColor(.blue)){
                 HStack{
                     Slider(value: $searchDistance,in: 0.0...20.0)
@@ -38,7 +38,7 @@ struct Setting: View {
                 }
             }
             
-            Section(header: Text("Search Number").foregroundColor(.blue)){
+            Section(header: Text("Search Number".localized).foregroundColor(.blue)){
                 HStack{
                     Slider(value: $searchNumber,in: 10.0...100.0,step:1)
                     Spacer()
@@ -46,13 +46,13 @@ struct Setting: View {
                 }
             }
             
-            Section(header: Text(self.loginButtonText).foregroundColor(.blue)){
-                TextField("Account", text: $account)
+            Section(header: Text(self.loginButtonText.localized).foregroundColor(.blue)){
+                TextField("Account".localized, text: $account)
                     .keyboardType(.asciiCapable)
                     .disableAutocorrection(true)
                     .disabled(loginState)
                 
-                SecureField("Password", text: $password)
+                SecureField("Password".localized, text: $password)
                     .keyboardType(.asciiCapable)
                     .disableAutocorrection(true)
                     .disabled(loginState)
@@ -69,10 +69,10 @@ struct Setting: View {
                     logout()
                 }
             }, label: {
-                Text(self.loginButtonText)
+                Text(self.loginButtonText.localized)
             })
             .alert(isPresented: $loginTriggerAlert) {() -> Alert in
-                        let greetingMessage = "Login Success"
+                        let greetingMessage = "Login Success".localized
                 return Alert(title: Text(greetingMessage),
                              dismissButton:.default(Text("Ok"), action: {
                                 UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
@@ -97,21 +97,21 @@ struct Setting: View {
             
             self.loginState = self.settingStorage.loginState
             if(self.settingStorage.loginState == true){
-                loginButtonText = "Logout"
+                loginButtonText = "Logout".localized
                 self.password = "00000000"
             }
             else{
-                loginButtonText = "Login"
+                loginButtonText = "Login".localized
             }
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarTitle("Settings",displayMode: .inline)
+        .navigationBarTitle("Settings".localized,displayMode: .inline)
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
             UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
             
         }, label: {
-            Text("Cancel")
+            Text("Cancel".localized)
                 .foregroundColor(.black)
         })
         ,trailing:
@@ -125,7 +125,7 @@ struct Setting: View {
                 
                 
             }, label: {
-                Text("Save")
+                Text("Save".localized)
                     .foregroundColor(.black)
                 
             })

@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  DehSwiftUI
+
+  Created by 陳家庠 on 2021/10/9.
+  Copyright © 2021 mmlab. All rights reserved.
+*/
+"My Favorite" = "我的最愛";
+"HI, " = "您好, ";
+"Searched Xois" = "附近景點/景線/景區";
+"Group Interests" = "群組景點/景線/景區";
+"My Xois" = "我的景點/景線/景區";
+
+"Advanced Setting" = "進階設定";
+"Advanced Search" = "進階搜尋";
+"Search Distance" = "搜尋範圍";
+"Search Number" = "搜尋數量";
+"Account" = "帳號";
+"Password" = "密碼";
+"Login Success" = "登入成功";
+"Cancel" = "取消";
+"Save" = "保存";
+"logout" = "登出";
+"Logout" = "登出";
+"login" = "登入";
+"Login" = "登入";
+"Settings" = "設定";
+
+
+"Select Search XOIs" = "請選擇搜尋景點/景線/景區";
+"POI" = "景點";
+"LOI" = "景線";
+"AOI" = "景區";
+"SOI" = "主題故事";
+"error" = "錯誤";
+
+
+"Group POI" = "群組景點";
+"Group LOI" = "群組景線";
+"Group AOI" = "群組景區";
+"Group SOI" = "群組主題故事";
+"Group My POI" = "我的群組景點";
+"Group My LOI" = "我的群組景線";
+"Group My AOI" = "我的群組景區";
+"Group My SOI" = "我的群組主題故事";
+
+"What do you want to do?" = "你想讓我做什麼？";
+"History" = "紀錄";
+"Game" = "遊戲";

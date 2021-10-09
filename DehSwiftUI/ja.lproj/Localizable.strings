@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  DehSwiftUI
+
+  Created by 陳家庠 on 2021/10/9.
+  Copyright © 2021 mmlab. All rights reserved.
+*/
+
+"My Favorite" = "私のお気に入り";
+"HI, " = "こんにちは, ";
+"Searched Xois" = "近所のスポット/ルート/エリア";
+"Group Interests" = "グループ管理スポット/ルート/エリア";
+"My Xois" = "私のスポット/ルート/エリア";
+
+"Advanced Setting" = "詳細設定";
+"Advanced Search" = "高度な検索";
+"Search Distance" = "検索範囲";
+"Search Number" = "検索番号";
+"Account" = "ユーザ名";
+"Password" = "パスワード";
+"Login Success" = "登入成功";
+"Cancel" = "キャンセル";
+"Save" = "保存する";
+"logout" = "ログアウト";
+"Logout" = "ログアウト";
+"login" = "ログイン";
+"Login" = "ログイン";
+"Settings" = "設定";
+
+
+"Select Search XOIs" = "検索を選択してくださいスポット/ルート/エリア";
+"POI" = "スポット";
+"LOI" = "ルート";
+"AOI" = "エリア";
+"SOI" = "ストーリー";
+"error" = "エラー";
+
+
+"Group POI" = "グループ管理スポット";
+"Group LOI" = "グループ管理ルート";
+"Group AOI" = "グループ管理エリア";
+"Group SOI" = "グループ管理ストーリー";
+"Group My POI" = "マイグループ管理スポット";
+"Group My LOI" = "マイグループ管理ルート";
+"Group My AOI" = "マイグループ管理エリア";
+"Group My SOI" = "マイグループ管理ストーリー";

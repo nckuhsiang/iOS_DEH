@@ -57,10 +57,10 @@ struct DEHMap: View {
             }
             .actionSheet(isPresented: $selectSearchXOI) {
                 ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                    .default(Text("POI")) { searchXOIs(action: "searchNearbyPOI") },
-                    .default(Text("LOI")) { searchXOIs(action: "searchNearbyLOI") },
-                    .default(Text("AOI")) { searchXOIs(action: "searchNearbyAOI") },
-                    .default(Text("SOI")) { searchXOIs(action: "searchNearbySOI") },
+                    .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
+                    .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
+                    .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
+                    .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
                     .cancel()
                 ])
             }
