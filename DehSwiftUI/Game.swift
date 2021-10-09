@@ -62,11 +62,11 @@ extension GameView{
 //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 if let eventList = values.value?.eventList {
-                    tempList.append(gameListtuple("public",eventList))
+                    tempList.append(gameListtuple("public".localized,eventList))
                 }
                 if let groupList = values.value?.groupList{
                     if(!groupList.isEmpty){
-                        tempList.append(gameListtuple("private",groupList))
+                        tempList.append(gameListtuple("private".localized,groupList))
                     }}
                 self.gameList = tempList
             })

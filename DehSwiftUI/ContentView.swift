@@ -75,7 +75,6 @@ struct ContentView: View {
                     TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
             }
-            
             .navigationBarTitle(Text("HI, ".localized + self.settingStorage.account), displayMode: .inline)
            
             .navigationBarItems(leading: NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
