@@ -39,6 +39,14 @@ struct ContentView: View {
             UITableView.appearance().tableFooterView = UIView()
         }
         
+        if #available(iOS 15, *) {
+            // White non-transucent navigation bar, supports dark appearance
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+        
         // To remove all separators including the actual ones:
 //        UITableView.appearance().separatorStyle = .none
         //list底下的背景色
@@ -66,7 +74,6 @@ struct ContentView: View {
     @State var selection: Int? = nil
     var body: some View {
         NavigationView {
-            
             VStack(spacing: 0){
                 TabView{
                     TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
@@ -76,7 +83,6 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(Text("HI, ".localized + self.settingStorage.account), displayMode: .inline)
-           
             .navigationBarItems(leading: NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
                 Button(action: {
                     print("setting tapped")
