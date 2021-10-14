@@ -9,6 +9,7 @@
 import SwiftUI
 import Alamofire
 import CryptoKit
+import simd
 // the personal entry is here
 #if DEH
 let coi = "deh"
@@ -32,19 +33,19 @@ struct ContentView: View {
                             "en": "英文",
         ]
         language = languageList[Locale.current.languageCode ?? ""] ?? "英文"
-        if #available(iOS 14.0, *) {
-            // iOS 14 doesn't have extra separators below the list by default.
-        } else {
-            // To remove only extra separators below the list:
-            UITableView.appearance().tableFooterView = UIView()
-        }
         
+        //https://stackoverflow.com/questions/69111478/ios-15-navigation-bar-transparent
         if #available(iOS 15, *) {
             // White non-transucent navigation bar, supports dark appearance
+            // iOS 14 doesn't have extra separators below the list by default.
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+        else {
+            // To remove only extra separators below the list:
+            UITableView.appearance().tableFooterView = UIView()
         }
         
         // To remove all separators including the actual ones:
@@ -65,7 +66,8 @@ struct ContentView: View {
 
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
-    
+    @State var isShowingSheet = false
+    @State var notLogin = true
     @State var searchTitle = "title"
     @EnvironmentObject var settingStorage:SettingStorage
     //若使用classModel的值則必須使用observation pattern
@@ -84,12 +86,35 @@ struct ContentView: View {
             }
             .navigationBarTitle(Text("HI, ".localized + self.settingStorage.account), displayMode: .inline)
             .navigationBarItems(leading: NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
-                Button(action: {
-                    print("setting tapped")
-                    self.selection = 1
-                }) {
-                    Image("member_setting")
-                        .foregroundColor(.blue)
+                HStack {
+                    Button(action: {
+                        print("setting tapped")
+                        self.selection = 1
+                    }) {
+                        Image("member_setting")
+                            .foregroundColor(.blue)
+                    }
+                    Button(action:{
+                        if(self.settingStorage.loginState == true) {
+                            isShowingSheet = true
+                            notLogin = false
+                        }
+                    }) {
+                        Image("more")
+                            .foregroundColor(.blue)
+                    }
+                 
+                    .actionSheet(isPresented: $isShowingSheet) {
+                        ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
+                            .default(Text("Price".localized)) {
+                                
+                            },
+                            .default(Text("Group".localized)) {
+                                openMakeURL()
+                            },
+                            .cancel()
+                        ])
+                    }
                 }
             }
             ,trailing: NavigationLink(destination: DEHMap(), tag: 2, selection: $selection) {
@@ -120,6 +145,21 @@ struct ContentView: View {
         .onAppear(){
 print("123")
         }
+    }
+}
+extension ContentView {
+    func openMakeURL() {
+        let url = URL(string: "dehMakeII://")!
+        UIApplication.shared.open(url, options: [:], completionHandler: {(success:Bool) in
+            if(success){}
+            else {
+                let downloadURL = URL(string:"")!
+                UIApplication.shared.open(downloadURL, options: [:], completionHandler: {(sucess:Bool) in
+                    print(success)
+                })
+                
+            }
+        })
     }
 }
 
