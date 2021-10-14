@@ -47,5 +47,5 @@
 "What do you want to do?" = "你想讓我做什麼？";
 "History" = "紀錄";
 "Game" = "遊戲";
-"public" = "公用";
-"private" = "私用";
+"public" = "公開";
+"private" = "私有";
