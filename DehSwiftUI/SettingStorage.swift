@@ -31,6 +31,7 @@ final class SettingStorage:ObservableObject{
         else{
             XOIs = emptyXOIs
         }
+        print(XOIs)
         
     }
     // 讀取跟讀取設定 當變更時所有用到的人都會自動變更
