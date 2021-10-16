@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 class Group:Identifiable,Decodable,Hashable{
+    
     var id:Int
     var name:String
     enum CodingKeys: String, CodingKey{

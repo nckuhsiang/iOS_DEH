@@ -67,12 +67,11 @@ struct ContentView: View {
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
     @State var isShowingSheet = false
-    @State var notLogin = true
+    @State var isShowingAlert = false
     @State var searchTitle = "title"
     @EnvironmentObject var settingStorage:SettingStorage
     //若使用classModel的值則必須使用observation pattern
     //https://stackoverflow.com/questions/60744017/how-do-i-update-a-text-label-in-swiftui
-    
     @State var selection: Int? = nil
     var body: some View {
         NavigationView {
@@ -94,39 +93,42 @@ struct ContentView: View {
                         Image("member_setting")
                             .foregroundColor(.blue)
                     }
-                    Button(action:{
-                        if(self.settingStorage.loginState == true) {
-                            isShowingSheet = true
-                            notLogin = false
+                    ZStack {
+                        Button {
+                            isShowingSheet = settingStorage.loginState
+                            isShowingAlert = !settingStorage.loginState
+                        } label: {
+                            Image(systemName: "ellipsis.circle.fill")
+                                .foregroundColor(.blue)
                         }
-                    }) {
-                        Image("more")
-                            .foregroundColor(.blue)
+                        .actionSheet(isPresented: $isShowingSheet) {
+                            ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
+                                .default(Text("Group".localized)) {
+                                    self.selection = 4
+                                },
+                                .cancel()
+                            ])
+                        }
+                        .alert(isPresented: $isShowingAlert) {() -> Alert in
+                            return Alert(title: Text("Please login first".localized),
+                                         dismissButton:.default(Text("OK".localized), action: {
+                                         })
+                                         )
+                            
+                        }
+                        NavigationLink(tag: 4, selection: $selection, destination: {GroupListView()}) {
+                        }
                     }
-                 
-                    .actionSheet(isPresented: $isShowingSheet) {
-                        ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
-                            .default(Text("Price".localized)) {
-                                
-                            },
-                            .default(Text("Group".localized)) {
-                                openMakeURL()
-                            },
-                            .cancel()
-                        ])
-                    }
+                    
                 }
-            }
-            ,trailing: NavigationLink(destination: DEHMap(), tag: 2, selection: $selection) {
-                HStack{
-                    NavigationLink(destination: GameView(), tag: 3, selection: $selection){
+            },trailing: NavigationLink(tag: 2, selection: $selection, destination: {DEHMap()}) {
+                HStack {
+                    NavigationLink(tag: 3, selection: $selection, destination: {GameView()}){
                         Button(action: {
                             print("game tap")
                             self.selection = 3
                         }) {
                             Image(systemName: "gamecontroller")
-//                                .renderingMode(.original)
-//                                .foregroundColor(.white)
                         }
                     }
                     Button(action: {
@@ -139,6 +141,7 @@ struct ContentView: View {
                 }
             })
         }
+        
         //this line to avoid lots of warning
         //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
         .navigationViewStyle(StackNavigationViewStyle())
@@ -147,21 +150,7 @@ print("123")
         }
     }
 }
-extension ContentView {
-    func openMakeURL() {
-        let url = URL(string: "dehMakeII://")!
-        UIApplication.shared.open(url, options: [:], completionHandler: {(success:Bool) in
-            if(success){}
-            else {
-                let downloadURL = URL(string:"")!
-                UIApplication.shared.open(downloadURL, options: [:], completionHandler: {(sucess:Bool) in
-                    print(success)
-                })
-                
-            }
-        })
-    }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

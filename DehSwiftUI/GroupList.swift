@@ -11,9 +11,6 @@
 import SwiftUI
 import Combine
 import Alamofire
-
-
-
 class GroupLists:Decodable{
     let results: [Group]?
     let eventList:[Group]?
@@ -26,9 +23,9 @@ struct GroupList: View {
     @State var groups:[Group] = []
     @Binding var group:Group
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var body: some View {
+    var body: some View{
         List{
-            ForEach(self.groups){group in
+            ForEach(self.groups) {group in
                 Button(action:{
                     print(group.name)
                     self.group = group

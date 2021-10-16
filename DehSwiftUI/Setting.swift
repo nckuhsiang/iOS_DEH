@@ -74,7 +74,7 @@ struct Setting: View {
             .alert(isPresented: $loginTriggerAlert) {() -> Alert in
                         let greetingMessage = "Login Success".localized
                 return Alert(title: Text(greetingMessage),
-                             dismissButton:.default(Text("Ok"), action: {
+                             dismissButton:.default(Text("OK".localized), action: {
                                 UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
 
                                 self.presentationMode.wrappedValue.dismiss()
