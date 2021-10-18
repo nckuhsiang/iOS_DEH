@@ -2,7 +2,7 @@
 //  GroupMessageView.swift
 //  DehSwiftUI
 //
-//  Created by 陳家庠 on 2021/10/14.
+//  Created by 陳家庠 on 2021/10/17.
 //  Copyright © 2021 mmlab. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ struct GroupMessageView: View {
     }
 }
 
-struct GroupMessageList_Previews: PreviewProvider {
+struct GroupMessageView_Previews: PreviewProvider {
     static var previews: some View {
         GroupMessageView()
     }

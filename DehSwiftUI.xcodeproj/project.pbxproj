@@ -57,10 +57,12 @@
 		59CE6C152578E38200553EBA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C142578E38200553EBA /* Data.swift */; };
 		59FF3DC0259ABCC10011EAF7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7307A3D127182B1300E37E29 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307A3D027182B1300E37E29 /* GroupListView.swift */; };
-		731FF18927187BAF006F214B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF18827187BAF006F214B /* GroupMessageView.swift */; };
 		731FF18D27188874006F214B /* GroupSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF18C27188874006F214B /* GroupSearchView.swift */; };
 		73342FEF271188F300458A60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73342FEE271188F300458A60 /* StringExtension.swift */; };
 		73342FF22711894900458A60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73342FF42711894900458A60 /* Localizable.strings */; };
+		73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73917F54271C4DE000B4FAAD /* TextVIew.swift */; };
+		73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF300271C0D1000F6927B /* GroupMessageView.swift */; };
+		73FCF305271C118C00F6927B /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF304271C118C00F6927B /* GroupDetailView.swift */; };
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
 		B170233B2592F38300DF2167 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
@@ -121,11 +123,13 @@
 		59CE6C142578E38200553EBA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		7307A3D027182B1300E37E29 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
-		731FF18827187BAF006F214B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
 		731FF18C27188874006F214B /* GroupSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSearchView.swift; sourceTree = "<group>"; };
 		73342FEE271188F300458A60 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		73342FF32711894900458A60 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		73342FF52711894F00458A60 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		73917F54271C4DE000B4FAAD /* TextVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVIew.swift; sourceTree = "<group>"; };
+		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
+		73FCF304271C118C00F6927B /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
 		B170233A2592F38300DF2167 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				5961A0CF2577CAF60022CD72 /* testfile.swift */,
 				59CE6C142578E38200553EBA /* Data.swift */,
 				73342FF42711894900458A60 /* Localizable.strings */,
+				73917F54271C4DE000B4FAAD /* TextVIew.swift */,
 			);
 			path = DehSwiftUI;
 			sourceTree = "<group>";
@@ -253,8 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				7307A3D027182B1300E37E29 /* GroupListView.swift */,
-				731FF18827187BAF006F214B /* GroupMessageView.swift */,
 				731FF18C27188874006F214B /* GroupSearchView.swift */,
+				73FCF300271C0D1000F6927B /* GroupMessageView.swift */,
+				73FCF304271C118C00F6927B /* GroupDetailView.swift */,
 			);
 			path = GroupManagement;
 			sourceTree = "<group>";
@@ -356,7 +362,6 @@
 				5961A0C525776F550022CD72 /* XOI.swift in Sources */,
 				59CE6C122578D7BB00553EBA /* testfile.swift in Sources */,
 				5912967B263BCB59006D1F0A /* ChestModel.swift in Sources */,
-				731FF18927187BAF006F214B /* GroupMessageView.swift in Sources */,
 				5908F04226E8ABFE00931C01 /* GamePointModel.swift in Sources */,
 				5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */,
 				592F48E2259478E300C01722 /* TestMapView2.swift in Sources */,
@@ -366,6 +371,7 @@
 				5923E25E25B80B9B00371AB1 /* MediaMulti.swift in Sources */,
 				5908F04026E8949600931C01 /* GameMemberPoint.swift in Sources */,
 				59A65913257611020038AD61 /* AppDelegate.swift in Sources */,
+				73FCF305271C118C00F6927B /* GroupDetailView.swift in Sources */,
 				B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */,
 				59CE6C0C2578CC1D00553EBA /* Setting.swift in Sources */,
 				73342FEF271188F300458A60 /* StringExtension.swift in Sources */,
@@ -375,6 +381,7 @@
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
+				73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */,
 				594B3DEB25B2AF8300A3DF29 /* mediaExtensionList.swift in Sources */,
 				59B784B02591406F008F16B8 /* TestMapView.swift in Sources */,
 				7307A3D127182B1300E37E29 /* GroupListView.swift in Sources */,
@@ -402,6 +409,7 @@
 				59CACC652625B8CD00B0B0CC /* ImageWithNumber.swift in Sources */,
 				5912967D263BF6FC006D1F0A /* ChestDetailView.swift in Sources */,
 				59C4B92525B02EB100E05785 /* NetworkReceiveModel.swift in Sources */,
+				73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */,
 				59CE6C152578E38200553EBA /* Data.swift in Sources */,
 				59C4B92225B0269F00E05785 /* JsonPrintExtension.swift in Sources */,
 			);

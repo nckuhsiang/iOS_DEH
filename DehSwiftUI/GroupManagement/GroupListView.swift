@@ -14,55 +14,74 @@ struct GroupListView: View {
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
-    
+    init() {
+        
+    }
     var body: some View {
-        List (){
-                ForEach (self.groups) { group in
-                    Button {
-                        
-                    } label: {
-                        HStack{
-                            Image("leaderlisticon")
-                            VStack (alignment: .leading, spacing: 0){
-                                Text(group.name)
-                                    .font(.system(size: 20, weight: .medium, design: .default))
-                                    .foregroundColor(.black)
-                                Text("test")
-                                    .font(.system(size: 16, weight: .light, design: .default))
-                                    .foregroundColor(.black)
+        VStack(alignment: .center, spacing: 0) {
+            List (){
+                    ForEach (self.groups) { group in
+                        NavigationLink(tag: 3, selection: $selection) {
+                                GroupDetailView()
+                        } label: {
+                            Button {
+                                self.selection = 3
+                            } label: {
+                                ZStack {
+                                    HStack{
+                                        Image("leaderlisticon")
+                                        VStack (alignment: .leading, spacing: 0){
+                                            Text(group.name)
+                                                .font(.system(size: 20, weight: .medium, design: .default))
+                                                .foregroundColor(.black)
+                                            Text("test")
+                                                .font(.system(size: 16, weight: .light, design: .default))
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+                                }
                             }
+                        
                         }
+                        
+                    }
+            }
+            .onAppear(perform: {getGroupList()})
+            .navigationTitle("Group list".localized)
+            .navigationBarItems(trailing: HStack {
+                NavigationLink(tag: 1, selection: $selection) {
+                    GroupMessageView()
+                } label: {
+                    Button(action: {
+                            self.selection = 1
+                    }) {
+                        Image(systemName: "message.circle.fill")
+                            .foregroundColor(.blue)
                     }
                 }
+                    
+                NavigationLink(tag: 2, selection: $selection) {
+                    GroupSearchView()
+                } label: {
+                    Button(action: {
+                            self.selection = 2
+                    }) {
+                        Image(systemName: "magnifyingglass.circle.fill")
+                            .foregroundColor(.blue)
+                    }
+                }
+            })
+            Button {
+            } label: {
+                Text("Create a group")
+                    .frame(maxWidth: .infinity, minHeight: 50)
+                    .foregroundColor(.white)
+                    .background(Color.black)
+                    .font(.system(size: 30, weight: .bold, design: .default))
+            }
+            
         }
-        .onAppear(perform: {getGroupList()})
-        .navigationTitle("Group list".localized)
-        .navigationBarItems(trailing: HStack {
-            NavigationLink(tag: 1, selection: $selection) {
-                GroupMessageView()
-            } label: {
-                Button(action: {
-                        self.selection = 1
-                }) {
-                    Image(systemName: "message.circle.fill")
-                        .foregroundColor(.blue)
-                }
-            }
-                
-            NavigationLink(tag: 2, selection: $selection) {
-                GroupSearchView()
-            } label: {
-                Button(action: {
-                        self.selection = 2
-                }) {
-                    Image(systemName: "magnifyingglass.circle.fill")
-                        .foregroundColor(.blue)
-                }
-            }
-        })
-                               
     }
-        
 }
 extension GroupListView{
     func getGroupList(){
