@@ -98,7 +98,7 @@ extension SessionView{
 
 struct Session_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView(group: Group(id: -1, name: "testGroup"))
+        SessionView(group: Group(id: -1, name: "testGroup", leaderId: -1, info: ""))
             .environmentObject(SettingStorage())
     }
 }

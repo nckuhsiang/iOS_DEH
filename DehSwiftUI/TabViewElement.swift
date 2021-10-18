@@ -21,7 +21,7 @@ struct TabViewElement: View {
     @ObservedObject var locationManager = LocationManager()
     @State var selectSearchXOI = false
     @State private var cancellable: AnyCancellable?
-    @State var group = Group(id: 0, name: "-111")
+    @State var group = Group(id: 0, name: "-111", leaderId: 0, info: "")
     var body: some View {
         
         VStack{

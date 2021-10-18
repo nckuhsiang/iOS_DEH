@@ -29,12 +29,12 @@ struct GroupListView: View {
                             } label: {
                                 ZStack {
                                     HStack{
-                                        Image("leaderlisticon")
+                                        Image(String(group.leaderId) == settingStorage.userID ? "leaderrr": "leaderlisticon")
                                         VStack (alignment: .leading, spacing: 0){
                                             Text(group.name)
                                                 .font(.system(size: 20, weight: .medium, design: .default))
                                                 .foregroundColor(.black)
-                                            Text("test")
+                                            Text(String(group.leaderId) == settingStorage.userID ? "Leader": "Member")
                                                 .font(.system(size: 16, weight: .light, design: .default))
                                                 .foregroundColor(.black)
                                         }
@@ -96,7 +96,6 @@ extension GroupListView{
             .sink(receiveValue: {(values) in
                 print(values.debugDescription)
                 self.groups = values.value?.results ?? []
-                print(self.groups)
             })
     }
 }
