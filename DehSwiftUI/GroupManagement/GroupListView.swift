@@ -10,36 +10,33 @@ import SwiftUI
 import Combine
 import Alamofire
 struct GroupListView: View {
+    
     @State var selection: Int? = nil
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
-    init() {
-        
-    }
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             List (){
                     ForEach (self.groups) { group in
                         NavigationLink(tag: 3, selection: $selection) {
-                                GroupDetailView()
+                            GroupDetailView(group.name,group.info,(String(group.leaderId) == settingStorage.userID))
                         } label: {
                             Button {
                                 self.selection = 3
                             } label: {
-                                ZStack {
                                     HStack{
-                                        Image(String(group.leaderId) == settingStorage.userID ? "leaderrr": "leaderlisticon")
+                                        Image((String(group.leaderId) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
                                         VStack (alignment: .leading, spacing: 0){
                                             Text(group.name)
                                                 .font(.system(size: 20, weight: .medium, design: .default))
                                                 .foregroundColor(.black)
-                                            Text(String(group.leaderId) == settingStorage.userID ? "Leader": "Member")
+                                            Text((String(group.leaderId) == settingStorage.userID) ? "Leader":"Member")
                                                 .font(.system(size: 16, weight: .light, design: .default))
                                                 .foregroundColor(.black)
                                         }
                                     }
-                                }
                             }
                         
                         }
@@ -71,15 +68,19 @@ struct GroupListView: View {
                     }
                 }
             })
-            Button {
+            NavigationLink(tag: 4, selection: $selection) {
+                GroupDetailView("","",true)
             } label: {
-                Text("Create a group")
-                    .frame(maxWidth: .infinity, minHeight: 50)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.system(size: 30, weight: .bold, design: .default))
+                Button {
+                    self.selection = 4
+                } label: {
+                    Text("Create a group")
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.system(size: 30, weight: .bold, design: .default))
+                }
             }
-            
         }
     }
 }

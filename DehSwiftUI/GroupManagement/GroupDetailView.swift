@@ -11,10 +11,18 @@ import SwiftUI
 
 struct GroupDetailView: View {
     
+    @State var isLeader:Bool = false
+    @State var buttonText:String = "Edit"
     @State var groupName:String = ""
     @State var groupInfo:String = ""
-    @State private var message = ""
     @State private var textStyle = UIFont.TextStyle.body
+
+    init(_ groupName:String, _ groupInfo:String, _ isLeader:Bool) {
+        self.groupName = groupName
+        self.groupInfo = groupInfo
+        self.isLeader = isLeader
+        //if(groupName == "") {buttonText = "Create"}
+    }
     
     var body: some View {
         TabView {
@@ -24,23 +32,25 @@ struct GroupDetailView: View {
                         .font(.system(size: 20, weight: .medium, design: .default))
                         .padding(.leading)
                         .padding(.top)
+                    
                     TextField("", text: $groupName)
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
                         .padding(.top)
+                        .disabled(isLeader)
                 }
                 Text("Group information：")
                     .font(.system(size: 20, weight: .medium, design: .default))
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
                     .padding(.leading)
-                TextView(text: $message, textStyle: $textStyle)
+                TextView(text: $groupInfo, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
+                    .disabled(isLeader)
                 Button {
-                    
                 } label: {
-                    Text("Edit")
+                    Text("\(buttonText)")
                         .frame(minWidth:50, minHeight: 30)
                         .font(.system(size: 20, weight: .regular, design: .default))
                         .padding(.horizontal)
@@ -48,6 +58,7 @@ struct GroupDetailView: View {
                         .background(Color.orange)
                 }
                 .padding()
+                .hidden(isLeader)
             }
                 .tabItem {
                     Image("file")
@@ -61,11 +72,12 @@ struct GroupDetailView: View {
         
         }
     }
+        
 }
 
 struct GroupDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetailView()
+        GroupDetailView("","",true)
     }
 }
 
