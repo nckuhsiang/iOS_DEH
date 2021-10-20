@@ -8,22 +8,18 @@
 
 import SwiftUI
 
-
 struct GroupDetailView: View {
     
-    @State var isLeader:Bool = false
-    @State var buttonText:String = "Edit"
-    @State var groupName:String = ""
-    @State var groupInfo:String = ""
+    @State var state:Bool
+    @State var group:Group
     @State private var textStyle = UIFont.TextStyle.body
-
-    init(_ groupName:String, _ groupInfo:String, _ isLeader:Bool) {
-        self.groupName = groupName
-        self.groupInfo = groupInfo
-        self.isLeader = isLeader
-        //if(groupName == "") {buttonText = "Create"}
-    }
+    @EnvironmentObject var settingStorage:SettingStorage
     
+    init(_ group:Group,_ state:Bool) {
+        self.group = group
+        self.state = true
+        
+    }
     var body: some View {
         TabView {
             VStack(alignment: .leading, spacing: 0) {
@@ -32,33 +28,41 @@ struct GroupDetailView: View {
                         .font(.system(size: 20, weight: .medium, design: .default))
                         .padding(.leading)
                         .padding(.top)
-                    
-                    TextField("", text: $groupName)
+                                    
+                    TextField("", text: $group.name)
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
                         .padding(.top)
-                        .disabled(isLeader)
+                        .disabled(state)
+                        .onAppear {setting()}
+                        
                 }
                 Text("Group information：")
                     .font(.system(size: 20, weight: .medium, design: .default))
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
                     .padding(.leading)
-                TextView(text: $groupInfo, textStyle: $textStyle)
+                TextView(text: $group.info, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
-                    .disabled(isLeader)
-                Button {
-                } label: {
-                    Text("\(buttonText)")
-                        .frame(minWidth:50, minHeight: 30)
-                        .font(.system(size: 20, weight: .regular, design: .default))
-                        .padding(.horizontal)
-                        .foregroundColor(.black)
-                        .background(Color.orange)
+                    .disabled(state)
+                    .onAppear {setting()}
+                ZStack {
+                    Button {
+                    } label: {
+                        Text(isCreater() ? "Create":"Edit")
+                            .frame(minWidth:50, minHeight: 30)
+                            .font(.system(size: 20, weight: .regular, design: .default))
+                            .padding(.horizontal)
+                            .foregroundColor(.black)
+                            .background(Color.orange)
+                            .disabled(state)
+                            .hidden(state)
+                            .onAppear {setting()}
+                    }
+                    .padding()
                 }
-                .padding()
-                .hidden(isLeader)
+                
             }
                 .tabItem {
                     Image("file")
@@ -72,12 +76,27 @@ struct GroupDetailView: View {
         
         }
     }
-        
+}
+extension GroupDetailView {
+    func isLeader() -> Bool{
+        if(settingStorage.userID == String(group.leaderId)) {return true}
+        else {return false}
+    }
+    func isCreater() -> Bool {
+        if(group.id == -1) {return true}
+        else {return false}
+    }
+    func setting() {
+        if(isLeader() || isCreater()){
+            self.state = false
+        }
+    }
+    
 }
 
 struct GroupDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetailView("","",true)
+        GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""),true)
     }
 }
 

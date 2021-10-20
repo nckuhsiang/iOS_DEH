@@ -12,6 +12,7 @@ import Alamofire
 struct GroupListView: View {
     
     @State var selection: Int? = nil
+    @State var cellSelection: Int? = nil
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
@@ -20,11 +21,11 @@ struct GroupListView: View {
         VStack(alignment: .center, spacing: 0) {
             List (){
                     ForEach (self.groups) { group in
-                        NavigationLink(tag: 3, selection: $selection) {
-                            GroupDetailView(group.name,group.info,(String(group.leaderId) == settingStorage.userID))
+                        NavigationLink(tag: group.id, selection: $cellSelection) {
+                            GroupDetailView(group,true)
                         } label: {
                             Button {
-                                self.selection = 3
+                                self.cellSelection = group.id
                             } label: {
                                     HStack{
                                         Image((String(group.leaderId) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
@@ -68,11 +69,11 @@ struct GroupListView: View {
                     }
                 }
             })
-            NavigationLink(tag: 4, selection: $selection) {
-                GroupDetailView("","",true)
+            NavigationLink(tag: 3, selection: $selection) {
+                GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""),true)
             } label: {
                 Button {
-                    self.selection = 4
+                    self.selection = 3
                 } label: {
                     Text("Create a group")
                         .frame(maxWidth: .infinity, minHeight: 50)
