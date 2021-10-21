@@ -7,18 +7,26 @@
 //
 
 import SwiftUI
+import Alamofire
+import Combine
+
+class GroupMemberList:Decodable {
+    let result:[GroupMember]
+}
+
 
 struct GroupDetailView: View {
     
-    @State var state:Bool
+    @State var invitedMember:String = ""
+    @State var state:Bool = true
     @State var group:Group
     @State private var textStyle = UIFont.TextStyle.body
     @EnvironmentObject var settingStorage:SettingStorage
+    @State private var cancellable: AnyCancellable?
+    @State var groupMembers:[GroupMember] = []
     
-    init(_ group:Group,_ state:Bool) {
+    init(_ group:Group) {
         self.group = group
-        self.state = true
-        
     }
     var body: some View {
         TabView {
@@ -68,13 +76,31 @@ struct GroupDetailView: View {
                     Image("file")
                     Text("Group info")
                 }
-            Text("test")
+            VStack {
+                HStack {
+                    Text("Invite member:")
+                    TextField( "", text: $invitedMember)
+                        .textFieldStyle(.roundedBorder)
+                }
+                .padding(.vertical)
+                List {
+                    ForEach(self.groupMembers) { groupMember in
+                        HStack {
+                            Image(groupMember.memberRole == "leader" ? "leaderrr":"leaderlisticon")
+                            Text(groupMember.memberName)
+                        }
+                       
+                        
+                    }
+                }
+            }
                 .tabItem {
                     Image("groupmember")
                     Text("Group member")
                 }
         
         }
+        .onAppear(perform: {getGroupMemberList()})
     }
 }
 extension GroupDetailView {
@@ -91,12 +117,28 @@ extension GroupDetailView {
             self.state = false
         }
     }
+    func getGroupMemberList() {
+        let url = GroupGetMemberUrl
+        let temp = [
+            "username": "\(settingStorage.account)",
+            "group_id": "\(group.id)",
+            "coi_name": coi
+        ]
+        let parameters = ["member_info":temp]
+        let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                print(values.debugDescription)
+                print(values.value)
+                groupMembers = values.value?.result ?? []
+            })
+    }
     
 }
 
 struct GroupDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""),true)
+        GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""))
     }
 }
 

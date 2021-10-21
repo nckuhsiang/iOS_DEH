@@ -35,3 +35,15 @@ class Group:Identifiable,Decodable,Hashable{
         return lhs.id == rhs.id
     }
 }
+class GroupMember:Decodable,Identifiable {
+    var memberName:String
+    var memberRole:String
+    enum CodingKeys:String, CodingKey {
+        case memberName = "member_name"
+        case memberRole = "member_role"
+    }
+    init(memberName:String, memberRole:String) {
+        self.memberName = memberName
+        self.memberRole = memberRole
+    }
+}

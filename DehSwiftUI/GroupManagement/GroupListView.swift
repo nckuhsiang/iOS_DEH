@@ -19,10 +19,10 @@ struct GroupListView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            List (){
+            List {
                     ForEach (self.groups) { group in
                         NavigationLink(tag: group.id, selection: $cellSelection) {
-                            GroupDetailView(group,true)
+                            GroupDetailView(group)
                         } label: {
                             Button {
                                 self.cellSelection = group.id
@@ -39,10 +39,8 @@ struct GroupListView: View {
                                         }
                                     }
                             }
-                        
                         }
-                        
-                    }
+                }
             }
             .onAppear(perform: {getGroupList()})
             .navigationTitle("Group list".localized)
@@ -70,7 +68,7 @@ struct GroupListView: View {
                 }
             })
             NavigationLink(tag: 3, selection: $selection) {
-                GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""),true)
+                GroupDetailView(Group(id: -1, name: "", leaderId: -1, info: ""))
             } label: {
                 Button {
                     self.selection = 3
