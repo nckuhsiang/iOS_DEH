@@ -10,11 +10,6 @@ import SwiftUI
 import Alamofire
 import Combine
 
-class GroupMemberList:Decodable {
-    let result:[GroupMember]
-}
-
-
 struct GroupDetailView: View {
     
     @State var invitedMember:String = ""
@@ -81,9 +76,17 @@ struct GroupDetailView: View {
                     Text("Invite member:")
                     TextField( "", text: $invitedMember)
                         .textFieldStyle(.roundedBorder)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .foregroundColor(Color.init(UIColor(rgba: darkGreen)))
+                            .padding(.trailing)
+                    }
                 }
                 .padding(.vertical)
-                List {
+                .padding(.leading)
+                List(){
                     ForEach(self.groupMembers) { groupMember in
                         HStack {
                             Image(groupMember.memberRole == "leader" ? "leaderrr":"leaderlisticon")
@@ -93,6 +96,7 @@ struct GroupDetailView: View {
                         
                     }
                 }
+                .listStyle(PlainListStyle())
             }
                 .tabItem {
                     Image("groupmember")
@@ -119,21 +123,23 @@ extension GroupDetailView {
     }
     func getGroupMemberList() {
         let url = GroupGetMemberUrl
-        let temp = [
-            "username": "\(settingStorage.account)",
-            "group_id": "\(group.id)",
-            "coi_name": coi
-        ]
-        let parameters = ["member_info":temp]
+        let parameters =
+            ["group_id":"\(group.id)",
+            "coi_name":coi,
+            "user_name":settingStorage.account]
+        
         let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
                 print(values.debugDescription)
-                print(values.value)
                 groupMembers = values.value?.result ?? []
             })
     }
     
+}
+
+class GroupMemberList:Decodable {
+    let result:[GroupMember]
 }
 
 struct GroupDetailView_Previews: PreviewProvider {

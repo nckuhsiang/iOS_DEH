@@ -42,6 +42,7 @@ struct GroupListView: View {
                         }
                 }
             }
+            .listStyle(PlainListStyle())
             .onAppear(perform: {getGroupList()})
             .navigationTitle("Group list".localized)
             .navigationBarItems(trailing: HStack {
@@ -76,11 +77,12 @@ struct GroupListView: View {
                     Text("Create a group")
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
-                        .background(Color.black)
+                        .background(Color.init(UIColor(rgba: darkGreen)))
                         .font(.system(size: 30, weight: .bold, design: .default))
                 }
             }
         }
+
     }
 }
 extension GroupListView{
