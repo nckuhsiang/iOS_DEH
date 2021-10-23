@@ -47,3 +47,14 @@ class GroupMember:Decodable,Identifiable {
         self.memberRole = memberRole
     }
 }
+
+class GroupName:Decodable {
+    var name:String
+    
+    enum CodingKeys:String, CodingKey {
+        case name = "group_name"
+    }
+    init(name:String) {
+        self.name = name
+    }
+}

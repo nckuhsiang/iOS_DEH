@@ -27,7 +27,7 @@ struct GroupDetailView: View {
         TabView {
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    Text("Group name：")
+                    Text("Group name:".localized)
                         .font(.system(size: 20, weight: .medium, design: .default))
                         .padding(.leading)
                         .padding(.top)
@@ -40,7 +40,7 @@ struct GroupDetailView: View {
                         .onAppear {setting()}
                         
                 }
-                Text("Group information：")
+                Text("Group information:".localized)
                     .font(.system(size: 20, weight: .medium, design: .default))
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
@@ -53,7 +53,7 @@ struct GroupDetailView: View {
                 ZStack {
                     Button {
                     } label: {
-                        Text(isCreater() ? "Create":"Edit")
+                        Text(isCreater() ? "Create".localized:"Edit".localized)
                             .frame(minWidth:50, minHeight: 30)
                             .font(.system(size: 20, weight: .regular, design: .default))
                             .padding(.horizontal)
@@ -69,11 +69,11 @@ struct GroupDetailView: View {
             }
                 .tabItem {
                     Image("file")
-                    Text("Group info")
+                    Text("Group info".localized)
                 }
             VStack {
                 HStack {
-                    Text("Invite member:")
+                    Text("Invite member:".localized)
                     TextField( "", text: $invitedMember)
                         .textFieldStyle(.roundedBorder)
                     Button {
@@ -100,7 +100,7 @@ struct GroupDetailView: View {
             }
                 .tabItem {
                     Image("groupmember")
-                    Text("Group member")
+                    Text("Group member".localized)
                 }
         
         }
@@ -125,8 +125,7 @@ extension GroupDetailView {
         let url = GroupGetMemberUrl
         let parameters =
             ["group_id":"\(group.id)",
-            "coi_name":coi,
-            "user_name":settingStorage.account]
+            "coi_name":coi]
         
         let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher

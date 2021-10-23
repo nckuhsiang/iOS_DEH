@@ -14,28 +14,31 @@ struct GroupSearchView: View {
     
     @EnvironmentObject var settingStorage:SettingStorage
     @State var searchText:String = ""
-    @State var groupNameList:[String] = []
+    @State var groupNameList:[GroupName] = []
     @State private var cancellable: AnyCancellable?
     
     var body: some View {
         VStack {
             SearchBar(text: $searchText)
             List {
-                ForEach(self.groupNameList,id: \.self) { groupName in
-                    Button {
-                        
-                    } label: {
-                        Text(groupName)
+                ForEach(self.groupNameList,id: \.self.name) { groupName in
+                    if(groupName.name.hasPrefix(searchText)) {
+                        Button {
+                            
+                        } label: {
+                            Text(groupName.name)
+                        }
                     }
                 }
             }
+            .listStyle(PlainListStyle())
         }
         .onAppear {getGroupNameList()}
     }
 }
 extension GroupSearchView {
     func getGroupNameList() {
-        let url = GroupGetGroupUrl
+        let url = GroupGetListUrl
         print(settingStorage.account)
         let parameters = ["username":settingStorage.account,
                           "coi_name":coi]
@@ -43,6 +46,7 @@ extension GroupSearchView {
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
                 print(values.debugDescription)
+                self.groupNameList = values.value?.result ?? []
             })
     }
 }
@@ -50,7 +54,7 @@ extension GroupSearchView {
 
 
 struct GroupNameList:Decodable{
-    let result:[Group]
+    let result:[GroupName]
 }
 
 
@@ -64,12 +68,15 @@ struct SearchBar: View {
     @State private var isEditing = false
     var body: some View {
         HStack {
-            TextField("Search ...", text: $text)
-                .padding(7)
-                .padding(.horizontal, 25)
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+                .padding(.leading, 8)
+            TextField("Search ...".localized, text: $text)
+                .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
-                .padding(.horizontal, 10)
+                .padding(.vertical)
+                .padding(.trailing)
                 .onTapGesture {
                     self.isEditing = true
                 }
@@ -77,8 +84,10 @@ struct SearchBar: View {
                 Button(action: {
                     self.isEditing = false
                     self.text = ""
+                    // Dismiss the keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }) {
-                    Text("Cancel")
+                    Text("Cancel".localized)
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))

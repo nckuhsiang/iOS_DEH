@@ -33,7 +33,7 @@ struct GroupListView: View {
                                             Text(group.name)
                                                 .font(.system(size: 20, weight: .medium, design: .default))
                                                 .foregroundColor(.black)
-                                            Text((String(group.leaderId) == settingStorage.userID) ? "Leader":"Member")
+                                            Text((String(group.leaderId) == settingStorage.userID) ? "Leader".localized:"Member".localized)
                                                 .font(.system(size: 16, weight: .light, design: .default))
                                                 .foregroundColor(.black)
                                         }
@@ -74,7 +74,7 @@ struct GroupListView: View {
                 Button {
                     self.selection = 3
                 } label: {
-                    Text("Create a group")
+                    Text("Create a group".localized)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
                         .background(Color.init(UIColor(rgba: darkGreen)))

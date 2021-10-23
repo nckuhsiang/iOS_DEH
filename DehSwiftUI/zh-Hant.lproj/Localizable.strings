@@ -7,9 +7,7 @@
 */
 "My Favorite" = "我的最愛";
 "HI, " = "您好, ";
-"Searched Xois" = "附近景點/景線/景區";
-"Group Interests" = "群組景點/景線/景區";
-"My Xois" = "我的景點/景線/景區";
+
 
 "Advanced Setting" = "進階設定";
 "Advanced Search" = "進階搜尋";
@@ -25,16 +23,19 @@
 "login" = "登入";
 "Login" = "登入";
 "Settings" = "設定";
+"error" = "錯誤";
 
 
+
+
+"Searched Xois" = "附近景點/景線/景區";
+"Group Interests" = "群組景點/景線/景區";
+"My Xois" = "我的景點/景線/景區";
 "Select Search XOIs" = "請選擇搜尋景點/景線/景區";
 "POI" = "景點";
 "LOI" = "景線";
 "AOI" = "景區";
 "SOI" = "主題故事";
-"error" = "錯誤";
-
-
 "Group POI" = "群組景點";
 "Group LOI" = "群組景線";
 "Group AOI" = "群組景區";
@@ -56,4 +57,16 @@
 "Select more options" = "更多選項";
 "Please login first" = "請先登入";
 "Group list" = "群組清單";
+"Create a group" = "創建群組";
+"Group member" = "群組成員";
+"Invite member:" = "邀請成員";
+"Group info" = "群組資訊";
+"Create" = "創建";
+"Edit" = "編輯";
+"Group information:" = "群組資訊：";
+"Group name:" = "群組名稱：";
+"Search ..." = "搜尋 ...";
+"Member" = "組員";
+"Leader" = "組長";
+
 

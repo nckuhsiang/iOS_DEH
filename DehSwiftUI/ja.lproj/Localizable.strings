@@ -34,8 +34,6 @@
 "AOI" = "エリア";
 "SOI" = "ストーリー";
 "error" = "エラー";
-
-
 "Group POI" = "グループ管理スポット";
 "Group LOI" = "グループ管理ルート";
 "Group AOI" = "グループ管理エリア";
@@ -46,3 +44,23 @@
 "Group My SOI" = "マイグループ管理ストーリー";
 "public" = "公衆";
 "private" = "私設";
+
+"Price" = "価格";
+"Group" = "グループ";
+"OK" = "わかった";
+"Select more options" = "その他のオプションを選択";
+"Please login first" = "最初にログインしてください";
+"Group list" = "グループリスト";
+"Create a group" = "グループを作成する";
+"Group member" = "グループメンバー";
+"Invite member:" = "メンバーを招待する：";
+"Group info" = "グループ情報";
+"Create" = "作成";
+"Edit" = "編集";
+"Group information:" = "グループ情報：";
+"Group name:" = "グループ名：";
+"Search ..." = "検索 ...";
+"Member" = "メンバー";
+"Leader" = "リーダー";
+
+
