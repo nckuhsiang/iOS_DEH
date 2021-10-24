@@ -91,7 +91,7 @@ extension GroupListView{
         let parameters:[String:String] = [
             "user_id": "\(settingStorage.userID)",
             "coi_name": coi,
-            "language": "中文",
+            "language": language,
         ]
         let publisher:DataResponsePublisher<GroupLists> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher

@@ -10,10 +10,10 @@ import SwiftUI
 import Alamofire
 
 class NetworkConnector{
+    
     func getDataPublisherDecodable<T:Decodable>(url: String, para: Parameters) ->  DataResponsePublisher<T> {
         return AF.request(url, method: .post, parameters: para)
             .publishDecodable(type: T.self, queue: .main)
-            
     }
     func getDataPublisherData(url: String, para: Parameters) ->  DataResponsePublisher<XOI> {
         return AF.request(url, method: .post, parameters: para)

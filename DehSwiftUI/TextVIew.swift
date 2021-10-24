@@ -20,11 +20,24 @@ struct TextView: UIViewRepresentable {
         textView.layer.borderWidth = 0.15
         textView.layer.cornerRadius = 5.0
         textView.isUserInteractionEnabled = true
+        textView.delegate = context.coordinator
         return textView
     }
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
         uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
     }
-    
+    func makeCoordinator() -> Coordinator {
+        Coordinator($text)
+    }
+}
+
+class Coordinator: NSObject, UITextViewDelegate {
+    var text: Binding<String>
+    init(_ text: Binding<String>) {
+        self.text = text
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        self.text.wrappedValue = textView.text
+    }
 }
