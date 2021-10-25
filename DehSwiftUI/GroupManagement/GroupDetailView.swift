@@ -9,14 +9,18 @@
 import SwiftUI
 import Alamofire
 import Combine
+import simd
 
 struct GroupDetailView: View {
     
-    @State var invitedMember:String = ""
-    @State var state:Bool = true
+    @State var invited_member_name:String = ""
+    @State var textstate:Bool = true
+    @State var buttonstate:Bool = true
+    @State var buttontext:String = ""
+    @State var alertstate:Bool = false
+    @State var alerttext:String = ""
+    
     @State var group:Group
-    @State var showAlert:Bool = false
-    @State var createSucessed:Bool? = false
     @State private var textStyle = UIFont.TextStyle.body
     @State private var cancellable: AnyCancellable?
     @State var groupMembers:[GroupMember] = []
@@ -38,8 +42,8 @@ struct GroupDetailView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
                         .padding(.top)
-                        .disabled(state)
-                        .onAppear {setting()}
+                        .disabled(textstate)
+                        .onAppear {}
                         
                 }
                 Text("Group information:".localized)
@@ -50,31 +54,49 @@ struct GroupDetailView: View {
                 TextView(text: $group.info, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
-                    .disabled(state)
-                    .onAppear {setting()}
+                    .disabled(textstate)
+                    .onAppear {}
                     Button {
                         if(isCreater()) {
-                            createGroup()
-                            self.showAlert = true
+                            CreateGroup()
+                            self.alertstate = true
                             
                         }
+                        if(isLeader()) {
+                            if(buttontext == "Edit") {
+                                self.textstate = false
+                                buttontext = "Save".localized
+                            }
+                            else {
+                                UpdateGroup()
+                                self.alertstate = true
+                            }
+                        }
                     } label: {
-                        Text(isCreater() ? "Create".localized:"Edit".localized)
+                        Text(buttontext)
                             .frame(minWidth:50, minHeight: 30)
                             .font(.system(size: 20, weight: .regular, design: .default))
                             .padding(.horizontal)
                             .foregroundColor(.black)
                             .background(Color.orange)
-                            .disabled(state)
-                            .hidden(state)
-                            .onAppear {setting()}
+                            .disabled(buttonstate)
+                            .hidden(buttonstate)
+                            .onAppear {
+                                if(isCreater()) {
+                                    self.buttonstate = false
+                                    self.textstate = false
+                                    buttontext = "Create".localized
+                                }
+                                else if(isLeader()) {
+                                    self.buttonstate = false
+                                    buttontext = "Edit".localized
+                                }
+                            }
                     }
                     .padding()
-                    .alert(isPresented: $showAlert) { () -> Alert in
-                        return Alert(title: Text(createSucessed! ? "Creat Group successed":"Creat Group failed"),
-                                         dismissButton:.default(Text("OK".localized), action:{
-//                            NavigationLink("", tag: true, selection: $createSucessed, destination: {GroupListView()})
-                        }))
+                    .alert(isPresented: $alertstate) { () -> Alert in
+                        return Alert(title: Text(alerttext),
+                                         dismissButton:.default(Text("OK".localized), action:{}))
                     }
             }
                 .tabItem {
@@ -85,14 +107,19 @@ struct GroupDetailView: View {
                 HStack {
                     if(isLeader()) {
                         Text("Invite member:".localized)
-                        TextField( "", text: $invitedMember)
+                        TextField( "", text: $invited_member_name)
                             .textFieldStyle(.roundedBorder)
                         Button {
-                            
+                            InviteGroupMember()
+                            self.alertstate = true
                         } label: {
                             Image(systemName: "plus.circle")
                                 .foregroundColor(Color.init(UIColor(rgba: darkGreen)))
                                 .padding(.trailing)
+                        }
+                        .alert(isPresented: $alertstate) { () -> Alert in
+                            return Alert(title: Text(alerttext),
+                                             dismissButton:.default(Text("OK".localized), action:{}))
                         }
                     }
                 }
@@ -106,8 +133,6 @@ struct GroupDetailView: View {
                             Image(groupMember.memberRole == "leader" ? "leaderrr":"leaderlisticon")
                             Text(groupMember.memberName)
                         }
-                       
-                        
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -132,11 +157,6 @@ extension GroupDetailView {
         if(group.id == -1) {return true}
         else {return false}
     }
-    func setting() {
-        if(isLeader() || isCreater()){
-            self.state = false
-        }
-    }
     func getGroupMemberList() {
         let url = GroupGetMemberUrl
         let parameters =
@@ -150,46 +170,70 @@ extension GroupDetailView {
                 groupMembers = values.value?.result ?? []
             })
     }
-    
-    func createGroup() {
+    func CreateGroup() {
         let url = GroupCreatUrl
         let temp = """
-        {"group_name":"\(group.name)",
+        {
+            "group_name":"\(group.name)",
             "group_leader_name":"\(settingStorage.account)",
             "group_info":"\(group.info)",
             "language": "\(language)",
             "verification": "0",
             "open":"1",
-            "coi_name":"\(coi)"}
+            "coi_name":"\(coi)"
+        }
 """
         let parameters:[String:String] = ["group_information":temp]
-        let publisher:DataResponsePublisher<NewGroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                let message = values.value?.message ?? ""
-                if(message == "create group successed!") { createSucessed = true }
-                else { createSucessed = false }
+                alerttext = values.value?.message ?? ""
+                
             })
     }
-    func inviteGroupMember() {
+    func InviteGroupMember() {
         let url = GroupInviteUrl
         let temp = """
-        { "sender_name" = "\(settingStorage.account)",
-
-"""
+        {
+            "sender_name":"\(settingStorage.account)",
+            "receiver_name":"\(invited_member_name)",
+            "group_id":"\(group.id)",
+            "message_type":"Invite",
+            "coi_name":"\(coi)"
+        }
+        """
+        let parameters = ["group_message_info":temp]
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: { (values) in
+                print(values.debugDescription)
+                alerttext = values.value?.message ?? ""
+            })
+    }
+    func UpdateGroup() {
+        let url = GroupUpdateUrl
+        let temp = """
+        {
+        "group_name": "\(group.name)",
+        "group_info": "\(group.info)",
+        "group_id": "\(group.id)"
+        }
+        """
+        let parameters = ["group_update_info":temp]
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: { (values) in
+                print(values.debugDescription)
+                alerttext = values.value?.message ?? ""
+            })
     }
     
 }
-
 class GroupMemberList:Decodable {
     let result:[GroupMember]
 }
 
-class NewGroupMessage:Decodable {
-    var message:String
-    
-}
 
 struct GroupDetailView_Previews: PreviewProvider {
     static var previews: some View {

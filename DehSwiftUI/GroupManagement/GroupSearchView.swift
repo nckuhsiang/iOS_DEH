@@ -14,6 +14,7 @@ struct GroupSearchView: View {
     
     @EnvironmentObject var settingStorage:SettingStorage
     @State var searchText:String = ""
+    @State var alertstate:Bool = false
     @State var groupNameList:[GroupName] = []
     @State private var cancellable: AnyCancellable?
     
@@ -21,19 +22,24 @@ struct GroupSearchView: View {
         VStack {
             SearchBar(text: $searchText)
             List {
-                ForEach(self.groupNameList,id: \.self.name) { groupName in
+                ForEach(self.groupNameList) { groupName in
                     if(groupName.name.hasPrefix(searchText)) {
                         Button {
-                            
+                            self.alertstate = true
                         } label: {
                             Text(groupName.name)
                         }
+                        .alert(isPresented: $alertstate) { () -> Alert in
+                            return Alert(title: Text("test"),
+                                             dismissButton:.default(Text("OK".localized), action:{}))
+                        }
                     }
                 }
+                
             }
-            .listStyle(PlainListStyle())
+                .listStyle(PlainListStyle())
         }
-        .onAppear {getGroupNameList()}
+            .onAppear { getGroupNameList() }
     }
 }
 extension GroupSearchView {
@@ -48,6 +54,10 @@ extension GroupSearchView {
                 print(values.debugDescription)
                 self.groupNameList = values.value?.result ?? []
             })
+    }
+    func GroupMemberJoin() {
+        let url = GroupMemberJoinUrl
+
     }
 }
 
@@ -96,3 +106,4 @@ struct SearchBar: View {
         }
     }
 }
+

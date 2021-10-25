@@ -7,10 +7,34 @@
 //
 
 import SwiftUI
+import Combine
+import Alamofire
 
 struct GroupMessageView: View {
+    
+    @State private var cancellable: AnyCancellable?
+    @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            
+        }
+    }
+}
+extension GroupMessageView {
+    func getGroupMessage() {
+        let url = GroupGetNotifiUrl
+        let temp = """
+        {
+            "username":"\(settingStorage.account)"
+        }
+        """
+        let parameters = ["notification":temp]
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: { (values) in
+                print(values.debugDescription)
+                
+            })
     }
 }
 

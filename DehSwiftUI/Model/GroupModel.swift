@@ -48,13 +48,17 @@ class GroupMember:Decodable,Identifiable {
     }
 }
 
-class GroupName:Decodable {
+class GroupName:Decodable,Identifiable {
     var name:String
+    init(name:String) {
+        self.name = name
+    }
     
     enum CodingKeys:String, CodingKey {
         case name = "group_name"
     }
-    init(name:String) {
-        self.name = name
-    }
+}
+
+class GroupMessage:Decodable {
+    var message:String
 }
