@@ -15,8 +15,11 @@ struct GroupDetailView: View {
     
     @State var invited_member_name:String = ""
     @State var textstate:Bool = true
+    
     @State var buttonstate:Bool = true
     @State var buttontext:String = ""
+    @State var isEdit:Bool = true
+    
     @State var alertstate:Bool = false
     @State var alerttext:String = ""
     
@@ -43,7 +46,6 @@ struct GroupDetailView: View {
                         .padding(.trailing)
                         .padding(.top)
                         .disabled(textstate)
-                        .onAppear {}
                         
                 }
                 Text("Group information:".localized)
@@ -55,19 +57,17 @@ struct GroupDetailView: View {
                     .padding(.horizontal)
                     .padding(.top, 5)
                     .disabled(textstate)
-                    .onAppear {}
                     Button {
                         if(isCreater()) {
                             CreateGroup()
-                            self.alertstate = true
-                            
                         }
                         if(isLeader()) {
-                            if(buttontext == "Edit".localized) {
+                            if(isEdit) {
                                 self.textstate = false
                                 buttontext = "Save".localized
+                                self.isEdit = false
                             }
-                            else if(buttontext == "Save".localized){
+                            else {
                                 UpdateGroup()
                                 self.alertstate = true
                             }
@@ -81,27 +81,27 @@ struct GroupDetailView: View {
                             .background(Color.orange)
                             .disabled(buttonstate)
                             .hidden(buttonstate)
-                            .onAppear {
-                                if(isCreater()) {
-                                    self.buttonstate = false
-                                    self.textstate = false
-                                    buttontext = "Create".localized
-                                }
-                                else if(isLeader()) {
-                                    self.buttonstate = false
-                                    buttontext = "Edit".localized
-                                }
-                            }
+
                     }
-                    .padding()
-                    .alert(isPresented: $alertstate) { () -> Alert in
-                        return Alert(title: Text(alerttext),
-                                         dismissButton:.default(Text("OK".localized), action:{}))
-                    }
+                        .padding()
+                        .alert(isPresented: $alertstate) { () -> Alert in
+                            return Alert(title: Text(alerttext),dismissButton:.default(Text("OK".localized), action:{}))
+                        }
             }
                 .tabItem {
                     Image("file")
                     Text("Group info".localized)
+                }
+                .onAppear {
+                    if(isCreater()) {
+                        self.buttonstate = false
+                        self.textstate = false
+                        buttontext = "Create".localized
+                    }
+                    else if(isLeader()) {
+                        self.buttonstate = false
+                        buttontext = "Edit".localized
+                    }
                 }
             VStack {
                 HStack {
@@ -117,14 +117,13 @@ struct GroupDetailView: View {
                                 .foregroundColor(Color.init(UIColor(rgba: darkGreen)))
                                 .padding(.trailing)
                         }
-                        .alert(isPresented: $alertstate) { () -> Alert in
-                            return Alert(title: Text(alerttext),
-                                             dismissButton:.default(Text("OK".localized), action:{}))
-                        }
+                            .alert(isPresented: $alertstate) { () -> Alert in
+                                return Alert(title: Text(alerttext),dismissButton:.default(Text("OK".localized), action:{}))
+                            }
                     }
                 }
-                .padding(.vertical)
-                .padding(.leading)
+                    .padding(.vertical)
+                    .padding(.leading)
                 Text("Group member")
                     .font(.system(size: 20, weight: .bold, design: .default))
                 List(){
@@ -135,17 +134,17 @@ struct GroupDetailView: View {
                         }
                     }
                 }
-                .listStyle(PlainListStyle())
+                    .listStyle(PlainListStyle())
+                    .onAppear {
+                        if(!isCreater()) {getGroupMemberList()}
+                    }
             }
                 .tabItem {
                     Image("groupmember")
                     Text("Group member".localized)
                 }
+        }
         
-        }
-        .onAppear {
-            if(!isCreater()) {getGroupMemberList()}
-        }
     }
 }
 extension GroupDetailView {
@@ -189,7 +188,7 @@ extension GroupDetailView {
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
                 alerttext = values.value?.message ?? ""
-                
+                self.alertstate = true
             })
     }
     func InviteGroupMember() {
