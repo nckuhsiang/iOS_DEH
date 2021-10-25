@@ -63,11 +63,11 @@ struct GroupDetailView: View {
                             
                         }
                         if(isLeader()) {
-                            if(buttontext == "Edit") {
+                            if(buttontext == "Edit".localized) {
                                 self.textstate = false
                                 buttontext = "Save".localized
                             }
-                            else {
+                            else if(buttontext == "Save".localized){
                                 UpdateGroup()
                                 self.alertstate = true
                             }
