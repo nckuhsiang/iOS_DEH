@@ -14,7 +14,10 @@ struct GroupSearchView: View {
     
     @EnvironmentObject var settingStorage:SettingStorage
     @State var searchText:String = ""
-    @State var alertstate:Bool = false
+    @State var reqAlertState:Bool = false
+    @State var resAlertState:Bool = false
+    @State var alertText:String = ""
+    @State var selectedGroup:String = ""
     @State var groupNameList:[GroupName] = []
     @State private var cancellable: AnyCancellable?
     
@@ -25,14 +28,21 @@ struct GroupSearchView: View {
                 ForEach(self.groupNameList) { groupName in
                     if(groupName.name.hasPrefix(searchText)) {
                         Button {
-                            self.alertstate = true
+                            self.selectedGroup = groupName.name
+                            self.reqAlertState = true
+                            MemberApplyMessage()
                         } label: {
                             Text(groupName.name)
                         }
-                        .alert(isPresented: $alertstate) { () -> Alert in
-                            return Alert(title: Text("test"),
-                                             dismissButton:.default(Text("OK".localized), action:{}))
-                        }
+                            .alert(isPresented: $reqAlertState) { () -> Alert in
+                                return Alert(title: Text("Join".localized),
+                                             message: Text("Join".localized + "\(selectedGroup)?"),
+                                             primaryButton: .default(Text("Yes".localized),
+                                                                     action: {                  self.resAlertState = true
+                                }),
+                                             secondaryButton: .default(Text("No".localized), action: {}))
+                            }
+                            
                     }
                 }
                 
@@ -40,6 +50,9 @@ struct GroupSearchView: View {
                 .listStyle(PlainListStyle())
         }
             .onAppear { getGroupNameList() }
+            .alert(isPresented: $resAlertState) {
+                return Alert(title:Text(alertText.localized),dismissButton: .default(Text("OK".localized), action: {}))
+            }
     }
 }
 extension GroupSearchView {
@@ -55,55 +68,32 @@ extension GroupSearchView {
                 self.groupNameList = values.value?.result ?? []
             })
     }
-    func GroupMemberJoin() {
+    func MemberApplyMessage() {
         let url = GroupMemberJoinUrl
+        
+        let temp = """
+        {
+            "sender_name": "\(settingStorage.account)",
+            "group_name": "\(selectedGroup)"
+        }
+"""
+        let parameters = ["join_info":temp]
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                print(values.debugDescription)
+                self.alertText = values.value?.message ?? ""
+            })
 
     }
 }
-
-
 
 struct GroupNameList:Decodable{
     let result:[GroupName]
 }
-
-
 struct GroupSearchView_Previews: PreviewProvider {
     static var previews: some View {
         GroupSearchView()
-    }
-}
-struct SearchBar: View {
-    @Binding var text: String
-    @State private var isEditing = false
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
-                .padding(.leading, 8)
-            TextField("Search ...".localized, text: $text)
-                .padding(10)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.vertical)
-                .padding(.trailing)
-                .onTapGesture {
-                    self.isEditing = true
-                }
-            if isEditing {
-                Button(action: {
-                    self.isEditing = false
-                    self.text = ""
-                    // Dismiss the keyboard
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }) {
-                    Text("Cancel".localized)
-                }
-                .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
-                .animation(.default)
-            }
-        }
     }
 }
 

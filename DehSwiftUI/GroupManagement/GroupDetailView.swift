@@ -13,15 +13,15 @@ import simd
 
 struct GroupDetailView: View {
     
-    @State var invited_member_name:String = ""
-    @State var textstate:Bool = true
+    @State var invitedMemberName:String = ""
+    @State var textState:Bool = true
     
-    @State var buttonstate:Bool = true
-    @State var buttontext:String = ""
+    @State var buttonState:Bool = true
+    @State var buttonText:String = ""
     @State var isEdit:Bool = true
     
-    @State var alertstate:Bool = false
-    @State var alerttext:String = ""
+    @State var alertState:Bool = false
+    @State var alertText:String = ""
     
     @State var group:Group
     @State private var textStyle = UIFont.TextStyle.body
@@ -45,8 +45,7 @@ struct GroupDetailView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
                         .padding(.top)
-                        .disabled(textstate)
-                        
+                        .disabled(textState)
                 }
                 Text("Group information:".localized)
                     .font(.system(size: 20, weight: .medium, design: .default))
@@ -56,37 +55,37 @@ struct GroupDetailView: View {
                 TextView(text: $group.info, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
-                    .disabled(textstate)
-                    Button {
-                        if(isCreater()) {
-                            CreateGroup()
-                        }
-                        if(isLeader()) {
-                            if(isEdit) {
-                                self.textstate = false
-                                buttontext = "Save".localized
-                                self.isEdit = false
-                            }
-                            else {
-                                UpdateGroup()
-                                self.alertstate = true
-                            }
-                        }
-                    } label: {
-                        Text(buttontext)
-                            .frame(minWidth:50, minHeight: 30)
-                            .font(.system(size: 20, weight: .regular, design: .default))
-                            .padding(.horizontal)
-                            .foregroundColor(.black)
-                            .background(Color.orange)
-                            .disabled(buttonstate)
-                            .hidden(buttonstate)
-
+                    .disabled(textState)
+                Button {
+                    if(isCreater()) {
+                        CreateGroup()
                     }
-                        .padding()
-                        .alert(isPresented: $alertstate) { () -> Alert in
-                            return Alert(title: Text(alerttext),dismissButton:.default(Text("OK".localized), action:{}))
+                    if(isLeader()) {
+                        if(isEdit) {
+                            self.textState = false
+                            buttonText = "Save".localized
+                            self.isEdit = false
                         }
+                        else {
+                            UpdateGroup()
+                            self.alertState = true
+                        }
+                    }
+                } label: {
+                    Text(buttonText)
+                        .frame(minWidth:50, minHeight: 30)
+                        .font(.system(size: 20, weight: .regular, design: .default))
+                        .padding(.horizontal)
+                        .foregroundColor(.black)
+                        .background(Color.orange)
+                        .disabled(buttonState)
+                        .hidden(buttonState)
+
+                }
+                    .padding()
+                    .alert(isPresented: $alertState) { () -> Alert in
+                        return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
+                    }
             }
                 .tabItem {
                     Image("file")
@@ -94,31 +93,31 @@ struct GroupDetailView: View {
                 }
                 .onAppear {
                     if(isCreater()) {
-                        self.buttonstate = false
-                        self.textstate = false
-                        buttontext = "Create".localized
+                        self.buttonState = false
+                        self.textState = false
+                        buttonText = "Create".localized
                     }
                     else if(isLeader()) {
-                        self.buttonstate = false
-                        buttontext = "Edit".localized
+                        self.buttonState = false
+                        buttonText = "Edit".localized
                     }
                 }
             VStack {
                 HStack {
                     if(isLeader()) {
                         Text("Invite member:".localized)
-                        TextField( "", text: $invited_member_name)
+                        TextField( "", text: $invitedMemberName)
                             .textFieldStyle(.roundedBorder)
                         Button {
                             InviteGroupMember()
-                            self.alertstate = true
+                            self.alertState = true
                         } label: {
                             Image(systemName: "plus.circle")
                                 .foregroundColor(Color.init(UIColor(rgba: darkGreen)))
                                 .padding(.trailing)
                         }
-                            .alert(isPresented: $alertstate) { () -> Alert in
-                                return Alert(title: Text(alerttext),dismissButton:.default(Text("OK".localized), action:{}))
+                            .alert(isPresented: $alertState) { () -> Alert in
+                                return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
                             }
                     }
                 }
@@ -187,8 +186,8 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alerttext = values.value?.message ?? ""
-                self.alertstate = true
+                alertText = values.value?.message ?? ""
+                self.alertState = true
             })
     }
     func InviteGroupMember() {
@@ -196,7 +195,7 @@ extension GroupDetailView {
         let temp = """
         {
             "sender_name":"\(settingStorage.account)",
-            "receiver_name":"\(invited_member_name)",
+            "receiver_name":"\(invitedMemberName)",
             "group_id":"\(group.id)",
             "message_type":"Invite",
             "coi_name":"\(coi)"
@@ -207,7 +206,7 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alerttext = values.value?.message ?? ""
+                alertText = values.value?.message ?? ""
             })
     }
     func UpdateGroup() {
@@ -224,7 +223,7 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alerttext = values.value?.message ?? ""
+                alertText = values.value?.message ?? ""
             })
     }
     

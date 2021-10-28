@@ -68,5 +68,15 @@
 "Search ..." = "搜尋 ...";
 "Member" = "組員";
 "Leader" = "組長";
+"Join" = "加入";
+"Yes" = "是";
+"No" = "否";
+"The group is not exist!" = "群組不存在！";
+"Can not send request for myself!" = "無法為自己發送請求！";
+"Member is in this group!" = "您已在群組中！";
+"Leader has invited the member!" = "組長已邀請您了！";
+"Member has allocated request" = "您你申請加入了";
+"Send request successfully!" = "申請加入成功！";
+
 
 
