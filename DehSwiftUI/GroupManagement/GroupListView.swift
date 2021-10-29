@@ -11,9 +11,11 @@ import Combine
 import Alamofire
 struct GroupListView: View {
     
+    @State var messageNotify: Bool = false
     @State var selection: Int? = nil
     @State var cellSelection: Int? = nil
     @State private var cancellable: AnyCancellable?
+    @State private var cancellable2: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
 
@@ -43,18 +45,17 @@ struct GroupListView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .onAppear(perform: {getGroupList()})
             .navigationTitle("Group list".localized)
             .navigationBarItems(trailing: HStack {
                 NavigationLink(tag: 1, selection: $selection) {
                     GroupMessageView()
                 } label: {
-                    Button(action: {
+                    Button {
                             self.selection = 1
-                    }) {
+                    } label: {
                         Image(systemName: "message.circle.fill")
-                            .foregroundColor(.blue)
-                    }
+                            .foregroundColor(messageNotify ? .red:.blue)
+                      }
                 }
                     
                 NavigationLink(tag: 2, selection: $selection) {
@@ -82,6 +83,10 @@ struct GroupListView: View {
                 }
             }
         }
+        .onAppear {
+            getGroupList()
+            getGroupMessage()
+        }
 
     }
 }
@@ -98,6 +103,24 @@ extension GroupListView{
             .sink(receiveValue: {(values) in
                 print(values.debugDescription)
                 self.groups = values.value?.results ?? []
+            })
+    }
+    func getGroupMessage() {
+        let url = GroupGetNotifiUrl
+        let temp = """
+        {
+            "username":"\(settingStorage.account)"
+        }
+        """
+        let parameters = ["notification":temp]
+        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable2 = publisher
+            .sink(receiveValue: { (values) in
+                print(values.debugDescription)
+                let message = values.value?.message ?? ""
+                if(message == "have notification") {
+                    messageNotify = true
+                }
             })
     }
 }

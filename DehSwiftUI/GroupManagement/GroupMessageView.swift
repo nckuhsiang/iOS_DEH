@@ -12,6 +12,7 @@ import Alamofire
 
 struct GroupMessageView: View {
     
+    @State var groupMessage:String = ""
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     var body: some View {
@@ -21,21 +22,7 @@ struct GroupMessageView: View {
     }
 }
 extension GroupMessageView {
-    func getGroupMessage() {
-        let url = GroupGetNotifiUrl
-        let temp = """
-        {
-            "username":"\(settingStorage.account)"
-        }
-        """
-        let parameters = ["notification":temp]
-        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.cancellable = publisher
-            .sink(receiveValue: { (values) in
-                print(values.debugDescription)
-                
-            })
-    }
+   
 }
 
 struct GroupMessageView_Previews: PreviewProvider {
