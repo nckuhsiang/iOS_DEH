@@ -228,6 +228,7 @@ extension GroupDetailView {
     }
     
 }
+
 class GroupMemberList:Decodable {
     let result:[GroupMember]
 }

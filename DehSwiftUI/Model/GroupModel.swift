@@ -47,7 +47,6 @@ class GroupMember:Decodable,Identifiable {
         self.memberRole = memberRole
     }
 }
-
 class GroupName:Decodable,Identifiable {
     var name:String
     init(name:String) {
@@ -56,6 +55,19 @@ class GroupName:Decodable,Identifiable {
     
     enum CodingKeys:String, CodingKey {
         case name = "group_name"
+    }
+}
+class GroupNotification:Decodable, Identifiable {
+    var groupName:String
+    var senderName:String
+    var messageType:String
+    var groupId:Int
+    
+    enum CodingKeys:String, CodingKey {
+        case groupName = "group_name"
+        case senderName = "sender_name"
+        case messageType = "group_role"
+        case groupId = "group_id"
     }
 }
 
