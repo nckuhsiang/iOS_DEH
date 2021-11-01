@@ -23,16 +23,21 @@ struct GroupMessageView: View {
                 Button {
                     actionSheetState = true
                 } label: {
-                    Text("\(groupNotification.senderName)" + " invite you to join the group")
+                    Text("\(groupNotification.senderName)" + " invite you to join the group".localized)
                         .font(.system(size: 16, weight: .medium, design: .default))
                 }
                 .padding()
                 .actionSheet(isPresented: $actionSheetState) {
-                    ActionSheet(title: Text("Join"),
-                                message: Text("Would you want to join \(groupNotification.groupName)?"),
+                    ActionSheet(title: Text("Join".localized),
+                                message: Text("Would you want to join ".localized + "\(groupNotification.groupName)?"),
                                 buttons: [
-                                    .default(Text("Agree".localized)) {ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Agree")},
-                        .destructive(Text("Reject")) {ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Reject")},
+                                    .default(Text("Agree".localized)) {
+                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Agree".localized)
+                                    },
+                                    .destructive(Text("Reject")) {
+                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Reject".localized)
+                                        
+                                    },
                         .cancel()
                     ])
                 }
@@ -61,7 +66,6 @@ extension GroupMessageView {
             if(message == "have notification") {
                 self.groupNotificationList = values.value?.result ?? []
             }
-            
         })
     }
     func ResponseGroupMessage(senderName:String, groupId:Int, returnAction:String) {
@@ -76,7 +80,7 @@ extension GroupMessageView {
         }
         """
         let parameters = ["group_message_info":temp]
-        let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        let publisher:DataResponsePublisher<GroupMessage> =  NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher.sink(receiveValue: { values in
         })
         

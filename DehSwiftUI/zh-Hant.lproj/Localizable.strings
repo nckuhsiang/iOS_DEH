@@ -77,6 +77,12 @@
 "Leader has invited the member!" = "組長已邀請您了！";
 "Member has allocated request" = "您你申請加入了";
 "Send request successfully!" = "申請加入成功！";
-
-
-
+" invite you to join the group" = " 邀請你加入群組";
+"Agree" = "同意";
+"Reject" = "拒絕";
+"Would you want to join " = "是否想要加入 ";
+"Join" = "加入";
+"Account or Password is not correct" = "帳號或密碼錯誤";
+"update success!" = "更新成功！";
+"Invite success!" = "邀請成功！";
+"Already invite!" = "已寄送邀請！";

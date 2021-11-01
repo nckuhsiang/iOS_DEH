@@ -18,7 +18,7 @@ struct GroupDetailView: View {
     
     @State var buttonState:Bool = true
     @State var buttonText:String = ""
-    @State var isEdit:Bool = true
+    @State var editState:Bool = true
     
     @State var alertState:Bool = false
     @State var alertText:String = ""
@@ -28,7 +28,7 @@ struct GroupDetailView: View {
     @State private var cancellable: AnyCancellable?
     @State var groupMembers:[GroupMember] = []
     @EnvironmentObject var settingStorage:SettingStorage
-    
+
     init(_ group:Group) {
         self.group = group
     }
@@ -61,14 +61,18 @@ struct GroupDetailView: View {
                         CreateGroup()
                     }
                     if(isLeader()) {
-                        if(isEdit) {
+                        if(editState) {
                             self.textState = false
                             buttonText = "Save".localized
-                            self.isEdit = false
+                            self.editState = false
                         }
                         else {
                             UpdateGroup()
+                            self.editState = true
+                            self.buttonText = "Edit".localized
+                            self.textState = true
                             self.alertState = true
+
                         }
                     }
                 } label: {
@@ -186,7 +190,7 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alertText = values.value?.message ?? ""
+                alertText = values.value?.message.localized ?? ""
                 self.alertState = true
             })
     }
@@ -206,7 +210,7 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alertText = values.value?.message ?? ""
+                alertText = values.value?.message.localized ?? ""
             })
     }
     func UpdateGroup() {
@@ -223,7 +227,7 @@ extension GroupDetailView {
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
-                alertText = values.value?.message ?? ""
+                alertText = values.value?.message.localized ?? ""
             })
     }
     

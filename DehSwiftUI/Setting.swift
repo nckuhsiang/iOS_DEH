@@ -72,14 +72,19 @@ struct Setting: View {
                 Text(self.loginButtonText.localized)
             })
             .alert(isPresented: $loginTriggerAlert) {() -> Alert in
-                        let greetingMessage = "Login Success".localized
+                let greetingMessage:String
+                if(loginState) {
+                    greetingMessage =  "Login Success".localized
+                }
+                else {
+                    greetingMessage = "Account or Password is not correct".localized
+                }
                 return Alert(title: Text(greetingMessage),
-                             dismissButton:.default(Text("OK".localized), action: {
-                                UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-
-                                self.presentationMode.wrappedValue.dismiss()
-                             })
-                             )
+                     dismissButton:.default(Text("OK".localized), action: {
+                        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+                    if(loginState) { self.presentationMode.wrappedValue.dismiss() }
+                     })
+                     )
             }
 
 
@@ -145,6 +150,7 @@ struct Setting: View {
         let publisher:DataResponsePublisher<LoginModel> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
+                self.loginTriggerAlert = true
                 if let _ = values.value?.message{
                     print("User" + "\(values.value?.message ?? "Not Found")")
                 }
@@ -155,7 +161,6 @@ struct Setting: View {
                     self.settingStorage.loginState = true
                     self.loginState = true
                     self.loginButtonText = "logout"
-                    self.loginTriggerAlert = true
                     
 
                 }
