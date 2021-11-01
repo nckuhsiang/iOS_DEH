@@ -86,6 +86,7 @@ struct GroupListView: View {
         .onAppear {
             getGroupList()
             getGroupMessage()
+            
         }
 
     }
@@ -120,6 +121,9 @@ extension GroupListView{
                 let message = values.value?.message ?? ""
                 if(message == "have notification") {
                     messageNotify = true
+                }
+                else {
+                    messageNotify = false
                 }
             })
     }

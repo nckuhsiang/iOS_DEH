@@ -62,5 +62,21 @@
 "Search ..." = "検索 ...";
 "Member" = "メンバー";
 "Leader" = "リーダー";
-
+"Join" = "加入";
+"Yes" = "はい";
+"No" = "ノー";
+"The group is not exist!" = "グループは存在しません！";
+"Can not send request for myself!" = "自分でリクエストを送信することはできません！";
+"Member is in this group!" = "メンバーはこのグループに属しています！";
+"Leader has invited the member!" = "リーダーがメンバーを招待しました！";
+"Member has allocated request" = "メンバーがリクエストを割り当てました";
+"Send request successfully!" = "リクエストを正常に送信してください！";
+" invite you to join the group" = "グループに参加するように招待します";
+"Agree" = "同意";
+"Reject" = "拒絶";
+"Would you want to join " = "参加しますか ";
+"Account or Password is not correct" = "アカウントまたはパスワードが正しくありません";
+"update success!" = "更新の成功！";
+"Invite success!" = "成功を誘う！";
+"Already invite!" = "すでに招待してください！";
 

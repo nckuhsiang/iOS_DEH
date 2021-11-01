@@ -51,7 +51,7 @@ struct Setting: View {
                     .keyboardType(.asciiCapable)
                     .disableAutocorrection(true)
                     .disabled(loginState)
-                
+
                 SecureField("Password".localized, text: $password)
                     .keyboardType(.asciiCapable)
                     .disableAutocorrection(true)
@@ -86,11 +86,6 @@ struct Setting: View {
                      })
                      )
             }
-
-
-                
-            
-
         }
         //讀取存在手機內的設定
         .onAppear(){
@@ -99,7 +94,6 @@ struct Setting: View {
             self.searchDistance = self.settingStorage.searchDistance
             self.searchNumber = self.settingStorage.searchNumber
             self.account = self.settingStorage.account
-            
             self.loginState = self.settingStorage.loginState
             if(self.settingStorage.loginState == true){
                 loginButtonText = "Logout".localized
@@ -125,7 +119,6 @@ struct Setting: View {
                 self.settingStorage.searchDistance = self.searchDistance
                 self.settingStorage.searchNumber = self.searchNumber
                 UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-                
                 self.presentationMode.wrappedValue.dismiss()
                 
                 
@@ -140,7 +133,7 @@ struct Setting: View {
 //        }
         
     }
-    func login(){
+    func login() {
         let parameters:Parameters = [
             "username" : self.account,
             "password" : self.password.md5(),
@@ -161,8 +154,6 @@ struct Setting: View {
                     self.settingStorage.loginState = true
                     self.loginState = true
                     self.loginButtonText = "logout"
-                    
-
                 }
             })
     }

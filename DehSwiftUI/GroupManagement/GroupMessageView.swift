@@ -33,10 +33,17 @@ struct GroupMessageView: View {
                                 buttons: [
                                     .default(Text("Agree".localized)) {
                                         ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Agree".localized)
+                                        if let index = groupNotificationList.firstIndex(of:groupNotification) {
+                                            groupNotificationList.remove(at: index)
+                                        }
+                                        
                                     },
                                     .destructive(Text("Reject")) {
                                         ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Reject".localized)
-                                        
+                                        if let index = groupNotificationList.firstIndex(of:groupNotification) {
+                                            groupNotificationList.remove(at: index)
+                                        }
+
                                     },
                         .cancel()
                     ])

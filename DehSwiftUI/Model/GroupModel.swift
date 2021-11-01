@@ -57,11 +57,16 @@ class GroupName:Decodable,Identifiable {
         case name = "group_name"
     }
 }
-class GroupNotification:Decodable, Identifiable {
+class GroupNotification:Decodable, Identifiable,Equatable {
     var groupName:String
     var senderName:String
     var messageType:String
     var groupId:Int
+    
+    static func == (lhs: GroupNotification, rhs: GroupNotification) -> Bool {
+        return lhs.groupId == rhs.groupId
+    }
+    
     
     enum CodingKeys:String, CodingKey {
         case groupName = "group_name"
