@@ -51,11 +51,17 @@ struct GroupMessageView: View {
             }
         }
             .padding(0)
-            .onAppear {getGroupMessageList()}
+            .onAppear {
+                getGroupMessageList()
+                if(self.groupNotificationList.isEmpty) {
+                    self.noMessageAlertState = true
+                }
+            }
             .listStyle(PlainListStyle())
-//        .alert(isPresented: $alertState) {
-//            return Alert(title: Text("No Message"), message: Text("There are currently no group messages"), dismissButton: .none)
-//        }
+            .alert(isPresented: $noMessageAlertState) {
+                return Alert(title: Text("There is currently no message".localized), dismissButton: .default("OK".localized) {
+                })
+            }
     }
 }
 extension GroupMessageView {
