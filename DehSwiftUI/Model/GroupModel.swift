@@ -13,8 +13,8 @@ class Group:Identifiable,Decodable,Hashable{
     
     var id:Int
     var name:String
-    var leaderId:Int
-    var info:String
+    var leaderId:Int?
+    var info:String?
     
     enum CodingKeys: String, CodingKey{
         case id

@@ -11,7 +11,7 @@ import Combine
 import Alamofire
 
 struct GroupMessageView: View {
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var groupNotificationList: [GroupNotification] = []
     @State private var cancellable: AnyCancellable?
     @State var noMessageAlertState:Bool = false
@@ -58,8 +58,9 @@ struct GroupMessageView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .alert(isPresented: $noMessageAlertState) {
-                return Alert(title: Text("There is currently no message".localized), dismissButton: .default("OK".localized) {
+            .alert(isPresented: $noMessageAlertState) { () -> Alert in
+                return Alert(title: Text("no message".localized), dismissButton: .default(Text("OK".localized)) {
+                    self.presentationMode.wrappedValue.dismiss()
                 })
             }
     }

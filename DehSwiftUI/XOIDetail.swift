@@ -83,6 +83,12 @@ struct XOIDetail: View {
             getMedia()
         }
     }
+        .navigationBarItems(trailing: Button {
+            
+        } label: {
+            Image(systemName: "square.and.arrow.up.on.square.fill")
+                .foregroundColor(.blue)
+        })
     
 }
 }

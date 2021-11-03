@@ -30,12 +30,12 @@ struct GroupListView: View {
                                 self.cellSelection = group.id
                             } label: {
                                     HStack{
-                                        Image((String(group.leaderId) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
+                                        Image((String(group.leaderId ?? -1) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
                                         VStack (alignment: .leading, spacing: 0){
                                             Text(group.name)
                                                 .font(.system(size: 20, weight: .medium, design: .default))
                                                 .foregroundColor(.black)
-                                            Text((String(group.leaderId) == settingStorage.userID) ? "Leader".localized:"Member".localized)
+                                            Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
                                                 .font(.system(size: 16, weight: .light, design: .default))
                                                 .foregroundColor(.black)
                                         }

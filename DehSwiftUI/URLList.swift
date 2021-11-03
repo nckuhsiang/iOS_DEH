@@ -53,6 +53,9 @@ let insertAnswerUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/insertAnswer"
 let chestMinusUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/chestMinus"
 let getMemberPointUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/getMemberPoint"
 
+//MARK: -PriceUrl
+let PriceGetListUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/get_prize"
+
 //MARK:- XoiUrl
 let getPois = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/poisJSON"
 //let getXois = [

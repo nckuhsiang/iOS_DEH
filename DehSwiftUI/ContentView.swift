@@ -106,6 +106,9 @@ struct ContentView: View {
                                 .default(Text("Group".localized)) {
                                     self.selection = 4
                                 },
+                                .default(Text("Price".localized)) {
+                                    self.selection = 5
+                                },
                                 .cancel()
                             ])
                         }
@@ -117,6 +120,9 @@ struct ContentView: View {
                             
                         }
                         NavigationLink(tag: 4, selection: $selection, destination: {GroupListView()}) {
+                        }
+                        NavigationLink(tag: 5, selection: $selection, destination: {PriceListView()}) {
+                            
                         }
                     }
                     
@@ -141,13 +147,9 @@ struct ContentView: View {
                 }
             })
         }
-        
         //this line to avoid lots of warning
         //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear(){
-print("123")
-        }
     }
 }
 

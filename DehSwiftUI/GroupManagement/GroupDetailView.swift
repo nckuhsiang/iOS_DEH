@@ -22,7 +22,7 @@ struct GroupDetailView: View {
     
     @State var alertState:Bool = false
     @State var alertText:String = ""
-    
+    @State var groupInfo:String = ""
     @State var group:Group
     @State private var textStyle = UIFont.TextStyle.body
     @State private var cancellable: AnyCancellable?
@@ -52,7 +52,7 @@ struct GroupDetailView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
                     .padding(.leading)
-                TextView(text: $group.info, textStyle: $textStyle)
+                TextView(text: $groupInfo, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
                     .disabled(textState)
@@ -96,6 +96,7 @@ struct GroupDetailView: View {
                     Text("Group info".localized)
                 }
                 .onAppear {
+                    groupInfo = group.info ?? ""
                     if(isCreater()) {
                         self.buttonState = false
                         self.textState = false
@@ -152,7 +153,7 @@ struct GroupDetailView: View {
 }
 extension GroupDetailView {
     func isLeader() -> Bool{
-        if(settingStorage.userID == String(group.leaderId)) {return true}
+        if(settingStorage.userID == String(group.leaderId ?? -1)) {return true}
         else {return false}
     }
     func isCreater() -> Bool {
@@ -178,7 +179,7 @@ extension GroupDetailView {
         {
             "group_name":"\(group.name)",
             "group_leader_name":"\(settingStorage.account)",
-            "group_info":"\(group.info)",
+            "group_info":"\(group.info ?? "")",
             "language": "\(language)",
             "verification": "0",
             "open":"1",
@@ -218,7 +219,7 @@ extension GroupDetailView {
         let temp = """
         {
         "group_name": "\(group.name)",
-        "group_info": "\(group.info)",
+        "group_info": "\(group.info ?? "")",
         "group_id": "\(group.id)"
         }
         """
