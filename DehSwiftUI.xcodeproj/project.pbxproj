@@ -65,6 +65,7 @@
 		7399C20127325AF7007BE69B /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7399C203273286C0007BE69B /* PriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C202273286C0007BE69B /* PriceDetailView.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
+		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF300271C0D1000F6927B /* GroupMessageView.swift */; };
 		73FCF305271C118C00F6927B /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF304271C118C00F6927B /* GroupDetailView.swift */; };
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
@@ -136,6 +137,7 @@
 		7399C20027325AF7007BE69B /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 		7399C202273286C0007BE69B /* PriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceDetailView.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
 		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
 		73FCF304271C118C00F6927B /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				7399C1FE273259AE007BE69B /* PriceListView.swift */,
 				7399C202273286C0007BE69B /* PriceDetailView.swift */,
+				73B43E522733A9E2004853AB /* QRcodeView.swift */,
 			);
 			path = PriceManagement;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				59A65915257611020038AD61 /* SceneDelegate.swift in Sources */,
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
+				73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
 				73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */,
 				7399C1FF273259AE007BE69B /* PriceListView.swift in Sources */,

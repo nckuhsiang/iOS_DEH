@@ -14,6 +14,7 @@ struct PriceListView: View {
     @State var priceList:[Price] = []
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
+
     var body: some View {
         VStack {
             VStack {
@@ -31,9 +32,9 @@ struct PriceListView: View {
                     NavigationLink(destination: PriceDetailView(price: price)) {
                         Text(price.startTime ?? "")
                     }
-
                 }
             }
+            //.foregroundColor(Color(UIColor(rgba: darkGreen)))
             .listStyle(PlainListStyle())
         }
         .onAppear {
