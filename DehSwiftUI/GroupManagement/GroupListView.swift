@@ -35,6 +35,7 @@ struct GroupListView: View {
                                             Text(group.name)
                                                 .font(.system(size: 20, weight: .medium, design: .default))
                                                 .foregroundColor(.black)
+                                            Spacer(minLength: 3)
                                             Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
                                                 .font(.system(size: 16, weight: .light, design: .default))
                                                 .foregroundColor(.black)

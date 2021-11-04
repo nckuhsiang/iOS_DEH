@@ -20,24 +20,24 @@ struct PriceDetailView: View {
     }
     var body: some View {
         VStack {
-            Text("price item")
-                .font(.title)
-            Spacer(minLength: 5)
-            Text(priceName)
-                .font(.body)
-            Spacer(minLength: 10)
-            Image(uiImage: image ?? UIImage())
-            Spacer(minLength: 10)
-            NavigationLink(destination: QRcodeView()) {
-                Text("Exchange")
+            VStack(alignment: .center) {
+                Text("Price Item".localized)
+                    .font(.system(size: 40, weight: .bold, design: .rounded))
+                Text(priceName)
+                    .font(.body)
+                Image(uiImage: image ?? UIImage())
+                    .resizable()
+                    .frame( maxWidth: 250, maxHeight: 250,alignment: .center)
+            }
+            Spacer()
+            NavigationLink(destination: QRcodeView(price:price)) {
+                Text("Exchange".localized)
                     .font(.system(size: 30, weight: .medium, design: .default))
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 20)
                     .foregroundColor(.white)
                     .background(Color(UIColor(rgba: lightGreen)))
             }
-            
-            
         }
         .onAppear {
             getPriceAttribute()
@@ -68,7 +68,7 @@ extension PriceDetailView {
                     guard let data = data, error == nil else {return}
                     print("Download Finished")
                     DispatchQueue.main.async {
-                        self.image = UIImage(data: data, scale: 3)
+                        self.image = UIImage(data: data, scale: 1)
                         
                     }
                 }

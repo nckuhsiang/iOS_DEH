@@ -18,10 +18,11 @@ struct PriceListView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("Price List")
+                Text("Price List".localized)
                     .font(.title)
+                    .padding(.top)
                 Link(destination: URL(string: "http://deh.csie.ncku.edu.tw")!) {
-                    Text("Go to the website")
+                    Text("Go to the website".localized)
                         .font(.system(size: 16, weight: .medium, design: .default))
                         .foregroundColor(Color.black)
                         .background(Color.gray)
@@ -31,12 +32,18 @@ struct PriceListView: View {
                 ForEach(self.priceList) { price in
                     NavigationLink(destination: PriceDetailView(price: price)) {
                         Text(price.startTime ?? "")
+                            .font(.system(size: 20, weight: .medium, design: .default))
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .lineLimit(1)
                     }
+                    
                 }
+                .listRowBackground(Color(UIColor(rgba: lightGreen)))
             }
-            //.foregroundColor(Color(UIColor(rgba: darkGreen)))
+            
             .listStyle(PlainListStyle())
         }
+        .background(Color(UIColor(rgba: darkGreen)))
         .onAppear {
             getPriceList()
         }
@@ -45,6 +52,7 @@ struct PriceListView: View {
     }
 }
 extension PriceListView {
+
     func getPriceList() {
         let url = PriceGetListUrl
         let parameters = ["user_id":settingStorage.userID]
