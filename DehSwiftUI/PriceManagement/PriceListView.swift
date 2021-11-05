@@ -38,7 +38,7 @@ struct PriceListView: View {
                     }
                     
                 }
-                .listRowBackground(Color(UIColor(rgba: lightGreen)))
+                .listRowBackground(Color(UIColor.lightGray))
             }
             
             .listStyle(PlainListStyle())

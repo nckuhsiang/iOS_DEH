@@ -17,6 +17,7 @@ struct PriceDetailView: View {
     @State var image:UIImage?
     init(price:Price) {
         self.price = price
+        
     }
     var body: some View {
         VStack {
@@ -29,7 +30,6 @@ struct PriceDetailView: View {
                     .resizable()
                     .frame( maxWidth: 250, maxHeight: 250,alignment: .center)
             }
-            Spacer()
             NavigationLink(destination: QRcodeView(price:price)) {
                 Text("Exchange".localized)
                     .font(.system(size: 30, weight: .medium, design: .default))

@@ -9,6 +9,7 @@
 import SwiftUI
 import Alamofire
 import Combine
+import CryptoKit
 struct XOIDetail: View {
     var xoi: XOI
     //only for favorite used
@@ -21,6 +22,7 @@ struct XOIDetail: View {
     @State private var commentary:MediaMulti = MediaMulti(data: Data(), format: .Default)
     @State var index = 0
     @State private var showingAlert = false
+    @State private var showingShare = false
     var body: some View{
         ScrollView {
         VStack {
@@ -84,11 +86,15 @@ struct XOIDetail: View {
         }
     }
         .navigationBarItems(trailing: Button {
-            
+            self.showingShare = true
         } label: {
             Image(systemName: "square.and.arrow.up.on.square.fill")
                 .foregroundColor(.blue)
+        }
+                                .sheet(isPresented: $showingShare, onDismiss: {print("show shareSheet")}, content: {
+            ActivityViewController(activityItems: [URL(string: "http://deh.csie.ncku.edu.tw/poi_detail/" + String(xoi.id))!])
         })
+                    )
     
 }
 }

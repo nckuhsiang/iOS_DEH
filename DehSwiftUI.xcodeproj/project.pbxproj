@@ -66,6 +66,8 @@
 		7399C203273286C0007BE69B /* PriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C202273286C0007BE69B /* PriceDetailView.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
 		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
+		73F1F89A2735321D008964C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F8992735321D008964C2 /* File.swift */; };
+		73F1F8A027353694008964C2 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F89F27353694008964C2 /* ActivityViewController.swift */; };
 		73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF300271C0D1000F6927B /* GroupMessageView.swift */; };
 		73FCF305271C118C00F6927B /* GroupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF304271C118C00F6927B /* GroupDetailView.swift */; };
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
@@ -138,6 +140,8 @@
 		7399C202273286C0007BE69B /* PriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceDetailView.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
+		73F1F8992735321D008964C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		73F1F89F27353694008964C2 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
 		73FCF304271C118C00F6927B /* GroupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailView.swift; sourceTree = "<group>"; };
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				59CCD347263AAE7E00A3BF53 /* Model */,
 				59CACC6B2626FB5900B0B0CC /* GroupList.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
+				73F1F8992735321D008964C2 /* File.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
 				B170233E259326D500DF2167 /* URLList.swift */,
 				592F48E1259478E300C01722 /* TestMapView2.swift */,
@@ -221,7 +226,6 @@
 				5961A0CF2577CAF60022CD72 /* testfile.swift */,
 				59CE6C142578E38200553EBA /* Data.swift */,
 				73342FF42711894900458A60 /* Localizable.strings */,
-				73917F54271C4DE000B4FAAD /* TextVIew.swift */,
 			);
 			path = DehSwiftUI;
 			sourceTree = "<group>";
@@ -252,8 +256,10 @@
 		59CCD347263AAE7E00A3BF53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73917F54271C4DE000B4FAAD /* TextVIew.swift */,
 				5961A0C425776F550022CD72 /* XOI.swift */,
 				59CACC672626F80000B0B0CC /* GroupModel.swift */,
+				73F1F89F27353694008964C2 /* ActivityViewController.swift */,
 				59CCD34226396F6B00A3BF53 /* SessionModel.swift */,
 				59CCD34C263AB08000A3BF53 /* GameHistoryModel.swift */,
 				5923E25D25B80B9B00371AB1 /* MediaMulti.swift */,
@@ -406,6 +412,7 @@
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
+				73F1F89A2735321D008964C2 /* File.swift in Sources */,
 				73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */,
 				7399C1FF273259AE007BE69B /* PriceListView.swift in Sources */,
 				594B3DEB25B2AF8300A3DF29 /* mediaExtensionList.swift in Sources */,
@@ -437,6 +444,7 @@
 				59CACC652625B8CD00B0B0CC /* ImageWithNumber.swift in Sources */,
 				5912967D263BF6FC006D1F0A /* ChestDetailView.swift in Sources */,
 				59C4B92525B02EB100E05785 /* NetworkReceiveModel.swift in Sources */,
+				73F1F8A027353694008964C2 /* ActivityViewController.swift in Sources */,
 				73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */,
 				59CE6C152578E38200553EBA /* Data.swift in Sources */,
 				59C4B92225B0269F00E05785 /* JsonPrintExtension.swift in Sources */,
