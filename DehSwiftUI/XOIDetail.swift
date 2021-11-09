@@ -10,6 +10,7 @@ import SwiftUI
 import Alamofire
 import Combine
 import CryptoKit
+import MapKit
 struct XOIDetail: View {
     var xoi: XOI
     //only for favorite used
@@ -23,6 +24,7 @@ struct XOIDetail: View {
     @State var index = 0
     @State private var showingAlert = false
     @State private var showingShare = false
+    @State private var showingSheet = false
     var body: some View{
         ScrollView {
         VStack {
@@ -53,13 +55,22 @@ struct XOIDetail: View {
                         
                     }
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Add to favorite"))
+                        Alert(title: Text("Add to favorite".localized))
                     }
                     
                     Button(action: {
                         print("more pressed")
+                        showingSheet = true
                     }) {
                         Image("more")
+                    }
+                    .actionSheet(isPresented: $showingSheet) {
+                        ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
+                            .default(Text("Guide to POI".localized)) {
+                                navigatedAction()
+                            },
+                            .cancel()
+                        ])
                     }
                 }
                 HStack {
@@ -129,6 +140,14 @@ extension XOIDetail{
                     viewNumbers = values.value?.count ?? -1
                 }
             })
+    }
+    
+    func navigatedAction() {
+        let srcLocation = MKMapItem.forCurrentLocation()
+        let dst = CLLocationCoordinate2D(latitude: xoi.latitude, longitude: xoi.longitude)
+        let dstLocation = MKMapItem.init(placemark: MKPlacemark(coordinate: dst, addressDictionary: nil))
+        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        MKMapItem.openMaps(with: [srcLocation, dstLocation], launchOptions: options)
     }
 //set media data in place
     func getMedia(){
