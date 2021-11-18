@@ -43,7 +43,6 @@ struct DEHMap: View {
             }
         }
         .navigationBarItems(trailing:HStack{
-//            Text("filter")
             Image("filter")
                 .foregroundColor(.blue)
             Button(action: {

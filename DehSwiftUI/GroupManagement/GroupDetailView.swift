@@ -148,7 +148,9 @@ struct GroupDetailView: View {
                     Text("Group member".localized)
                 }
         }
-        
+        .onAppear {
+            
+        }
     }
 }
 extension GroupDetailView {

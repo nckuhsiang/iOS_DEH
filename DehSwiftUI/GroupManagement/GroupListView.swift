@@ -11,6 +11,7 @@ import Combine
 import Alamofire
 struct GroupListView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var messageNotify: Bool = false
     @State var selection: Int? = nil
     @State var cellSelection: Int? = nil
@@ -18,7 +19,6 @@ struct GroupListView: View {
     @State private var messageCancellable2: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
-
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             List {
@@ -46,8 +46,14 @@ struct GroupListView: View {
                 }
             }
             .listStyle(PlainListStyle())
+            .navigationBarBackButtonHidden(true)
             .navigationTitle("Group list".localized)
-            .navigationBarItems(trailing: HStack {
+            .navigationBarItems(leading: Button {
+                UITableView.appearance().backgroundColor = UIColor(rgba: darkGreen)
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Back".localized)
+            }, trailing: HStack {
                 NavigationLink(tag: 1, selection: $selection) {
                     GroupMessageView()
                 } label: {
@@ -56,7 +62,7 @@ struct GroupListView: View {
                     } label: {
                         Image(systemName: "message.circle.fill")
                             .foregroundColor(messageNotify ? .red:.blue)
-                      }
+                    }
                 }
                     
                 NavigationLink(tag: 2, selection: $selection) {
@@ -79,7 +85,7 @@ struct GroupListView: View {
                     Text("Create a group".localized)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
-                        .background(Color.init(UIColor(rgba: darkGreen)))
+                        .background(Color.init(UIColor(rgba: lightGreen)))
                         .font(.system(size: 30, weight: .bold, design: .default))
                 }
             }
@@ -87,9 +93,8 @@ struct GroupListView: View {
         .onAppear {
             getGroupList()
             getGroupMessage()
-            
+            UITableView.appearance().backgroundColor = .white
         }
-
     }
 }
 extension GroupListView{

@@ -62,7 +62,6 @@ struct ContentView: View {
         UINavigationBar.appearance().backgroundColor = UIColor(rgba: darkGreen)
         //選取不反白
         UITableViewCell.appearance().selectionStyle = .none
-        
 
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
@@ -119,7 +118,9 @@ struct ContentView: View {
                                          )
                             
                         }
-                        NavigationLink(tag: 4, selection: $selection, destination: {GroupListView()}) {
+                        NavigationLink(tag: 4, selection: $selection, destination: {
+                            GroupListView()
+                        }) {
                         }
                         NavigationLink(tag: 5, selection: $selection, destination: {PriceListView()}) {
                             
@@ -150,6 +151,9 @@ struct ContentView: View {
         //this line to avoid lots of warning
         //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            
+        }
     }
 }
 
