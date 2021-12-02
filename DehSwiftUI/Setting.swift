@@ -45,46 +45,44 @@ struct Setting: View {
                     Text("\(searchNumber, specifier: "%.0f")")
                 }
             }
-            
-            Section(header: Text(self.loginButtonText.localized).foregroundColor(.blue)){
-                TextField("Account".localized, text: $account)
-                    .keyboardType(.asciiCapable)
-                    .disableAutocorrection(true)
-                    .disabled(loginState)
+            if app == "deh" || app == "sdc" {
+                Section(header: Text(self.loginButtonText.localized).foregroundColor(.blue)){
+                    TextField("Account".localized, text: $account)
+                        .keyboardType(.asciiCapable)
+                        .disableAutocorrection(true)
+                        .disabled(loginState)
 
-                SecureField("Password".localized, text: $password)
-                    .keyboardType(.asciiCapable)
-                    .disableAutocorrection(true)
-                    .disabled(loginState)
-            }
-            Button(action: {
-                //MARK:-
-                if(loginState == false){
-                    login()
-//                    UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-//
-//                    self.presentationMode.wrappedValue.dismiss()
+                    SecureField("Password".localized, text: $password)
+                        .keyboardType(.asciiCapable)
+                        .disableAutocorrection(true)
+                        .disabled(loginState)
                 }
-                else{
-                    logout()
+                Button(action: {
+                    //MARK:-
+                    if(loginState == false){
+                        login()
+                    }
+                    else{
+                        logout()
+                    }
+                }, label: {
+                    Text(self.loginButtonText.localized)
+                })
+                .alert(isPresented: $loginTriggerAlert) {() -> Alert in
+                    let greetingMessage:String
+                    if(loginState) {
+                        greetingMessage =  "Login Success".localized
+                    }
+                    else {
+                        greetingMessage = "Account or Password is not correct".localized
+                    }
+                    return Alert(title: Text(greetingMessage),
+                         dismissButton:.default(Text("OK".localized), action: {
+                            UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+                        if(loginState) { self.presentationMode.wrappedValue.dismiss() }
+                         })
+                         )
                 }
-            }, label: {
-                Text(self.loginButtonText.localized)
-            })
-            .alert(isPresented: $loginTriggerAlert) {() -> Alert in
-                let greetingMessage:String
-                if(loginState) {
-                    greetingMessage =  "Login Success".localized
-                }
-                else {
-                    greetingMessage = "Account or Password is not correct".localized
-                }
-                return Alert(title: Text(greetingMessage),
-                     dismissButton:.default(Text("OK".localized), action: {
-                        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-                    if(loginState) { self.presentationMode.wrappedValue.dismiss() }
-                     })
-                     )
             }
         }
         //讀取存在手機內的設定

@@ -54,13 +54,21 @@ struct DEHMap: View {
                     .foregroundColor(.blue)
             }
             .actionSheet(isPresented: $selectSearchXOI) {
-                ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                    .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
-                    .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
-                    .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
-                    .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
-                    .cancel()
-                ])
+                if app == "dehMicro" || app == "sdcMicro"{
+                    return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                        .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
+                        .cancel()
+                    ])
+                }
+                else {
+                    return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                        .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
+                        .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
+                        .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
+                        .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
+                        .cancel()
+                    ])
+                }
             }
         })
         .overlay(

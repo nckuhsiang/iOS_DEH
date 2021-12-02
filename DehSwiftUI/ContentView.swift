@@ -11,11 +11,29 @@ import Alamofire
 import CryptoKit
 import simd
 // the personal entry is here
-#if DEH
+#if SDCDEH
+let coi = "sdc"
+let app = "sdc"
+#elseif EXTN
+let coi = "extn"
+let app = "extn"
+#elseif DEHLITE
 let coi = "deh"
+let app = "dehLite"
+#elseif DEHMICRO
+let coi = "deh"
+let app = "dehMicro"
+#elseif SDCMICRO
+let coi = "sdc"
+let app = "sdcMicro"
+#elseif SDCLITE
+let coi = "sdc"
+let app = "sdcLite"
 #else
-let coi = "deh_default"
+let coi = "deh"
+let app = "deh"
 #endif
+
 var language = ""
 struct ContentView: View {
     init(){
@@ -93,40 +111,36 @@ struct ContentView: View {
                             .foregroundColor(.blue)
                     }
                     ZStack {
-                        Button {
-                            isShowingSheet = settingStorage.loginState
-                            isShowingAlert = !settingStorage.loginState
-                        } label: {
-                            Image(systemName: "ellipsis.circle.fill")
-                                .foregroundColor(.blue)
+                        if app == "deh" || app == "sdc" {
+                            Button {
+                                isShowingSheet = settingStorage.loginState
+                                isShowingAlert = !settingStorage.loginState
+                            } label: {
+                                Image(systemName: "ellipsis.circle.fill")
+                                    .foregroundColor(.blue)
+                            }
+                            .actionSheet(isPresented: $isShowingSheet) {
+                                ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
+                                    .default(Text("Group".localized)) {
+                                        self.selection = 4
+                                    },
+                                    .default(Text("Prize".localized)) {
+                                        self.selection = 5
+                                    },
+                                    .cancel()
+                                ])
+                            }
+                            .alert(isPresented: $isShowingAlert) {() -> Alert in
+                                return Alert(title: Text("Please login first".localized),
+                                             dismissButton:.default(Text("OK".localized), action: {
+                                             })
+                                             )
+                            }
+                            NavigationLink(tag: 4, selection: $selection, destination: {GroupListView()}){}
+                            NavigationLink(tag: 5, selection: $selection, destination: {PrizeListView()}){}
                         }
-                        .actionSheet(isPresented: $isShowingSheet) {
-                            ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
-                                .default(Text("Group".localized)) {
-                                    self.selection = 4
-                                },
-                                .default(Text("Prize".localized)) {
-                                    self.selection = 5
-                                },
-                                .cancel()
-                            ])
-                        }
-                        .alert(isPresented: $isShowingAlert) {() -> Alert in
-                            return Alert(title: Text("Please login first".localized),
-                                         dismissButton:.default(Text("OK".localized), action: {
-                                         })
-                                         )
-                            
-                        }
-                        NavigationLink(tag: 4, selection: $selection, destination: {
-                            GroupListView()
-                        }) {
-                        }
-                        NavigationLink(tag: 5, selection: $selection, destination: {PrizeListView()}) {
-                            
-                        }
+                        
                     }
-                    
                 }
             },trailing: NavigationLink(tag: 2, selection: $selection, destination: {DEHMap()}) {
                 HStack {
