@@ -105,7 +105,7 @@ struct ContentView: View {
                                 .default(Text("Group".localized)) {
                                     self.selection = 4
                                 },
-                                .default(Text("Price".localized)) {
+                                .default(Text("Prize".localized)) {
                                     self.selection = 5
                                 },
                                 .cancel()
@@ -122,7 +122,7 @@ struct ContentView: View {
                             GroupListView()
                         }) {
                         }
-                        NavigationLink(tag: 5, selection: $selection, destination: {PriceListView()}) {
+                        NavigationLink(tag: 5, selection: $selection, destination: {PrizeListView()}) {
                             
                         }
                     }

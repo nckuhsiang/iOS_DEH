@@ -61,9 +61,7 @@
 		73342FEF271188F300458A60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73342FEE271188F300458A60 /* StringExtension.swift */; };
 		73342FF22711894900458A60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73342FF42711894900458A60 /* Localizable.strings */; };
 		73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73917F54271C4DE000B4FAAD /* TextVIew.swift */; };
-		7399C1FF273259AE007BE69B /* PriceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C1FE273259AE007BE69B /* PriceListView.swift */; };
 		7399C20127325AF7007BE69B /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
-		7399C203273286C0007BE69B /* PriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C202273286C0007BE69B /* PriceDetailView.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
 		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		73F1F89A2735321D008964C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F8992735321D008964C2 /* File.swift */; };
@@ -73,6 +71,8 @@
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
 		B170233B2592F38300DF2167 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
+		E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
+		E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,9 +135,7 @@
 		73342FF32711894900458A60 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		73342FF52711894F00458A60 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73917F54271C4DE000B4FAAD /* TextVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVIew.swift; sourceTree = "<group>"; };
-		7399C1FE273259AE007BE69B /* PriceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListView.swift; sourceTree = "<group>"; };
 		7399C20027325AF7007BE69B /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
-		7399C202273286C0007BE69B /* PriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceDetailView.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
 		73F1F8992735321D008964C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -147,6 +145,8 @@
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
 		B170233A2592F38300DF2167 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
+		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
+		E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirzeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +196,7 @@
 				59A6592825761F800038AD61 /* Extensions */,
 				59A65912257611020038AD61 /* AppDelegate.swift */,
 				59A65914257611020038AD61 /* SceneDelegate.swift */,
-				7399C1FD2732596B007BE69B /* PriceManagement */,
+				E138B8882758AA73001D7C68 /* PrizeManagement */,
 				731FF18B27187C67006F214B /* GroupManagement */,
 				59A65916257611020038AD61 /* ContentView.swift */,
 				59CE6C0F2578D32100553EBA /* DEHMap.swift */,
@@ -284,16 +284,6 @@
 			path = GroupManagement;
 			sourceTree = "<group>";
 		};
-		7399C1FD2732596B007BE69B /* PriceManagement */ = {
-			isa = PBXGroup;
-			children = (
-				7399C1FE273259AE007BE69B /* PriceListView.swift */,
-				7399C202273286C0007BE69B /* PriceDetailView.swift */,
-				73B43E522733A9E2004853AB /* QRcodeView.swift */,
-			);
-			path = PriceManagement;
-			sourceTree = "<group>";
-		};
 		B1702331258B41BE00DF2167 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +294,16 @@
 				59C4B92425B02EB100E05785 /* NetworkReceiveModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E138B8882758AA73001D7C68 /* PrizeManagement */ = {
+			isa = PBXGroup;
+			children = (
+				E138B8892758AAA0001D7C68 /* PrizeListView.swift */,
+				E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */,
+				73B43E522733A9E2004853AB /* QRcodeView.swift */,
+			);
+			path = PrizeManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,20 +406,20 @@
 				73342FEF271188F300458A60 /* StringExtension.swift in Sources */,
 				593ED2EE26494271006567C0 /* ImagePicker.swift in Sources */,
 				59CACC6C2626FB5900B0B0CC /* GroupList.swift in Sources */,
-				7399C203273286C0007BE69B /* PriceDetailView.swift in Sources */,
 				59A65915257611020038AD61 /* SceneDelegate.swift in Sources */,
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */,
+				E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
 				73F1F89A2735321D008964C2 /* File.swift in Sources */,
 				73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */,
-				7399C1FF273259AE007BE69B /* PriceListView.swift in Sources */,
 				594B3DEB25B2AF8300A3DF29 /* mediaExtensionList.swift in Sources */,
 				59B784B02591406F008F16B8 /* TestMapView.swift in Sources */,
 				7307A3D127182B1300E37E29 /* GroupListView.swift in Sources */,
 				59601ABD25F22B1E00A9C652 /* DEHMapInner.swift in Sources */,
 				B170233B2592F38300DF2167 /* APIHandler.swift in Sources */,
+				E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */,
 				59CCD34126396DB500A3BF53 /* SessionView.swift in Sources */,
 				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
 				59B784AD25914041008F16B8 /* LocationManager.swift in Sources */,

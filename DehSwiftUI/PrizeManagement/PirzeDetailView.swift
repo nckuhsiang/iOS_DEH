@@ -1,5 +1,5 @@
 //
-//  PriceDetailView.swift
+//  PrizeDetailView.swift
 //  DehSwiftUI
 //
 //  Created by 陳家庠 on 2021/11/3.
@@ -10,27 +10,27 @@ import SwiftUI
 import Alamofire
 import Combine
 
-struct PriceDetailView: View {
-    @State var price:Price
-    @State var priceName:String = ""
+struct PrizeDetailView: View {
+    @State var prize:Prize
+    @State var prizeName:String = ""
     @State var cancellable:AnyCancellable?
     @State var image:UIImage?
-    init(price:Price) {
-        self.price = price
+    init(prize:Prize) {
+        self.prize = prize
         
     }
     var body: some View {
         VStack {
             VStack(alignment: .center) {
-                Text("Price Item".localized)
+                Text("Prize Item".localized)
                     .font(.system(size: 40, weight: .bold, design: .rounded))
-                Text(priceName)
+                Text(prizeName)
                     .font(.body)
                 Image(uiImage: image ?? UIImage())
                     .resizable()
                     .frame( maxWidth: 250, maxHeight: 250,alignment: .center)
             }
-            NavigationLink(destination: QRcodeView(price:price)) {
+            NavigationLink(destination: QRcodeView(prize:prize)) {
                 Text("Exchange".localized)
                     .font(.system(size: 30, weight: .medium, design: .default))
                     .padding()
@@ -40,26 +40,26 @@ struct PriceDetailView: View {
             }
         }
         .onAppear {
-            getPriceAttribute()
+            getPrizeAttribute()
         }
 
     }
 }
-extension PriceDetailView {
+extension PrizeDetailView {
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    func getPriceAttribute() {
+    func getPrizeAttribute() {
         let url = GamePrizeAttributeUrl
-        let parameters = ["player_prize_id": price.priceId ?? -1]
-        let publisher: DataResponsePublisher<[Price]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        let parameters = ["player_prize_id": prize.prizeId ?? -1]
+        let publisher: DataResponsePublisher<[Prize]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         cancellable = publisher.sink(receiveValue: { (values) in
             print(values.debugDescription)
-            if let priceAttribute = values.value {
-                priceName = priceAttribute[0].priceName ?? ""
-                let priceImg = priceAttribute[0].priceImg ?? ""
-                var tempUrl = priceImg
+            if let prizeAttribute = values.value {
+                prizeName = prizeAttribute[0].prizeName ?? ""
+                let prizeImg = prizeAttribute[0].prizeImg ?? ""
+                var tempUrl = prizeImg
                 if let idx = tempUrl.firstIndex(of: "/") {
                     tempUrl = String(tempUrl.suffix(from: idx))
                 }
@@ -79,8 +79,8 @@ extension PriceDetailView {
     }
 }
 
-struct PriceDetailView_Previews: PreviewProvider {
+struct PrizeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PriceDetailView(price: Price(priceId: 0, ptpId: 0, startTime: "", priceName: "", priceImg: ""))
+        PrizeDetailView(prize: Prize(prizeId: 0, ptpId: 0, startTime: "", prizeName: "", prizeImg: ""))
     }
 }

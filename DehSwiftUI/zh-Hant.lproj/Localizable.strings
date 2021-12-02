@@ -51,7 +51,7 @@
 "public" = "公開";
 "private" = "私有";
 
-"Price" = "獎品兌換";
+"Prize" = "獎品兌換";
 "Group" = "群組管理";
 "OK" = "好";
 "Select more options" = "更多選項";
@@ -85,11 +85,11 @@
 "update success!" = "更新成功！";
 "Invite success!" = "邀請成功！";
 "Already invite!" = "已寄送邀請！";
-"Price List" = "獎品列表";
+"Prize List" = "獎品列表";
 "Go to the website" = "前往網站";
-"Price Item" = "獎品品項";
+"Prize Item" = "獎品品項";
 "Exchange" = "兌換";
-"Price Exchange" = "獎品兌換";
+"Prize Exchange" = "獎品兌換";
 "no message" = "沒有訊息";
 "Add to favorite" = "加入我的最愛";
 "Guide to POI" = "導航至此景點";

@@ -10,15 +10,15 @@ import SwiftUI
 import Alamofire
 import Combine
 struct QRcodeView: View {
-    @State var price:Price
+    @State var prize:Prize
     @State var cancellable:AnyCancellable?
     @State var QRcode:UIImage?
-    init(price:Price) {
-        self.price = price
+    init(prize:Prize) {
+        self.prize = prize
     }
     var body: some View {
         VStack {
-            Text("Price Exchange".localized)
+            Text("Prize Exchange".localized)
                 .font(.system(size: 40, weight: .bold, design: .rounded))
             Image(uiImage: QRcode ?? UIImage())
                 .resizable()
@@ -32,7 +32,7 @@ struct QRcodeView: View {
 }
 extension QRcodeView {
     func getQRcode() {
-        let url = qrCodeAPI + requestURL + String(describing: price.ptpId)
+        let url = qrCodeAPI + requestURL + String(describing: prize.ptpId)
         let publisher:DataResponsePublisher<Data> = AF.request(url, method: .get)
             .publishDecodable(type: Data.self, queue: .main)
         self.cancellable = publisher.sink(receiveValue: { data in
@@ -44,6 +44,6 @@ extension QRcodeView {
 
 struct QRcodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRcodeView(price: Price(priceId: 0, ptpId: 0, startTime: "", priceName: "", priceImg: ""))
+        QRcodeView(prize: Prize(prizeId: 0, ptpId: 0, startTime: "", prizeName: "", prizeImg: ""))
     }
 }
