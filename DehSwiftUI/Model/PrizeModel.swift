@@ -10,24 +10,24 @@ import Foundation
 import SwiftUI
 
 class Prize:Decodable,Identifiable {
-    var prizeId:Int?
+    var id:Int?
     var ptpId:Int?
     var startTime:String?
-    var prizeName:String?
-    var prizeImg:String?
+    var name:String?
+    var img:String?
     
-    init(prizeId:Int, ptpId:Int, startTime:String, prizeName:String, prizeImg:String) {
-        self.prizeId = prizeId
+    init(id:Int, ptpId:Int, startTime:String, name:String, img:String) {
+        self.id = id
         self.ptpId = ptpId
         self.startTime = startTime
-        self.prizeName = prizeName
-        self.prizeImg = prizeImg
+        self.name = name
+        self.img = img
     }
     enum CodingKeys: String, CodingKey {
-        case prizeId = "player_prize_id"
+        case id = "player_prize_id"
         case ptpId = "PTP_id"
         case startTime = "start_time"
-        case prizeName = "prize_name"
-        case prizeImg = "prize_url"
+        case name = "prize_name"
+        case img = "prize_url"
     }
 }

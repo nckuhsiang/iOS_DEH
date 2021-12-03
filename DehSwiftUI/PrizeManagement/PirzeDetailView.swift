@@ -52,13 +52,13 @@ extension PrizeDetailView {
     
     func getPrizeAttribute() {
         let url = GamePrizeAttributeUrl
-        let parameters = ["player_prize_id": prize.prizeId ?? -1]
+        let parameters = ["player_prize_id": prize.id ?? -1]
         let publisher: DataResponsePublisher<[Prize]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         cancellable = publisher.sink(receiveValue: { (values) in
             print(values.debugDescription)
             if let prizeAttribute = values.value {
-                prizeName = prizeAttribute[0].prizeName ?? ""
-                let prizeImg = prizeAttribute[0].prizeImg ?? ""
+                prizeName = prizeAttribute[0].name ?? ""
+                let prizeImg = prizeAttribute[0].img ?? ""
                 var tempUrl = prizeImg
                 if let idx = tempUrl.firstIndex(of: "/") {
                     tempUrl = String(tempUrl.suffix(from: idx))
@@ -81,6 +81,6 @@ extension PrizeDetailView {
 
 struct PrizeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PrizeDetailView(prize: Prize(prizeId: 0, ptpId: 0, startTime: "", prizeName: "", prizeImg: ""))
+        PrizeDetailView(prize: Prize(id: 0, ptpId: 0, startTime: "", name: "", img: ""))
     }
 }

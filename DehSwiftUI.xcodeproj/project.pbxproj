@@ -105,7 +105,6 @@
 		7332DCF52758D5C500E0C19A /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7332DCF62758D5C500E0C19A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		7332DCF72758D5C500E0C19A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
-		7332DCF82758D5C500E0C19A /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7332DCF92758D5C500E0C19A /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC672626F80000B0B0CC /* GroupModel.swift */; };
 		7332DCFA2758D5C500E0C19A /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		7332DCFB2758D5C500E0C19A /* TestAlamofirePeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */; };
@@ -171,7 +170,6 @@
 		7332DD422758D5C600E0C19A /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7332DD432758D5C600E0C19A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		7332DD442758D5C600E0C19A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
-		7332DD452758D5C600E0C19A /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7332DD462758D5C600E0C19A /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC672626F80000B0B0CC /* GroupModel.swift */; };
 		7332DD472758D5C600E0C19A /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		7332DD482758D5C600E0C19A /* TestAlamofirePeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */; };
@@ -237,7 +235,6 @@
 		7332DD8F2758D62500E0C19A /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7332DD902758D62500E0C19A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		7332DD912758D62500E0C19A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
-		7332DD922758D62500E0C19A /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7332DD932758D62500E0C19A /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC672626F80000B0B0CC /* GroupModel.swift */; };
 		7332DD942758D62500E0C19A /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		7332DD952758D62500E0C19A /* TestAlamofirePeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */; };
@@ -303,7 +300,6 @@
 		7332DDDC2758D63400E0C19A /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7332DDDD2758D63400E0C19A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		7332DDDE2758D63400E0C19A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
-		7332DDDF2758D63400E0C19A /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7332DDE02758D63400E0C19A /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC672626F80000B0B0CC /* GroupModel.swift */; };
 		7332DDE12758D63400E0C19A /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		7332DDE22758D63400E0C19A /* TestAlamofirePeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */; };
@@ -369,7 +365,6 @@
 		7332DE292758D9C600E0C19A /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */; };
 		7332DE2A2758D9C600E0C19A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25A25B808B900371AB1 /* Sounds.swift */; };
 		7332DE2B2758D9C600E0C19A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
-		7332DE2C2758D9C600E0C19A /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		7332DE2D2758D9C600E0C19A /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC672626F80000B0B0CC /* GroupModel.swift */; };
 		7332DE2E2758D9C600E0C19A /* TabViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0D52577DFAB0022CD72 /* TabViewElement.swift */; };
 		7332DE2F2758D9C600E0C19A /* TestAlamofirePeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */; };
@@ -391,7 +386,6 @@
 		73342FEF271188F300458A60 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73342FEE271188F300458A60 /* StringExtension.swift */; };
 		73342FF22711894900458A60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73342FF42711894900458A60 /* Localizable.strings */; };
 		73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73917F54271C4DE000B4FAAD /* TextVIew.swift */; };
-		7399C20127325AF7007BE69B /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399C20027325AF7007BE69B /* PriceModel.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
 		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		73F1F89A2735321D008964C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F8992735321D008964C2 /* File.swift */; };
@@ -403,6 +397,12 @@
 		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
 		E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
+		E1B549D62759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1B549D72759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1B549D82759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1B549D92759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1B549DA2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1B549DB2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -476,7 +476,6 @@
 		73342FF32711894900458A60 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		73342FF52711894F00458A60 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73917F54271C4DE000B4FAAD /* TextVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVIew.swift; sourceTree = "<group>"; };
-		7399C20027325AF7007BE69B /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
 		73F1F8992735321D008964C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -488,6 +487,7 @@
 		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
 		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
 		E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirzeDetailView.swift; sourceTree = "<group>"; };
+		E1B549D52759DEA400F49604 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,7 +660,7 @@
 				593ED2ED26494271006567C0 /* ImagePicker.swift */,
 				5908F04126E8ABFE00931C01 /* GamePointModel.swift */,
 				739AD42B272A81A400942ACB /* SearchBar.swift */,
-				7399C20027325AF7007BE69B /* PriceModel.swift */,
+				E1B549D52759DEA400F49604 /* PrizeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -971,6 +971,7 @@
 				7307A3D127182B1300E37E29 /* GroupListView.swift in Sources */,
 				59601ABD25F22B1E00A9C652 /* DEHMapInner.swift in Sources */,
 				B170233B2592F38300DF2167 /* APIHandler.swift in Sources */,
+				E1B549D62759DEA400F49604 /* PrizeModel.swift in Sources */,
 				E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */,
 				59CCD34126396DB500A3BF53 /* SessionView.swift in Sources */,
 				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
@@ -986,7 +987,6 @@
 				59FF3DC0259ABCC10011EAF7 /* NetworkConnector.swift in Sources */,
 				5923E25B25B808B900371AB1 /* Sounds.swift in Sources */,
 				739AD42C272A81A400942ACB /* SearchBar.swift in Sources */,
-				7399C20127325AF7007BE69B /* PriceModel.swift in Sources */,
 				59CACC682626F80000B0B0CC /* GroupModel.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
 				59B784B32591F084008F16B8 /* TestAlamofirePeter.swift in Sources */,
@@ -1039,6 +1039,7 @@
 				7332DCE62758D5C500E0C19A /* GroupListView.swift in Sources */,
 				7332DCE72758D5C500E0C19A /* DEHMapInner.swift in Sources */,
 				7332DCE82758D5C500E0C19A /* APIHandler.swift in Sources */,
+				E1B549D72759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DCE92758D5C500E0C19A /* PrizeListView.swift in Sources */,
 				7332DCEA2758D5C500E0C19A /* SessionView.swift in Sources */,
 				7332DCEB2758D5C500E0C19A /* SettingStorage.swift in Sources */,
@@ -1054,7 +1055,6 @@
 				7332DCF52758D5C500E0C19A /* NetworkConnector.swift in Sources */,
 				7332DCF62758D5C500E0C19A /* Sounds.swift in Sources */,
 				7332DCF72758D5C500E0C19A /* SearchBar.swift in Sources */,
-				7332DCF82758D5C500E0C19A /* PriceModel.swift in Sources */,
 				7332DCF92758D5C500E0C19A /* GroupModel.swift in Sources */,
 				7332DCFA2758D5C500E0C19A /* TabViewElement.swift in Sources */,
 				7332DCFB2758D5C500E0C19A /* TestAlamofirePeter.swift in Sources */,
@@ -1107,6 +1107,7 @@
 				7332DD332758D5C600E0C19A /* GroupListView.swift in Sources */,
 				7332DD342758D5C600E0C19A /* DEHMapInner.swift in Sources */,
 				7332DD352758D5C600E0C19A /* APIHandler.swift in Sources */,
+				E1B549D82759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DD362758D5C600E0C19A /* PrizeListView.swift in Sources */,
 				7332DD372758D5C600E0C19A /* SessionView.swift in Sources */,
 				7332DD382758D5C600E0C19A /* SettingStorage.swift in Sources */,
@@ -1122,7 +1123,6 @@
 				7332DD422758D5C600E0C19A /* NetworkConnector.swift in Sources */,
 				7332DD432758D5C600E0C19A /* Sounds.swift in Sources */,
 				7332DD442758D5C600E0C19A /* SearchBar.swift in Sources */,
-				7332DD452758D5C600E0C19A /* PriceModel.swift in Sources */,
 				7332DD462758D5C600E0C19A /* GroupModel.swift in Sources */,
 				7332DD472758D5C600E0C19A /* TabViewElement.swift in Sources */,
 				7332DD482758D5C600E0C19A /* TestAlamofirePeter.swift in Sources */,
@@ -1175,6 +1175,7 @@
 				7332DD802758D62500E0C19A /* GroupListView.swift in Sources */,
 				7332DD812758D62500E0C19A /* DEHMapInner.swift in Sources */,
 				7332DD822758D62500E0C19A /* APIHandler.swift in Sources */,
+				E1B549D92759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DD832758D62500E0C19A /* PrizeListView.swift in Sources */,
 				7332DD842758D62500E0C19A /* SessionView.swift in Sources */,
 				7332DD852758D62500E0C19A /* SettingStorage.swift in Sources */,
@@ -1190,7 +1191,6 @@
 				7332DD8F2758D62500E0C19A /* NetworkConnector.swift in Sources */,
 				7332DD902758D62500E0C19A /* Sounds.swift in Sources */,
 				7332DD912758D62500E0C19A /* SearchBar.swift in Sources */,
-				7332DD922758D62500E0C19A /* PriceModel.swift in Sources */,
 				7332DD932758D62500E0C19A /* GroupModel.swift in Sources */,
 				7332DD942758D62500E0C19A /* TabViewElement.swift in Sources */,
 				7332DD952758D62500E0C19A /* TestAlamofirePeter.swift in Sources */,
@@ -1243,6 +1243,7 @@
 				7332DDCD2758D63400E0C19A /* GroupListView.swift in Sources */,
 				7332DDCE2758D63400E0C19A /* DEHMapInner.swift in Sources */,
 				7332DDCF2758D63400E0C19A /* APIHandler.swift in Sources */,
+				E1B549DA2759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DDD02758D63400E0C19A /* PrizeListView.swift in Sources */,
 				7332DDD12758D63400E0C19A /* SessionView.swift in Sources */,
 				7332DDD22758D63400E0C19A /* SettingStorage.swift in Sources */,
@@ -1258,7 +1259,6 @@
 				7332DDDC2758D63400E0C19A /* NetworkConnector.swift in Sources */,
 				7332DDDD2758D63400E0C19A /* Sounds.swift in Sources */,
 				7332DDDE2758D63400E0C19A /* SearchBar.swift in Sources */,
-				7332DDDF2758D63400E0C19A /* PriceModel.swift in Sources */,
 				7332DDE02758D63400E0C19A /* GroupModel.swift in Sources */,
 				7332DDE12758D63400E0C19A /* TabViewElement.swift in Sources */,
 				7332DDE22758D63400E0C19A /* TestAlamofirePeter.swift in Sources */,
@@ -1311,6 +1311,7 @@
 				7332DE1A2758D9C600E0C19A /* GroupListView.swift in Sources */,
 				7332DE1B2758D9C600E0C19A /* DEHMapInner.swift in Sources */,
 				7332DE1C2758D9C600E0C19A /* APIHandler.swift in Sources */,
+				E1B549DB2759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DE1D2758D9C600E0C19A /* PrizeListView.swift in Sources */,
 				7332DE1E2758D9C600E0C19A /* SessionView.swift in Sources */,
 				7332DE1F2758D9C600E0C19A /* SettingStorage.swift in Sources */,
@@ -1326,7 +1327,6 @@
 				7332DE292758D9C600E0C19A /* NetworkConnector.swift in Sources */,
 				7332DE2A2758D9C600E0C19A /* Sounds.swift in Sources */,
 				7332DE2B2758D9C600E0C19A /* SearchBar.swift in Sources */,
-				7332DE2C2758D9C600E0C19A /* PriceModel.swift in Sources */,
 				7332DE2D2758D9C600E0C19A /* GroupModel.swift in Sources */,
 				7332DE2E2758D9C600E0C19A /* TabViewElement.swift in Sources */,
 				7332DE2F2758D9C600E0C19A /* TestAlamofirePeter.swift in Sources */,

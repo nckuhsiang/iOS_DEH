@@ -44,6 +44,6 @@ extension QRcodeView {
 
 struct QRcodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRcodeView(prize: Prize(prizeId: 0, ptpId: 0, startTime: "", prizeName: "", prizeImg: ""))
+        QRcodeView(prize: Prize(id: 0, ptpId: 0, startTime: "", name: "", img: ""))
     }
 }
