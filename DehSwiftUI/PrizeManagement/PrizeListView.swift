@@ -14,7 +14,7 @@ struct PrizeListView: View {
     @State var prizeList:[Prize] = []
     @State private var cancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
-
+    
     var body: some View {
         VStack {
             VStack {
@@ -47,12 +47,12 @@ struct PrizeListView: View {
         .onAppear {
             getPrizeList()
         }
-       
+        
         
     }
 }
 extension PrizeListView {
-
+    
     func getPrizeList() {
         let url = PrizeGetListUrl
         let parameters = ["user_id":settingStorage.userID]

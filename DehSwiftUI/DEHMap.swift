@@ -82,26 +82,26 @@ struct DEHMap: View {
                     }
                     Spacer()
                 }
-            VStack{
-                Spacer()
-                HStack{
-                    Button(action: {
-                        print("gps tapped")
-                        locationManager.updateLocation()
-                    }) {
-                        Image("gps")
-                    }
-                    .padding(.leading, 10.0)
+                VStack{
                     Spacer()
-                    Button(action: {
-                        print("alert tapped")
-                    }) {
-                        Image("alert")
+                    HStack{
+                        Button(action: {
+                            print("gps tapped")
+                            locationManager.updateLocation()
+                        }) {
+                            Image("gps")
+                        }
+                        .padding(.leading, 10.0)
+                        Spacer()
+                        Button(action: {
+                            print("alert tapped")
+                        }) {
+                            Image("alert")
+                        }
+                        .padding(.trailing, 10.0)
                     }
-                    .padding(.trailing, 10.0)
+                    .padding(.bottom,30.0)
                 }
-                .padding(.bottom,30.0)
-            }
             }
         )
     }
@@ -128,10 +128,10 @@ extension DEHMap{
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-//                                print(values.data?.JsonPrint())
-//                print(values.debugDescription)
-//                print(values.value?.results.debugDescription)
-//                print(values.value?.results[0].containedXOIs?[0])
+                //                                print(values.data?.JsonPrint())
+                //                print(values.debugDescription)
+                //                print(values.value?.results.debugDescription)
+                //                print(values.value?.results[0].containedXOIs?[0])
                 self.settingStorage.XOIs["nearby"] = values.value?.results
                 //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
                 print(locationManager.coordinateRegion.center.latitude)
@@ -153,7 +153,7 @@ extension DEHMap{
         case "expert": Image("expert_pin")
         case "user": Image("player_pin")
         default: Image("player_pin")
-           
+            
         }
     }
 }

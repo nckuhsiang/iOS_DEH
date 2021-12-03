@@ -388,6 +388,24 @@
 		73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73917F54271C4DE000B4FAAD /* TextVIew.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
 		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
+		73C54D90275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D91275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D92275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D93275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D94275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D95275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
+		73C54D97275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D98275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D99275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D9A275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D9B275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D9C275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
+		73C54D9E275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54D9F275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54DA0275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54DA1275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54DA2275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54DA3275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
 		73F1F89A2735321D008964C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F8992735321D008964C2 /* File.swift */; };
 		73F1F8A027353694008964C2 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F89F27353694008964C2 /* ActivityViewController.swift */; };
 		73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF300271C0D1000F6927B /* GroupMessageView.swift */; };
@@ -478,6 +496,9 @@
 		73917F54271C4DE000B4FAAD /* TextVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVIew.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
+		73C54D8F275A0886008B49CC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		73C54D9D275A09CE008B49CC /* AlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWrapper.swift; sourceTree = "<group>"; };
 		73F1F8992735321D008964C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		73F1F89F27353694008964C2 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
@@ -641,6 +662,7 @@
 				594B3DED25B2BE5600A3DF29 /* ImageCheckExtension.swift */,
 				5923E26125B8160100371AB1 /* IntExtension.swift */,
 				73342FEE271188F300458A60 /* StringExtension.swift */,
+				73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -661,6 +683,8 @@
 				5908F04126E8ABFE00931C01 /* GamePointModel.swift */,
 				739AD42B272A81A400942ACB /* SearchBar.swift */,
 				E1B549D52759DEA400F49604 /* PrizeModel.swift */,
+				73C54D8F275A0886008B49CC /* TextAlert.swift */,
+				73C54D9D275A09CE008B49CC /* AlertWrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -944,10 +968,13 @@
 				59CE6C122578D7BB00553EBA /* testfile.swift in Sources */,
 				5912967B263BCB59006D1F0A /* ChestModel.swift in Sources */,
 				5908F04226E8ABFE00931C01 /* GamePointModel.swift in Sources */,
+				73C54D97275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54D9E275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */,
 				592F48E2259478E300C01722 /* TestMapView2.swift in Sources */,
 				5923E26225B8160100371AB1 /* IntExtension.swift in Sources */,
 				594B3DEE25B2BE5600A3DF29 /* ImageCheckExtension.swift in Sources */,
+				73C54D90275A0886008B49CC /* TextAlert.swift in Sources */,
 				59CCD34B263AAF4400A3BF53 /* GameHistoryView.swift in Sources */,
 				5923E25E25B80B9B00371AB1 /* MediaMulti.swift in Sources */,
 				5908F04026E8949600931C01 /* GameMemberPoint.swift in Sources */,
@@ -1012,10 +1039,13 @@
 				7332DCCB2758D5C500E0C19A /* testfile.swift in Sources */,
 				7332DCCC2758D5C500E0C19A /* ChestModel.swift in Sources */,
 				7332DCCD2758D5C500E0C19A /* GamePointModel.swift in Sources */,
+				73C54D98275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54D9F275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				7332DCCE2758D5C500E0C19A /* ContentView.swift in Sources */,
 				7332DCCF2758D5C500E0C19A /* TestMapView2.swift in Sources */,
 				7332DCD02758D5C500E0C19A /* IntExtension.swift in Sources */,
 				7332DCD12758D5C500E0C19A /* ImageCheckExtension.swift in Sources */,
+				73C54D91275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DCD22758D5C500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DCD32758D5C500E0C19A /* MediaMulti.swift in Sources */,
 				7332DCD42758D5C500E0C19A /* GameMemberPoint.swift in Sources */,
@@ -1080,10 +1110,13 @@
 				7332DD182758D5C600E0C19A /* testfile.swift in Sources */,
 				7332DD192758D5C600E0C19A /* ChestModel.swift in Sources */,
 				7332DD1A2758D5C600E0C19A /* GamePointModel.swift in Sources */,
+				73C54D99275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54DA0275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				7332DD1B2758D5C600E0C19A /* ContentView.swift in Sources */,
 				7332DD1C2758D5C600E0C19A /* TestMapView2.swift in Sources */,
 				7332DD1D2758D5C600E0C19A /* IntExtension.swift in Sources */,
 				7332DD1E2758D5C600E0C19A /* ImageCheckExtension.swift in Sources */,
+				73C54D92275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DD1F2758D5C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD202758D5C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DD212758D5C600E0C19A /* GameMemberPoint.swift in Sources */,
@@ -1148,10 +1181,13 @@
 				7332DD652758D62500E0C19A /* testfile.swift in Sources */,
 				7332DD662758D62500E0C19A /* ChestModel.swift in Sources */,
 				7332DD672758D62500E0C19A /* GamePointModel.swift in Sources */,
+				73C54D9A275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54DA1275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				7332DD682758D62500E0C19A /* ContentView.swift in Sources */,
 				7332DD692758D62500E0C19A /* TestMapView2.swift in Sources */,
 				7332DD6A2758D62500E0C19A /* IntExtension.swift in Sources */,
 				7332DD6B2758D62500E0C19A /* ImageCheckExtension.swift in Sources */,
+				73C54D93275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DD6C2758D62500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD6D2758D62500E0C19A /* MediaMulti.swift in Sources */,
 				7332DD6E2758D62500E0C19A /* GameMemberPoint.swift in Sources */,
@@ -1216,10 +1252,13 @@
 				7332DDB22758D63400E0C19A /* testfile.swift in Sources */,
 				7332DDB32758D63400E0C19A /* ChestModel.swift in Sources */,
 				7332DDB42758D63400E0C19A /* GamePointModel.swift in Sources */,
+				73C54D9B275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54DA2275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				7332DDB52758D63400E0C19A /* ContentView.swift in Sources */,
 				7332DDB62758D63400E0C19A /* TestMapView2.swift in Sources */,
 				7332DDB72758D63400E0C19A /* IntExtension.swift in Sources */,
 				7332DDB82758D63400E0C19A /* ImageCheckExtension.swift in Sources */,
+				73C54D94275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DDB92758D63400E0C19A /* GameHistoryView.swift in Sources */,
 				7332DDBA2758D63400E0C19A /* MediaMulti.swift in Sources */,
 				7332DDBB2758D63400E0C19A /* GameMemberPoint.swift in Sources */,
@@ -1284,10 +1323,13 @@
 				7332DDFF2758D9C600E0C19A /* testfile.swift in Sources */,
 				7332DE002758D9C600E0C19A /* ChestModel.swift in Sources */,
 				7332DE012758D9C600E0C19A /* GamePointModel.swift in Sources */,
+				73C54D9C275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
+				73C54DA3275A09CE008B49CC /* AlertWrapper.swift in Sources */,
 				7332DE022758D9C600E0C19A /* ContentView.swift in Sources */,
 				7332DE032758D9C600E0C19A /* TestMapView2.swift in Sources */,
 				7332DE042758D9C600E0C19A /* IntExtension.swift in Sources */,
 				7332DE052758D9C600E0C19A /* ImageCheckExtension.swift in Sources */,
+				73C54D95275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DE062758D9C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DE072758D9C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DE082758D9C600E0C19A /* GameMemberPoint.swift in Sources */,

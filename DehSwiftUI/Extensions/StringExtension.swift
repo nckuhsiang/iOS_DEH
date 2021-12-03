@@ -12,4 +12,10 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    func hidden(_ shouldHide: Bool) ->String{
+        switch shouldHide {
+        case true: return ""
+        case false: return self
+        }
+    }
 }

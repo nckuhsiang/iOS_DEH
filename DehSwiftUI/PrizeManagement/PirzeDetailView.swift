@@ -42,7 +42,7 @@ struct PrizeDetailView: View {
         .onAppear {
             getPrizeAttribute()
         }
-
+        
     }
 }
 extension PrizeDetailView {

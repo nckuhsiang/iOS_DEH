@@ -28,7 +28,7 @@ struct GroupDetailView: View {
     @State private var cancellable: AnyCancellable?
     @State var groupMembers:[GroupMember] = []
     @EnvironmentObject var settingStorage:SettingStorage
-
+    
     init(_ group:Group) {
         self.group = group
     }
@@ -40,7 +40,7 @@ struct GroupDetailView: View {
                         .font(.system(size: 20, weight: .medium, design: .default))
                         .padding(.leading)
                         .padding(.top)
-                                    
+                    
                     TextField("", text: $group.name)
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
@@ -72,7 +72,7 @@ struct GroupDetailView: View {
                             self.buttonText = "Edit".localized
                             self.textState = true
                             self.alertState = true
-
+                            
                         }
                     }
                 } label: {
@@ -84,29 +84,29 @@ struct GroupDetailView: View {
                         .background(Color.orange)
                         .disabled(buttonState)
                         .hidden(buttonState)
-
+                    
                 }
-                    .padding()
-                    .alert(isPresented: $alertState) { () -> Alert in
-                        return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
-                    }
+                .padding()
+                .alert(isPresented: $alertState) { () -> Alert in
+                    return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
+                }
             }
-                .tabItem {
-                    Image("file")
-                    Text("Group info".localized)
+            .tabItem {
+                Image("file")
+                Text("Group info".localized)
+            }
+            .onAppear {
+                groupInfo = group.info ?? ""
+                if(isCreater()) {
+                    self.buttonState = false
+                    self.textState = false
+                    buttonText = "Create".localized
                 }
-                .onAppear {
-                    groupInfo = group.info ?? ""
-                    if(isCreater()) {
-                        self.buttonState = false
-                        self.textState = false
-                        buttonText = "Create".localized
-                    }
-                    else if(isLeader()) {
-                        self.buttonState = false
-                        buttonText = "Edit".localized
-                    }
+                else if(isLeader()) {
+                    self.buttonState = false
+                    buttonText = "Edit".localized
                 }
+            }
             VStack {
                 HStack {
                     if(isLeader()) {
@@ -121,13 +121,13 @@ struct GroupDetailView: View {
                                 .foregroundColor(Color.init(UIColor(rgba: darkGreen)))
                                 .padding(.trailing)
                         }
-                            .alert(isPresented: $alertState) { () -> Alert in
-                                return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
-                            }
+                        .alert(isPresented: $alertState) { () -> Alert in
+                            return Alert(title: Text(alertText),dismissButton:.default(Text("OK".localized), action:{}))
+                        }
                     }
                 }
-                    .padding(.vertical)
-                    .padding(.leading)
+                .padding(.vertical)
+                .padding(.leading)
                 Text("Group member")
                     .font(.system(size: 20, weight: .bold, design: .default))
                 List(){
@@ -138,15 +138,15 @@ struct GroupDetailView: View {
                         }
                     }
                 }
-                    .listStyle(PlainListStyle())
-                    .onAppear {
-                        if(!isCreater()) {getGroupMemberList()}
-                    }
-            }
-                .tabItem {
-                    Image("groupmember")
-                    Text("Group member".localized)
+                .listStyle(PlainListStyle())
+                .onAppear {
+                    if(!isCreater()) {getGroupMemberList()}
                 }
+            }
+            .tabItem {
+                Image("groupmember")
+                Text("Group member".localized)
+            }
         }
         .onAppear {
             
@@ -165,8 +165,8 @@ extension GroupDetailView {
     func getGroupMemberList() {
         let url = GroupGetMemberUrl
         let parameters =
-            ["group_id":"\(group.id)",
-            "coi_name":coi]
+        ["group_id":"\(group.id)",
+         "coi_name":coi]
         
         let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher

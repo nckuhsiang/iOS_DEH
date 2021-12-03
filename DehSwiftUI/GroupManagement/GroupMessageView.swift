@@ -43,26 +43,26 @@ struct GroupMessageView: View {
                                         if let index = groupNotificationList.firstIndex(of:groupNotification) {
                                             groupNotificationList.remove(at: index)
                                         }
-
+                                        
                                     },
-                        .cancel()
-                    ])
+                                    .cancel()
+                                ])
                 }
             }
         }
-            .padding(0)
-            .onAppear {
-                getGroupMessageList()
-                if(self.groupNotificationList.isEmpty) {
-                    self.noMessageAlertState = true
-                }
+        .padding(0)
+        .onAppear {
+            getGroupMessageList()
+            if(self.groupNotificationList.isEmpty) {
+                self.noMessageAlertState = true
             }
-            .listStyle(PlainListStyle())
-            .alert(isPresented: $noMessageAlertState) { () -> Alert in
-                return Alert(title: Text("no message".localized), dismissButton: .default(Text("OK".localized)) {
-                    self.presentationMode.wrappedValue.dismiss()
-                })
-            }
+        }
+        .listStyle(PlainListStyle())
+        .alert(isPresented: $noMessageAlertState) { () -> Alert in
+            return Alert(title: Text("no message".localized), dismissButton: .default(Text("OK".localized)) {
+                self.presentationMode.wrappedValue.dismiss()
+            })
+        }
     }
 }
 extension GroupMessageView {

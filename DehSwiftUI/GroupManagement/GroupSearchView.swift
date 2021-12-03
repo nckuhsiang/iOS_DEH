@@ -34,25 +34,25 @@ struct GroupSearchView: View {
                         } label: {
                             Text(groupName.name)
                         }
-                            .alert(isPresented: $reqAlertState) { () -> Alert in
-                                return Alert(title: Text("Join".localized),
-                                             message: Text("Join".localized + "\(selectedGroup)?"),
-                                             primaryButton: .default(Text("Yes".localized),
-                                                                     action: {                  self.resAlertState = true
-                                }),
-                                             secondaryButton: .default(Text("No".localized), action: {}))
-                            }
-                            
+                        .alert(isPresented: $reqAlertState) { () -> Alert in
+                            return Alert(title: Text("Join".localized),
+                                         message: Text("Join".localized + "\(selectedGroup)?"),
+                                         primaryButton: .default(Text("Yes".localized),
+                                                                 action: {                  self.resAlertState = true
+                            }),
+                                         secondaryButton: .default(Text("No".localized), action: {}))
+                        }
+                        
                     }
                 }
                 
             }
-                .listStyle(PlainListStyle())
+            .listStyle(PlainListStyle())
         }
-            .onAppear { getGroupNameList() }
-            .alert(isPresented: $resAlertState) {
-                return Alert(title:Text(alertText.localized),dismissButton: .default(Text("OK".localized), action: {}))
-            }
+        .onAppear { getGroupNameList() }
+        .alert(isPresented: $resAlertState) {
+            return Alert(title:Text(alertText.localized),dismissButton: .default(Text("OK".localized), action: {}))
+        }
     }
 }
 extension GroupSearchView {
@@ -84,7 +84,7 @@ extension GroupSearchView {
                 print(values.debugDescription)
                 self.alertText = values.value?.message ?? ""
             })
-
+        
     }
 }
 

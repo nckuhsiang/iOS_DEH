@@ -22,27 +22,27 @@ struct GroupListView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             List {
-                    ForEach (self.groups) { group in
-                        NavigationLink(tag: group.id, selection: $cellSelection) {
-                            GroupDetailView(group)
+                ForEach (self.groups) { group in
+                    NavigationLink(tag: group.id, selection: $cellSelection) {
+                        GroupDetailView(group)
+                    } label: {
+                        Button {
+                            self.cellSelection = group.id
                         } label: {
-                            Button {
-                                self.cellSelection = group.id
-                            } label: {
-                                    HStack{
-                                        Image((String(group.leaderId ?? -1) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
-                                        VStack (alignment: .leading, spacing: 0){
-                                            Text(group.name)
-                                                .font(.system(size: 20, weight: .medium, design: .default))
-                                                .foregroundColor(.black)
-                                            Spacer(minLength: 3)
-                                            Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
-                                                .font(.system(size: 16, weight: .light, design: .default))
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                            HStack{
+                                Image((String(group.leaderId ?? -1) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
+                                VStack (alignment: .leading, spacing: 0){
+                                    Text(group.name)
+                                        .font(.system(size: 20, weight: .medium, design: .default))
+                                        .foregroundColor(.black)
+                                    Spacer(minLength: 3)
+                                    Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
+                                        .font(.system(size: 16, weight: .light, design: .default))
+                                        .foregroundColor(.black)
+                                }
                             }
                         }
+                    }
                 }
             }
             .listStyle(PlainListStyle())
@@ -58,18 +58,18 @@ struct GroupListView: View {
                     GroupMessageView()
                 } label: {
                     Button {
-                            self.selection = 1
+                        self.selection = 1
                     } label: {
                         Image(systemName: "message.circle.fill")
                             .foregroundColor(messageNotify ? .red:.blue)
                     }
                 }
-                    
+                
                 NavigationLink(tag: 2, selection: $selection) {
                     GroupSearchView()
                 } label: {
                     Button(action: {
-                            self.selection = 2
+                        self.selection = 2
                     }) {
                         Image(systemName: "magnifyingglass.circle.fill")
                             .foregroundColor(.blue)

@@ -85,6 +85,7 @@ struct ContentView: View {
     //帶有State 的變數可以動態變更ＵＩ上的值
     @State var isShowingSheet = false
     @State var isShowingAlert = false
+    @State var isShowingTextAlert = false
     @State var searchTitle = "title"
     @EnvironmentObject var settingStorage:SettingStorage
     //若使用classModel的值則必須使用observation pattern
@@ -152,7 +153,12 @@ struct ContentView: View {
                 NavigationLink(tag: 5, selection: $selection, destination: {GameView()}){
                     Button{
                         print("game tap")
-                        self.selection = 5
+                        if app != "deh" || app != "sdc" {
+                            isShowingTextAlert = true
+                        }
+                        else {
+                            self.selection = 5
+                        }
                     } label: {
                         Image(systemName: "gamecontroller")
                     }
@@ -160,6 +166,15 @@ struct ContentView: View {
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .alert(isPresented: $isShowingTextAlert,
+               TextAlert(title: "Nickname",
+                         message: "") { result in
+            if let text = result {
+                print(text)
+            } else {
+                // The dialog was cancelled
+            }
+        })
     }
     //this line to avoid lots of warning
     //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
