@@ -406,6 +406,12 @@
 		73C54DA1275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
 		73C54DA2275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
 		73C54DA3275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
+		73C54DAC275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
+		73C54DAD275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
+		73C54DAE275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
+		73C54DAF275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
+		73C54DB0275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
+		73C54DB1275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
 		73F1F89A2735321D008964C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F8992735321D008964C2 /* File.swift */; };
 		73F1F8A027353694008964C2 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1F89F27353694008964C2 /* ActivityViewController.swift */; };
 		73FCF301271C0D1000F6927B /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCF300271C0D1000F6927B /* GroupMessageView.swift */; };
@@ -499,6 +505,7 @@
 		73C54D8F275A0886008B49CC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		73C54D9D275A09CE008B49CC /* AlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWrapper.swift; sourceTree = "<group>"; };
+		73C54DAB275B2896008B49CC /* NickAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickAccountModel.swift; sourceTree = "<group>"; };
 		73F1F8992735321D008964C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		73F1F89F27353694008964C2 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
@@ -685,6 +692,7 @@
 				E1B549D52759DEA400F49604 /* PrizeModel.swift */,
 				73C54D8F275A0886008B49CC /* TextAlert.swift */,
 				73C54D9D275A09CE008B49CC /* AlertWrapper.swift */,
+				73C54DAB275B2896008B49CC /* NickAccountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -989,6 +997,7 @@
 				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
 				5961A0C925777ABD0022CD72 /* MapView.swift in Sources */,
 				73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */,
+				73C54DAC275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */,
 				5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */,
 				73F1F89A2735321D008964C2 /* File.swift in Sources */,
@@ -1060,6 +1069,7 @@
 				7332DCDD2758D5C500E0C19A /* XOIDetail.swift in Sources */,
 				7332DCDE2758D5C500E0C19A /* MapView.swift in Sources */,
 				7332DCDF2758D5C500E0C19A /* QRcodeView.swift in Sources */,
+				73C54DAD275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DCE02758D5C500E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DCE12758D5C500E0C19A /* XOIRow.swift in Sources */,
 				7332DCE22758D5C500E0C19A /* File.swift in Sources */,
@@ -1131,6 +1141,7 @@
 				7332DD2A2758D5C600E0C19A /* XOIDetail.swift in Sources */,
 				7332DD2B2758D5C600E0C19A /* MapView.swift in Sources */,
 				7332DD2C2758D5C600E0C19A /* QRcodeView.swift in Sources */,
+				73C54DAE275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DD2D2758D5C600E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DD2E2758D5C600E0C19A /* XOIRow.swift in Sources */,
 				7332DD2F2758D5C600E0C19A /* File.swift in Sources */,
@@ -1202,6 +1213,7 @@
 				7332DD772758D62500E0C19A /* XOIDetail.swift in Sources */,
 				7332DD782758D62500E0C19A /* MapView.swift in Sources */,
 				7332DD792758D62500E0C19A /* QRcodeView.swift in Sources */,
+				73C54DAF275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DD7A2758D62500E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DD7B2758D62500E0C19A /* XOIRow.swift in Sources */,
 				7332DD7C2758D62500E0C19A /* File.swift in Sources */,
@@ -1273,6 +1285,7 @@
 				7332DDC42758D63400E0C19A /* XOIDetail.swift in Sources */,
 				7332DDC52758D63400E0C19A /* MapView.swift in Sources */,
 				7332DDC62758D63400E0C19A /* QRcodeView.swift in Sources */,
+				73C54DB0275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DDC72758D63400E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DDC82758D63400E0C19A /* XOIRow.swift in Sources */,
 				7332DDC92758D63400E0C19A /* File.swift in Sources */,
@@ -1344,6 +1357,7 @@
 				7332DE112758D9C600E0C19A /* XOIDetail.swift in Sources */,
 				7332DE122758D9C600E0C19A /* MapView.swift in Sources */,
 				7332DE132758D9C600E0C19A /* QRcodeView.swift in Sources */,
+				73C54DB1275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DE142758D9C600E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DE152758D9C600E0C19A /* XOIRow.swift in Sources */,
 				7332DE162758D9C600E0C19A /* File.swift in Sources */,
@@ -1551,7 +1565,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEH";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehMini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1574,7 +1588,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEH";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehMini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1597,7 +1611,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehMicro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1620,7 +1634,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehMicro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1643,7 +1657,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDC";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcMini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1666,7 +1680,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDC";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcMini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1689,7 +1703,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1712,7 +1726,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1735,7 +1749,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcMicro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1758,7 +1772,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.SdcMicro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1781,7 +1795,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1804,7 +1818,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
-				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = deh.NCKU.DehLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

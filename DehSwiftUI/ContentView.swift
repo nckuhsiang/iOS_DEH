@@ -9,6 +9,7 @@
 import SwiftUI
 import Alamofire
 import CryptoKit
+import Combine
 import simd
 // the personal entry is here
 #if SDCDEH
@@ -86,7 +87,9 @@ struct ContentView: View {
     @State var isShowingSheet = false
     @State var isShowingAlert = false
     @State var isShowingTextAlert = false
+    @State private var cancellable: AnyCancellable?
     @State var searchTitle = "title"
+    @State var isRigister = false
     @EnvironmentObject var settingStorage:SettingStorage
     //若使用classModel的值則必須使用observation pattern
     //https://stackoverflow.com/questions/60744017/how-do-i-update-a-text-label-in-swiftui
@@ -97,11 +100,13 @@ struct ContentView: View {
                 TabView{
                     TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
                     TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
-                    TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                    if !isMini() {
+                        TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                    }
                     TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
             }
-            .navigationBarTitle(Text("HI, ".localized + self.settingStorage.account), displayMode: .inline)
+            .navigationBarTitle(Text("HI ".localized + (isMini() ? self.settingStorage.account:"")), displayMode: .inline)
             .navigationBarItems(leading: HStack {
                 NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
                     Button {
@@ -111,7 +116,7 @@ struct ContentView: View {
                         Image("member_setting")
                             .foregroundColor(.blue)
                     }
-                    if app == "deh" || app == "sdc" {
+                    if isMini() {
                         Button {
                             isShowingSheet = settingStorage.loginState
                             isShowingAlert = !settingStorage.loginState
@@ -141,28 +146,29 @@ struct ContentView: View {
                     }
                 }
             },trailing: HStack {
-                NavigationLink(tag: 4, selection: $selection, destination: {DEHMap()}) {
-                    Button{
-                        print("map tapped")
-                        self.selection = 4
-                    } label: {
-                        Image("member_back")
-                            .foregroundColor(.blue)
-                    }
-                }
-                NavigationLink(tag: 5, selection: $selection, destination: {GameView()}){
+                NavigationLink(tag: 4, selection: $selection, destination: {GameView()}){
                     Button{
                         print("game tap")
-                        if app != "deh" || app != "sdc" {
+                        if app != "deh" && app != "sdc" && !isRigister {
                             isShowingTextAlert = true
                         }
                         else {
-                            self.selection = 5
+                            self.selection = 4
                         }
                     } label: {
                         Image(systemName: "gamecontroller")
                     }
                 }
+                NavigationLink(tag: 5, selection: $selection, destination: {DEHMap()}) {
+                    Button{
+                        print("map tapped")
+                        self.selection = 5
+                    } label: {
+                        Image("member_back")
+                            .foregroundColor(.blue)
+                    }
+                }
+
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -170,16 +176,33 @@ struct ContentView: View {
                TextAlert(title: "Nickname",
                          message: "") { result in
             if let text = result {
-                print(text)
-            } else {
-                // The dialog was cancelled
+                createTempAccount(name: text)
+                self.selection = 4
             }
         })
     }
     //this line to avoid lots of warning
     //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
-    
-    
+}
+extension ContentView {
+    func createTempAccount(name:String) {
+        let url = CreateTempAccountUrl
+        let parameters = ["user_name":name]
+        let publisher:DataResponsePublisher<NickAccount> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher.sink(receiveValue: { values in
+            isRigister = true
+            settingStorage.account = values.value?.account ?? ""
+            settingStorage.password = values.value?.password ?? ""
+            settingStorage.userID = String(values.value?.id ?? -1)
+            //print(values.value!.account,values.value!.password,values.value!.id)
+        })
+    }
+    func isMini() -> Bool {
+        if app == "deh" && app == "sdc" {
+            return true
+        }
+        return false
+    }
 }
 
 
