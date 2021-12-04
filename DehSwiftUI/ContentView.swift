@@ -89,7 +89,6 @@ struct ContentView: View {
     @State var isShowingTextAlert = false
     @State private var cancellable: AnyCancellable?
     @State var searchTitle = "title"
-    @State var isRigister = false
     @EnvironmentObject var settingStorage:SettingStorage
     //若使用classModel的值則必須使用observation pattern
     //https://stackoverflow.com/questions/60744017/how-do-i-update-a-text-label-in-swiftui
@@ -100,7 +99,7 @@ struct ContentView: View {
                 TabView{
                     TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
                     TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
-                    if !isMini() {
+                    if isMini() {
                         TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
                     }
                     TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
@@ -149,7 +148,7 @@ struct ContentView: View {
                 NavigationLink(tag: 4, selection: $selection, destination: {GameView()}){
                     Button{
                         print("game tap")
-                        if app != "deh" && app != "sdc" && !isRigister {
+                        if !isMini() && settingStorage.userID == "-1" {
                             isShowingTextAlert = true
                         }
                         else {
@@ -190,15 +189,13 @@ extension ContentView {
         let parameters = ["user_name":name]
         let publisher:DataResponsePublisher<NickAccount> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher.sink(receiveValue: { values in
-            isRigister = true
             settingStorage.account = values.value?.account ?? ""
             settingStorage.password = values.value?.password ?? ""
             settingStorage.userID = String(values.value?.id ?? -1)
-            //print(values.value!.account,values.value!.password,values.value!.id)
         })
     }
     func isMini() -> Bool {
-        if app == "deh" && app == "sdc" {
+        if app == "deh" || app == "sdc" {
             return true
         }
         return false
