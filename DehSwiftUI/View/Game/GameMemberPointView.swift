@@ -58,16 +58,11 @@ extension GameMemberPoint{
         let publisher:DataResponsePublisher<[GamePointModel]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-//                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 print(Date())
                 if let value = values.value{
                     self.gamePointList = value
                     removeUncorrectness()
-//                    let isoFormatter = ISO8601DateFormatter()
-//                    isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-//                    let date = isoFormatter.date(from: self.gameHistoryList[0].startTime)
-//                    print(date)
                 }
                 
             })
