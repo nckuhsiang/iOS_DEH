@@ -66,9 +66,6 @@ struct ContentView: View {
             // To remove only extra separators below the list:
             UITableView.appearance().tableFooterView = UIView()
         }
-        
-        // To remove all separators including the actual ones:
-        //        UITableView.appearance().separatorStyle = .none
         //list底下的背景色
         UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
         

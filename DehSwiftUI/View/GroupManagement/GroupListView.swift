@@ -16,7 +16,7 @@ struct GroupListView: View {
     @State var selection: Int? = nil
     @State var cellSelection: Int? = nil
     @State private var groupListCancellable: AnyCancellable?
-    @State private var messageCancellable2: AnyCancellable?
+    @State private var messageCancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
     @State var groups:[Group] = []
     var body: some View {
@@ -121,7 +121,7 @@ extension GroupListView{
         """
         let parameters = ["notification":temp]
         let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.messageCancellable2 = publisher
+        self.messageCancellable = publisher
             .sink(receiveValue: { (values) in
                 print(values.debugDescription)
                 let message = values.value?.message ?? ""

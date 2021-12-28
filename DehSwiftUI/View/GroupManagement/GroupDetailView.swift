@@ -148,9 +148,6 @@ struct GroupDetailView: View {
                 Text("Group member".localized)
             }
         }
-        .onAppear {
-            
-        }
     }
 }
 extension GroupDetailView {
@@ -167,7 +164,6 @@ extension GroupDetailView {
         let parameters =
         ["group_id":"\(group.id)",
          "coi_name":coi]
-        
         let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
@@ -236,9 +232,7 @@ extension GroupDetailView {
     
 }
 
-class GroupMemberList:Decodable {
-    let result:[GroupMember]
-}
+
 
 
 struct GroupDetailView_Previews: PreviewProvider {

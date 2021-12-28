@@ -79,3 +79,6 @@ class GroupNotification:Decodable, Identifiable,Equatable {
 class GroupMessage:Decodable {
     var message:String
 }
+class GroupMemberList:Decodable {
+    let result:[GroupMember]
+}

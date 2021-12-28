@@ -126,10 +126,6 @@ struct Setting: View {
                 
             })
         )
-//        .onTapGesture {
-//            self.hideKeyboard()
-//        }
-        
     }
     func login() {
         let parameters:Parameters = [

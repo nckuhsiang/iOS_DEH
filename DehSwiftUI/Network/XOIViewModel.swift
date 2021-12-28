@@ -18,7 +18,6 @@ final class XOIViewModel:ObservableObject, Decodable{
     enum CodingKeys: String, CodingKey {
         case XOIs = "results"
     }
-    init(){}
     
     init(from decoder: Decoder) throws {
         print("start decode...")

@@ -42,33 +42,30 @@ struct ChestDetailView: View {
                     }
                     .frame(height: geometry.size.height * 0.4)
                     ScrollView{
-                    //            Spacer()
-                    HStack{
-                        Spacer()
-                        Text("Question:")
-                            .multilineTextAlignment(.center)
-                            .frame(height: geometry.size.height * 0.03)
-                            .font(.system(size: 20))
-                        Spacer()
-                        Text("Done")
-                    }
-                    Divider()
-                    Text(chest.question)
-                        .frame(height: geometry.size.height * 0.15)
-                    
-                    answerBoxSelector(chest.questionType,geometry)
-                        .alert(isPresented: $showMessage) {() -> Alert in
-                            //                            let greetingMessage = "Login Success"
-                            return Alert(title: Text(responseMessage),
-                                         dismissButton:.default(Text("Ok"), action: {
-                                            //                                    UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
-                                            
-                                            self.presentationMode.wrappedValue.dismiss()
-                                         })
-                            )
+                        //            Spacer()
+                        HStack{
+                            Spacer()
+                            Text("Question:")
+                                .multilineTextAlignment(.center)
+                                .frame(height: geometry.size.height * 0.03)
+                                .font(.system(size: 20))
+                            Spacer()
+                            Text("Done")
                         }
-                    
-                    Spacer()
+                        Divider()
+                        Text(chest.question)
+                            .frame(height: geometry.size.height * 0.15)
+                        
+                        answerBoxSelector(chest.questionType,geometry)
+                            .alert(isPresented: $showMessage) {() -> Alert in
+                                //                            let greetingMessage = "Login Success"
+                                return Alert(title: Text(responseMessage),
+                                             dismissButton:.default(Text("Ok"), action: {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                })
+                                )
+                            }
+                        Spacer()
                     }
                 }
                 .onAppear(){
@@ -115,35 +112,35 @@ extension ChestDetailView{
             .background(Color.white)
         case 3:
             
-                VStack{
-                    HStack{
-                        Spacer()
-                        TextEditor(text: $textInEditor)
-                        //                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        Spacer()
-                    }
-                    .frame(height: (geometry?.size.height ?? 0) * 0.2)
-                    //                TextEditor(text: .constant("Placeholder"))
-                    //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
+            VStack{
+                HStack{
                     Spacer()
-                    Text("Append a Media")
-                    HStack{
-                        Spacer()
-                        imageButton(imageName: "camera", mediaType: "picture")
-                            .disabled(mediaData != nil)
-                        Spacer()
-                        imageButton(imageName: "mic", mediaType: "voice")
-                            .disabled(mediaData != nil)
-                        Spacer()
-                        imageButton(imageName: "video", mediaType: "video")
-                            .disabled(mediaData != nil)
-                        Spacer()
-                    }
-                    .frame(height: (geometry?.size.height ?? 0) * 0.07)
+                    TextEditor(text: $textInEditor)
+                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     Spacer()
                 }
-                .background(Color.init(UIColor(rgba:lightGreen)))
+                .frame(height: (geometry?.size.height ?? 0) * 0.2)
+                //                TextEditor(text: .constant("Placeholder"))
+                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Spacer()
+                Text("Append a Media")
+                HStack{
+                    Spacer()
+                    imageButton(imageName: "camera", mediaType: "picture")
+                        .disabled(mediaData != nil)
+                    Spacer()
+                    imageButton(imageName: "mic", mediaType: "voice")
+                        .disabled(mediaData != nil)
+                    Spacer()
+                    imageButton(imageName: "video", mediaType: "video")
+                        .disabled(mediaData != nil)
+                    Spacer()
+                }
+                .frame(height: (geometry?.size.height ?? 0) * 0.07)
+                Spacer()
+            }
+            .background(Color.init(UIColor(rgba:lightGreen)))
             
         default:
             EmptyView()
@@ -179,10 +176,10 @@ extension ChestDetailView{
                         .foregroundColor(mediaData == nil ? .blue : .black)
                         .font(.system(size: 30))
                 })
-                .contextMenu(ContextMenu(menuItems: {
-                    Text("make a \(mediaType) answer")
-                        .bold()
-                }))
+                    .contextMenu(ContextMenu(menuItems: {
+                        Text("make a \(mediaType) answer")
+                            .bold()
+                    }))
             })
         
     }
@@ -279,14 +276,12 @@ extension ChestDetailView{
             "game_id":"\(session.gameID)",
             "chest_id":"\(chest.id)",
             "user_answer":answer,
-            //            "correctness":correctness,
             "lat":String(describing: locationManager.coordinateRegion.center.latitude),
             "lng":String(describing: locationManager.coordinateRegion.center.longitude),
         ]
         let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable2 = publisher
             .sink(receiveValue: {(values) in
-                //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 if let value = values.value{
                     print(value)
