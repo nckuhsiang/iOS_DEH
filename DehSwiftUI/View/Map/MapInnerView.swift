@@ -27,8 +27,6 @@ struct DEHMapInner: View {
                     }) {
                         VStack{
                             Text(xoi.name)
-                            
-                            //                            Image("player_pin")
                             //還沒把index收下來
                             pinSelector(number:xoi.index ?? 0,xoiCategory:xoiCategory)
                         }

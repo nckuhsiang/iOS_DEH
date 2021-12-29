@@ -18,7 +18,7 @@
 		5923E26225B8160100371AB1 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E26125B8160100371AB1 /* IntExtension.swift */; };
 		592AFD8F2583499300E623A8 /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
 		592AFD962588A60600E623A8 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD952588A60600E623A8 /* ViewExtension.swift */; };
-		5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		5938A2FA25824F9E000F1869 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		593ED2EE26494271006567C0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		594B3DEE25B2BE5600A3DF29 /* ImageCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594B3DED25B2BE5600A3DF29 /* ImageCheckExtension.swift */; };
 		59601ABD25F22B1E00A9C652 /* MapInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59601ABC25F22B1E00A9C652 /* MapInnerView.swift */; };
@@ -83,7 +83,7 @@
 		7332DCE82758D5C500E0C19A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		7332DCE92758D5C500E0C19A /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		7332DCEA2758D5C500E0C19A /* GameSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CCD34026396DB500A3BF53 /* GameSessionView.swift */; };
-		7332DCEB2758D5C500E0C19A /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		7332DCEB2758D5C500E0C19A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		7332DCEC2758D5C500E0C19A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784AC25914041008F16B8 /* LocationManager.swift */; };
 		7332DCED2758D5C500E0C19A /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
 		7332DCEE2758D5C500E0C19A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* MapView.swift */; };
@@ -143,7 +143,7 @@
 		7332DD352758D5C600E0C19A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		7332DD362758D5C600E0C19A /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		7332DD372758D5C600E0C19A /* GameSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CCD34026396DB500A3BF53 /* GameSessionView.swift */; };
-		7332DD382758D5C600E0C19A /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		7332DD382758D5C600E0C19A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		7332DD392758D5C600E0C19A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784AC25914041008F16B8 /* LocationManager.swift */; };
 		7332DD3A2758D5C600E0C19A /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
 		7332DD3B2758D5C600E0C19A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* MapView.swift */; };
@@ -203,7 +203,7 @@
 		7332DD822758D62500E0C19A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		7332DD832758D62500E0C19A /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		7332DD842758D62500E0C19A /* GameSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CCD34026396DB500A3BF53 /* GameSessionView.swift */; };
-		7332DD852758D62500E0C19A /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		7332DD852758D62500E0C19A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		7332DD862758D62500E0C19A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784AC25914041008F16B8 /* LocationManager.swift */; };
 		7332DD872758D62500E0C19A /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
 		7332DD882758D62500E0C19A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* MapView.swift */; };
@@ -263,7 +263,7 @@
 		7332DDCF2758D63400E0C19A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		7332DDD02758D63400E0C19A /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		7332DDD12758D63400E0C19A /* GameSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CCD34026396DB500A3BF53 /* GameSessionView.swift */; };
-		7332DDD22758D63400E0C19A /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		7332DDD22758D63400E0C19A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		7332DDD32758D63400E0C19A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784AC25914041008F16B8 /* LocationManager.swift */; };
 		7332DDD42758D63400E0C19A /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
 		7332DDD52758D63400E0C19A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* MapView.swift */; };
@@ -323,7 +323,7 @@
 		7332DE1C2758D9C600E0C19A /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		7332DE1D2758D9C600E0C19A /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		7332DE1E2758D9C600E0C19A /* GameSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CCD34026396DB500A3BF53 /* GameSessionView.swift */; };
-		7332DE1F2758D9C600E0C19A /* SettingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingStorage.swift */; };
+		7332DE1F2758D9C600E0C19A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938A2F925824F9E000F1869 /* SettingModel.swift */; };
 		7332DE202758D9C600E0C19A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B784AC25914041008F16B8 /* LocationManager.swift */; };
 		7332DE212758D9C600E0C19A /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923E25625B58FC800371AB1 /* PagingView.swift */; };
 		7332DE222758D9C600E0C19A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE6C0F2578D32100553EBA /* MapView.swift */; };
@@ -411,7 +411,7 @@
 		5923E26125B8160100371AB1 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		592AFD8E2583499300E623A8 /* MD5Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Extension.swift; sourceTree = "<group>"; };
 		592AFD952588A60600E623A8 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		5938A2F925824F9E000F1869 /* SettingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStorage.swift; sourceTree = "<group>"; };
+		5938A2F925824F9E000F1869 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		593ED2ED26494271006567C0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		594B3DED25B2BE5600A3DF29 /* ImageCheckExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCheckExtension.swift; sourceTree = "<group>"; };
 		59601AB325F0A56800A9C652 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -619,7 +619,8 @@
 		59CCD347263AAE7E00A3BF53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5938A2F925824F9E000F1869 /* SettingStorage.swift */,
+				5938A2F925824F9E000F1869 /* SettingModel.swift */,
+				B17023382592F2CD00DF2167 /* XOIViewModel.swift */,
 				5961A0C425776F550022CD72 /* XOIModel.swift */,
 				59CACC672626F80000B0B0CC /* GroupModel.swift */,
 				59CCD34226396F6B00A3BF53 /* SessionModel.swift */,
@@ -721,7 +722,6 @@
 		B1702331258B41BE00DF2167 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B17023382592F2CD00DF2167 /* XOIViewModel.swift */,
 				B170233A2592F38300DF2167 /* APIHandler.swift */,
 				59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */,
 				59B784B22591F084008F16B8 /* TestAlamofirePeter.swift */,
@@ -1005,7 +1005,7 @@
 				E1B549D62759DEA400F49604 /* PrizeModel.swift in Sources */,
 				E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */,
 				59CCD34126396DB500A3BF53 /* GameSessionView.swift in Sources */,
-				5938A2FA25824F9E000F1869 /* SettingStorage.swift in Sources */,
+				5938A2FA25824F9E000F1869 /* SettingModel.swift in Sources */,
 				59B784AD25914041008F16B8 /* LocationManager.swift in Sources */,
 				5923E25725B58FC800371AB1 /* PagingView.swift in Sources */,
 				59CE6C102578D32100553EBA /* MapView.swift in Sources */,
@@ -1072,7 +1072,7 @@
 				E1B549D72759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DCE92758D5C500E0C19A /* PrizeListView.swift in Sources */,
 				7332DCEA2758D5C500E0C19A /* GameSessionView.swift in Sources */,
-				7332DCEB2758D5C500E0C19A /* SettingStorage.swift in Sources */,
+				7332DCEB2758D5C500E0C19A /* SettingModel.swift in Sources */,
 				7332DCEC2758D5C500E0C19A /* LocationManager.swift in Sources */,
 				7332DCED2758D5C500E0C19A /* PagingView.swift in Sources */,
 				7332DCEE2758D5C500E0C19A /* MapView.swift in Sources */,
@@ -1139,7 +1139,7 @@
 				E1B549D82759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DD362758D5C600E0C19A /* PrizeListView.swift in Sources */,
 				7332DD372758D5C600E0C19A /* GameSessionView.swift in Sources */,
-				7332DD382758D5C600E0C19A /* SettingStorage.swift in Sources */,
+				7332DD382758D5C600E0C19A /* SettingModel.swift in Sources */,
 				7332DD392758D5C600E0C19A /* LocationManager.swift in Sources */,
 				7332DD3A2758D5C600E0C19A /* PagingView.swift in Sources */,
 				7332DD3B2758D5C600E0C19A /* MapView.swift in Sources */,
@@ -1206,7 +1206,7 @@
 				E1B549D92759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DD832758D62500E0C19A /* PrizeListView.swift in Sources */,
 				7332DD842758D62500E0C19A /* GameSessionView.swift in Sources */,
-				7332DD852758D62500E0C19A /* SettingStorage.swift in Sources */,
+				7332DD852758D62500E0C19A /* SettingModel.swift in Sources */,
 				7332DD862758D62500E0C19A /* LocationManager.swift in Sources */,
 				7332DD872758D62500E0C19A /* PagingView.swift in Sources */,
 				7332DD882758D62500E0C19A /* MapView.swift in Sources */,
@@ -1273,7 +1273,7 @@
 				E1B549DA2759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DDD02758D63400E0C19A /* PrizeListView.swift in Sources */,
 				7332DDD12758D63400E0C19A /* GameSessionView.swift in Sources */,
-				7332DDD22758D63400E0C19A /* SettingStorage.swift in Sources */,
+				7332DDD22758D63400E0C19A /* SettingModel.swift in Sources */,
 				7332DDD32758D63400E0C19A /* LocationManager.swift in Sources */,
 				7332DDD42758D63400E0C19A /* PagingView.swift in Sources */,
 				7332DDD52758D63400E0C19A /* MapView.swift in Sources */,
@@ -1340,7 +1340,7 @@
 				E1B549DB2759DEA400F49604 /* PrizeModel.swift in Sources */,
 				7332DE1D2758D9C600E0C19A /* PrizeListView.swift in Sources */,
 				7332DE1E2758D9C600E0C19A /* GameSessionView.swift in Sources */,
-				7332DE1F2758D9C600E0C19A /* SettingStorage.swift in Sources */,
+				7332DE1F2758D9C600E0C19A /* SettingModel.swift in Sources */,
 				7332DE202758D9C600E0C19A /* LocationManager.swift in Sources */,
 				7332DE212758D9C600E0C19A /* PagingView.swift in Sources */,
 				7332DE222758D9C600E0C19A /* MapView.swift in Sources */,

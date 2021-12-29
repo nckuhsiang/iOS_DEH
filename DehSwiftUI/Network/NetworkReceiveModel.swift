@@ -23,9 +23,3 @@ class ClickCount:Decodable{
         case count
     }
 }
-class TestModel:Decodable{
-    var count:Int
-    enum CodingKeys: String, CodingKey{
-        case count
-    }
-}

@@ -29,15 +29,12 @@ struct GameView: View {
                                     .lineLimit(1)
                                     .background(Color.init(UIColor(rgba:lightGreen)))
                             })
-                        
-
                     }
                 }
                 .listRowBackground(Color.init(UIColor(rgba: lightGreen)))
             }
             
         }
-//        .listRowBackground(Color.init(UIColor(rgba: darkGreen)))
             .onAppear(perform: {
                 if(gameList.isEmpty){
                     getGameList()
@@ -59,7 +56,6 @@ extension GameView{
         let publisher:DataResponsePublisher<GroupLists> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-//                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 if let eventList = values.value?.eventList {
                     tempList.append(gameListtuple("public".localized,eventList))
@@ -87,8 +83,6 @@ extension GameView{
         }
     }
 }
-
-
 struct Game_Previews: PreviewProvider {
     static var previews: some View {
         GameView()

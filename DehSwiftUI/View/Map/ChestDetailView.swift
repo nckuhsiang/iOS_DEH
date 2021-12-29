@@ -14,8 +14,8 @@ struct ChestDetailView: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State private var cancellable: AnyCancellable?
-    @State private var cancellable2: AnyCancellable?
+    @State private var chestCancellable: AnyCancellable?
+    @State private var minusCancellable: AnyCancellable?
     @State private var mediaCancellable: [AnyCancellable] = []
     @State var chest:ChestModel
     @State var session:SessionModel
@@ -202,7 +202,7 @@ extension ChestDetailView{
             "chest_id": "\(chest.id)",
         ]
         let publisher:DataResponsePublisher<[ChestMedia]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.cancellable = publisher
+        self.chestCancellable = publisher
             .sink(receiveValue: {(values) in
                 //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
@@ -258,7 +258,7 @@ extension ChestDetailView{
             "lng":String(describing: locationManager.coordinateRegion.center.longitude),
         ]
         let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.cancellable = publisher
+        self.chestCancellable = publisher
             .sink(receiveValue: {(values) in
                 //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
@@ -280,7 +280,7 @@ extension ChestDetailView{
             "lng":String(describing: locationManager.coordinateRegion.center.longitude),
         ]
         let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.cancellable2 = publisher
+        self.minusCancellable = publisher
             .sink(receiveValue: {(values) in
                 print(values.debugDescription)
                 if let value = values.value{

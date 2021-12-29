@@ -60,11 +60,6 @@ struct ChestModel:Identifiable,Decodable,Hashable{
         case answer
         case gameID = "game_id_id"
         case poiID = "poi_id_id"
-        
-        
-        
-        
-        
     }
 
     func hash(into hasher: inout Hasher) {

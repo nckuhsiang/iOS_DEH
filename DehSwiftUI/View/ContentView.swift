@@ -81,9 +81,9 @@ struct ContentView: View {
         
     }
     //帶有State 的變數可以動態變更ＵＩ上的值
-    @State var isShowingSheet = false
-    @State var isShowingAlert = false
-    @State var isShowingTextAlert = false
+    @State var sheetState = false
+    @State var alertState = false
+    @State var textState = false
     @State private var cancellable: AnyCancellable?
     @State var searchTitle = "title"
     @EnvironmentObject var settingStorage:SettingStorage
@@ -114,13 +114,13 @@ struct ContentView: View {
                     }
                     if isMini() {
                         Button {
-                            isShowingSheet = settingStorage.loginState
-                            isShowingAlert = !settingStorage.loginState
+                            sheetState = settingStorage.loginState
+                            alertState = !settingStorage.loginState
                         } label: {
                             Image(systemName: "ellipsis.circle.fill")
                                 .foregroundColor(.blue)
                         }
-                        .actionSheet(isPresented: $isShowingSheet) {
+                        .actionSheet(isPresented: $sheetState) {
                             ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
                                 .default(Text("Group".localized)) {
                                     self.selection = 2
@@ -131,7 +131,7 @@ struct ContentView: View {
                                 .cancel()
                             ])
                         }
-                        .alert(isPresented: $isShowingAlert) {() -> Alert in
+                        .alert(isPresented: $alertState) {() -> Alert in
                             return Alert(title: Text("Please login first".localized),
                                          dismissButton:.default(Text("OK".localized), action: {
                             })
@@ -146,7 +146,7 @@ struct ContentView: View {
                     Button{
                         print("game tap")
                         if !isMini() && settingStorage.userID == "-1" {
-                            isShowingTextAlert = true
+                            textState = true
                         }
                         else {
                             self.selection = 4
@@ -168,7 +168,7 @@ struct ContentView: View {
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .alert(isPresented: $isShowingTextAlert,
+        .alert(isPresented: $textState,
                TextAlert(title: "Nickname",
                          message: "") { result in
             if let text = result {
