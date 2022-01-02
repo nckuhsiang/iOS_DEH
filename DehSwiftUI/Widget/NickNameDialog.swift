@@ -25,8 +25,9 @@ struct NickNameDialog: View {
                     .keyboardType(.asciiCapable)
                     .disableAutocorrection(true)
                     .frame(height: 35)
-                    .background(Color.white)
                     .padding(.horizontal)
+                    .background(Color.gray.opacity(0.1))
+                    
                 Button("Do you have an account?"){
                     showLoginDialog = true
                 }
@@ -63,7 +64,7 @@ struct NickNameDialog: View {
             .cornerRadius(12)
             .clipped()
             if showLoginDialog {
-                LoginDialog(show: $showLoginDialog,shownicknameDialog: $show)
+                LoginDialog(showLoginDialog: $showLoginDialog, showNicknameDialog: $show)
             }
         }
         

@@ -19,27 +19,27 @@ struct LoginDialog: View {
     @State var alertState:Bool = false
     @State var activeAlert:ActiveAlert = .fail
     @EnvironmentObject var settingStorage:SettingStorage
-    @Binding var show:Bool
-    @Binding var shownicknameDialog:Bool
+    @Binding var showLoginDialog:Bool
+    @Binding var showNicknameDialog:Bool
     var body: some View {
         VStack{
             Text("User login")
-            TextField("account".localized, text: $account)
+            TextField("Account".localized, text: $account)
                 .keyboardType(.asciiCapable)
                 .disableAutocorrection(true)
                 .frame(height: 35)
-                .background(Color.white)
                 .padding(.horizontal)
+                .background(Color.gray.opacity(0.1))
             SecureField("Password".localized, text: $password)
                 .keyboardType(.asciiCapable)
                 .disableAutocorrection(true)
                 .frame(height: 35)
-                .background(Color.white)
                 .padding(.horizontal)
+                .background(Color.gray.opacity(0.1))
             Divider()
             HStack {
                 Button("Cancel".localized){
-                    show.toggle()
+                    showLoginDialog.toggle()
                 }
                 .frame(width: UIScreen.main.bounds.width/2-25, height: 40)
                 Button("OK".localized){
@@ -48,15 +48,15 @@ struct LoginDialog: View {
                 .alert(isPresented: $alertState) {() -> Alert in
                     switch activeAlert {
                     case .fail:
-                        return Alert(title: Text("Account does not exist".localized),
+                        return Alert(title: Text("Account or Password is not correct".localized.localized),
                                      dismissButton:.default(Text("OK".localized), action: {
                         })
                         )
                     case .success:
-                        return Alert(title: Text("Success login".localized),
+                        return Alert(title: Text("Login Success".localized),
                                      dismissButton:.default(Text("OK".localized), action: {
-                            show.toggle()
-                            shownicknameDialog.toggle()
+                            showLoginDialog.toggle()
+                            showNicknameDialog.toggle()
                         })
                         )
                     }
@@ -102,6 +102,6 @@ extension LoginDialog {
 
 struct LoginDialog_Previews: PreviewProvider {
     static var previews: some View {
-        LoginDialog(show: .constant(false),shownicknameDialog:.constant(false))
+        LoginDialog(showLoginDialog: .constant(false),showNicknameDialog:.constant(false))
     }
 }
