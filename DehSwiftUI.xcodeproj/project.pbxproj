@@ -359,24 +359,6 @@
 		73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73917F54271C4DE000B4FAAD /* TextVIew.swift */; };
 		739AD42C272A81A400942ACB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AD42B272A81A400942ACB /* SearchBar.swift */; };
 		73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
-		73C54D90275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D91275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D92275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D93275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D94275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D95275A0886008B49CC /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D8F275A0886008B49CC /* TextAlert.swift */; };
-		73C54D97275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D98275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D99275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D9A275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D9B275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D9C275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */; };
-		73C54D9E275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
-		73C54D9F275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
-		73C54DA0275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
-		73C54DA1275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
-		73C54DA2275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
-		73C54DA3275A09CE008B49CC /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54D9D275A09CE008B49CC /* AlertWrapper.swift */; };
 		73C54DAC275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
 		73C54DAD275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
 		73C54DAE275B2896008B49CC /* NickAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C54DAB275B2896008B49CC /* NickAccountModel.swift */; };
@@ -389,6 +371,18 @@
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
 		B170233B2592F38300DF2167 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
+		E12ACF07278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF08278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF09278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF0A278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF0B278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF0C278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
+		E12ACF0E27817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
+		E12ACF0F27817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
+		E12ACF1027817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
+		E12ACF1127817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
+		E12ACF1227817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
+		E12ACF1327817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
 		E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		E1B549D62759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
@@ -468,9 +462,6 @@
 		73917F54271C4DE000B4FAAD /* TextVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVIew.swift; sourceTree = "<group>"; };
 		739AD42B272A81A400942ACB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		73B43E522733A9E2004853AB /* QRcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeView.swift; sourceTree = "<group>"; };
-		73C54D8F275A0886008B49CC /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
-		73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
-		73C54D9D275A09CE008B49CC /* AlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWrapper.swift; sourceTree = "<group>"; };
 		73C54DAB275B2896008B49CC /* NickAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickAccountModel.swift; sourceTree = "<group>"; };
 		73F1F89F27353694008964C2 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		73FCF300271C0D1000F6927B /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
@@ -478,6 +469,8 @@
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
 		B170233A2592F38300DF2167 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
+		E12ACF06278168CF00B197AA /* NickNameDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameDialog.swift; sourceTree = "<group>"; };
+		E12ACF0D27817EBB00B197AA /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
 		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
 		E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirzeDetailView.swift; sourceTree = "<group>"; };
 		E1B549D52759DEA400F49604 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
@@ -611,7 +604,6 @@
 				594B3DED25B2BE5600A3DF29 /* ImageCheckExtension.swift */,
 				5923E26125B8160100371AB1 /* IntExtension.swift */,
 				73342FEE271188F300458A60 /* StringExtension.swift */,
-				73C54D96275A0935008B49CC /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -713,8 +705,8 @@
 				5923E25D25B80B9B00371AB1 /* MediaMulti.swift */,
 				739AD42B272A81A400942ACB /* SearchBar.swift */,
 				59CACC6B2626FB5900B0B0CC /* GroupList.swift */,
-				73C54D8F275A0886008B49CC /* TextAlert.swift */,
-				73C54D9D275A09CE008B49CC /* AlertWrapper.swift */,
+				E12ACF06278168CF00B197AA /* NickNameDialog.swift */,
+				E12ACF0D27817EBB00B197AA /* LoginDialog.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -976,12 +968,10 @@
 				59CE6C122578D7BB00553EBA /* testfile.swift in Sources */,
 				5912967B263BCB59006D1F0A /* ChestModel.swift in Sources */,
 				5908F04226E8ABFE00931C01 /* GamePointModel.swift in Sources */,
-				73C54D97275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54D9E275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF07278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */,
 				5923E26225B8160100371AB1 /* IntExtension.swift in Sources */,
 				594B3DEE25B2BE5600A3DF29 /* ImageCheckExtension.swift in Sources */,
-				73C54D90275A0886008B49CC /* TextAlert.swift in Sources */,
 				59CCD34B263AAF4400A3BF53 /* GameHistoryView.swift in Sources */,
 				5923E25E25B80B9B00371AB1 /* MediaMulti.swift in Sources */,
 				5908F04026E8949600931C01 /* GameMemberPointView.swift in Sources */,
@@ -1017,6 +1007,7 @@
 				5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */,
 				59FF3DC0259ABCC10011EAF7 /* NetworkConnector.swift in Sources */,
 				5923E25B25B808B900371AB1 /* Sounds.swift in Sources */,
+				E12ACF0E27817EBB00B197AA /* LoginDialog.swift in Sources */,
 				739AD42C272A81A400942ACB /* SearchBar.swift in Sources */,
 				59CACC682626F80000B0B0CC /* GroupModel.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
@@ -1043,12 +1034,10 @@
 				7332DCCB2758D5C500E0C19A /* testfile.swift in Sources */,
 				7332DCCC2758D5C500E0C19A /* ChestModel.swift in Sources */,
 				7332DCCD2758D5C500E0C19A /* GamePointModel.swift in Sources */,
-				73C54D98275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54D9F275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF08278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DCCE2758D5C500E0C19A /* ContentView.swift in Sources */,
 				7332DCD02758D5C500E0C19A /* IntExtension.swift in Sources */,
 				7332DCD12758D5C500E0C19A /* ImageCheckExtension.swift in Sources */,
-				73C54D91275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DCD22758D5C500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DCD32758D5C500E0C19A /* MediaMulti.swift in Sources */,
 				7332DCD42758D5C500E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1084,6 +1073,7 @@
 				7332DCF42758D5C500E0C19A /* CircleImage.swift in Sources */,
 				7332DCF52758D5C500E0C19A /* NetworkConnector.swift in Sources */,
 				7332DCF62758D5C500E0C19A /* Sounds.swift in Sources */,
+				E12ACF0F27817EBB00B197AA /* LoginDialog.swift in Sources */,
 				7332DCF72758D5C500E0C19A /* SearchBar.swift in Sources */,
 				7332DCF92758D5C500E0C19A /* GroupModel.swift in Sources */,
 				7332DCFA2758D5C500E0C19A /* TabViewElement.swift in Sources */,
@@ -1110,12 +1100,10 @@
 				7332DD182758D5C600E0C19A /* testfile.swift in Sources */,
 				7332DD192758D5C600E0C19A /* ChestModel.swift in Sources */,
 				7332DD1A2758D5C600E0C19A /* GamePointModel.swift in Sources */,
-				73C54D99275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54DA0275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF09278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DD1B2758D5C600E0C19A /* ContentView.swift in Sources */,
 				7332DD1D2758D5C600E0C19A /* IntExtension.swift in Sources */,
 				7332DD1E2758D5C600E0C19A /* ImageCheckExtension.swift in Sources */,
-				73C54D92275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DD1F2758D5C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD202758D5C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DD212758D5C600E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1151,6 +1139,7 @@
 				7332DD412758D5C600E0C19A /* CircleImage.swift in Sources */,
 				7332DD422758D5C600E0C19A /* NetworkConnector.swift in Sources */,
 				7332DD432758D5C600E0C19A /* Sounds.swift in Sources */,
+				E12ACF1027817EBB00B197AA /* LoginDialog.swift in Sources */,
 				7332DD442758D5C600E0C19A /* SearchBar.swift in Sources */,
 				7332DD462758D5C600E0C19A /* GroupModel.swift in Sources */,
 				7332DD472758D5C600E0C19A /* TabViewElement.swift in Sources */,
@@ -1177,12 +1166,10 @@
 				7332DD652758D62500E0C19A /* testfile.swift in Sources */,
 				7332DD662758D62500E0C19A /* ChestModel.swift in Sources */,
 				7332DD672758D62500E0C19A /* GamePointModel.swift in Sources */,
-				73C54D9A275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54DA1275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF0A278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DD682758D62500E0C19A /* ContentView.swift in Sources */,
 				7332DD6A2758D62500E0C19A /* IntExtension.swift in Sources */,
 				7332DD6B2758D62500E0C19A /* ImageCheckExtension.swift in Sources */,
-				73C54D93275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DD6C2758D62500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD6D2758D62500E0C19A /* MediaMulti.swift in Sources */,
 				7332DD6E2758D62500E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1218,6 +1205,7 @@
 				7332DD8E2758D62500E0C19A /* CircleImage.swift in Sources */,
 				7332DD8F2758D62500E0C19A /* NetworkConnector.swift in Sources */,
 				7332DD902758D62500E0C19A /* Sounds.swift in Sources */,
+				E12ACF1127817EBB00B197AA /* LoginDialog.swift in Sources */,
 				7332DD912758D62500E0C19A /* SearchBar.swift in Sources */,
 				7332DD932758D62500E0C19A /* GroupModel.swift in Sources */,
 				7332DD942758D62500E0C19A /* TabViewElement.swift in Sources */,
@@ -1244,12 +1232,10 @@
 				7332DDB22758D63400E0C19A /* testfile.swift in Sources */,
 				7332DDB32758D63400E0C19A /* ChestModel.swift in Sources */,
 				7332DDB42758D63400E0C19A /* GamePointModel.swift in Sources */,
-				73C54D9B275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54DA2275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF0B278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DDB52758D63400E0C19A /* ContentView.swift in Sources */,
 				7332DDB72758D63400E0C19A /* IntExtension.swift in Sources */,
 				7332DDB82758D63400E0C19A /* ImageCheckExtension.swift in Sources */,
-				73C54D94275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DDB92758D63400E0C19A /* GameHistoryView.swift in Sources */,
 				7332DDBA2758D63400E0C19A /* MediaMulti.swift in Sources */,
 				7332DDBB2758D63400E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1285,6 +1271,7 @@
 				7332DDDB2758D63400E0C19A /* CircleImage.swift in Sources */,
 				7332DDDC2758D63400E0C19A /* NetworkConnector.swift in Sources */,
 				7332DDDD2758D63400E0C19A /* Sounds.swift in Sources */,
+				E12ACF1227817EBB00B197AA /* LoginDialog.swift in Sources */,
 				7332DDDE2758D63400E0C19A /* SearchBar.swift in Sources */,
 				7332DDE02758D63400E0C19A /* GroupModel.swift in Sources */,
 				7332DDE12758D63400E0C19A /* TabViewElement.swift in Sources */,
@@ -1311,12 +1298,10 @@
 				7332DDFF2758D9C600E0C19A /* testfile.swift in Sources */,
 				7332DE002758D9C600E0C19A /* ChestModel.swift in Sources */,
 				7332DE012758D9C600E0C19A /* GamePointModel.swift in Sources */,
-				73C54D9C275A0935008B49CC /* UIAlertControllerExtension.swift in Sources */,
-				73C54DA3275A09CE008B49CC /* AlertWrapper.swift in Sources */,
+				E12ACF0C278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DE022758D9C600E0C19A /* ContentView.swift in Sources */,
 				7332DE042758D9C600E0C19A /* IntExtension.swift in Sources */,
 				7332DE052758D9C600E0C19A /* ImageCheckExtension.swift in Sources */,
-				73C54D95275A0886008B49CC /* TextAlert.swift in Sources */,
 				7332DE062758D9C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DE072758D9C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DE082758D9C600E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1352,6 +1337,7 @@
 				7332DE282758D9C600E0C19A /* CircleImage.swift in Sources */,
 				7332DE292758D9C600E0C19A /* NetworkConnector.swift in Sources */,
 				7332DE2A2758D9C600E0C19A /* Sounds.swift in Sources */,
+				E12ACF1327817EBB00B197AA /* LoginDialog.swift in Sources */,
 				7332DE2B2758D9C600E0C19A /* SearchBar.swift in Sources */,
 				7332DE2D2758D9C600E0C19A /* GroupModel.swift in Sources */,
 				7332DE2E2758D9C600E0C19A /* TabViewElement.swift in Sources */,

@@ -91,106 +91,94 @@ struct ContentView: View {
     //https://stackoverflow.com/questions/60744017/how-do-i-update-a-text-label-in-swiftui
     @State var selection: Int? = nil
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0){
-                TabView{
-                    TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
-                    TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
-                    if isMini() {
-                        TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+        ZStack {
+            NavigationView {
+                VStack(spacing: 0){
+                    TabView{
+                        TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
+                        TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
+                        if isMini() {
+                            TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                        }
+                        TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                     }
-                    TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                 }
-            }
-            .navigationBarTitle(Text("HI ".localized + (isMini() ? self.settingStorage.account:"")), displayMode: .inline)
-            .navigationBarItems(leading: HStack {
-                NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
-                    Button {
-                        print("setting tapped")
-                        self.selection = 1
-                    } label: {
-                        Image("member_setting")
-                            .foregroundColor(.blue)
-                    }
-                    if isMini() {
+                .navigationBarTitle(Text("HI ".localized +  self.settingStorage.account), displayMode: .inline)
+                .navigationBarItems(leading: HStack {
+                    NavigationLink(destination: Setting(), tag: 1, selection: $selection) {
                         Button {
-                            sheetState = settingStorage.loginState
-                            alertState = !settingStorage.loginState
+                            print("setting tapped")
+                            self.selection = 1
                         } label: {
-                            Image(systemName: "ellipsis.circle.fill")
+                            Image("member_setting")
                                 .foregroundColor(.blue)
                         }
-                        .actionSheet(isPresented: $sheetState) {
-                            ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
-                                .default(Text("Group".localized)) {
-                                    self.selection = 2
-                                },
-                                .default(Text("Prize".localized)) {
-                                    self.selection = 3
-                                },
-                                .cancel()
-                            ])
+                        if isMini() {
+                            Button {
+                                sheetState = settingStorage.loginState
+                                alertState = !settingStorage.loginState
+                            } label: {
+                                Image(systemName: "ellipsis.circle.fill")
+                                    .foregroundColor(.blue)
+                            }
+                            .actionSheet(isPresented: $sheetState) {
+                                ActionSheet(title: Text("Select more options".localized), message: Text(""), buttons: [
+                                    .default(Text("Group".localized)) {
+                                        self.selection = 2
+                                    },
+                                    .default(Text("Prize".localized)) {
+                                        self.selection = 3
+                                    },
+                                    .cancel()
+                                ])
+                            }
+                            .alert(isPresented: $alertState) {() -> Alert in
+                                return Alert(title: Text("Please login first".localized),
+                                             dismissButton:.default(Text("OK".localized), action: {
+                                })
+                                )
+                            }
+                            NavigationLink(tag: 2, selection: $selection, destination: {GroupListView()}){}
+                            NavigationLink(tag: 3, selection: $selection, destination: {PrizeListView()}){}
                         }
-                        .alert(isPresented: $alertState) {() -> Alert in
-                            return Alert(title: Text("Please login first".localized),
-                                         dismissButton:.default(Text("OK".localized), action: {
-                            })
-                            )
-                        }
-                        NavigationLink(tag: 2, selection: $selection, destination: {GroupListView()}){}
-                        NavigationLink(tag: 3, selection: $selection, destination: {PrizeListView()}){}
                     }
-                }
-            },trailing: HStack {
-                NavigationLink(tag: 4, selection: $selection, destination: {GameView()}){
-                    Button{
-                        print("game tap")
-                        if !isMini() && settingStorage.userID == "-1" {
-                            textState = true
+                },trailing: HStack {
+                    NavigationLink(tag: 4, selection: $selection, destination: {GameView()}){
+                        Button{
+                            print("game tap")
+                            if !isMini() && settingStorage.userID == "0" {
+                                textState = true
+                            }
+                            else {
+                                self.selection = 4
+                            }
+                        } label: {
+                            Image(systemName: "gamecontroller")
                         }
-                        else {
-                            self.selection = 4
+                    }
+                    NavigationLink(tag: 5, selection: $selection, destination: {DEHMap()}) {
+                        Button{
+                            print("map tapped")
+                            self.selection = 5
+                        } label: {
+                            Image("member_back")
+                                .foregroundColor(.blue)
                         }
-                    } label: {
-                        Image(systemName: "gamecontroller")
                     }
-                }
-                NavigationLink(tag: 5, selection: $selection, destination: {DEHMap()}) {
-                    Button{
-                        print("map tapped")
-                        self.selection = 5
-                    } label: {
-                        Image("member_back")
-                            .foregroundColor(.blue)
-                    }
-                }
 
-            })
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .alert(isPresented: $textState,
-               TextAlert(title: "Nickname",
-                         message: "") { result in
-            if let text = result {
-                createTempAccount(name: text)
-                self.selection = 4
+                })
             }
-        })
+            .blur(radius: textState ? 30:0)
+            .navigationViewStyle(StackNavigationViewStyle())
+            if textState {
+                NickNameDialog(show: $textState)
+            }
+        }
     }
     //this line to avoid lots of warning
     //https://stackoverflow.com/questions/65316497/swiftui-navigationview-navigationbartitle-layoutconstraints-issue/65316745
 }
 extension ContentView {
-    func createTempAccount(name:String) {
-        let url = CreateTempAccountUrl
-        let parameters = ["user_name":name]
-        let publisher:DataResponsePublisher<NickAccount> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-        self.cancellable = publisher.sink(receiveValue: { values in
-            settingStorage.account = values.value?.account ?? ""
-            settingStorage.password = values.value?.password ?? ""
-            settingStorage.userID = String(values.value?.id ?? -1)
-        })
-    }
     func isMini() -> Bool {
         if app == "deh" || app == "sdc" {
             return true
@@ -198,8 +186,6 @@ extension ContentView {
         return false
     }
 }
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
