@@ -94,6 +94,10 @@
 "Add to favorite" = "加入我的最愛";
 "Guide to POI" = "導航至此景點";
 "Nickname" = "暱稱";
-"Do you have an account?" = "您是否已有帳號？";
+"Do you have an account?" = "您是否已有文史脈留帳號？";
 "name" = "姓名";
 "User login" = "使用者登入";
+"nearby" =  "附近";
+"favorite" = "最愛";
+"group" = "群組";
+"mine" = "我的";

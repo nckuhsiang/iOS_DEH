@@ -17,7 +17,6 @@ struct NickNameDialog: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @Binding var show:Bool
     var body: some View {
-        ZStack {
             VStack {
                 Text("Nickname".localized)
                     .padding(.top)
@@ -66,7 +65,7 @@ struct NickNameDialog: View {
             if showLoginDialog {
                 LoginDialog(showLoginDialog: $showLoginDialog, showNicknameDialog: $show)
             }
-        }
+        
         
     }
 }

@@ -385,12 +385,24 @@
 		E12ACF1327817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
 		E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
+		E18C67FC278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
+		E18C67FD278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
+		E18C67FE278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
+		E18C67FF278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
+		E18C6800278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
+		E18C6801278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
 		E1B549D62759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549D72759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549D82759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549D92759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549DA2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549DB2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1FAC36F278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
+		E1FAC370278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
+		E1FAC371278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
+		E1FAC372278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
+		E1FAC373278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
+		E1FAC374278C1AEA008F312F /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAC36E278C1AEA008F312F /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -473,7 +485,9 @@
 		E12ACF0D27817EBB00B197AA /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
 		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
 		E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirzeDetailView.swift; sourceTree = "<group>"; };
+		E18C67FB278C07C300223353 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		E1B549D52759DEA400F49604 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
+		E1FAC36E278C1AEA008F312F /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -697,6 +711,7 @@
 				5961A0CC25777DEC0022CD72 /* Supporting Views */,
 				593ED2ED26494271006567C0 /* ImagePicker.swift */,
 				59B784AC25914041008F16B8 /* LocationManager.swift */,
+				E18C67FB278C07C300223353 /* FilterView.swift */,
 				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
@@ -707,6 +722,7 @@
 				59CACC6B2626FB5900B0B0CC /* GroupList.swift */,
 				E12ACF06278168CF00B197AA /* NickNameDialog.swift */,
 				E12ACF0D27817EBB00B197AA /* LoginDialog.swift */,
+				E1FAC36E278C1AEA008F312F /* PickerView.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -881,10 +897,10 @@
 			targets = (
 				59A6590E257611020038AD61 /* DEH Mini II */,
 				7332DCC52758D5C500E0C19A /* DEH Micro */,
+				7332DDF92758D9C600E0C19A /* DEH Lite */,
 				7332DD122758D5C600E0C19A /* SDC-DEH Mini II */,
 				7332DD5F2758D62500E0C19A /* SDC-DEH Lite */,
 				7332DDAC2758D63400E0C19A /* SDC-DEH Micro */,
-				7332DDF92758D9C600E0C19A /* DEH Lite */,
 			);
 		};
 /* End PBXProject section */
@@ -977,6 +993,7 @@
 				5908F04026E8949600931C01 /* GameMemberPointView.swift in Sources */,
 				59A65913257611020038AD61 /* AppDelegate.swift in Sources */,
 				73FCF305271C118C00F6927B /* GroupDetailView.swift in Sources */,
+				E18C67FC278C07C300223353 /* FilterView.swift in Sources */,
 				B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */,
 				59CE6C0C2578CC1D00553EBA /* SettingView.swift in Sources */,
 				73342FEF271188F300458A60 /* StringExtension.swift in Sources */,
@@ -1020,6 +1037,7 @@
 				59C4B92525B02EB100E05785 /* NetworkReceiveModel.swift in Sources */,
 				73F1F8A027353694008964C2 /* ActivityViewController.swift in Sources */,
 				73917F55271C4DE000B4FAAD /* TextVIew.swift in Sources */,
+				E1FAC36F278C1AEA008F312F /* PickerView.swift in Sources */,
 				59CE6C152578E38200553EBA /* Data.swift in Sources */,
 				59C4B92225B0269F00E05785 /* JsonPrintExtension.swift in Sources */,
 			);
@@ -1043,6 +1061,7 @@
 				7332DCD42758D5C500E0C19A /* GameMemberPointView.swift in Sources */,
 				7332DCD52758D5C500E0C19A /* AppDelegate.swift in Sources */,
 				7332DCD62758D5C500E0C19A /* GroupDetailView.swift in Sources */,
+				E18C67FD278C07C300223353 /* FilterView.swift in Sources */,
 				7332DCD72758D5C500E0C19A /* XOIViewModel.swift in Sources */,
 				7332DCD82758D5C500E0C19A /* SettingView.swift in Sources */,
 				7332DCD92758D5C500E0C19A /* StringExtension.swift in Sources */,
@@ -1086,6 +1105,7 @@
 				7332DD012758D5C500E0C19A /* NetworkReceiveModel.swift in Sources */,
 				7332DD022758D5C500E0C19A /* ActivityViewController.swift in Sources */,
 				7332DD032758D5C500E0C19A /* TextVIew.swift in Sources */,
+				E1FAC370278C1AEA008F312F /* PickerView.swift in Sources */,
 				7332DD042758D5C500E0C19A /* Data.swift in Sources */,
 				7332DD052758D5C500E0C19A /* JsonPrintExtension.swift in Sources */,
 			);
@@ -1109,6 +1129,7 @@
 				7332DD212758D5C600E0C19A /* GameMemberPointView.swift in Sources */,
 				7332DD222758D5C600E0C19A /* AppDelegate.swift in Sources */,
 				7332DD232758D5C600E0C19A /* GroupDetailView.swift in Sources */,
+				E18C67FE278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD242758D5C600E0C19A /* XOIViewModel.swift in Sources */,
 				7332DD252758D5C600E0C19A /* SettingView.swift in Sources */,
 				7332DD262758D5C600E0C19A /* StringExtension.swift in Sources */,
@@ -1152,6 +1173,7 @@
 				7332DD4E2758D5C600E0C19A /* NetworkReceiveModel.swift in Sources */,
 				7332DD4F2758D5C600E0C19A /* ActivityViewController.swift in Sources */,
 				7332DD502758D5C600E0C19A /* TextVIew.swift in Sources */,
+				E1FAC371278C1AEA008F312F /* PickerView.swift in Sources */,
 				7332DD512758D5C600E0C19A /* Data.swift in Sources */,
 				7332DD522758D5C600E0C19A /* JsonPrintExtension.swift in Sources */,
 			);
@@ -1175,6 +1197,7 @@
 				7332DD6E2758D62500E0C19A /* GameMemberPointView.swift in Sources */,
 				7332DD6F2758D62500E0C19A /* AppDelegate.swift in Sources */,
 				7332DD702758D62500E0C19A /* GroupDetailView.swift in Sources */,
+				E18C67FF278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD712758D62500E0C19A /* XOIViewModel.swift in Sources */,
 				7332DD722758D62500E0C19A /* SettingView.swift in Sources */,
 				7332DD732758D62500E0C19A /* StringExtension.swift in Sources */,
@@ -1218,6 +1241,7 @@
 				7332DD9B2758D62500E0C19A /* NetworkReceiveModel.swift in Sources */,
 				7332DD9C2758D62500E0C19A /* ActivityViewController.swift in Sources */,
 				7332DD9D2758D62500E0C19A /* TextVIew.swift in Sources */,
+				E1FAC372278C1AEA008F312F /* PickerView.swift in Sources */,
 				7332DD9E2758D62500E0C19A /* Data.swift in Sources */,
 				7332DD9F2758D62500E0C19A /* JsonPrintExtension.swift in Sources */,
 			);
@@ -1241,6 +1265,7 @@
 				7332DDBB2758D63400E0C19A /* GameMemberPointView.swift in Sources */,
 				7332DDBC2758D63400E0C19A /* AppDelegate.swift in Sources */,
 				7332DDBD2758D63400E0C19A /* GroupDetailView.swift in Sources */,
+				E18C6800278C07C300223353 /* FilterView.swift in Sources */,
 				7332DDBE2758D63400E0C19A /* XOIViewModel.swift in Sources */,
 				7332DDBF2758D63400E0C19A /* SettingView.swift in Sources */,
 				7332DDC02758D63400E0C19A /* StringExtension.swift in Sources */,
@@ -1284,6 +1309,7 @@
 				7332DDE82758D63400E0C19A /* NetworkReceiveModel.swift in Sources */,
 				7332DDE92758D63400E0C19A /* ActivityViewController.swift in Sources */,
 				7332DDEA2758D63400E0C19A /* TextVIew.swift in Sources */,
+				E1FAC373278C1AEA008F312F /* PickerView.swift in Sources */,
 				7332DDEB2758D63400E0C19A /* Data.swift in Sources */,
 				7332DDEC2758D63400E0C19A /* JsonPrintExtension.swift in Sources */,
 			);
@@ -1307,6 +1333,7 @@
 				7332DE082758D9C600E0C19A /* GameMemberPointView.swift in Sources */,
 				7332DE092758D9C600E0C19A /* AppDelegate.swift in Sources */,
 				7332DE0A2758D9C600E0C19A /* GroupDetailView.swift in Sources */,
+				E18C6801278C07C300223353 /* FilterView.swift in Sources */,
 				7332DE0B2758D9C600E0C19A /* XOIViewModel.swift in Sources */,
 				7332DE0C2758D9C600E0C19A /* SettingView.swift in Sources */,
 				7332DE0D2758D9C600E0C19A /* StringExtension.swift in Sources */,
@@ -1350,6 +1377,7 @@
 				7332DE352758D9C600E0C19A /* NetworkReceiveModel.swift in Sources */,
 				7332DE362758D9C600E0C19A /* ActivityViewController.swift in Sources */,
 				7332DE372758D9C600E0C19A /* TextVIew.swift in Sources */,
+				E1FAC374278C1AEA008F312F /* PickerView.swift in Sources */,
 				7332DE382758D9C600E0C19A /* Data.swift in Sources */,
 				7332DE392758D9C600E0C19A /* JsonPrintExtension.swift in Sources */,
 			);

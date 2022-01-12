@@ -21,94 +21,108 @@ struct DEHMap: View {
     @State var selection: Int? = nil
     @State var selectSearchXOI = false
     @State private var cancellable: AnyCancellable?
-    
+    @State var filterState = false
+    @State var showFilterButton = true
     var body: some View {
-        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["nearby"] ?? testxoi){xoi in
-            MapAnnotation(
-                coordinate: xoi.coordinate,
-                anchorPoint: CGPoint(x: 0.5, y: 0.5)
-            ) {
-                NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs["nearby"]?.firstIndex(of: xoi) ?? 0, selection: $selection){
-                    Button(action: {
-                        print("map tapped")
-                        self.selection = settingStorage.XOIs["nearby"]?.firstIndex(of: xoi)
-                    }) {
-                        VStack{
-                            Text(xoi.name)
-                            
-                            pinSelector(creatorCategory:xoi.creatorCategory)
+        ZStack {
+            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["nearby"] ?? testxoi){xoi in
+                MapAnnotation(
+                    coordinate: xoi.coordinate,
+                    anchorPoint: CGPoint(x: 0.5, y: 0.5)
+                ) {
+                    NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs["nearby"]?.firstIndex(of: xoi) ?? 0, selection: $selection){
+                        Button(action: {
+                            print("map tapped")
+                            self.selection = settingStorage.XOIs["nearby"]?.firstIndex(of: xoi)
+                        }) {
+                            VStack{
+                                Text(xoi.name)
+                                pinSelector(creatorCategory:xoi.creatorCategory)
+                            }
                         }
                     }
                 }
+            }
+            .navigationBarItems(trailing:HStack{
+                Button {
+                    filterState = true
+                } label: {
+                    Image(systemName: "f.circle.fill")
+                        .foregroundColor(.blue)
+                        
+                }
+                .disabled(showFilterButton)
+                .hidden(showFilterButton)
+                
+                Button(action: {
+                    print("map_locate tapped")
+                    selectSearchXOI = true
+                }
+                ) {
+                    Image("location")
+                        .foregroundColor(.blue)
+                }
+                .actionSheet(isPresented: $selectSearchXOI) {
+                    if app == "dehMicro" || app == "sdcMicro"{
+                        return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                            .default(Text("POI".localized)) {
+                                searchXOIs(action: "searchNearbyPOI") },
+                            .cancel()
+                        ])
+                    }
+                    else {
+                        return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                            .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
+                            .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
+                            .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
+                            .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
+                            .cancel()
+                        ])
+                    }
+                }
+            })
+            .overlay(
+                ZStack{
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            Image("sniper_target")
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Button(action: {
+                                print("gps tapped")
+                                locationManager.updateLocation()
+                            }) {
+                                Image("gps")
+                            }
+                            .padding(.leading, 10.0)
+                            Spacer()
+                            Button(action: {
+                                print("alert tapped")
+                            }) {
+                                Image("alert")
+                            }
+                            .padding(.trailing, 10.0)
+                        }
+                        .padding(.bottom,30.0)
+                    }
+                }
+            )
+            if filterState{
+                FilterView(myViewState: $filterState)
             }
         }
-        .navigationBarItems(trailing:HStack{
-            Image("filter")
-                .foregroundColor(.blue)
-            Button(action: {
-                print("map_locate tapped")
-                selectSearchXOI = true
-            }
-            ) {
-                Image("location")
-                    .foregroundColor(.blue)
-            }
-            .actionSheet(isPresented: $selectSearchXOI) {
-                if app == "dehMicro" || app == "sdcMicro"{
-                    return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                        .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
-                        .cancel()
-                    ])
-                }
-                else {
-                    return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                        .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
-                        .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
-                        .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
-                        .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
-                        .cancel()
-                    ])
-                }
-            }
-        })
-        .overlay(
-            ZStack{
-                VStack{
-                    Spacer()
-                    HStack{
-                        Spacer()
-                        Image("sniper_target")
-                        Spacer()
-                    }
-                    Spacer()
-                }
-                VStack{
-                    Spacer()
-                    HStack{
-                        Button(action: {
-                            print("gps tapped")
-                            locationManager.updateLocation()
-                        }) {
-                            Image("gps")
-                        }
-                        .padding(.leading, 10.0)
-                        Spacer()
-                        Button(action: {
-                            print("alert tapped")
-                        }) {
-                            Image("alert")
-                        }
-                        .padding(.trailing, 10.0)
-                    }
-                    .padding(.bottom,30.0)
-                }
-            }
-        )
+        
     }
 }
 
 extension DEHMap{
-    
     func searchXOIs(action:String){
         print("User icon pressed...")
         print(locationManager.coordinateRegion.center.latitude)
@@ -128,14 +142,15 @@ extension DEHMap{
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-                //                                print(values.data?.JsonPrint())
-                //                print(values.debugDescription)
-                //                print(values.value?.results.debugDescription)
-                //                print(values.value?.results[0].containedXOIs?[0])
                 self.settingStorage.XOIs["nearby"] = values.value?.results
-                //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
                 print(locationManager.coordinateRegion.center.latitude)
             })
+        if action == "searchNearbyPOI"{
+            showFilterButton = false
+        }
+        else{
+            showFilterButton = true
+        }
     }
     @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {

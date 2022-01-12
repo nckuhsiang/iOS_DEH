@@ -44,7 +44,6 @@
 "Group My SOI" = "マイグループ管理ストーリー";
 "public" = "公衆";
 "private" = "私設";
-
 "Prize" = "価格";
 "Group" = "グループ";
 "OK" = "わかった";
@@ -91,3 +90,7 @@
 "Do you have an account?" = "アカウントをお持ちですか？";
 "name" = "名前";
 "User login" = "ユーザーログイン";
+"nearby" =  "近所の";
+"favorite" = "本命";
+"group" = "グループ";
+"mine" = "私の";

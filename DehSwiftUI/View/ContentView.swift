@@ -12,7 +12,7 @@ import CryptoKit
 import Combine
 import simd
 // the personal entry is here
-#if SDCDEH
+#if SDC
 let coi = "sdc"
 let app = "sdc"
 #elseif EXTN
@@ -95,12 +95,12 @@ struct ContentView: View {
             NavigationView {
                 VStack(spacing: 0){
                     TabView{
-                        TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite")
-                        TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
+                        TabViewElement(title: "My Favorite".localized, image1: "Empty", image2: "Empty",tabItemImage: "member_favorite",tabItemName: "favorite".localized)
+                        TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby".localized)
                         if isMini() {
-                            TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                            TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group".localized)
                         }
-                        TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
+                        TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine".localized)
                     }
                 }
                 .navigationBarTitle(Text("HI ".localized +  self.settingStorage.account), displayMode: .inline)
