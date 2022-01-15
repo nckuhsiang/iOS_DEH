@@ -7,17 +7,39 @@
 //
 
 import SwiftUI
-
+import Alamofire
+import Combine
 struct FilterView: View {
     @State var idsIndex:Int = 0
     @State var typesIndex:Int = 0
     @State var formatsIndex:Int = 0
     @State var selection:Int?
     @Binding var myViewState:Bool
-    var ids = ["All", "Expert", "Player", "Docent"]
-    var types = ["All", "Image", "Audio", "Video"]
-    var formats = ["All","古蹟","歷史建築","紀念建築","考古遺址","史蹟","文化景觀","古物","自然景觀", "傳統表演藝術","傳統工藝","口述傳統","民俗","民俗及有關文物","傳統知識與實踐","一般景觀含建築：人工地景與自然地景","植物","動物","生物","食衣住行育樂","其他"]
+    var ids = ["All".localized, "Expert's map".localized, "User's map".localized, "Docent's map".localized]
+    var types = ["All".localized, "Image".localized, "Audio".localized, "Video".localized]
+    var formats = ["All".localized,"Historical Site, Buildings".localized,"Ruins".localized,"Cultural Landscape".localized,"Natural Landscape".localized,"Traditional Art".localized,"Cultural Artifacts".localized,"Antique".localized,"Necessities of Life".localized,"Others".localized]
+    var Transfer = [
+      "All".localized: "all",
+      "Expert's map".localized: "expert",
+      "User's map".localized: "user",
+      "Docent's map".localized: "docent",
+      "Image".localized: "image",
+      "Audio".localized: "audio",
+      "Video".localized: "video",
+      "Historical Site, Buildings".localized: "古蹟、歷史建築、聚落",
+      "Ruins".localized: "遺址",
+      "Antique".localized: "古物",
+      "Cultural Landscape".localized: "文化景觀",
+      "Natural Landscape".localized: "自然景觀",
+      "Traditional Art".localized: "傳統藝術",
+      "Cultural Artifacts".localized: "民俗及有關文物",
+      "Necessities of Life".localized: "食衣住行育樂",
+      "Others".localized: "其他"
+    ]
     @State var pickerState = false
+    @EnvironmentObject var settingStorage:SettingStorage
+    @StateObject var locationManager = LocationManager()
+    @State private var cancellable: AnyCancellable?
     var body: some View {
         VStack {
             if pickerState{
@@ -65,6 +87,7 @@ struct FilterView: View {
                             .background(Color.gray)
                     }
                     Button {
+                        filterPOI()
                         pickerState = false
                         myViewState = false
                     } label: {
@@ -95,8 +118,37 @@ struct FilterView: View {
                 }
             }
         }
-       
-        
+    }
+}
+extension FilterView {
+    func filterPOI(){
+        print(locationManager.coordinateRegion.center.latitude)
+        let parameters:[String:String] = [
+            "username": "\(settingStorage.account)",
+            "lat" :"\(locationManager.coordinateRegion.center.latitude)",
+            "lng": "\(locationManager.coordinateRegion.center.longitude)",
+            "dis": "\(settingStorage.searchDistance * 1000)",
+            "num": "\(settingStorage.searchNumber)",
+            "coi_name": coi,
+            "action": "searchNearbyPOI",
+            "user_id": "\(settingStorage.userID)",
+            "password":"\(settingStorage.password)",
+            "language":"中文",
+            "format":"\(formatsIndex)"
+        ]
+        print(formatsIndex)
+        let url = getNearbyXois["searchNearbyPOI"] ?? ""
+        let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                self.settingStorage.XOIs["nearby"] = values.value?.results
+                if idsIndex != 0{
+                    self.settingStorage.XOIs["nearby"] = (self.settingStorage.XOIs["nearby"] ?? []).filter({$0.creatorCategory==Transfer[ids[idsIndex]]})
+                }
+                if typesIndex != 0{
+                    self.settingStorage.XOIs["nearby"] = (self.settingStorage.XOIs["nearby"] ?? []).filter({$0.mediaCategory==Transfer[types[typesIndex]]})
+                }
+            })
     }
 }
 
