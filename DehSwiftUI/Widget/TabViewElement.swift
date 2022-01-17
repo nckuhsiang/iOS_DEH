@@ -23,7 +23,6 @@ struct TabViewElement: View {
     @State private var cancellable: AnyCancellable?
     @State var group = Group(id: 0, name: "-111", leaderId: 0, info: "")
     var body: some View {
-        
         VStack{
             
             HStack{
@@ -86,24 +85,24 @@ extension TabViewElement{
             "user_id": "\(settingStorage.userID)",
             "group_id": "\(group.id)",
             "language": "中文",
-//            "password":"\(settingStorage.password)",
-            
-            
         ]
+        print(action)
         let url = getXois[action] ?? ""
         let publisher:DataResponsePublisher<XOIList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
 //                print(values.data?.JsonPrint())
-                print(values.debugDescription)
+//                print(values.debugDescription)
 //                print(values.value?.results[0].containedXOIs)
                 self.settingStorage.XOIs[tabItemName] = values.value?.results
+                self.settingStorage.XOIs["nearby"] = values.value?.results
 //                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
             })
         
     }
     func actionSheetBuilder(tabItemName:String) -> ActionSheet{
-        if(tabItemName == "group"){
+        print(tabItemName)
+        if(tabItemName == "group".localized){
             return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
                 .default(Text("Group POI")) { searchXOIs(action: "searchGroupPOI") },
                 .default(Text("Group LOI")) { searchXOIs(action: "searchGroupLOI") },
@@ -113,10 +112,6 @@ extension TabViewElement{
                 .default(Text("Group My LOI")) { searchXOIs(action: "searchGroupMyLOI") },
                 .default(Text("Group My AOI")) { searchXOIs(action: "searchGroupMyAOI") },
                 .default(Text("Group My SOI")) { searchXOIs(action: "searchGroupMySOI") },
-
-                
-                
-                
                 .cancel()
             ])
         }
