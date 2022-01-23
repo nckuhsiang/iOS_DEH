@@ -19,29 +19,24 @@ struct GameMemberPoint: View {
         List{
             ForEach(gamePointList,id:\.id){
                 gamePoint in
-                NavigationLink(
-                    destination: GameMemberPoint( roomID: self.roomID,
-                                                  gameID: gamePoint.id),
-                    label: {
-                        HStack{
-                            Text(gamePoint.name)
-                            
-                                .foregroundColor(Color.white)
-                                .allowsTightening(true)
-                                .lineLimit(1)
-                                .background(Color.init(UIColor(rgba:lightGreen)))
-                            Spacer()
-                            Text("Point:\(gamePoint.point)")
-                                .foregroundColor(Color.white)
-                    }
-                    })
-                    .listRowBackground(Color.init(UIColor(rgba: lightGreen)))
+                HStack{
+                    Text(gamePoint.name)
+                        .foregroundColor(Color.white)
+                        .allowsTightening(true)
+                        .lineLimit(1)
+                        .background(Color.init(UIColor(rgba:lightGreen)))
+                    Spacer()
+                    Text("Point:\(gamePoint.point)")
+                        .foregroundColor(Color.white)
+                }
+                .listRowBackground(Color.init(UIColor(rgba: lightGreen)))
+//                NavigationLink(
+//                    destination: GameMemberPoint( roomID: self.roomID,gameID: gamePoint.id),
             }
         }
-            .onAppear(){
-                getMemberPoint()
-                
-            }
+        .onAppear(){
+            getMemberPoint()
+        }
     }
     
 }

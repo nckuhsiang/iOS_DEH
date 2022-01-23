@@ -148,6 +148,12 @@ struct Setting: View {
                     self.settingStorage.loginState = true
                     self.loginState = true
                     self.loginButtonText = "logout"
+//                    if let data = UserDefaults.standard.data(forKey: "favorite") {
+//                        if let decoded = try? JSONDecoder().decode([XOI].self, from: data){
+//                            settingStorage.XOIs["favorite"] = decoded
+//                            settingStorage.emptyXOIs["favorite"] = decoded
+//                        }
+//                    }
                 }
             })
     }
@@ -160,6 +166,13 @@ struct Setting: View {
         self.settingStorage.loginState = false
         self.loginState = false
         self.loginButtonText = "login"
+//        settingStorage.XOIs = [
+//            "favorite" :[],
+//            "nearby" : [],
+//            "group" : [],
+//            "mine" : [],
+//            "temp": [],
+//        ]
     }
 }
 

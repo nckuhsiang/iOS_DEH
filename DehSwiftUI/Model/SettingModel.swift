@@ -79,8 +79,8 @@ final class SettingStorage:ObservableObject{
             }
         }
     }
-    
-    let emptyXOIs:[String:[XOI]] = ["favorite" : [],
+    @Published var mapType = ""
+    var emptyXOIs:[String:[XOI]] = ["favorite" : [],
                      "nearby" : [],
                      "group" : [],
                      "mine" : [],

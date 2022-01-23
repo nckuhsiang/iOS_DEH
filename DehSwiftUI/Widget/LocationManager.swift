@@ -40,6 +40,7 @@ class LocationManager: NSObject, ObservableObject {
         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
     )
     
+    
     var statusString: String {
         guard let status = locationStatus else {
             return "unknown"
@@ -55,7 +56,7 @@ class LocationManager: NSObject, ObservableObject {
         }
 
     }
-
+    
     let objectWillChange = PassthroughSubject<Void, Never>()
 
     private let locationManager = CLLocationManager()

@@ -25,7 +25,7 @@ struct DEHMap: View {
     @State var showFilterButton = true
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs["nearby"] ?? testxoi){xoi in
+            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs[settingStorage.mapType] ?? []){xoi in
                 MapAnnotation(
                     coordinate: xoi.coordinate,
                     anchorPoint: CGPoint(x: 0.5, y: 0.5)
@@ -115,10 +115,9 @@ struct DEHMap: View {
                 }
             )
             if filterState{
-                FilterView(myViewState: $filterState)
+                FilterView(myViewState: $filterState, locationManager:locationManager)
             }
         }
-        
     }
 }
 
@@ -144,6 +143,7 @@ extension DEHMap{
             .sink(receiveValue: {(values) in
                 self.settingStorage.XOIs["nearby"] = values.value?.results
                 print(locationManager.coordinateRegion.center.latitude)
+                self.settingStorage.mapType = "nearby"
             })
         if action == "searchNearbyPOI"{
             showFilterButton = false

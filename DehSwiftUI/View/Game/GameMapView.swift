@@ -11,6 +11,7 @@ import MapKit
 import Combine
 import Alamofire
 struct GameMap: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
     @State private var cancellable: AnyCancellable?
@@ -18,6 +19,7 @@ struct GameMap: View {
     @State var session:SessionModel
     @State var chestList:[ChestModel] = []
     @State var selection: Int? = nil
+    @State var alertState = false
     var body: some View {
         Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: chestList){
             chest in
@@ -46,11 +48,18 @@ struct GameMap: View {
                 locationManager.startUpdate()
                 if(session.gameID == 0){
                     print("no game avaliable")
+                    alertState = true
                 }
                 getChests()
             }
         .onDisappear(){
             locationManager.stopUpdate()
+        }
+        .alert(isPresented: $alertState) { () -> Alert in
+            return Alert(title: Text("game does not start"),
+                 dismissButton:.default(Text("OK".localized), action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
         
     }

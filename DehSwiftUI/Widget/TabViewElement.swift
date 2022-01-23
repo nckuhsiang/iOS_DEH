@@ -16,6 +16,8 @@ struct TabViewElement: View {
     var image2: String
     var tabItemImage: String
     var tabItemName: String
+    @State var alertString:String = ""
+    @State var alertState:Bool = false
     @ObservedObject var xoiViewModel = XOIViewModel()
     @EnvironmentObject var settingStorage:SettingStorage
     @ObservedObject var locationManager = LocationManager()
@@ -63,9 +65,13 @@ struct TabViewElement: View {
             }
         }
         .background(Color.init(UIColor(rgba: lightGreen)))
+        .alert(isPresented: $alertState) { () -> Alert in
+            return Alert(title: Text(alertString),
+                 dismissButton:.default(Text("OK".localized), action: {}))
+        }
         .tabItem{
             Image(tabItemImage)
-            Text(tabItemName)
+            Text(tabItemName.localized)
                 .foregroundColor(.white)
         }
     }
@@ -74,6 +80,11 @@ struct TabViewElement: View {
 extension TabViewElement{
     func searchXOIs(action:String){
         print("User icon pressed...")
+        if (group.id == 0) && (tabItemName == "group") {
+            alertString = "please choose group"
+            alertState = true
+            return
+        }
         let parameters:[String:String] = [
             "username": "\(settingStorage.account)",
             "lat" :"\(locationManager.coordinateRegion.center.latitude)",
@@ -94,15 +105,22 @@ extension TabViewElement{
 //                print(values.data?.JsonPrint())
 //                print(values.debugDescription)
 //                print(values.value?.results[0].containedXOIs)
-                self.settingStorage.XOIs[tabItemName] = values.value?.results
-                self.settingStorage.XOIs["nearby"] = values.value?.results
-//                print(self.settingStorage.XOIs["mine"]?[0].mediaCategory)
+                let xois = values.value?.results
+                if  xois != [] {
+                    self.settingStorage.XOIs[tabItemName] = xois
+                    self.settingStorage.mapType = tabItemName
+                }
+                else {
+                    alertString = "No Data"
+                    alertState = true
+                }
+                
             })
         
     }
     func actionSheetBuilder(tabItemName:String) -> ActionSheet{
         print(tabItemName)
-        if(tabItemName == "group".localized){
+        if(tabItemName == "group"){
             return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
                 .default(Text("Group POI")) { searchXOIs(action: "searchGroupPOI") },
                 .default(Text("Group LOI")) { searchXOIs(action: "searchGroupLOI") },

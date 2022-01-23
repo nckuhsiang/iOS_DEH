@@ -23,7 +23,7 @@
 		594B3DEE25B2BE5600A3DF29 /* ImageCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594B3DED25B2BE5600A3DF29 /* ImageCheckExtension.swift */; };
 		59601ABD25F22B1E00A9C652 /* MapInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59601ABC25F22B1E00A9C652 /* MapInnerView.swift */; };
 		5961A0C525776F550022CD72 /* XOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOIModel.swift */; };
-		5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		5961A0C7257775B10022CD72 /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		5961A0CB25777DD50022CD72 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CA25777DD50022CD72 /* CircleImage.swift */; };
 		5961A0CE25778BC30022CD72 /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
 		5961A0D22577CFD70022CD72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65916257611020038AD61 /* ContentView.swift */; };
@@ -73,7 +73,7 @@
 		7332DCDA2758D5C500E0C19A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		7332DCDB2758D5C500E0C19A /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC6B2626FB5900B0B0CC /* GroupList.swift */; };
 		7332DCDC2758D5C500E0C19A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		7332DCDD2758D5C500E0C19A /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		7332DCDD2758D5C500E0C19A /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		7332DCDF2758D5C500E0C19A /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		7332DCE02758D5C500E0C19A /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		7332DCE12758D5C500E0C19A /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
@@ -133,7 +133,7 @@
 		7332DD272758D5C600E0C19A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		7332DD282758D5C600E0C19A /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC6B2626FB5900B0B0CC /* GroupList.swift */; };
 		7332DD292758D5C600E0C19A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		7332DD2A2758D5C600E0C19A /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		7332DD2A2758D5C600E0C19A /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		7332DD2C2758D5C600E0C19A /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		7332DD2D2758D5C600E0C19A /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		7332DD2E2758D5C600E0C19A /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
@@ -193,7 +193,7 @@
 		7332DD742758D62500E0C19A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		7332DD752758D62500E0C19A /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC6B2626FB5900B0B0CC /* GroupList.swift */; };
 		7332DD762758D62500E0C19A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		7332DD772758D62500E0C19A /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		7332DD772758D62500E0C19A /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		7332DD792758D62500E0C19A /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		7332DD7A2758D62500E0C19A /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		7332DD7B2758D62500E0C19A /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
@@ -253,7 +253,7 @@
 		7332DDC12758D63400E0C19A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		7332DDC22758D63400E0C19A /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC6B2626FB5900B0B0CC /* GroupList.swift */; };
 		7332DDC32758D63400E0C19A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		7332DDC42758D63400E0C19A /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		7332DDC42758D63400E0C19A /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		7332DDC62758D63400E0C19A /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		7332DDC72758D63400E0C19A /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		7332DDC82758D63400E0C19A /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
@@ -313,7 +313,7 @@
 		7332DE0E2758D9C600E0C19A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593ED2ED26494271006567C0 /* ImagePicker.swift */; };
 		7332DE0F2758D9C600E0C19A /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CACC6B2626FB5900B0B0CC /* GroupList.swift */; };
 		7332DE102758D9C600E0C19A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A65914257611020038AD61 /* SceneDelegate.swift */; };
-		7332DE112758D9C600E0C19A /* XOIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetail.swift */; };
+		7332DE112758D9C600E0C19A /* XOIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C6257775B10022CD72 /* XOIDetailView.swift */; };
 		7332DE132758D9C600E0C19A /* QRcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B43E522733A9E2004853AB /* QRcodeView.swift */; };
 		7332DE142758D9C600E0C19A /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
 		7332DE152758D9C600E0C19A /* XOIRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CD25778BC30022CD72 /* XOIRow.swift */; };
@@ -371,6 +371,12 @@
 		B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17023382592F2CD00DF2167 /* XOIViewModel.swift */; };
 		B170233B2592F38300DF2167 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233A2592F38300DF2167 /* APIHandler.swift */; };
 		B170233F259326D500DF2167 /* URLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170233E259326D500DF2167 /* URLList.swift */; };
+		E122FAE8279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
+		E122FAE9279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
+		E122FAEA279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
+		E122FAEB279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
+		E122FAEC279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
+		E122FAED279D3F8300B00128 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122FAE7279D3F8300B00128 /* FilterManager.swift */; };
 		E12ACF07278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
 		E12ACF08278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
 		E12ACF09278168CF00B197AA /* NickNameDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF06278168CF00B197AA /* NickNameDialog.swift */; };
@@ -425,7 +431,7 @@
 		59601AB625F0A57F00A9C652 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		59601ABC25F22B1E00A9C652 /* MapInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInnerView.swift; sourceTree = "<group>"; };
 		5961A0C425776F550022CD72 /* XOIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIModel.swift; sourceTree = "<group>"; };
-		5961A0C6257775B10022CD72 /* XOIDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIDetail.swift; sourceTree = "<group>"; };
+		5961A0C6257775B10022CD72 /* XOIDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIDetailView.swift; sourceTree = "<group>"; };
 		5961A0CA25777DD50022CD72 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		5961A0CD25778BC30022CD72 /* XOIRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIRow.swift; sourceTree = "<group>"; };
 		5961A0CF2577CAF60022CD72 /* testfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testfile.swift; sourceTree = "<group>"; };
@@ -481,6 +487,7 @@
 		B17023382592F2CD00DF2167 /* XOIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOIViewModel.swift; sourceTree = "<group>"; };
 		B170233A2592F38300DF2167 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		B170233E259326D500DF2167 /* URLList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLList.swift; sourceTree = "<group>"; };
+		E122FAE7279D3F8300B00128 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		E12ACF06278168CF00B197AA /* NickNameDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameDialog.swift; sourceTree = "<group>"; };
 		E12ACF0D27817EBB00B197AA /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
 		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
@@ -636,6 +643,7 @@
 				E1B549D52759DEA400F49604 /* PrizeModel.swift */,
 				73C54DAB275B2896008B49CC /* NickAccountModel.swift */,
 				5923E25A25B808B900371AB1 /* Sounds.swift */,
+				E122FAE7279D3F8300B00128 /* FilterManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -666,7 +674,10 @@
 			children = (
 				5912967C263BF6FC006D1F0A /* ChestDetailView.swift */,
 				59CE6C0F2578D32100553EBA /* MapView.swift */,
+				E18C67FB278C07C300223353 /* FilterView.swift */,
+				E1FAC36E278C1AEA008F312F /* PickerView.swift */,
 				59601ABC25F22B1E00A9C652 /* MapInnerView.swift */,
+				5961A0C6257775B10022CD72 /* XOIDetailView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -711,10 +722,8 @@
 				5961A0CC25777DEC0022CD72 /* Supporting Views */,
 				593ED2ED26494271006567C0 /* ImagePicker.swift */,
 				59B784AC25914041008F16B8 /* LocationManager.swift */,
-				E18C67FB278C07C300223353 /* FilterView.swift */,
 				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
-				5961A0C6257775B10022CD72 /* XOIDetail.swift */,
 				73917F54271C4DE000B4FAAD /* TextVIew.swift */,
 				73F1F89F27353694008964C2 /* ActivityViewController.swift */,
 				5923E25D25B80B9B00371AB1 /* MediaMulti.swift */,
@@ -722,7 +731,6 @@
 				59CACC6B2626FB5900B0B0CC /* GroupList.swift */,
 				E12ACF06278168CF00B197AA /* NickNameDialog.swift */,
 				E12ACF0D27817EBB00B197AA /* LoginDialog.swift */,
-				E1FAC36E278C1AEA008F312F /* PickerView.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1000,7 +1008,7 @@
 				593ED2EE26494271006567C0 /* ImagePicker.swift in Sources */,
 				59CACC6C2626FB5900B0B0CC /* GroupList.swift in Sources */,
 				59A65915257611020038AD61 /* SceneDelegate.swift in Sources */,
-				5961A0C7257775B10022CD72 /* XOIDetail.swift in Sources */,
+				5961A0C7257775B10022CD72 /* XOIDetailView.swift in Sources */,
 				73B43E532733A9E2004853AB /* QRcodeView.swift in Sources */,
 				73C54DAC275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */,
@@ -1028,6 +1036,7 @@
 				739AD42C272A81A400942ACB /* SearchBar.swift in Sources */,
 				59CACC682626F80000B0B0CC /* GroupModel.swift in Sources */,
 				5961A0D62577DFAB0022CD72 /* TabViewElement.swift in Sources */,
+				E122FAE8279D3F8300B00128 /* FilterManager.swift in Sources */,
 				59B784B32591F084008F16B8 /* TestAlamofirePeter.swift in Sources */,
 				59CCD34326396F6B00A3BF53 /* SessionModel.swift in Sources */,
 				59129679263BCA17006D1F0A /* GameMapView.swift in Sources */,
@@ -1068,7 +1077,7 @@
 				7332DCDA2758D5C500E0C19A /* ImagePicker.swift in Sources */,
 				7332DCDB2758D5C500E0C19A /* GroupList.swift in Sources */,
 				7332DCDC2758D5C500E0C19A /* SceneDelegate.swift in Sources */,
-				7332DCDD2758D5C500E0C19A /* XOIDetail.swift in Sources */,
+				7332DCDD2758D5C500E0C19A /* XOIDetailView.swift in Sources */,
 				7332DCDF2758D5C500E0C19A /* QRcodeView.swift in Sources */,
 				73C54DAD275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DCE02758D5C500E0C19A /* PirzeDetailView.swift in Sources */,
@@ -1096,6 +1105,7 @@
 				7332DCF72758D5C500E0C19A /* SearchBar.swift in Sources */,
 				7332DCF92758D5C500E0C19A /* GroupModel.swift in Sources */,
 				7332DCFA2758D5C500E0C19A /* TabViewElement.swift in Sources */,
+				E122FAE9279D3F8300B00128 /* FilterManager.swift in Sources */,
 				7332DCFB2758D5C500E0C19A /* TestAlamofirePeter.swift in Sources */,
 				7332DCFC2758D5C500E0C19A /* SessionModel.swift in Sources */,
 				7332DCFD2758D5C500E0C19A /* GameMapView.swift in Sources */,
@@ -1136,7 +1146,7 @@
 				7332DD272758D5C600E0C19A /* ImagePicker.swift in Sources */,
 				7332DD282758D5C600E0C19A /* GroupList.swift in Sources */,
 				7332DD292758D5C600E0C19A /* SceneDelegate.swift in Sources */,
-				7332DD2A2758D5C600E0C19A /* XOIDetail.swift in Sources */,
+				7332DD2A2758D5C600E0C19A /* XOIDetailView.swift in Sources */,
 				7332DD2C2758D5C600E0C19A /* QRcodeView.swift in Sources */,
 				73C54DAE275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DD2D2758D5C600E0C19A /* PirzeDetailView.swift in Sources */,
@@ -1164,6 +1174,7 @@
 				7332DD442758D5C600E0C19A /* SearchBar.swift in Sources */,
 				7332DD462758D5C600E0C19A /* GroupModel.swift in Sources */,
 				7332DD472758D5C600E0C19A /* TabViewElement.swift in Sources */,
+				E122FAEB279D3F8300B00128 /* FilterManager.swift in Sources */,
 				7332DD482758D5C600E0C19A /* TestAlamofirePeter.swift in Sources */,
 				7332DD492758D5C600E0C19A /* SessionModel.swift in Sources */,
 				7332DD4A2758D5C600E0C19A /* GameMapView.swift in Sources */,
@@ -1204,7 +1215,7 @@
 				7332DD742758D62500E0C19A /* ImagePicker.swift in Sources */,
 				7332DD752758D62500E0C19A /* GroupList.swift in Sources */,
 				7332DD762758D62500E0C19A /* SceneDelegate.swift in Sources */,
-				7332DD772758D62500E0C19A /* XOIDetail.swift in Sources */,
+				7332DD772758D62500E0C19A /* XOIDetailView.swift in Sources */,
 				7332DD792758D62500E0C19A /* QRcodeView.swift in Sources */,
 				73C54DAF275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DD7A2758D62500E0C19A /* PirzeDetailView.swift in Sources */,
@@ -1232,6 +1243,7 @@
 				7332DD912758D62500E0C19A /* SearchBar.swift in Sources */,
 				7332DD932758D62500E0C19A /* GroupModel.swift in Sources */,
 				7332DD942758D62500E0C19A /* TabViewElement.swift in Sources */,
+				E122FAEC279D3F8300B00128 /* FilterManager.swift in Sources */,
 				7332DD952758D62500E0C19A /* TestAlamofirePeter.swift in Sources */,
 				7332DD962758D62500E0C19A /* SessionModel.swift in Sources */,
 				7332DD972758D62500E0C19A /* GameMapView.swift in Sources */,
@@ -1272,7 +1284,7 @@
 				7332DDC12758D63400E0C19A /* ImagePicker.swift in Sources */,
 				7332DDC22758D63400E0C19A /* GroupList.swift in Sources */,
 				7332DDC32758D63400E0C19A /* SceneDelegate.swift in Sources */,
-				7332DDC42758D63400E0C19A /* XOIDetail.swift in Sources */,
+				7332DDC42758D63400E0C19A /* XOIDetailView.swift in Sources */,
 				7332DDC62758D63400E0C19A /* QRcodeView.swift in Sources */,
 				73C54DB0275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DDC72758D63400E0C19A /* PirzeDetailView.swift in Sources */,
@@ -1300,6 +1312,7 @@
 				7332DDDE2758D63400E0C19A /* SearchBar.swift in Sources */,
 				7332DDE02758D63400E0C19A /* GroupModel.swift in Sources */,
 				7332DDE12758D63400E0C19A /* TabViewElement.swift in Sources */,
+				E122FAED279D3F8300B00128 /* FilterManager.swift in Sources */,
 				7332DDE22758D63400E0C19A /* TestAlamofirePeter.swift in Sources */,
 				7332DDE32758D63400E0C19A /* SessionModel.swift in Sources */,
 				7332DDE42758D63400E0C19A /* GameMapView.swift in Sources */,
@@ -1340,7 +1353,7 @@
 				7332DE0E2758D9C600E0C19A /* ImagePicker.swift in Sources */,
 				7332DE0F2758D9C600E0C19A /* GroupList.swift in Sources */,
 				7332DE102758D9C600E0C19A /* SceneDelegate.swift in Sources */,
-				7332DE112758D9C600E0C19A /* XOIDetail.swift in Sources */,
+				7332DE112758D9C600E0C19A /* XOIDetailView.swift in Sources */,
 				7332DE132758D9C600E0C19A /* QRcodeView.swift in Sources */,
 				73C54DB1275B2896008B49CC /* NickAccountModel.swift in Sources */,
 				7332DE142758D9C600E0C19A /* PirzeDetailView.swift in Sources */,
@@ -1368,6 +1381,7 @@
 				7332DE2B2758D9C600E0C19A /* SearchBar.swift in Sources */,
 				7332DE2D2758D9C600E0C19A /* GroupModel.swift in Sources */,
 				7332DE2E2758D9C600E0C19A /* TabViewElement.swift in Sources */,
+				E122FAEA279D3F8300B00128 /* FilterManager.swift in Sources */,
 				7332DE2F2758D9C600E0C19A /* TestAlamofirePeter.swift in Sources */,
 				7332DE302758D9C600E0C19A /* SessionModel.swift in Sources */,
 				7332DE312758D9C600E0C19A /* GameMapView.swift in Sources */,

@@ -38,7 +38,7 @@ struct FilterView: View {
     ]
     @State var pickerState = false
     @EnvironmentObject var settingStorage:SettingStorage
-    @StateObject var locationManager = LocationManager()
+    @StateObject var locationManager:LocationManager
     @State private var cancellable: AnyCancellable?
     var body: some View {
         VStack {
@@ -155,7 +155,8 @@ extension FilterView {
 
 struct SwiftUIView_Previews: PreviewProvider {
     @State static var test = false
+    @StateObject static var locationManager = LocationManager()
     static var previews: some View {
-        FilterView(myViewState: $test)
+        FilterView(myViewState: $test, locationManager: locationManager)
     }
 }
