@@ -50,7 +50,11 @@ struct ChestDetailView: View {
                                 .frame(height: geometry.size.height * 0.03)
                                 .font(.system(size: 20))
                             Spacer()
-                            Text("Done")
+                            Button {
+                                
+                            } label: {
+                                Text("Done")
+                            }
                         }
                         Divider()
                         Text(chest.question)

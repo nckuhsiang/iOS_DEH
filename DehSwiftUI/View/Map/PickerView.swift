@@ -15,11 +15,12 @@ struct PickerView: View {
     @Binding var indexSelection:Int
     var body: some View {
         Picker(selection: $indexSelection) {
-            ForEach(dataArray.indices) { item in                                 Button {
-                myViewState = false
-            } label: {
-                Text(dataArray[item]).tag(item)
-            }
+            ForEach(dataArray.indices) { item in
+                Button {
+                    myViewState = false
+                } label: {
+                    Text(dataArray[item]).tag(item)
+                }
             } } label: {
                 Text("test")
             }

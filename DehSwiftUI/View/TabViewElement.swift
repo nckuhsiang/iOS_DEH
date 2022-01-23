@@ -81,7 +81,7 @@ extension TabViewElement{
     func searchXOIs(action:String){
         print("User icon pressed...")
         if (group.id == 0) && (tabItemName == "group") {
-            alertString = "please choose group"
+            alertString = "please choose group".localized
             alertState = true
             return
         }
@@ -111,7 +111,7 @@ extension TabViewElement{
                     self.settingStorage.mapType = tabItemName
                 }
                 else {
-                    alertString = "No Data"
+                    alertString = "No Data".localized
                     alertState = true
                 }
                 

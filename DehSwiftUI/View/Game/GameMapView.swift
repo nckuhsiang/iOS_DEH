@@ -56,7 +56,7 @@ struct GameMap: View {
             locationManager.stopUpdate()
         }
         .alert(isPresented: $alertState) { () -> Alert in
-            return Alert(title: Text("game does not start"),
+            return Alert(title: Text("game does not start".localized),
                  dismissButton:.default(Text("OK".localized), action: {
                 self.presentationMode.wrappedValue.dismiss()
             }))

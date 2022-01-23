@@ -18,11 +18,15 @@ struct DEHMap: View {
         center: CLLocationCoordinate2D(latitude: 22.997, longitude: 120.221),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
+    @State var idsIndex:Int = 0
+    @State var typesIndex:Int = 0
+    @State var formatsIndex:Int = 0
     @State var selection: Int? = nil
     @State var selectSearchXOI = false
     @State private var cancellable: AnyCancellable?
     @State var filterState = false
     @State var showFilterButton = true
+    @State private var showTitle:Bool = true
     var body: some View {
         ZStack {
             Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs[settingStorage.mapType] ?? []){xoi in
@@ -30,16 +34,40 @@ struct DEHMap: View {
                     coordinate: xoi.coordinate,
                     anchorPoint: CGPoint(x: 0.5, y: 0.5)
                 ) {
-                    NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs["nearby"]?.firstIndex(of: xoi) ?? 0, selection: $selection){
-                        Button(action: {
-                            print("map tapped")
-                            self.selection = settingStorage.XOIs["nearby"]?.firstIndex(of: xoi)
-                        }) {
-                            VStack{
+                    NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi) ?? 0, selection: $selection){
+                        VStack(spacing: 0){
+                            HStack {
                                 Text(xoi.name)
-                                pinSelector(creatorCategory:xoi.creatorCategory)
+                                Button {
+                                    self.selection = settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi)
+                                } label: {
+                                    Image(systemName: "info.circle")
+//                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                }
+                            }
+                            .font(.callout)
+                            .padding(10)
+                            .background(Color(.white))
+                            .cornerRadius(10)
+                            .opacity(showTitle ? 0 : 1)
+                            Image(systemName: "arrowtriangle.down.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .offset(x: 0, y: -5)
+                                .opacity(showTitle ? 0 : 1)
+                            pinSelector(creatorCategory:xoi.creatorCategory)
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                showTitle.toggle()
+                                
                             }
                         }
+                        
+                    
                     }
                 }
             }
@@ -49,7 +77,7 @@ struct DEHMap: View {
                 } label: {
                     Image(systemName: "f.circle.fill")
                         .foregroundColor(.blue)
-                        
+                    
                 }
                 .disabled(showFilterButton)
                 .hidden(showFilterButton)
@@ -115,7 +143,7 @@ struct DEHMap: View {
                 }
             )
             if filterState{
-                FilterView(myViewState: $filterState, locationManager:locationManager)
+                FilterView(idsIndex: $idsIndex, typesIndex: $typesIndex, formatsIndex: $formatsIndex, myViewState: $filterState, locationManager: locationManager)
             }
         }
     }

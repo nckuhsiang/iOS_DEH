@@ -10,10 +10,10 @@ import SwiftUI
 import Alamofire
 import Combine
 struct FilterView: View {
-    @State var idsIndex:Int = 0
-    @State var typesIndex:Int = 0
-    @State var formatsIndex:Int = 0
-    @State var selection:Int?
+    @Binding var idsIndex:Int
+    @Binding var typesIndex:Int
+    @Binding var formatsIndex:Int
+    @State var selection:Int = -1
     @Binding var myViewState:Bool
     var ids = ["All".localized, "Expert's map".localized, "User's map".localized, "Docent's map".localized]
     var types = ["All".localized, "Image".localized, "Audio".localized, "Video".localized]
@@ -153,10 +153,10 @@ extension FilterView {
 }
 
 
-struct SwiftUIView_Previews: PreviewProvider {
-    @State static var test = false
-    @StateObject static var locationManager = LocationManager()
-    static var previews: some View {
-        FilterView(myViewState: $test, locationManager: locationManager)
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    @State static var test = false
+//    @StateObject static var locationManager = LocationManager()
+//    static var previews: some View {
+//        FilterView(,myViewState: $test, locationManager: locationManager)
+//    }
+//}

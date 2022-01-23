@@ -672,7 +672,6 @@
 		73A77E932779969D0089555D /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5912967C263BF6FC006D1F0A /* ChestDetailView.swift */,
 				59CE6C0F2578D32100553EBA /* MapView.swift */,
 				E18C67FB278C07C300223353 /* FilterView.swift */,
 				E1FAC36E278C1AEA008F312F /* PickerView.swift */,
@@ -685,6 +684,7 @@
 		73A77E942779970D0089555D /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				5912967C263BF6FC006D1F0A /* ChestDetailView.swift */,
 				596A6C5526380B99008CE1B0 /* GameView.swift */,
 				59CCD34026396DB500A3BF53 /* GameSessionView.swift */,
 				59129678263BCA17006D1F0A /* GameMapView.swift */,
@@ -698,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				59A65916257611020038AD61 /* ContentView.swift */,
+				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59CE6C0B2578CC1D00553EBA /* SettingView.swift */,
 				73A77E91277995E60089555D /* GroupManagement */,
 				73A77E92277995F70089555D /* PrizeManagement */,
@@ -722,7 +723,6 @@
 				5961A0CC25777DEC0022CD72 /* Supporting Views */,
 				593ED2ED26494271006567C0 /* ImagePicker.swift */,
 				59B784AC25914041008F16B8 /* LocationManager.swift */,
-				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				5961A0CD25778BC30022CD72 /* XOIRow.swift */,
 				73917F54271C4DE000B4FAAD /* TextVIew.swift */,
 				73F1F89F27353694008964C2 /* ActivityViewController.swift */,
