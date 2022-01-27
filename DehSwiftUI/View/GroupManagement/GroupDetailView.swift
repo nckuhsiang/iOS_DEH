@@ -148,6 +148,9 @@ struct GroupDetailView: View {
                 Text("Group member".localized)
             }
         }
+        .onAppear {
+            addGroupCount()
+        }
     }
 }
 extension GroupDetailView {
@@ -229,7 +232,19 @@ extension GroupDetailView {
                 alertText = values.value?.message.localized ?? ""
             })
     }
-    
+    func addGroupCount(){
+        let parameters:Parameters = [
+            "user_id": settingStorage.userID,
+            "ip":"127.0.0.1",
+            "page":"/API/test/manage_group/\(group.id)"
+        ]
+        let url = addGroupCountUrl
+        let publisher:DataResponsePublisher<Result> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.cancellable = publisher
+            .sink(receiveValue: {(values) in
+                    print(values.value?.result ?? "")
+            })
+    }
 }
 
 

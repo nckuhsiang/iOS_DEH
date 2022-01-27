@@ -18,6 +18,7 @@ struct DEHMap: View {
         center: CLLocationCoordinate2D(latitude: 22.997, longitude: 120.221),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
+    @State var poiIndex:Int? = nil
     @State var idsIndex:Int = 0
     @State var typesIndex:Int = 0
     @State var formatsIndex:Int = 0
@@ -26,7 +27,7 @@ struct DEHMap: View {
     @State private var cancellable: AnyCancellable?
     @State var filterState = false
     @State var showFilterButton = true
-    @State private var showTitle:Bool = true
+    @State var showTitle:Bool = true
     var body: some View {
         ZStack {
             Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs[settingStorage.mapType] ?? []){xoi in
@@ -34,41 +35,8 @@ struct DEHMap: View {
                     coordinate: xoi.coordinate,
                     anchorPoint: CGPoint(x: 0.5, y: 0.5)
                 ) {
-                    NavigationLink(destination:  destinationSelector(xoi:xoi), tag: settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi) ?? 0, selection: $selection){
-                        VStack(spacing: 0){
-                            HStack {
-                                Text(xoi.name)
-                                Button {
-                                    self.selection = settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi)
-                                } label: {
-                                    Image(systemName: "info.circle")
-//                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                }
-                            }
-                            .font(.callout)
-                            .padding(10)
-                            .background(Color(.white))
-                            .cornerRadius(10)
-                            .opacity(showTitle ? 0 : 1)
-                            Image(systemName: "arrowtriangle.down.fill")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .font(.caption)
-                                .foregroundColor(.white)
-                                .offset(x: 0, y: -5)
-                                .opacity(showTitle ? 0 : 1)
-                            pinSelector(creatorCategory:xoi.creatorCategory)
-                        }
-                        .onTapGesture {
-                            withAnimation(.easeInOut) {
-                                showTitle.toggle()
-                                
-                            }
-                        }
-                        
-                    
-                    }
+                    NavigationLink("", tag: settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi) ?? 0, selection: $selection, destination: {destinationSelector(xoi:xoi)})
+                    pin(xoi: xoi, selection: $selection)
                 }
             }
             .navigationBarItems(trailing:HStack{
@@ -146,6 +114,11 @@ struct DEHMap: View {
                 FilterView(idsIndex: $idsIndex, typesIndex: $typesIndex, formatsIndex: $formatsIndex, myViewState: $filterState, locationManager: locationManager)
             }
         }
+        .onAppear {
+            if settingStorage.XOIs["nearby"] != [] && settingStorage.mapType == "nearby" {
+                showFilterButton = false
+            }
+        }
     }
 }
 
@@ -190,17 +163,44 @@ extension DEHMap{
             Text("error")
         }
     }
-    @ViewBuilder func pinSelector(creatorCategory:String) -> some View{
-        switch creatorCategory{
-        case "docent": Image("docent_pin")
-        case "expert": Image("expert_pin")
-        case "user": Image("player_pin")
-        default: Image("player_pin")
-            
+}
+struct pin:View{
+    @EnvironmentObject var settingStorage:SettingStorage
+    var xoi:XOI
+    @Binding var selection:Int?
+    @State var showTitle = true
+    let mapping = ["user":"player_pin","expert":"expert_pin","docent":"docent_pin"]
+    var body: some View {
+        VStack(spacing:0){
+            HStack {
+                Text(xoi.name)
+                Image(systemName: "info.circle")
+                    .foregroundColor(.blue)
+            }
+            .onTapGesture {
+                self.selection = settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi)
+            }
+            .padding(10)
+            .background(Color(.white))
+            .cornerRadius(10)
+            .hidden(showTitle)
+            .disabled(showTitle)
+            Image(systemName: "arrowtriangle.down.fill")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.white)
+                .offset(x: 0, y: -5)
+                .opacity(showTitle ? 0 : 1)
+            Image(mapping[xoi.creatorCategory] ?? "user_pin")
+                .onTapGesture {
+                    withAnimation(.easeInOut){
+                        showTitle.toggle()
+                    }
+                }
         }
+        
     }
 }
-
 struct DEHMap_Previews: PreviewProvider {
     static var previews: some View {
         DEHMap()

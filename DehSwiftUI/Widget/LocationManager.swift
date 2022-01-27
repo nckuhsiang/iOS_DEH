@@ -31,13 +31,13 @@ class LocationManager: NSObject, ObservableObject {
     @Published var lastLocation: CLLocation? {
         willSet {
             coordinateRegion = MKCoordinateRegion(center:CLLocationCoordinate2D(
-                                                    latitude: lastLocation?.coordinate.latitude ?? 23.58_323, longitude: lastLocation?.coordinate.longitude ?? 121.58_260),span:MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                                                    latitude: lastLocation?.coordinate.latitude ?? 23.58_323, longitude: lastLocation?.coordinate.longitude ?? 121.58_260),span:MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             objectWillChange.send()
         }
     }
     @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 22.997, longitude: 120.221),
-        span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
     
     
@@ -103,7 +103,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func setToXoiLocation(xoi:XOI)-> Void{
         self.coordinateRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: xoi.latitude, longitude: xoi.longitude),
-            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )
         objectWillChange.send()
     }

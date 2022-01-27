@@ -40,16 +40,23 @@ struct FilterView: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @StateObject var locationManager:LocationManager
     @State private var cancellable: AnyCancellable?
+    @State private var searchText:String = ""
     var body: some View {
         VStack {
             if pickerState{
                 Spacer()
             }
-            VStack {
+            VStack(alignment: .center, spacing: 0) {
                 Text("Filter")
                     .fontWeight(.bold)
                     .font(.system(size:30))
                 VStack(alignment: .leading, spacing:10){
+                    HStack {
+                        TextField("Search ...".localized, text: $searchText)
+                            .padding(10)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                    }
                     Text("地圖類別")
                     Button {
                         pickerState = true
@@ -74,8 +81,6 @@ struct FilterView: View {
                 }
                 .padding()
                 .frame(width: UIScreen.main.bounds.width/1.5, alignment: .leading)
-                
-                Spacer()
                 HStack {
                     Button {
                         pickerState = false
@@ -100,7 +105,7 @@ struct FilterView: View {
                 }
                 
             }
-            .frame(width: UIScreen.main.bounds.width/1.5, height: 300)
+            .frame(width: UIScreen.main.bounds.width/1.5, height: 350)
             .background(Color.white)
             .cornerRadius(12)
             .clipped()
@@ -142,6 +147,9 @@ extension FilterView {
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
                 self.settingStorage.XOIs["nearby"] = values.value?.results
+                if searchText != "" {
+                    self.settingStorage.XOIs["nearby"] = (self.settingStorage.XOIs["nearby"] ?? []).filter({$0.name.contains(searchText)})
+                }
                 if idsIndex != 0{
                     self.settingStorage.XOIs["nearby"] = (self.settingStorage.XOIs["nearby"] ?? []).filter({$0.creatorCategory==Transfer[ids[idsIndex]]})
                 }

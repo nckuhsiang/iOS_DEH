@@ -99,8 +99,9 @@ struct ContentView: View {
                         TabViewElement(title: "Searched Xois".localized, image1: "Empty", image2: "Empty",tabItemImage:"member_searched",tabItemName: "nearby")
                         if isMini() {
                             TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
+                            TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
                         }
-                        TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
+                        
                     }
                 }
                 .navigationBarTitle(Text("HI ".localized +  self.settingStorage.account), displayMode: .inline)

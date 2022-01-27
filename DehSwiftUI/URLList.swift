@@ -30,7 +30,8 @@ let GroupCreatUrl:      String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups
 let GroupUpdateUrl:     String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/update"
 let GroupGetListUrl:    String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/groupList"
 let GroupGetUserGroupListUrl:    String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/searchUserGroups"
-
+let addGroupCountUrl:   String = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/addGroupLog"
+//let addGroupCountUrl:   String = "http:/140.116.82.130:8080//groups/addGroupLog"
 //MARK:- GameUrl
 let NEW_DEH_API                = "http://deh.csie.ncku.edu.tw:8080/api/v1"
 let _DEH_API                   = "http://140.116.82.130:8080/api/v1"
@@ -92,7 +93,7 @@ let getNearbyXois = [
     "searchNearbyAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/aois",
     "searchNearbySOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/nearby/sois",
 ]
-
+let addPoiCountUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/add_poi_log"
 //let getGroupXois = [
 //    "searchGroupPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userPOIs",
 //    "searchGroupLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/userLOIs",

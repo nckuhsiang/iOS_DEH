@@ -69,15 +69,13 @@ extension DEHMapInner{
     @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {
         case "poi": XOIDetail(xoi:xoi)
-        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
-        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
-        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi,locationManager: locationManager, xoiCategory: xoi.xoiCategory)
+        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, locationManager: locationManager,xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, locationManager: locationManager,xoiCategory: xoi.xoiCategory)
         default:
             Text("error")
         }
     }
-}
-extension DEHMapInner{
     @ViewBuilder func pinSelector(number:Int,xoiCategory:String) -> some View{
         switch xoiCategory {
         case "poi": Image("player_pin")
