@@ -391,6 +391,12 @@
 		E12ACF1327817EBB00B197AA /* LoginDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12ACF0D27817EBB00B197AA /* LoginDialog.swift */; };
 		E138B88A2758AAA0001D7C68 /* PrizeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B8892758AAA0001D7C68 /* PrizeListView.swift */; };
 		E138B88C2758AAAE001D7C68 /* PirzeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */; };
+		E14637FE27A4448B001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
+		E14637FF27A4448B001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
+		E146380027A4448B001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
+		E146380127A4448B001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
+		E146380227A4448C001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
+		E146380327A4448E001E4D72 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14637FD27A4448B001E4D72 /* GameDataModel.swift */; };
 		E18C67FC278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
 		E18C67FD278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
 		E18C67FE278C07C300223353 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C67FB278C07C300223353 /* FilterView.swift */; };
@@ -492,6 +498,7 @@
 		E12ACF0D27817EBB00B197AA /* LoginDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDialog.swift; sourceTree = "<group>"; };
 		E138B8892758AAA0001D7C68 /* PrizeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeListView.swift; sourceTree = "<group>"; };
 		E138B88B2758AAAE001D7C68 /* PirzeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirzeDetailView.swift; sourceTree = "<group>"; };
+		E14637FD27A4448B001E4D72 /* GameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataModel.swift; sourceTree = "<group>"; };
 		E18C67FB278C07C300223353 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		E1B549D52759DEA400F49604 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
 		E1FAC36E278C1AEA008F312F /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -644,6 +651,7 @@
 				73C54DAB275B2896008B49CC /* NickAccountModel.swift */,
 				5923E25A25B808B900371AB1 /* Sounds.swift */,
 				E122FAE7279D3F8300B00128 /* FilterManager.swift */,
+				E14637FD27A4448B001E4D72 /* GameDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1004,6 +1012,7 @@
 				E18C67FC278C07C300223353 /* FilterView.swift in Sources */,
 				B17023392592F2CD00DF2167 /* XOIViewModel.swift in Sources */,
 				59CE6C0C2578CC1D00553EBA /* SettingView.swift in Sources */,
+				E14637FE27A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				73342FEF271188F300458A60 /* StringExtension.swift in Sources */,
 				593ED2EE26494271006567C0 /* ImagePicker.swift in Sources */,
 				59CACC6C2626FB5900B0B0CC /* GroupList.swift in Sources */,
@@ -1073,6 +1082,7 @@
 				E18C67FD278C07C300223353 /* FilterView.swift in Sources */,
 				7332DCD72758D5C500E0C19A /* XOIViewModel.swift in Sources */,
 				7332DCD82758D5C500E0C19A /* SettingView.swift in Sources */,
+				E14637FF27A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DCD92758D5C500E0C19A /* StringExtension.swift in Sources */,
 				7332DCDA2758D5C500E0C19A /* ImagePicker.swift in Sources */,
 				7332DCDB2758D5C500E0C19A /* GroupList.swift in Sources */,
@@ -1142,6 +1152,7 @@
 				E18C67FE278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD242758D5C600E0C19A /* XOIViewModel.swift in Sources */,
 				7332DD252758D5C600E0C19A /* SettingView.swift in Sources */,
+				E146380127A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DD262758D5C600E0C19A /* StringExtension.swift in Sources */,
 				7332DD272758D5C600E0C19A /* ImagePicker.swift in Sources */,
 				7332DD282758D5C600E0C19A /* GroupList.swift in Sources */,
@@ -1211,6 +1222,7 @@
 				E18C67FF278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD712758D62500E0C19A /* XOIViewModel.swift in Sources */,
 				7332DD722758D62500E0C19A /* SettingView.swift in Sources */,
+				E146380227A4448C001E4D72 /* GameDataModel.swift in Sources */,
 				7332DD732758D62500E0C19A /* StringExtension.swift in Sources */,
 				7332DD742758D62500E0C19A /* ImagePicker.swift in Sources */,
 				7332DD752758D62500E0C19A /* GroupList.swift in Sources */,
@@ -1280,6 +1292,7 @@
 				E18C6800278C07C300223353 /* FilterView.swift in Sources */,
 				7332DDBE2758D63400E0C19A /* XOIViewModel.swift in Sources */,
 				7332DDBF2758D63400E0C19A /* SettingView.swift in Sources */,
+				E146380327A4448E001E4D72 /* GameDataModel.swift in Sources */,
 				7332DDC02758D63400E0C19A /* StringExtension.swift in Sources */,
 				7332DDC12758D63400E0C19A /* ImagePicker.swift in Sources */,
 				7332DDC22758D63400E0C19A /* GroupList.swift in Sources */,
@@ -1349,6 +1362,7 @@
 				E18C6801278C07C300223353 /* FilterView.swift in Sources */,
 				7332DE0B2758D9C600E0C19A /* XOIViewModel.swift in Sources */,
 				7332DE0C2758D9C600E0C19A /* SettingView.swift in Sources */,
+				E146380027A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DE0D2758D9C600E0C19A /* StringExtension.swift in Sources */,
 				7332DE0E2758D9C600E0C19A /* ImagePicker.swift in Sources */,
 				7332DE0F2758D9C600E0C19A /* GroupList.swift in Sources */,

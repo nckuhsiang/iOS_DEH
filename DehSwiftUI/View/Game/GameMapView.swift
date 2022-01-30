@@ -21,29 +21,30 @@ struct GameMap: View {
     @State var selection: Int? = nil
     @State var alertState = false
     var body: some View {
-        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: chestList){
-            chest in
-            MapAnnotation(
-                coordinate: chest.coordinate,
-                anchorPoint: CGPoint(x: 0.5, y: 0.5)
-            ){
-                NavigationLink(
-                    destination: ChestDetailView(chest: chest,session:session),
-                    tag:chestList.firstIndex(of: chest) ?? -1,
-                    selection:$selection
+        ZStack {
+            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: chestList){
+                chest in
+                MapAnnotation(
+                    coordinate: chest.coordinate,
+                    anchorPoint: CGPoint(x: 0.5, y: 0.5)
                 ){
-                    Button(action:{
-                        print("chest tap")
-                        print("")
-                        selection = chestList.firstIndex(of: chest)
-                    }){
-                        Image("chest")
+                    NavigationLink(
+                        destination: ChestDetailView(chest: chest,session:session),
+                        tag:chestList.firstIndex(of: chest) ?? -1,
+                        selection:$selection
+                    ){
+                        Button(action:{
+                            print("chest tap")
+                            print("")
+                            selection = chestList.firstIndex(of: chest)
+                        }){
+                            Image("chest")
+                        }
+                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
                     }
-                    .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
+                    
                 }
-
             }
-        }
             .onAppear(){
                 locationManager.startUpdate()
                 if(session.gameID == 0){
@@ -52,19 +53,34 @@ struct GameMap: View {
                 }
                 getChests()
             }
-        .onDisappear(){
-            locationManager.stopUpdate()
-        }
-        .alert(isPresented: $alertState) { () -> Alert in
-            return Alert(title: Text("game does not start".localized),
-                 dismissButton:.default(Text("OK".localized), action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }))
+            .onDisappear(){
+                locationManager.stopUpdate()
+            }
+//            .alert(isPresented: $alertState) { () -> Alert in
+//                return Alert(title: Text("game does not start".localized),
+//                             dismissButton:.default(Text("OK".localized), action: {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }))
+//            }
+            VStack {
+                Text("time")
+                    .background(Color(UIColor(rgba: lightGreen)))
+                    .foregroundColor(.white)
+                    .font(.title)
+                Spacer()
+            }
         }
         
     }
 }
 extension GameMap{
+//    func getGameData() {
+//        let url = GameDataUrl
+//        let parameters = [
+//            "game_id":"\(session.gameID)"
+//        ]
+//        let publisher:DataResponsePublisher<[GameData]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+//    }
     func getChests(){
         let url = getChestList
         let parameters:[String:String] = [
@@ -74,7 +90,7 @@ extension GameMap{
         let publisher:DataResponsePublisher<[ChestModel]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-//                print(values.data?.JsonPrint())
+                //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 if let value = values.value{
                     self.chestList = value
