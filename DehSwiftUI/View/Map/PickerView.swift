@@ -21,14 +21,15 @@ struct PickerView: View {
                 } label: {
                     Text(dataArray[item]).tag(item)
                 }
-            } } label: {
-                Text("test")
             }
-            .pickerStyle(.wheel)
-            .frame(width: UIScreen.main.bounds.width,height: 150)
-            .background(Color.white)
-            .cornerRadius(12)
-            .clipped()
+        } label: {
+            Text("test")
+        }
+        .pickerStyle(.wheel)
+        .frame(width: UIScreen.main.bounds.width,height: 150)
+        .background(Color.white)
+        .cornerRadius(12)
+        .clipped()
         
         
     }

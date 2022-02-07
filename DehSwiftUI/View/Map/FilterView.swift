@@ -96,7 +96,7 @@ struct FilterView: View {
                         pickerState = false
                         myViewState = false
                     } label: {
-                        Text("Go filter".localized)
+                        Text("filter".localized)
                             .foregroundColor(.white)
                             .padding(5)
                             .background(Color(UIColor(rgba: lightGreen)))

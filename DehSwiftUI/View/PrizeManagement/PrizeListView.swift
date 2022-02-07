@@ -21,6 +21,7 @@ struct PrizeListView: View {
                 Text("Prize List".localized)
                     .font(.title)
                     .padding(.top)
+                    .foregroundColor(.white)
                 Link(destination: URL(string: "http://deh.csie.ncku.edu.tw")!) {
                     Text("Go to the website".localized)
                         .font(.system(size: 16, weight: .medium, design: .default))
@@ -35,13 +36,13 @@ struct PrizeListView: View {
                             .font(.system(size: 20, weight: .medium, design: .default))
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                             .lineLimit(1)
+                            .foregroundColor(.white)
                     }
                     
                 }
-                .listRowBackground(Color(UIColor.lightGray))
+                .listRowBackground(Color(UIColor(rgba: lightGreen)))
             }
-            
-            .listStyle(PlainListStyle())
+//            .listStyle(PlainListStyle())
         }
         .background(Color(UIColor(rgba: darkGreen)))
         .onAppear {

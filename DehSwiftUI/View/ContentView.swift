@@ -38,6 +38,7 @@ let app = "deh"
 var language = ""
 struct ContentView: View {
     init(){
+        print(coi,app)
         UserDefaults.standard.register(defaults: [
             "advancedSetting" : false,
             "searchDistance" : 10.0,

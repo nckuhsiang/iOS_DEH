@@ -130,7 +130,7 @@ struct GroupDetailView: View {
                 .padding(.leading)
                 Text("Group member")
                     .font(.system(size: 20, weight: .bold, design: .default))
-                List(){
+                List {
                     ForEach(self.groupMembers) { groupMember in
                         HStack {
                             Image(groupMember.memberRole == "leader" ? "leaderrr":"leaderlisticon")

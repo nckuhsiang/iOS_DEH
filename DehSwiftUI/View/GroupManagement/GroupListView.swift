@@ -52,7 +52,7 @@ struct GroupListView: View {
                 UITableView.appearance().backgroundColor = UIColor(rgba: darkGreen)
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Back".localized)
+                Text("back".localized)
             }, trailing: HStack {
                 NavigationLink(tag: 1, selection: $selection) {
                     GroupMessageView()
