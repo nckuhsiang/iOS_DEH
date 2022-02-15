@@ -56,18 +56,11 @@ struct GameMap: View {
             .onDisappear(){
                 locationManager.stopUpdate()
             }
-//            .alert(isPresented: $alertState) { () -> Alert in
-//                return Alert(title: Text("game does not start".localized),
-//                             dismissButton:.default(Text("OK".localized), action: {
-//                    self.presentationMode.wrappedValue.dismiss()
-//                }))
-//            }
-            VStack {
-                Text("time")
-                    .background(Color(UIColor(rgba: lightGreen)))
-                    .foregroundColor(.white)
-                    .font(.title)
-                Spacer()
+            .alert(isPresented: $alertState) { () -> Alert in
+                return Alert(title: Text("game does not start".localized),
+                             dismissButton:.default(Text("OK".localized), action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }))
             }
         }
         

@@ -65,7 +65,7 @@
 "Edit" = "編輯";
 "Group information:" = "群組資訊：";
 "Group name:" = "群組名稱：";
-"Search ..." = "搜尋 ...";
+"Enter the keyword of the POI you want to query" = "輸入您欲查詢的景點關鍵字";
 "Member" = "組員";
 "Leader" = "組長";
 "Join" = "加入";
@@ -77,7 +77,7 @@
 "Leader has invited the member!" = "組長已邀請您了！";
 "Member has allocated request" = "您你申請加入了";
 "Send request successfully!" = "申請加入成功！";
-" invite you to join the group" = " 邀請你加入群組";
+"invite you to join" = " 邀請你加入";
 "Agree" = "同意";
 "Reject" = "拒絕";
 "Would you want to join " = "是否想要加入 ";
@@ -121,4 +121,7 @@
 "No Data" = "查無資料";
 "game does not start" = "遊戲尚未開始";
 "back" = "返回";
-"filter" = "過濾";
+"filter" = "篩選";
+"class"= "地圖類別";
+"media"= "媒體種類";
+"range"= "範疇";

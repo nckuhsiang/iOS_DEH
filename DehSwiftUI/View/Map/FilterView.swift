@@ -47,31 +47,31 @@ struct FilterView: View {
                 Spacer()
             }
             VStack(alignment: .center, spacing: 0) {
-                Text("Filter")
+                Text("filter".localized)
                     .fontWeight(.bold)
                     .font(.system(size:30))
                 VStack(alignment: .leading, spacing:10){
                     HStack {
-                        TextField("Search ...".localized, text: $searchText)
+                        TextField("Enter the keyword of the POI you want to query".localized, text: $searchText)
                             .padding(10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
                     }
-                    Text("地圖類別")
+                    Text("class".localized)
                     Button {
                         pickerState = true
                         selection = 0
                     } label: {
                         Text(ids[idsIndex])
                     }
-                    Text("媒體種類")
+                    Text("media".localized)
                     Button {
                         pickerState = true
                         selection = 1
                     } label: {
                         Text(types[typesIndex])
                     }
-                    Text("範疇")
+                    Text("range".localized)
                     Button {
                         pickerState = true
                         selection = 2

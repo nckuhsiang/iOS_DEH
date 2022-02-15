@@ -23,7 +23,7 @@ struct GroupMessageView: View {
                 Button {
                     actionSheetState = true
                 } label: {
-                    Text("\(groupNotification.senderName)" + " invite you to join the group".localized)
+                    Text("\(groupNotification.senderName) " + "invite you to join".localized + " \(groupNotification.groupName)")
                         .font(.system(size: 16, weight: .medium, design: .default))
                 }
                 .padding()
@@ -32,14 +32,14 @@ struct GroupMessageView: View {
                                 message: Text("Would you want to join ".localized + "\(groupNotification.groupName)?"),
                                 buttons: [
                                     .default(Text("Agree".localized)) {
-                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Agree".localized)
+                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Agree")
                                         if let index = groupNotificationList.firstIndex(of:groupNotification) {
                                             groupNotificationList.remove(at: index)
                                         }
                                         
                                     },
                                     .destructive(Text("Reject")) {
-                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Reject".localized)
+                                        ResponseGroupMessage(senderName: groupNotification.senderName, groupId: groupNotification.groupId,returnAction: "Reject")
                                         if let index = groupNotificationList.firstIndex(of:groupNotification) {
                                             groupNotificationList.remove(at: index)
                                         }
@@ -53,9 +53,6 @@ struct GroupMessageView: View {
         .padding(0)
         .onAppear {
             getGroupMessageList()
-            if(self.groupNotificationList.isEmpty) {
-                self.noMessageAlertState = true
-            }
         }
         .listStyle(PlainListStyle())
         .alert(isPresented: $noMessageAlertState) { () -> Alert in
@@ -76,9 +73,14 @@ extension GroupMessageView {
         let parameters = ["notification":temp]
         let publisher:DataResponsePublisher<GroupNotificationList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher.sink(receiveValue: { values in
+            print("test")
             let message = values.value?.message ?? ""
             if(message == "have notification") {
                 self.groupNotificationList = values.value?.result ?? []
+                
+            }
+            else {
+                self.noMessageAlertState = true
             }
         })
     }

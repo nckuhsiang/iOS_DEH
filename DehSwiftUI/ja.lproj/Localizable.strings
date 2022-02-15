@@ -58,7 +58,7 @@
 "Edit" = "編集";
 "Group information:" = "グループ情報：";
 "Group name:" = "グループ名：";
-"Search ..." = "検索 ...";
+"Enter the keyword of the POI you want to query" = "問い合わせたいアトラクションのキーワードを入力してください";
 "Member" = "メンバー";
 "Leader" = "リーダー";
 "Join" = "加入";
@@ -70,7 +70,7 @@
 "Leader has invited the member!" = "リーダーがメンバーを招待しました！";
 "Member has allocated request" = "メンバーがリクエストを割り当てました";
 "Send request successfully!" = "リクエストを正常に送信してください！";
-" invite you to join the group" = "グループに参加するように招待します";
+"invite you to join" = "あなたを招待して";
 "Agree" = "同意";
 "Reject" = "拒絶";
 "Would you want to join " = "参加しますか ";
@@ -115,3 +115,6 @@
 "game does not start" = "ゲームが開始しない";
 "back" = "戻る";
 "filter" = "フィルター";
+"class"= "地圖類別";
+"media"= "媒體種類";
+"range"= "範疇";

@@ -43,7 +43,9 @@ struct DEHMap: View {
                 Button {
                     filterState = true
                 } label: {
-                    Image(systemName: "f.circle.fill")
+                    Image("blueFilter")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                         .foregroundColor(.blue)
                     
                 }
@@ -172,13 +174,15 @@ struct pin:View{
     let mapping = ["user":"player_pin","expert":"expert_pin","docent":"docent_pin"]
     var body: some View {
         VStack(spacing:0){
-            HStack {
-                Text(xoi.name)
-                Image(systemName: "info.circle")
-                    .foregroundColor(.blue)
-            }
-            .onTapGesture {
+            Button {
                 self.selection = settingStorage.XOIs[settingStorage.mapType]?.firstIndex(of: xoi)
+            } label: {
+                HStack {
+                    Text(xoi.name)
+                    Image(systemName: "info.circle")
+                        .foregroundColor(.blue)
+                }
+                
             }
             .padding(10)
             .background(Color(.white))
