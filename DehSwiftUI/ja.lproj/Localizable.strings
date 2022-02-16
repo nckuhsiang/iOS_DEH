@@ -58,7 +58,7 @@
 "Edit" = "編集";
 "Group information:" = "グループ情報：";
 "Group name:" = "グループ名：";
-"Enter the keyword of the POI you want to query" = "問い合わせたいアトラクションのキーワードを入力してください";
+"" = "問い合わせたいアトラクションのキーワードを入力してください";
 "Member" = "メンバー";
 "Leader" = "リーダー";
 "Join" = "加入";
@@ -93,6 +93,7 @@
 "nearby" =  "近所の";
 "favorite" = "本命";
 "group" = "グループ";
+"keyword search POI" = "キーワード検索POI";
 "mine" = "私の";
 "All" = "全て";
 "Expert's map" = "エキスパートマップ";

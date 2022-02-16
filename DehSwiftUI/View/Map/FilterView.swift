@@ -52,7 +52,7 @@ struct FilterView: View {
                     .font(.system(size:30))
                 VStack(alignment: .leading, spacing:10){
                     HStack {
-                        TextField("Enter the keyword of the POI you want to query".localized, text: $searchText)
+                        TextField("keyword search POI".localized, text: $searchText)
                             .padding(10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
