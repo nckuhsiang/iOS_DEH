@@ -1562,7 +1562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Micro II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1573,7 +1573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1586,7 +1586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Micro II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1597,7 +1597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1610,7 +1610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Mini II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1621,7 +1621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_SWIFT_FLAGS = "-DSDC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1634,7 +1634,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Mini II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1645,7 +1645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_SWIFT_FLAGS = "-DSDC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1658,7 +1658,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Lite II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1669,7 +1669,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1682,7 +1682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Lite II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1693,7 +1693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1706,7 +1706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Micro II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1717,7 +1717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1730,7 +1730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-SDC Micro II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1741,7 +1741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1754,7 +1754,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Lite II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1765,7 +1765,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1778,7 +1778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Lite II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 5H68PT52FM;
@@ -1789,7 +1789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1802,7 +1802,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Mini II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
@@ -1814,7 +1814,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_SWIFT_FLAGS = "-DDEH";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.new-deh-mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1827,7 +1827,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEH Mini II";
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DehSwiftUI/Preview Content\"";
@@ -1839,7 +1839,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_SWIFT_FLAGS = "-DDEH";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.new-deh-mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";

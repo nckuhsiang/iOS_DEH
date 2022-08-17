@@ -23,7 +23,9 @@ struct GroupDetailView: View {
     @State var alertState:Bool = false
     @State var alertText:String = ""
     @State var groupInfo:String = ""
-    @State var group:Group
+    var group:Group
+    @State var description:String = ""
+    @State var name:String = ""
     @State private var textStyle = UIFont.TextStyle.body
     @State private var cancellable: AnyCancellable?
     @State var groupMembers:[GroupMember] = []
@@ -41,7 +43,7 @@ struct GroupDetailView: View {
                         .padding(.leading)
                         .padding(.top)
                     
-                    TextField("", text: $group.name)
+                    TextField("", text: $name)
                         .textFieldStyle(.roundedBorder)
                         .padding(.trailing)
                         .padding(.top)
@@ -52,7 +54,7 @@ struct GroupDetailView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
                     .padding(.leading)
-                TextView(text: $groupInfo, textStyle: $textStyle)
+                TextView(text: $description, textStyle: $textStyle)
                     .padding(.horizontal)
                     .padding(.top, 5)
                     .disabled(textState)
@@ -97,6 +99,8 @@ struct GroupDetailView: View {
             }
             .onAppear {
                 groupInfo = group.info ?? ""
+                description = group.info ?? ""
+                name = group.name
                 if(isCreater()) {
                     self.buttonState = false
                     self.textState = false
@@ -170,7 +174,7 @@ extension GroupDetailView {
         let publisher:DataResponsePublisher<GroupMemberList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: {(values) in
-                print(values.debugDescription)
+//                print(values.debugDescription)
                 groupMembers = values.value?.result ?? []
             })
     }
@@ -217,18 +221,19 @@ extension GroupDetailView {
     }
     func UpdateGroup() {
         let url = GroupUpdateUrl
-        let temp = """
-        {
-        "group_name": "\(group.name)",
-        "group_info": "\(group.info ?? "")",
-        "group_id": "\(group.id)"
-        }
-        """
+        let temp =
+        [
+            "group_name": "\(name)",
+            "group_info": "\(description)",
+            "group_id": "\(group.id)"
+        ]
+   
+        
         let parameters = ["group_update_info":temp]
         let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
             .sink(receiveValue: { (values) in
-                print(values.debugDescription)
+//                print(values.debugDescription)
                 alertText = values.value?.message.localized ?? ""
             })
     }

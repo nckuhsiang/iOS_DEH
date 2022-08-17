@@ -49,7 +49,6 @@ class NetworkConnector{
                     data.append(valueData, withName: key)
                 }
                 
-                
             }
                     data.append(inputData, withName: "imageData")
                     

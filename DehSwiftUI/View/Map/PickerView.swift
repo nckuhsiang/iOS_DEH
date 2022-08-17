@@ -23,7 +23,6 @@ struct PickerView: View {
                 }
             }
         } label: {
-            Text("test")
         }
         .pickerStyle(.wheel)
         .frame(width: UIScreen.main.bounds.width,height: 150)

@@ -8,8 +8,11 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
 
-class Group:Identifiable,Decodable,Hashable{
+
+
+class Group:Identifiable,Decodable,Hashable {
     
     var id:Int
     var name:String

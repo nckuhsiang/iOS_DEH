@@ -73,7 +73,6 @@ extension GroupMessageView {
         let parameters = ["notification":temp]
         let publisher:DataResponsePublisher<GroupNotificationList> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher.sink(receiveValue: { values in
-            print("test")
             let message = values.value?.message ?? ""
             if(message == "have notification") {
                 self.groupNotificationList = values.value?.result ?? []

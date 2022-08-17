@@ -9,21 +9,24 @@
 import SwiftUI
 import MapKit
 struct DEHMapInner: View {
-    var xois:[XOI]
+//    var xois:[XOI]
+    var Xoi:XOI
     @ObservedObject var locationManager = LocationManager()
+    @EnvironmentObject var settingStorage:SettingStorage
     @State var selection: Int? = nil
+    @State var showingAlert = false
     var xoiCategory = ""
     
     var body: some View {
-        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: xois){xoi in
+        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: Xoi.containedXOIs ?? testxoi){xoi in
             MapAnnotation(
                 coordinate: xoi.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
             ) {
-                NavigationLink(destination:  destinationSelector(xoi:xoi), tag: xois.firstIndex(of: xoi) ?? 0, selection: $selection){
+                NavigationLink(destination:  destinationSelector(xoi:xoi), tag: (xoi.containedXOIs ?? testxoi).firstIndex(of: xoi) ?? 0, selection: $selection){
                     Button(action: {
                         print("map tapped")
-                        self.selection = xois.firstIndex(of: xoi)
+                        self.selection = (xoi.containedXOIs ?? testxoi).firstIndex(of: xoi)
                     }) {
                         VStack{
                             Text(xoi.name)
@@ -36,7 +39,7 @@ struct DEHMapInner: View {
         }
         .onAppear(
             perform: {
-                locationManager.setToXoiLocation(xoi: xois[0])
+                locationManager.setToXoiLocation(xoi: (Xoi.containedXOIs ?? testxoi)[0])
             }
         )
         .overlay(
@@ -61,6 +64,27 @@ struct DEHMapInner: View {
                 .padding(.bottom,30.0)
             }
         )
+        .toolbar(content: {
+            ToolbarItem {
+                Button {
+                    print("favorite pressed")
+                    // if exist then remove or not exist then add
+                    if let index = settingStorage.XOIs["favorite"]?.firstIndex(of: Xoi){
+                        settingStorage.XOIs["favorite"]?.remove(at: index)
+                    }
+                    else{
+                        settingStorage.XOIs["favorite"]?.append(Xoi)
+                        showingAlert = true
+                    }
+                } label: {
+                    Image("heart")
+                }
+            }
+        })
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Add to favorite".localized))
+        }
+        
         
     }
 }
@@ -69,9 +93,10 @@ extension DEHMapInner{
     @ViewBuilder func destinationSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {
         case "poi": XOIDetail(xoi:xoi)
-        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi,locationManager: locationManager, xoiCategory: xoi.xoiCategory)
-        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, locationManager: locationManager,xoiCategory: xoi.xoiCategory)
-        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, locationManager: locationManager,xoiCategory: xoi.xoiCategory)
+        case "loi": DEHMapInner(Xoi: xoi,locationManager: locationManager, xoiCategory: xoi.xoiCategory)
+            
+        case "aoi": DEHMapInner(Xoi: xoi, locationManager: locationManager,xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(Xoi: xoi,locationManager: locationManager,xoiCategory: xoi.xoiCategory)
         default:
             Text("error")
         }
@@ -88,8 +113,8 @@ extension DEHMapInner{
     }
 }
 
-struct DEHMapInner_Previews: PreviewProvider {
-    static var previews: some View {
-        DEHMapInner(xois: testxoi)
-    }
-}
+//struct DEHMapInner_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DEHMapInner(xois: testxoi)
+//    }
+//}

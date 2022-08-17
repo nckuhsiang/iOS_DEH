@@ -18,11 +18,12 @@ struct GroupListView: View {
     @State private var groupListCancellable: AnyCancellable?
     @State private var messageCancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
-    @State var groups:[Group] = []
+    @State var groups: [Group] = []
+    
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             List {
-                ForEach (self.groups) { group in
+                ForEach (groups) { group in
                     NavigationLink(tag: group.id, selection: $cellSelection) {
                         GroupDetailView(group)
                     } label: {
@@ -97,6 +98,7 @@ struct GroupListView: View {
         }
     }
 }
+
 extension GroupListView{
     func getGroupList(){
         let url = GroupGetUserGroupListUrl
@@ -108,8 +110,8 @@ extension GroupListView{
         let publisher:DataResponsePublisher<GroupLists> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.groupListCancellable = publisher
             .sink(receiveValue: {(values) in
-                print(values.debugDescription)
-                self.groups = values.value?.results ?? []
+                groups = values.value?.results ?? []
+                
             })
     }
     func getGroupMessage() {
@@ -123,7 +125,7 @@ extension GroupListView{
         let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.messageCancellable = publisher
             .sink(receiveValue: { (values) in
-                print(values.debugDescription)
+//                print(values.debugD                                                                        escription)
                 let message = values.value?.message ?? ""
                 if(message == "have notification") {
                     messageNotify = true
@@ -134,8 +136,9 @@ extension GroupListView{
             })
     }
 }
-struct GroupManagement_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupListView()
-    }
-}
+
+//struct GroupManagement_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupListView()
+//    }
+//}

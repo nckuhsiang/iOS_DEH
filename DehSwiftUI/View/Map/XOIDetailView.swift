@@ -118,9 +118,9 @@ extension XOIDetail{
                     singleMedia.view()
                 }
             }
-        case "loi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
-        case "aoi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
-        case "soi": DEHMapInner(xois:xoi.containedXOIs ?? testxoi, xoiCategory: xoi.xoiCategory)
+        case "loi": DEHMapInner(Xoi: xoi, xoiCategory: xoi.xoiCategory)
+        case "aoi": DEHMapInner(Xoi: xoi, xoiCategory: xoi.xoiCategory)
+        case "soi": DEHMapInner(Xoi: xoi, xoiCategory: xoi.xoiCategory)
         default:
             Text("error")
         }
