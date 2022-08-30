@@ -18,33 +18,32 @@ struct GroupListView: View {
     @State private var groupListCancellable: AnyCancellable?
     @State private var messageCancellable: AnyCancellable?
     @EnvironmentObject var settingStorage:SettingStorage
-    @State var groups: [Group] = []
+    @StateObject private var groupsModel = GroupsViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            List {
-                ForEach (groups) { group in
-                    NavigationLink(tag: group.id, selection: $cellSelection) {
-                        GroupDetailView(group)
+            List(groupsModel.groups){ group in
+                NavigationLink(tag: group.id, selection: $cellSelection) {
+                    GroupDetailView(group)
+                } label: {
+                    Button {
+                        self.cellSelection = group.id
                     } label: {
-                        Button {
-                            self.cellSelection = group.id
-                        } label: {
-                            HStack{
-                                Image((String(group.leaderId ?? -1) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
-                                VStack (alignment: .leading, spacing: 0){
-                                    Text(group.name)
-                                        .font(.system(size: 20, weight: .medium, design: .default))
-                                        .foregroundColor(.black)
-                                    Spacer(minLength: 3)
-                                    Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
-                                        .font(.system(size: 16, weight: .light, design: .default))
-                                        .foregroundColor(.black)
-                                }
+                        HStack{
+                            Image((String(group.leaderId ?? -1) == settingStorage.userID) ? "leaderrr":"leaderlisticon")
+                            VStack (alignment: .leading, spacing: 0){
+                                Text(group.name)
+                                    .font(.system(size: 20, weight: .medium, design: .default))
+                                    .foregroundColor(.black)
+                                Spacer(minLength: 3)
+                                Text((String(group.leaderId ?? -1) == settingStorage.userID) ? "Leader".localized:"Member".localized)
+                                    .font(.system(size: 16, weight: .light, design: .default))
+                                    .foregroundColor(.black)
                             }
                         }
                     }
                 }
+                
             }
             .listStyle(PlainListStyle())
             .navigationBarBackButtonHidden(true)
@@ -110,7 +109,7 @@ extension GroupListView{
         let publisher:DataResponsePublisher<GroupLists> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.groupListCancellable = publisher
             .sink(receiveValue: {(values) in
-                groups = values.value?.results ?? []
+                groupsModel.groups = values.value?.results ?? []
                 
             })
     }
@@ -125,7 +124,7 @@ extension GroupListView{
         let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.messageCancellable = publisher
             .sink(receiveValue: { (values) in
-//                print(values.debugD                                                                        escription)
+                //                print(values.debugD                                                                        escription)
                 let message = values.value?.message ?? ""
                 if(message == "have notification") {
                     messageNotify = true
@@ -136,9 +135,11 @@ extension GroupListView{
             })
     }
 }
-
-//struct GroupManagement_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GroupListView()
-//    }
-//}
+private class GroupsViewModel: ObservableObject {
+    @Published var groups: [Group] = []
+}
+struct GroupManagement_Previews: PreviewProvider {
+    static var previews: some View {
+        GroupListView()
+    }
+}
