@@ -18,7 +18,7 @@ struct DEHMapInner: View {
     var xoiCategory = ""
     
     var body: some View {
-        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: Xoi.containedXOIs ?? testxoi){xoi in
+        Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: Xoi.containedXOIs ?? testxoi){ xoi in
             MapAnnotation(
                 coordinate: xoi.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
@@ -26,7 +26,7 @@ struct DEHMapInner: View {
                 NavigationLink(destination:  destinationSelector(xoi:xoi), tag: (xoi.containedXOIs ?? testxoi).firstIndex(of: xoi) ?? 0, selection: $selection){
                     Button(action: {
                         print("map tapped")
-                        self.selection = (xoi.containedXOIs ?? testxoi).firstIndex(of: xoi)
+                        self.selection = (Xoi.containedXOIs ?? testxoi).firstIndex(of: xoi)
                     }) {
                         VStack{
                             Text(xoi.name)
