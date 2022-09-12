@@ -17,12 +17,13 @@ struct GameMap: View {
     @State private var cancellable: AnyCancellable?
     @State var group:Group
     @State var session:SessionModel
-    @State var chestList:[ChestModel] = []
+//    @State var chestList:[ChestModel] = []
+    @StateObject var chestList:ChestList = ChestList()
     @State var selection: Int? = nil
     @State var alertState = false
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: chestList){
+            Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: chestList.list){
                 chest in
                 MapAnnotation(
                     coordinate: chest.coordinate,
@@ -30,17 +31,17 @@ struct GameMap: View {
                 ){
                     NavigationLink(
                         destination: ChestDetailView(chest: chest,session:session),
-                        tag:chestList.firstIndex(of: chest) ?? -1,
+                        tag:chestList.list.firstIndex(of: chest) ?? -1,
                         selection:$selection
                     ){
                         Button(action:{
                             print("chest tap")
                             print("")
-                            selection = chestList.firstIndex(of: chest)
+                            selection = chestList.list.firstIndex(of: chest)
                         }){
                             Image("chest")
                         }
-                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
+//                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
                     }
                     
                 }
@@ -66,6 +67,9 @@ struct GameMap: View {
         
     }
 }
+class ChestList:ObservableObject {
+    @Published  var list:[ChestModel] = []
+}
 extension GameMap{
 //    func getGameData() {
 //        let url = GameDataUrl
@@ -86,7 +90,8 @@ extension GameMap{
                 //                print(values.data?.JsonPrint())
                 print(values.debugDescription)
                 if let value = values.value{
-                    self.chestList = value
+                    self.chestList.list = value
+                    print(chestList.list.count)
                 }
                 
             })

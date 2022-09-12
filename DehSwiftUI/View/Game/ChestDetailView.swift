@@ -51,7 +51,7 @@ struct ChestDetailView: View {
                                 .font(.system(size: 20))
                             Spacer()
                             Button {
-                                
+                                self.presentationMode.wrappedValue.dismiss()
                             } label: {
                                 Text("Done")
                             }
