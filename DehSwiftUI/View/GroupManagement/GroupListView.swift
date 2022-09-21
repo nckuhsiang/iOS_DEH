@@ -100,6 +100,7 @@ struct GroupListView: View {
 
 extension GroupListView{
     func getGroupList(){
+        print(coi,"ssssssss")
         let url = GroupGetUserGroupListUrl
         let parameters:[String:String] = [
             "user_id": "\(settingStorage.userID)",

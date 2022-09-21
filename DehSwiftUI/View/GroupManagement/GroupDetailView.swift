@@ -54,10 +54,13 @@ struct GroupDetailView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.top)
                     .padding(.leading)
-                TextView(text: $description, textStyle: $textStyle)
+                TextEditor(text: $description)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 0.05))
                     .padding(.horizontal)
                     .padding(.top, 5)
                     .disabled(textState)
+                    
+                    
                 Button {
                     if(isCreater()) {
                         CreateGroup()
