@@ -88,8 +88,10 @@ struct GameMap: View {
                             gameVM.sec -= 1
                         }
                         else {
-                            gameVM.sec = 60
-                            gameVM.min -= 1
+                            if gameVM.min != 0 {
+                                gameVM.sec = 60
+                                gameVM.min -= 1
+                            }
                         }
                     }
                 Spacer()
