@@ -75,3 +75,29 @@ class gameListtuple : Identifiable, Hashable{
         return lhs.id == rhs.id
     }
 }
+
+class ScoreRecord:Decodable {
+    var answer:String
+    var chest_id:Int
+    var correctness:Int
+    var option1:String?
+    var option2:String?
+    var option3:String?
+    var option4:String?
+    var point:Int
+    var question:String
+    var question_type:Int
+    
+    enum CodingKeys: String, CodingKey{
+        case answer
+        case chest_id = "chest_id_id"
+        case correctness
+        case option1
+        case option2
+        case option3
+        case option4
+        case point
+        case question
+        case question_type
+    }
+}

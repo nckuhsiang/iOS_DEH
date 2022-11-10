@@ -32,7 +32,7 @@ struct ChestDetailView: View {
     @State var recoder:Sounds? = nil
     var body: some View {
         ZStack{
-            //            Color.init(UIColor(rgba:lightGreen))
+            Color.init(UIColor(rgba:lightGreen))
             GeometryReader { geometry in
                 VStack{
                     PagingView(index: $index.animation(), maxIndex: medias.count - 1) {
@@ -77,7 +77,6 @@ struct ChestDetailView: View {
                 }
                 .onAppear(){
                     getChestMedia()
-//                    print(chest)
                 }
             }
             EmptyView()

@@ -16,7 +16,6 @@ struct GameMap: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @StateObject var gameVM:GameViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var cancellable: AnyCancellable?
     @State var group:Group
     @State var session:SessionModel
 
@@ -30,50 +29,30 @@ struct GameMap: View {
                     coordinate: chest.coordinate,
                     anchorPoint: CGPoint(x: 0.5, y: 0.5)
                 ){
-                    NavigationLink(destination: {ChestDetailView(gameVM:gameVM, chest: chest,session:session)}) {
-                        Image("chest")
-//                        Button(action:{
-//                            print("chest tap")
-////                            gameVM.selection = gameVM.chestList.firstIndex(of: chest)
-//                        }) {
-//                            Image("chest")
-//                        }
-//                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
+                    NavigationLink(destination: { ChestDetailView(gameVM:gameVM, chest: chest,session:session)}) {
+                        if chest.discoverDistance != nil {
+                            Image("chest")
+                                .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? Int(INT_MAX)))
+                        }
+                        else {
+                            Image("chest")
+                        }
+                        
                     }
-//                    NavigationLink(
-//                        destination: ChestDetailView(gameVM:gameVM, chest: chest,session:session),
-//                        tag:gameVM.chestList.firstIndex(of: chest) ?? -1,
-//                        selection:$gameVM.selection
-//                    ){
-//                        Button(action:{
-//                            print("chest tap")
-//                            gameVM.selection = gameVM.chestList.firstIndex(of: chest)
-//                        }){
-//                            Image("chest")
-//                        }
-////                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
-//                    }
-                    
                 }
             }
             .onAppear(){
-                if session.gameID != 0 {
-                    gameVM.getGameData(gameID: session.gameID)
-                    locationManager.startUpdate()
-                    if gameVM.chestList.isEmpty {
-                        gameVM.getChests(session: session)
-                    }
-                }
+                gameVM.getChests(session: session)
+                gameVM.getGameData(gameID: session.gameID)
+                gameVM.updateScore(userID: settingStorage.userID, gameID: session.gameID)
+                locationManager.startUpdate()
                 
-                else {
-                    print("no game avaliable")
-                    alertState = true
-                }
+                
             }
             .onDisappear(){
                 locationManager.stopUpdate()
             }
-            .alert(isPresented: $alertState) { () -> Alert in
+            .alert(isPresented: $gameVM.alertState) { () -> Alert in
                 return Alert(title: Text("game does not start".localized),
                              dismissButton:.default(Text("OK".localized), action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -105,29 +84,7 @@ struct GameMap: View {
         
     }
 }
-//class ChestList:ObservableObject {
-//    @Published  var list:[ChestModel] = []
-//}
-extension GameMap{
-//    func getChests(){
-//        let url = getChestList
-//        let parameters:[String:String] = [
-//            "user_id": "\(session.id)",
-//            "game_id":"\(session.gameID)",
-//        ]
-//        let publisher:DataResponsePublisher<[ChestModel]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-//        self.cancellable = publisher
-//            .sink(receiveValue: {(values) in
-//                //                print(values.data?.JsonPrint())
-//                print(values.debugDescription)
-//                if let value = values.value{
-//                    self.chestList.list = value
-//                    print(chestList.list.count)
-//                }
-//
-//            })
-//    }
-}
+
 
 struct GameMap_Previews: PreviewProvider {
     static var previews: some View {
