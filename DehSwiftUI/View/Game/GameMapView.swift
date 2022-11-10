@@ -16,13 +16,11 @@ struct GameMap: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @StateObject var gameVM:GameViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-//    let sec_timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     @State private var cancellable: AnyCancellable?
     @State var group:Group
     @State var session:SessionModel
-//    @State var chestList:[ChestModel] = []
-//    @StateObject var chestList:ChestList = ChestList()
-    @State var selection: Int? = nil
+
+//    @State var selection: Int? = nil
     @State var alertState = false
     var body: some View {
         ZStack {
@@ -32,31 +30,45 @@ struct GameMap: View {
                     coordinate: chest.coordinate,
                     anchorPoint: CGPoint(x: 0.5, y: 0.5)
                 ){
-                    NavigationLink(
-                        destination: ChestDetailView(chest: chest,session:session),
-                        tag:gameVM.chestList.firstIndex(of: chest) ?? -1,
-                        selection:$selection
-                    ){
-                        Button(action:{
-                            print("chest tap")
-                            print("")
-                            selection = gameVM.chestList.firstIndex(of: chest)
-                        }){
-                            Image("chest")
-                        }
+                    NavigationLink(destination: {ChestDetailView(gameVM:gameVM, chest: chest,session:session)}) {
+                        Image("chest")
+//                        Button(action:{
+//                            print("chest tap")
+////                            gameVM.selection = gameVM.chestList.firstIndex(of: chest)
+//                        }) {
+//                            Image("chest")
+//                        }
 //                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
                     }
+//                    NavigationLink(
+//                        destination: ChestDetailView(gameVM:gameVM, chest: chest,session:session),
+//                        tag:gameVM.chestList.firstIndex(of: chest) ?? -1,
+//                        selection:$gameVM.selection
+//                    ){
+//                        Button(action:{
+//                            print("chest tap")
+//                            gameVM.selection = gameVM.chestList.firstIndex(of: chest)
+//                        }){
+//                            Image("chest")
+//                        }
+////                        .hidden(locationManager.getDistanceFromCurrentPlace(coordinate: chest.coordinate) > Double(chest.discoverDistance ?? 50))
+//                    }
                     
                 }
             }
             .onAppear(){
-                gameVM.getGameData(gameID: session.gameID)
-                locationManager.startUpdate()
-                if(session.gameID == 0){
+                if session.gameID != 0 {
+                    gameVM.getGameData(gameID: session.gameID)
+                    locationManager.startUpdate()
+                    if gameVM.chestList.isEmpty {
+                        gameVM.getChests(session: session)
+                    }
+                }
+                
+                else {
                     print("no game avaliable")
                     alertState = true
                 }
-                gameVM.getChests(session: session)
             }
             .onDisappear(){
                 locationManager.stopUpdate()
@@ -81,6 +93,10 @@ struct GameMap: View {
                         }
                     }
                 Spacer()
+                Text("Score:\(gameVM.score)")
+                    .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
+                    .font(.largeTitle)
+                    .background(Color.green)
             }
             
         }

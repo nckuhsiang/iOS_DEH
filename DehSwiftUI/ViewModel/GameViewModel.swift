@@ -16,8 +16,10 @@ class GameViewModel:ObservableObject {
     @Published var chestList:[ChestModel] = []
     @Published var gameData:GameData = GameData()
     
+    @Published var selection:Int? = nil
     @Published var min:Int = 0
     @Published var sec:Int = 0
+    @Published var score:Int = 0
     @Published private var cancellable: AnyCancellable?
     @Published private var cancellable2: AnyCancellable?
     
@@ -89,7 +91,7 @@ class GameViewModel:ObservableObject {
         let publisher:DataResponsePublisher<[GameData]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable2 = publisher
             .sink(receiveValue: {(values) in
-                print(values.debugDescription)
+//                print(values.debugDescription)
                 self.gameData = values.value?[0] ?? GameData()
                 self.min = self.gameData.end_time/60
                 self.sec = self.gameData.end_time % 60

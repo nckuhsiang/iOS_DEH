@@ -12,6 +12,7 @@ import Alamofire
 struct ChestDetailView: View {
     @ObservedObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
+    @StateObject var gameVM:GameViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var chestCancellable: AnyCancellable?
@@ -31,7 +32,7 @@ struct ChestDetailView: View {
     @State var recoder:Sounds? = nil
     var body: some View {
         ZStack{
-            Color.init(UIColor(rgba:lightGreen))
+            //            Color.init(UIColor(rgba:lightGreen))
             GeometryReader { geometry in
                 VStack{
                     PagingView(index: $index.animation(), maxIndex: medias.count - 1) {
@@ -42,7 +43,6 @@ struct ChestDetailView: View {
                     }
                     .frame(height: geometry.size.height * 0.4)
                     ScrollView{
-                        //            Spacer()
                         HStack{
                             Spacer()
                             Text("Question:")
@@ -62,10 +62,13 @@ struct ChestDetailView: View {
                         
                         answerBoxSelector(chest.questionType,geometry)
                             .alert(isPresented: $showMessage) {() -> Alert in
-                                //                            let greetingMessage = "Login Success"
                                 return Alert(title: Text(responseMessage),
                                              dismissButton:.default(Text("Ok"), action: {
+                                    if let index = gameVM.chestList.firstIndex(of: chest) {
+                                        gameVM.chestList.remove(at: index)
+                                    }
                                     self.presentationMode.wrappedValue.dismiss()
+                                    
                                 })
                                 )
                             }
@@ -73,9 +76,8 @@ struct ChestDetailView: View {
                     }
                 }
                 .onAppear(){
-                    print(chest.srcID)
                     getChestMedia()
-                    showMessage = false
+//                    print(chest)
                 }
             }
             EmptyView()
@@ -115,7 +117,6 @@ extension ChestDetailView{
             }
             .background(Color.white)
         case 3:
-            
             VStack{
                 HStack{
                     Spacer()
@@ -180,10 +181,10 @@ extension ChestDetailView{
                         .foregroundColor(mediaData == nil ? .blue : .black)
                         .font(.system(size: 30))
                 })
-                    .contextMenu(ContextMenu(menuItems: {
-                        Text("make a \(mediaType) answer")
-                            .bold()
-                    }))
+                .contextMenu(ContextMenu(menuItems: {
+                    Text("make a \(mediaType) answer")
+                        .bold()
+                }))
             })
         
     }
@@ -209,7 +210,7 @@ extension ChestDetailView{
         self.chestCancellable = publisher
             .sink(receiveValue: {(values) in
                 //                print(values.data?.JsonPrint())
-                print(values.debugDescription)
+//                print(values.debugDescription)
                 if let value = values.value{
                     self.chestMedia = value
                 }
@@ -217,7 +218,7 @@ extension ChestDetailView{
                     let publisher:DataResponsePublisher = NetworkConnector().getMediaPublisher(url: chestMedia.url)
                     let cancelable = publisher
                         .sink(receiveValue: {(values) in
-                            print(values.debugDescription)
+//                            print(values.debugDescription)
                             if let data = values.data{
                                 medias.append(MediaMulti(data:data,format:format.Picture ))
                                 //                            chestMedia.format))
@@ -256,7 +257,7 @@ extension ChestDetailView{
             "game_id":"\(session.gameID)",
             "chest_id":"\(chest.id)",
             "answer":answer,
-            "point":"\(String(describing: chest.point))",
+            "point":"\(String(describing: chest.point ?? 0))",
             "correctness":correctness,
             "lat":String(describing: locationManager.coordinateRegion.center.latitude),
             "lng":String(describing: locationManager.coordinateRegion.center.longitude),
@@ -265,12 +266,13 @@ extension ChestDetailView{
         self.chestCancellable = publisher
             .sink(receiveValue: {(values) in
                 //                print(values.data?.JsonPrint())
-                print(values.debugDescription)
-                if let value = values.value{
-                    showMessage = true
-                    self.responseMessage = value
+//                print(values.debugDescription)
+                if answer == self.chest.answer {
+                    responseMessage = "answer correct"
+                    gameVM.score += chest.point ?? 0
                 }
-                
+                else { responseMessage = "answer wrong" }
+                showMessage = true
             })
     }
     func chestMinus(answer:String,correctness:String){
@@ -286,19 +288,19 @@ extension ChestDetailView{
         let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.minusCancellable = publisher
             .sink(receiveValue: {(values) in
-                print(values.debugDescription)
+//                print(values.debugDescription)
                 if let value = values.value{
-                    print(value)
+//                    print(value)
                 }
                 
             })
     }
     
 }
-struct ChestDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChestDetailView(chest: testChest, session:testSession, chestMedia: []).answerBoxSelector(3)
-            .environmentObject(SettingStorage())
-            .environmentObject(LocationManager())
-    }
-}
+//struct ChestDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChestDetailView(chest: testChest, session:testSession, chestMedia: []).answerBoxSelector(3)
+//            .environmentObject(SettingStorage())
+//            .environmentObject(LocationManager())
+//    }
+//}
