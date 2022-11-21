@@ -116,35 +116,50 @@ extension ChestDetailView{
             }
             .background(Color.white)
         case 3:
-            VStack{
-                HStack{
-                    Spacer()
-                    TextEditor(text: $textInEditor)
-                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Spacer()
-                }
-                .frame(height: (geometry?.size.height ?? 0) * 0.2)
-                //                TextEditor(text: .constant("Placeholder"))
-                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Spacer()
-                Text("Append a Media")
-                HStack{
-                    Spacer()
-                    imageButton(imageName: "camera", mediaType: "picture")
-                        .disabled(mediaData != nil)
-                    Spacer()
-                    imageButton(imageName: "mic", mediaType: "voice")
-                        .disabled(mediaData != nil)
-                    Spacer()
-                    imageButton(imageName: "video", mediaType: "video")
-                        .disabled(mediaData != nil)
-                    Spacer()
-                }
-                .frame(height: (geometry?.size.height ?? 0) * 0.07)
-                Spacer()
+            VStack {
+                TextEditor(text: $textInEditor)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(height: (geometry?.size.height ?? 0) * 0.2)
+                ButtonArray(text1: "photo", text2: "video", text3: "radio")
+                ButtonArray(text1: "delete photo", text2: "preview video", text3: "preview radio")
+                Button(action: {
+                    
+                }, label: {
+                    Text("sent answer")
+                        .frame(width: UIScreen.main.bounds.width-0, height: 50)
+                        .foregroundColor(.white)
+                        .background(Color.yellow)
+                })
             }
-            .background(Color.init(UIColor(rgba:lightGreen)))
+//            VStack{
+//                HStack{
+//                    Spacer()
+//                    TextEditor(text: $textInEditor)
+//                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    Spacer()
+//                }
+//                .frame(height: (geometry?.size.height ?? 0) * 0.2)
+//                //                TextEditor(text: .constant("Placeholder"))
+//                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+//                Spacer()
+//                Text("Append a Media")
+//                HStack{
+//                    Spacer()
+//                    imageButton(imageName: "camera", mediaType: "picture")
+//                        .disabled(mediaData != nil)
+//                    Spacer()
+//                    imageButton(imageName: "mic", mediaType: "voice")
+//                        .disabled(mediaData != nil)
+//                    Spacer()
+//                    imageButton(imageName: "video", mediaType: "video")
+//                        .disabled(mediaData != nil)
+//                    Spacer()
+//                }
+//                .frame(height: (geometry?.size.height ?? 0) * 0.07)
+//                Spacer()
+//            }
+//            .background(Color.init(UIColor(rgba:lightGreen)))
             
         default:
             EmptyView()
@@ -287,10 +302,10 @@ extension ChestDetailView{
         let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.minusCancellable = publisher
             .sink(receiveValue: {(values) in
-//                print(values.debugDescription)
-                if let value = values.value{
+                print(values.debugDescription)
+//                if let value = values.value{
 //                    print(value)
-                }
+//                }
                 
             })
     }
@@ -303,3 +318,41 @@ extension ChestDetailView{
 //            .environmentObject(LocationManager())
 //    }
 //}
+struct ButtonArray:View {
+    var text1:String
+    var text2:String
+    var text3:String
+    var body: some View {
+        HStack(spacing: 5){
+            Button(action: {
+                
+            }, label: {
+                Text(text1)
+                    .frame(width: UIScreen.main.bounds.width/3 - 30, height: 30)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    
+
+            })
+            
+            Button(action: {
+                
+            }, label: {
+                Text(text2)
+                    .frame(width: UIScreen.main.bounds.width/3 - 30, height: 30)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    
+            })
+            
+            Button(action: {
+                
+            }, label: {
+                Text(text3)
+                    .frame(width: UIScreen.main.bounds.width/3 - 30, height: 30)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+            })
+        }
+    }
+}

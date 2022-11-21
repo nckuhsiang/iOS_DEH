@@ -38,6 +38,8 @@ let app = "deh"
 var language = ""
 struct ContentView: View {
     init(){
+        //list底下的背景色
+        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
         UserDefaults.standard.register(defaults: [
             "advancedSetting" : false,
             "searchDistance" : 10.0,
@@ -66,8 +68,7 @@ struct ContentView: View {
             // To remove only extra separators below the list:
             UITableView.appearance().tableFooterView = UIView()
         }
-        //list底下的背景色
-        UITableView.appearance().backgroundColor = UIColor(rgba:darkGreen)
+        
         
         //解決tab bar半透明的問題
         UITabBar.appearance().shadowImage = UIImage()
