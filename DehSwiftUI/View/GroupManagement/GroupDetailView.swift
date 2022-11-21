@@ -183,11 +183,12 @@ extension GroupDetailView {
     }
     func CreateGroup() {
         let url = GroupCreatUrl
+//        print(group.info,"fergkergjserjgklsgj")
         let temp = """
         {
-            "group_name":"\(group.name)",
+            "group_name":"\(name)",
             "group_leader_name":"\(settingStorage.account)",
-            "group_info":"\(group.info ?? "")",
+            "group_info":"\(description),
             "language": "\(language)",
             "verification": "0",
             "open":"1",

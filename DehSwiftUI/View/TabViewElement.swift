@@ -26,7 +26,6 @@ struct TabViewElement: View {
     @State var group = Group(id: 0, name: "-111", leaderId: 0, info: "")
     var body: some View {
         VStack{
-            
             HStack{
                 Text(title)
                     .onAppear{

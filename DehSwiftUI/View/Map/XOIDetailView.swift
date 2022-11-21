@@ -36,9 +36,7 @@ struct XOIDetail: View {
                     HStack(){
                         Text(xoi.name)
                             .font(.title)
-                        
                         Spacer()
-                        
                         Image(xoi.creatorCategory)
                         
                         Button(action: {

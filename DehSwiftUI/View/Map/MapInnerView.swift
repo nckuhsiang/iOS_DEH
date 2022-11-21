@@ -9,11 +9,10 @@
 import SwiftUI
 import MapKit
 struct DEHMapInner: View {
-//    var xois:[XOI]
     var Xoi:XOI
     @ObservedObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
-    @State var selection: Int? = nil
+//    @State var selection: Int? = nil
     @State var showingAlert = false
     var xoiCategory = ""
     
@@ -23,18 +22,13 @@ struct DEHMapInner: View {
                 coordinate: xoi.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
             ) {
-                NavigationLink(destination:  destinationSelector(xoi:xoi), tag: (xoi.containedXOIs ?? testxoi).firstIndex(of: xoi) ?? 0, selection: $selection){
-                    Button(action: {
-                        print("map tapped")
-                        self.selection = (Xoi.containedXOIs ?? testxoi).firstIndex(of: xoi)
-                    }) {
-                        VStack{
-                            Text(xoi.name)
-                            //還沒把index收下來
-                            pinSelector(number:xoi.index ?? 0,xoiCategory:xoiCategory)
-                        }
+                NavigationLink(destination: destinationSelector(xoi:xoi), label: {
+                    VStack{
+                        Text(xoi.name)
+                        //還沒把index收下來
+                        pinSelector(number:xoi.index ?? 0,xoiCategory:xoiCategory)
                     }
-                }
+                })
             }
         }
         .onAppear(
