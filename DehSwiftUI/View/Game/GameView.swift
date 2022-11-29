@@ -45,32 +45,6 @@ struct GameView: View {
     }
 }
 
-extension GameView{
-//    func getGameList(){
-//        let url = privateGetGroupList
-//        let parameters:[String:String] = [
-//            "user_id": "\(settingStorage.userID)",
-//            "coi_name": coi,
-//            "language": "中文",
-//        ]
-//        var tempList : [gameListtuple] = []
-//        let publisher:DataResponsePublisher<GroupLists> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
-//        self.cancellable = publisher
-//            .sink(receiveValue: {(values) in
-//                print(values.debugDescription)
-//                if let eventList = values.value?.eventList {
-//                    tempList.append(gameListtuple("public".localized,eventList))
-//                }
-//                if let groupList = values.value?.groupList{
-//                    if(!groupList.isEmpty){
-//                        tempList.append(gameListtuple("private".localized,groupList))
-//                    }}
-//                self.gameList = tempList
-//            })
-//    }
-   
-}
-
 
 struct Game_Previews: PreviewProvider {
     static var previews: some View {

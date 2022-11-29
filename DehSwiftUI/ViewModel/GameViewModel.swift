@@ -18,7 +18,6 @@ class GameViewModel:ObservableObject {
     @Published var selection:Int?
     
     @Published var chestList:[ChestModel] = []
-//    @Published var gameData:GameData = GameData()
     @Published var min:Int = 0
     @Published var sec:Int = 0
     @Published var score:Int = 0
@@ -72,6 +71,13 @@ class GameViewModel:ObservableObject {
                 
             })
     }
+    func initial(session:SessionModel,userID:String){
+        getChests(session: session)
+        getGameData(gameID: session.gameID)
+        updateScore(userID: userID, gameID: session.gameID)
+        
+        
+    }
     func getChests(session:SessionModel){
         let url = getChestList
         let parameters:[String:String] = [
@@ -83,10 +89,10 @@ class GameViewModel:ObservableObject {
             .sink(receiveValue: {(values) in
 //                print(values.data?.JsonPrint())
 //                print(values.debugDescription)
-                if let value = values.value{
+                if let value = values.value {
                     self.chestList = value
                 }
-                
+                print(self.chestList)
             })
     }
     func getGameData(gameID:Int){
@@ -102,6 +108,7 @@ class GameViewModel:ObservableObject {
                     self.alertState = true
                 }
             })
+        
     }
     func updateScore(userID:String, gameID:Int) {
         score = 0
@@ -111,13 +118,15 @@ class GameViewModel:ObservableObject {
         let publisher:DataResponsePublisher<[ScoreRecord]> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable2 = publisher
             .sink(receiveValue: {(values) in
-//                print(values.debugDescription)
+                print(values.debugDescription)
                 if let records = values.value {
                     for record in records {
-                        self.chestList = self.chestList.filter({$0.id == record.chest_id})
+                        print(record.chest_id)
+                        self.chestList = self.chestList.filter({$0.id != record.chest_id})
                         if record.correctness == 1 {
                             self.score += record.point
                         }
+                        print(self.chestList)
                     }
                 }
                 

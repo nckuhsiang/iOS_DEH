@@ -348,6 +348,12 @@
 		E1B549D92759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549DA2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
 		E1B549DB2759DEA400F49604 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B549D52759DEA400F49604 /* PrizeModel.swift */; };
+		E1C46392292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
+		E1C46393292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
+		E1C46394292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
+		E1C46395292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
+		E1C46396292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
+		E1C46397292DF4CC00654046 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46391292DF4CC00654046 /* AVPlayerView.swift */; };
 		E1EA94A127B102580083118F /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
 		E1EA94A227B102580083118F /* XOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOIModel.swift */; };
 		E1EA94A327B102580083118F /* testfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CF2577CAF60022CD72 /* testfile.swift */; };
@@ -507,6 +513,7 @@
 		E17D5E982917A86800B6AAC7 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		E18C67FB278C07C300223353 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		E1B549D52759DEA400F49604 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
+		E1C46391292DF4CC00654046 /* AVPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVPlayerView.swift; path = ../../../DehMakeSwiftUI/Shared/View/POI/AVPlayerView.swift; sourceTree = "<group>"; };
 		E1EA94EA27B102580083118F /* DEH Mini II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DEH Mini II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1EA94EB27B102590083118F /* DEH Micro copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DEH Micro copy-Info.plist"; path = "/Volumes/GoogleDrive-107461424655632850799/我的雲端硬碟/mmLab/DEH/DehSwiftUI/DEH Micro copy-Info.plist"; sourceTree = "<absolute>"; };
 		E1FAC36E278C1AEA008F312F /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -715,6 +722,7 @@
 		73A77E95277997C30089555D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1C46391292DF4CC00654046 /* AVPlayerView.swift */,
 				59A65916257611020038AD61 /* ContentView.swift */,
 				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59CE6C0B2578CC1D00553EBA /* SettingView.swift */,
@@ -1017,6 +1025,7 @@
 				7332DCCE2758D5C500E0C19A /* ContentView.swift in Sources */,
 				7332DCD02758D5C500E0C19A /* IntExtension.swift in Sources */,
 				7332DCD12758D5C500E0C19A /* ImageCheckExtension.swift in Sources */,
+				E1C46392292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				7332DCD22758D5C500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DCD32758D5C500E0C19A /* MediaMulti.swift in Sources */,
 				7332DCD42758D5C500E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1088,6 +1097,7 @@
 				7332DD1B2758D5C600E0C19A /* ContentView.swift in Sources */,
 				7332DD1D2758D5C600E0C19A /* IntExtension.swift in Sources */,
 				7332DD1E2758D5C600E0C19A /* ImageCheckExtension.swift in Sources */,
+				E1C46395292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				7332DD1F2758D5C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD202758D5C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DD212758D5C600E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1159,6 +1169,7 @@
 				7332DD682758D62500E0C19A /* ContentView.swift in Sources */,
 				7332DD6A2758D62500E0C19A /* IntExtension.swift in Sources */,
 				7332DD6B2758D62500E0C19A /* ImageCheckExtension.swift in Sources */,
+				E1C46396292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				7332DD6C2758D62500E0C19A /* GameHistoryView.swift in Sources */,
 				7332DD6D2758D62500E0C19A /* MediaMulti.swift in Sources */,
 				7332DD6E2758D62500E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1230,6 +1241,7 @@
 				7332DDB52758D63400E0C19A /* ContentView.swift in Sources */,
 				7332DDB72758D63400E0C19A /* IntExtension.swift in Sources */,
 				7332DDB82758D63400E0C19A /* ImageCheckExtension.swift in Sources */,
+				E1C46397292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				7332DDB92758D63400E0C19A /* GameHistoryView.swift in Sources */,
 				7332DDBA2758D63400E0C19A /* MediaMulti.swift in Sources */,
 				7332DDBB2758D63400E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1301,6 +1313,7 @@
 				7332DE022758D9C600E0C19A /* ContentView.swift in Sources */,
 				7332DE042758D9C600E0C19A /* IntExtension.swift in Sources */,
 				7332DE052758D9C600E0C19A /* ImageCheckExtension.swift in Sources */,
+				E1C46393292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				7332DE062758D9C600E0C19A /* GameHistoryView.swift in Sources */,
 				7332DE072758D9C600E0C19A /* MediaMulti.swift in Sources */,
 				7332DE082758D9C600E0C19A /* GameMemberPointView.swift in Sources */,
@@ -1372,6 +1385,7 @@
 				E1EA94A727B102580083118F /* ContentView.swift in Sources */,
 				E1EA94A827B102580083118F /* IntExtension.swift in Sources */,
 				E1EA94A927B102580083118F /* ImageCheckExtension.swift in Sources */,
+				E1C46394292DF4CC00654046 /* AVPlayerView.swift in Sources */,
 				E1EA94AA27B102580083118F /* GameHistoryView.swift in Sources */,
 				E1EA94AB27B102580083118F /* MediaMulti.swift in Sources */,
 				E1EA94AC27B102580083118F /* GameMemberPointView.swift in Sources */,

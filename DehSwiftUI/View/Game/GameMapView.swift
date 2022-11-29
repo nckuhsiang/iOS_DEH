@@ -42,11 +42,12 @@ struct GameMap: View {
                 }
             }
             .onAppear(){
-                gameVM.getChests(session: session)
-                gameVM.getGameData(gameID: session.gameID)
-                gameVM.updateScore(userID: settingStorage.userID, gameID: session.gameID)
+                gameVM.initial(session: session, userID: settingStorage.userID)
+//                gameVM.getChests(session: session)
+//                gameVM.getGameData(gameID: session.gameID)
+//                gameVM.updateScore(userID: settingStorage.userID, gameID: session.gameID)
                 locationManager.startUpdate()
-                
+                print(gameVM.chestList)
                 
             }
             .onDisappear(){
@@ -74,10 +75,16 @@ struct GameMap: View {
                         }
                     }
                 Spacer()
-                Text("Score:\(gameVM.score)")
-                    .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
-                    .font(.largeTitle)
-                    .background(Color.green)
+                VStack(alignment: .leading,spacing: 10){
+//                    Button(action: {}, label: {
+//                        Image("add")
+//                    })
+                    Text("Score:\(gameVM.score)")
+                        .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
+                        .font(.largeTitle)
+                        .background(Color.green)
+                }
+                
             }
             
         }

@@ -76,7 +76,7 @@ struct XOIDetail: View {
                         Text("Voice Commentary")
                             .foregroundColor(Color.white)
                         Spacer()
-//                        Image("speaker")
+                        commentary.view()
                     }
                     .frame(height: 30.0)
                     .background(Color.init(UIColor(rgba:"#24c08c")))

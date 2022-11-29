@@ -14,13 +14,13 @@ struct ChestDetailView: View {
     @EnvironmentObject var settingStorage:SettingStorage
     @StateObject var gameVM:GameViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @State var playVideo = false
     @State private var chestCancellable: AnyCancellable?
     @State private var minusCancellable: AnyCancellable?
     @State private var mediaCancellable: [AnyCancellable] = []
     @State var chest:ChestModel
     @State var session:SessionModel
-    @State var chestMedia:[ChestMedia]=[]
+    @State var chestMedia:[ChestMedia] = []
     @State var medias:[MediaMulti] = []
     @State var index = 0
     @State var answer = ""
@@ -64,9 +64,9 @@ struct ChestDetailView: View {
                             .alert(isPresented: $showMessage) {() -> Alert in
                                 return Alert(title: Text(responseMessage),
                                              dismissButton:.default(Text("Ok"), action: {
-                                    if let index = gameVM.chestList.firstIndex(of: chest) {
-                                        gameVM.chestList.remove(at: index)
-                                    }
+//                                    if let index = gameVM.chestList.firstIndex(of: chest) {
+//                                        gameVM.chestList.remove(at: index)
+//                                    }
                                     self.presentationMode.wrappedValue.dismiss()
                                     
                                 })
@@ -120,10 +120,13 @@ extension ChestDetailView{
                 TextEditor(text: $textInEditor)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(height: (geometry?.size.height ?? 0) * 0.2)
-                ButtonArray(text1: "photo", text2: "video", text3: "radio")
-                ButtonArray(text1: "delete photo", text2: "preview video", text3: "preview radio")
+//                ButtonArray(text1: "photo", text2: "video", text3: "radio")
+//                ButtonArray(text1: "delete photo", text2: "preview video", text3: "preview radio")
                 Button(action: {
-                    
+                    if let index = gameVM.chestList.firstIndex(of: chest) {
+                        gameVM.chestList.remove(at: index)
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("sent answer")
                         .frame(width: UIScreen.main.bounds.width-0, height: 50)
@@ -131,36 +134,6 @@ extension ChestDetailView{
                         .background(Color.yellow)
                 })
             }
-//            VStack{
-//                HStack{
-//                    Spacer()
-//                    TextEditor(text: $textInEditor)
-//                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
-//                    Spacer()
-//                }
-//                .frame(height: (geometry?.size.height ?? 0) * 0.2)
-//                //                TextEditor(text: .constant("Placeholder"))
-//                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                Spacer()
-//                Text("Append a Media")
-//                HStack{
-//                    Spacer()
-//                    imageButton(imageName: "camera", mediaType: "picture")
-//                        .disabled(mediaData != nil)
-//                    Spacer()
-//                    imageButton(imageName: "mic", mediaType: "voice")
-//                        .disabled(mediaData != nil)
-//                    Spacer()
-//                    imageButton(imageName: "video", mediaType: "video")
-//                        .disabled(mediaData != nil)
-//                    Spacer()
-//                }
-//                .frame(height: (geometry?.size.height ?? 0) * 0.07)
-//                Spacer()
-//            }
-//            .background(Color.init(UIColor(rgba:lightGreen)))
-            
         default:
             EmptyView()
         }

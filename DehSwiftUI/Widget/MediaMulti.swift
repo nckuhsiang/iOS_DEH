@@ -42,14 +42,7 @@ class MediaMulti {
                     .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 400)
             })
         case .Video:
-//            Button(action: {
-//                self.player?.play()
-//                self.presentationMode.wrappedValue.dismiss()
-//            }, label: {
             VideoPlayer(player:player)
-//
-//                    .scaledToFill()
-//            })
         case .Voice:
             Button(action: {
                 Sounds.playSounds(soundData: self.data)
