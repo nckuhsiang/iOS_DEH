@@ -9,7 +9,7 @@
 import Foundation
 
 let UploadPOIUrl:           String = "http://deh.csie.ncku.edu.tw:8080/api/v1/pois/upload"
-let POIDetailUrl:           String = "http://deh.csie.ncku.e`du.tw/poi_detail/"                       //Share POI used
+let POIDetailUrl:           String = "http://deh.csie.ncku.edu.tw/poi_detail/"                       //Share POI used
 let DEHHomePageUrl:         String = "http://deh.csie.ncku.edu.tw"
 let ExpTainanHomePageUrl:   String = "http://exptainan.liberal.ncku.edu.tw/"
 let SDCHomePageUrl:         String = "http://deh.csie.ncku.edu.tw/sdc"

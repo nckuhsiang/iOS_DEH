@@ -129,7 +129,6 @@ class GameViewModel:ObservableObject {
                         print(self.chestList)
                     }
                 }
-                
             })
     }
 }
