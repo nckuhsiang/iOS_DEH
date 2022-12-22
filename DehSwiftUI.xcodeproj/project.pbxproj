@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10CC892A295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		10CC892B295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		10CC892C295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		10CC892D295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		10CC892E295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		10CC892F295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
 		7332DCC92758D5C500E0C19A /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
 		7332DCCA2758D5C500E0C19A /* XOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOIModel.swift */; };
 		7332DCCB2758D5C500E0C19A /* testfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CF2577CAF60022CD72 /* testfile.swift */; };
@@ -430,6 +436,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10CC8929295490E10012CB78 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5908F03F26E8949600931C01 /* GameMemberPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMemberPointView.swift; sourceTree = "<group>"; };
 		5908F04126E8ABFE00931C01 /* GamePointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePointModel.swift; sourceTree = "<group>"; };
 		59129678263BCA17006D1F0A /* GameMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapView.swift; sourceTree = "<group>"; };
@@ -776,6 +783,7 @@
 			isa = PBXGroup;
 			children = (
 				E17D5E982917A86800B6AAC7 /* GameViewModel.swift */,
+				10CC8929295490E10012CB78 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1033,6 +1041,7 @@
 				7332DCD62758D5C500E0C19A /* GroupDetailView.swift in Sources */,
 				E18C67FD278C07C300223353 /* FilterView.swift in Sources */,
 				7332DCD72758D5C500E0C19A /* XOIViewModel.swift in Sources */,
+				10CC892A295490E10012CB78 /* MapViewModel.swift in Sources */,
 				7332DCD82758D5C500E0C19A /* SettingView.swift in Sources */,
 				E14637FF27A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DCD92758D5C500E0C19A /* StringExtension.swift in Sources */,
@@ -1105,6 +1114,7 @@
 				7332DD232758D5C600E0C19A /* GroupDetailView.swift in Sources */,
 				E18C67FE278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD242758D5C600E0C19A /* XOIViewModel.swift in Sources */,
+				10CC892D295490E10012CB78 /* MapViewModel.swift in Sources */,
 				7332DD252758D5C600E0C19A /* SettingView.swift in Sources */,
 				E146380127A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DD262758D5C600E0C19A /* StringExtension.swift in Sources */,
@@ -1177,6 +1187,7 @@
 				7332DD702758D62500E0C19A /* GroupDetailView.swift in Sources */,
 				E18C67FF278C07C300223353 /* FilterView.swift in Sources */,
 				7332DD712758D62500E0C19A /* XOIViewModel.swift in Sources */,
+				10CC892E295490E10012CB78 /* MapViewModel.swift in Sources */,
 				7332DD722758D62500E0C19A /* SettingView.swift in Sources */,
 				E146380227A4448C001E4D72 /* GameDataModel.swift in Sources */,
 				7332DD732758D62500E0C19A /* StringExtension.swift in Sources */,
@@ -1249,6 +1260,7 @@
 				7332DDBD2758D63400E0C19A /* GroupDetailView.swift in Sources */,
 				E18C6800278C07C300223353 /* FilterView.swift in Sources */,
 				7332DDBE2758D63400E0C19A /* XOIViewModel.swift in Sources */,
+				10CC892F295490E10012CB78 /* MapViewModel.swift in Sources */,
 				7332DDBF2758D63400E0C19A /* SettingView.swift in Sources */,
 				E146380327A4448E001E4D72 /* GameDataModel.swift in Sources */,
 				7332DDC02758D63400E0C19A /* StringExtension.swift in Sources */,
@@ -1321,6 +1333,7 @@
 				7332DE0A2758D9C600E0C19A /* GroupDetailView.swift in Sources */,
 				E18C6801278C07C300223353 /* FilterView.swift in Sources */,
 				7332DE0B2758D9C600E0C19A /* XOIViewModel.swift in Sources */,
+				10CC892B295490E10012CB78 /* MapViewModel.swift in Sources */,
 				7332DE0C2758D9C600E0C19A /* SettingView.swift in Sources */,
 				E146380027A4448B001E4D72 /* GameDataModel.swift in Sources */,
 				7332DE0D2758D9C600E0C19A /* StringExtension.swift in Sources */,
@@ -1393,6 +1406,7 @@
 				E1EA94AE27B102580083118F /* GroupDetailView.swift in Sources */,
 				E1EA94AF27B102580083118F /* FilterView.swift in Sources */,
 				E1EA94B027B102580083118F /* XOIViewModel.swift in Sources */,
+				10CC892C295490E10012CB78 /* MapViewModel.swift in Sources */,
 				E1EA94B127B102580083118F /* SettingView.swift in Sources */,
 				E1EA94B227B102580083118F /* GameDataModel.swift in Sources */,
 				E1EA94B327B102580083118F /* StringExtension.swift in Sources */,
@@ -1609,7 +1623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1633,7 +1647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DDEHMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1657,7 +1671,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				OTHER_SWIFT_FLAGS = "-DSDC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1681,7 +1695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				OTHER_SWIFT_FLAGS = "-DSDC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1705,7 +1719,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1729,7 +1743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DSDCLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1753,7 +1767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1777,7 +1791,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DSDCMICRO";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.SDC.DEH-Micro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1801,7 +1815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1825,7 +1839,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.5;
 				OTHER_SWIFT_FLAGS = "-DDEHLITE";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.deh-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1850,7 +1864,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				OTHER_SWIFT_FLAGS = "-DDEH";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.new-deh-mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1875,7 +1889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.5;
 				OTHER_SWIFT_FLAGS = "-DDEH";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.NCKU.new-deh-mini-II";
 				PRODUCT_NAME = "$(TARGET_NAME)";
