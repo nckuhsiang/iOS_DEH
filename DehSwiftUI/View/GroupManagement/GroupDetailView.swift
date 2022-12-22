@@ -188,13 +188,14 @@ extension GroupDetailView {
         {
             "group_name":"\(name)",
             "group_leader_name":"\(settingStorage.account)",
-            "group_info":"\(description),
+            "group_info":"\(description)",
             "language": "\(language)",
             "verification": "0",
             "open":"1",
             "coi_name":"\(coi)"
         }
 """
+        print(temp)
         let parameters:[String:String] = ["group_information":temp]
         let publisher:DataResponsePublisher<GroupMessage> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
         self.cancellable = publisher
