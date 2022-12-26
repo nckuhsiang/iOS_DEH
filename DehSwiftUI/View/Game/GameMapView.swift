@@ -12,7 +12,7 @@ import Combine
 import Alamofire
 struct GameMap: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var locationManager = LocationManager()
+    @StateObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
     @StateObject var gameVM:GameViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -43,9 +43,6 @@ struct GameMap: View {
             }
             .onAppear(){
                 gameVM.initial(session: session, userID: settingStorage.userID)
-//                gameVM.getChests(session: session)
-//                gameVM.getGameData(gameID: session.gameID)
-//                gameVM.updateScore(userID: settingStorage.userID, gameID: session.gameID)
                 locationManager.startUpdate()
                 print(gameVM.chestList)
                 

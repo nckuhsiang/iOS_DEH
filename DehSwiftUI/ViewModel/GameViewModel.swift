@@ -72,8 +72,8 @@ class GameViewModel:ObservableObject {
             })
     }
     func initial(session:SessionModel,userID:String){
-        getChests(session: session)
         getGameData(gameID: session.gameID)
+        getChests(session: session)
         updateScore(userID: userID, gameID: session.gameID)
         
         
