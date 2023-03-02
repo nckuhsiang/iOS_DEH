@@ -128,4 +128,8 @@
 
 "region"="場域";
 "Region Interests"="場域景點/景線/景區";
+"Region POI" = "場域景點";
+"Region LOI" = "場域景線";
+"Region AOI" = "場域景區";
+"Region SOI" = "場域主題故事";
 

@@ -86,6 +86,24 @@ struct XOIDetail: View {
                 }
                 .padding()
                 Spacer()
+                VStack(spacing:25){
+                    if let tempContainedXOIs = xoi.containedXOIs{
+                        ForEach(tempContainedXOIs){ xoi in
+                            NavigationLink(destination:  XOIDetail(xoi:xoi)){
+                                HStack(spacing:12){
+                                    Spacer()
+                                    Text("#\(getIndex(xoi:xoi) + 1)")
+                                        .fontWeight(.semibold)
+                                    VStack(alignment: .leading, spacing: 10){
+                                        Text(xoi.name)
+                                            .fontWeight(.semibold)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .onAppear {
@@ -107,6 +125,15 @@ struct XOIDetail: View {
     }
 }
 extension XOIDetail{
+    func getIndex(xoi:XOI) -> Int{
+        if let tempContainedXOIs = self.xoi.containedXOIs{
+            return tempContainedXOIs.firstIndex{ Cxoi in
+                Cxoi.id == xoi.id
+            } ?? 0
+        }
+        return 0
+    }
+    
     @ViewBuilder func XOIMediaSelector(xoi:XOI) -> some View{
         switch xoi.xoiCategory {
         case "poi":
