@@ -28,6 +28,7 @@ struct DEHMap: View {
     @State var filterState = false
     @State var showFilterButton = true
     @State var showTitle:Bool = true
+    @State var POIselected = false
     var body: some View {
         ZStack {
             Map(coordinateRegion: $locationManager.coordinateRegion, annotationItems: settingStorage.XOIs[settingStorage.mapType] ?? []){xoi in
@@ -70,7 +71,7 @@ struct DEHMap: View {
                     }
                     else {
                         return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
-                            .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI") },
+                            .default(Text("POI".localized)) { searchXOIs(action: "searchNearbyPOI"); POIselected = true },
                             .default(Text("LOI".localized)) { searchXOIs(action: "searchNearbyLOI") },
                             .default(Text("AOI".localized)) { searchXOIs(action: "searchNearbyAOI") },
                             .default(Text("SOI".localized)) { searchXOIs(action: "searchNearbySOI") },
@@ -117,7 +118,7 @@ struct DEHMap: View {
             }
         }
         .onAppear {
-            if settingStorage.XOIs["nearby"] != [] && settingStorage.mapType == "nearby" {
+            if settingStorage.XOIs["nearby"] != [] && settingStorage.mapType == "nearby" && POIselected == true{
                 showFilterButton = false
             }
         }
