@@ -13,7 +13,7 @@ struct XOIRow: View {
     var tabItemName:String
     var body: some View {
         ZStack{
-            NavigationLink(destination:  XOIDetail(xoi:xoi)){
+            NavigationLink(destination:  XOIDetail(xoi:xoi, secondimage: secondImage(xoi.creatorCategory.checkImageExist(defaultPic: "none")))){
                 HStack{
                     Image(xoi.xoiCategory.checkImageExist(defaultPic: "none"))
                     Image(secondImage(xoi.creatorCategory.checkImageExist(defaultPic: "none")))

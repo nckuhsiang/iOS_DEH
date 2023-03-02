@@ -26,6 +26,8 @@ struct XOIDetail: View {
     @State private var showingAlert = false
     @State private var showingShare = false
     @State private var showingSheet = false
+    var secondimage = ""
+//    var tabItemName:String
     var body: some View{
         ScrollView {
             VStack {
@@ -99,6 +101,12 @@ struct XOIDetail: View {
                                             .fontWeight(.semibold)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
+//                                    Spacer()
+                                    Image(xoi.xoiCategory.checkImageExist(defaultPic: "none"))
+                                    Image(secondImage(xoi.creatorCategory.checkImageExist(defaultPic: "none")))
+                    //                多媒體處理尚未解決
+                                    Image(xoi.mediaCategory.checkImageExist(defaultPic: "none"))
+                                    Spacer()
                                 }
                             }
                         }
@@ -125,6 +133,22 @@ struct XOIDetail: View {
     }
 }
 extension XOIDetail{
+    func secondImage(_ originalString:String) -> String{
+        
+        if self.secondimage != "public" || self.secondimage != "private"{
+            return originalString
+        }
+        else if xoi.open == true{
+            return "public"
+        }
+        else if xoi.open == false{
+            return "private"
+        }
+        else{
+            return "none"
+        }
+    }
+    
     func getIndex(xoi:XOI) -> Int{
         if let tempContainedXOIs = self.xoi.containedXOIs{
             return tempContainedXOIs.firstIndex{ Cxoi in
@@ -261,11 +285,11 @@ class Result:Decodable {
         self.result = result
     }
 }
-struct XOIDetail_Previews:
-    PreviewProvider {
-    static var previews: some View {
-        XOIDetail(xoi:testxoi[0])
-            .environmentObject(SettingStorage())
-    }
-}
+//struct XOIDetail_Previews:
+//    PreviewProvider {
+//    static var previews: some View {
+//        XOIDetail(xoi:testxoi[0])
+//            .environmentObject(SettingStorage())
+//    }
+//}
 
