@@ -101,6 +101,11 @@ struct ContentView: View {
                         if isMini() {
                             TabViewElement(title: "Group Interests".localized, image1: "member_grouplist", image2: "search",tabItemImage:"member_group",tabItemName:"group")
                             TabViewElement(title: "My Xois".localized, image1: "Empty", image2: "search",tabItemImage:"member_interests",tabItemName:"mine")
+                            TabViewElement(title: "Region Interests".localized, image1: "member_regionlist", image2: "search",tabItemImage:"member_group",tabItemName:"region")
+                        }
+                        
+                        if isLite() {
+                            TabViewElement(title: "Region Interests".localized, image1: "member_regionlist", image2: "search",tabItemImage:"member_group",tabItemName:"region")
                         }
                         
                     }
@@ -183,6 +188,12 @@ struct ContentView: View {
 extension ContentView {
     func isMini() -> Bool {
         if app == "deh" || app == "sdc" {
+            return true
+        }
+        return false
+    }
+    func isLite() -> Bool {
+        if app == "dehLite" || app == "sdcLite"{
             return true
         }
         return false

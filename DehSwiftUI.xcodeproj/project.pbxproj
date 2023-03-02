@@ -13,6 +13,18 @@
 		10CC892D295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
 		10CC892E295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
 		10CC892F295490E10012CB78 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC8929295490E10012CB78 /* MapViewModel.swift */; };
+		602B35F529B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35F629B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35F729B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35F829B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35F929B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35FA29B0B6A200C975D6 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35F429B0B6A200C975D6 /* BeginView.swift */; };
+		602B35FC29B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
+		602B35FD29B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
+		602B35FE29B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
+		602B35FF29B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
+		602B360029B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
+		602B360129B0B86F00C975D6 /* FieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B35FB29B0B86F00C975D6 /* FieldModel.swift */; };
 		7332DCC92758D5C500E0C19A /* MD5Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AFD8E2583499300E623A8 /* MD5Extension.swift */; };
 		7332DCCA2758D5C500E0C19A /* XOIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0C425776F550022CD72 /* XOIModel.swift */; };
 		7332DCCB2758D5C500E0C19A /* testfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5961A0CF2577CAF60022CD72 /* testfile.swift */; };
@@ -479,6 +491,8 @@
 		59CE6C0F2578D32100553EBA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		59CE6C142578E38200553EBA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		59FF3DBF259ABCC10011EAF7 /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
+		602B35F429B0B6A200C975D6 /* BeginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginView.swift; sourceTree = "<group>"; };
+		602B35FB29B0B86F00C975D6 /* FieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldModel.swift; sourceTree = "<group>"; };
 		7307A3D027182B1300E37E29 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		731FF18C27188874006F214B /* GroupSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSearchView.swift; sourceTree = "<group>"; };
 		7332DCC42758D57600E0C19A /* DehSwiftUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DehSwiftUI copy-Info.plist"; path = "/Users/chenjiaxiang/Dropbox/Mac (2)/Desktop/DEH/DehSwiftUI/DehSwiftUI copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -669,6 +683,7 @@
 				5923E25A25B808B900371AB1 /* Sounds.swift */,
 				E122FAE7279D3F8300B00128 /* FilterManager.swift */,
 				E14637FD27A4448B001E4D72 /* GameDataModel.swift */,
+				602B35FB29B0B86F00C975D6 /* FieldModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -722,6 +737,7 @@
 		73A77E95277997C30089555D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				602B35F429B0B6A200C975D6 /* BeginView.swift */,
 				59A65916257611020038AD61 /* ContentView.swift */,
 				5961A0D52577DFAB0022CD72 /* TabViewElement.swift */,
 				59CE6C0B2578CC1D00553EBA /* SettingView.swift */,
@@ -1020,6 +1036,7 @@
 				7332DCCA2758D5C500E0C19A /* XOIModel.swift in Sources */,
 				7332DCCB2758D5C500E0C19A /* testfile.swift in Sources */,
 				7332DCCC2758D5C500E0C19A /* ChestModel.swift in Sources */,
+				602B35F529B0B6A200C975D6 /* BeginView.swift in Sources */,
 				7332DCCD2758D5C500E0C19A /* GamePointModel.swift in Sources */,
 				E12ACF08278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DCCE2758D5C500E0C19A /* ContentView.swift in Sources */,
@@ -1045,6 +1062,7 @@
 				7332DCE02758D5C500E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DCE12758D5C500E0C19A /* XOIRow.swift in Sources */,
 				7332DCE32758D5C500E0C19A /* GroupMessageView.swift in Sources */,
+				602B35FC29B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				7332DCE62758D5C500E0C19A /* GroupListView.swift in Sources */,
 				7332DCE72758D5C500E0C19A /* MapInnerView.swift in Sources */,
 				7332DCE82758D5C500E0C19A /* APIHandler.swift in Sources */,
@@ -1092,6 +1110,7 @@
 				7332DD172758D5C600E0C19A /* XOIModel.swift in Sources */,
 				7332DD182758D5C600E0C19A /* testfile.swift in Sources */,
 				7332DD192758D5C600E0C19A /* ChestModel.swift in Sources */,
+				602B35F829B0B6A200C975D6 /* BeginView.swift in Sources */,
 				7332DD1A2758D5C600E0C19A /* GamePointModel.swift in Sources */,
 				E12ACF09278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DD1B2758D5C600E0C19A /* ContentView.swift in Sources */,
@@ -1117,6 +1136,7 @@
 				7332DD2D2758D5C600E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DD2E2758D5C600E0C19A /* XOIRow.swift in Sources */,
 				7332DD302758D5C600E0C19A /* GroupMessageView.swift in Sources */,
+				602B35FF29B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				7332DD332758D5C600E0C19A /* GroupListView.swift in Sources */,
 				7332DD342758D5C600E0C19A /* MapInnerView.swift in Sources */,
 				7332DD352758D5C600E0C19A /* APIHandler.swift in Sources */,
@@ -1164,6 +1184,7 @@
 				7332DD642758D62500E0C19A /* XOIModel.swift in Sources */,
 				7332DD652758D62500E0C19A /* testfile.swift in Sources */,
 				7332DD662758D62500E0C19A /* ChestModel.swift in Sources */,
+				602B35F929B0B6A200C975D6 /* BeginView.swift in Sources */,
 				7332DD672758D62500E0C19A /* GamePointModel.swift in Sources */,
 				E12ACF0A278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DD682758D62500E0C19A /* ContentView.swift in Sources */,
@@ -1189,6 +1210,7 @@
 				7332DD7A2758D62500E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DD7B2758D62500E0C19A /* XOIRow.swift in Sources */,
 				7332DD7D2758D62500E0C19A /* GroupMessageView.swift in Sources */,
+				602B360029B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				7332DD802758D62500E0C19A /* GroupListView.swift in Sources */,
 				7332DD812758D62500E0C19A /* MapInnerView.swift in Sources */,
 				7332DD822758D62500E0C19A /* APIHandler.swift in Sources */,
@@ -1236,6 +1258,7 @@
 				7332DDB12758D63400E0C19A /* XOIModel.swift in Sources */,
 				7332DDB22758D63400E0C19A /* testfile.swift in Sources */,
 				7332DDB32758D63400E0C19A /* ChestModel.swift in Sources */,
+				602B35FA29B0B6A200C975D6 /* BeginView.swift in Sources */,
 				7332DDB42758D63400E0C19A /* GamePointModel.swift in Sources */,
 				E12ACF0B278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DDB52758D63400E0C19A /* ContentView.swift in Sources */,
@@ -1261,6 +1284,7 @@
 				7332DDC72758D63400E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DDC82758D63400E0C19A /* XOIRow.swift in Sources */,
 				7332DDCA2758D63400E0C19A /* GroupMessageView.swift in Sources */,
+				602B360129B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				7332DDCD2758D63400E0C19A /* GroupListView.swift in Sources */,
 				7332DDCE2758D63400E0C19A /* MapInnerView.swift in Sources */,
 				7332DDCF2758D63400E0C19A /* APIHandler.swift in Sources */,
@@ -1308,6 +1332,7 @@
 				7332DDFE2758D9C600E0C19A /* XOIModel.swift in Sources */,
 				7332DDFF2758D9C600E0C19A /* testfile.swift in Sources */,
 				7332DE002758D9C600E0C19A /* ChestModel.swift in Sources */,
+				602B35F629B0B6A200C975D6 /* BeginView.swift in Sources */,
 				7332DE012758D9C600E0C19A /* GamePointModel.swift in Sources */,
 				E12ACF0C278168CF00B197AA /* NickNameDialog.swift in Sources */,
 				7332DE022758D9C600E0C19A /* ContentView.swift in Sources */,
@@ -1333,6 +1358,7 @@
 				7332DE142758D9C600E0C19A /* PirzeDetailView.swift in Sources */,
 				7332DE152758D9C600E0C19A /* XOIRow.swift in Sources */,
 				7332DE172758D9C600E0C19A /* GroupMessageView.swift in Sources */,
+				602B35FD29B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				7332DE1A2758D9C600E0C19A /* GroupListView.swift in Sources */,
 				7332DE1B2758D9C600E0C19A /* MapInnerView.swift in Sources */,
 				7332DE1C2758D9C600E0C19A /* APIHandler.swift in Sources */,
@@ -1380,6 +1406,7 @@
 				E1EA94A227B102580083118F /* XOIModel.swift in Sources */,
 				E1EA94A327B102580083118F /* testfile.swift in Sources */,
 				E1EA94A427B102580083118F /* ChestModel.swift in Sources */,
+				602B35F729B0B6A200C975D6 /* BeginView.swift in Sources */,
 				E1EA94A527B102580083118F /* GamePointModel.swift in Sources */,
 				E1EA94A627B102580083118F /* NickNameDialog.swift in Sources */,
 				E1EA94A727B102580083118F /* ContentView.swift in Sources */,
@@ -1405,6 +1432,7 @@
 				E1EA94BA27B102580083118F /* PirzeDetailView.swift in Sources */,
 				E1EA94BB27B102580083118F /* XOIRow.swift in Sources */,
 				E1EA94BC27B102580083118F /* GroupMessageView.swift in Sources */,
+				602B35FE29B0B86F00C975D6 /* FieldModel.swift in Sources */,
 				E1EA94BD27B102580083118F /* GroupListView.swift in Sources */,
 				E1EA94BE27B102580083118F /* MapInnerView.swift in Sources */,
 				E1EA94BF27B102580083118F /* APIHandler.swift in Sources */,

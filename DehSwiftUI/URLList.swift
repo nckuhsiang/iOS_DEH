@@ -55,6 +55,8 @@ let chestMinusUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/chestMinus"
 let getMemberPointUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/getMemberPoint"
 let getGameDataUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/getGameData"
 
+let FieldGetAllListUrl = "http://deh.csie.ncku.edu.tw:8080/api/v1/groups/listRegion"
+
 let CreateTempAccountUrl:      String = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/createtempaccount"
 let AttachTempAccountUrl:      String = "http://deh.csie.ncku.edu.tw:8080/api/v1/users/attachtempaccount"
 
@@ -85,6 +87,10 @@ let getXois = [
     "searchGroupAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbyAOIs",
     "searchGroupSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/group/nearbySOIs",
     
+    "searchRegionPOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/region/nearbyPOIs",
+    "searchRegionLOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/region/nearbyLOIs",
+    "searchRegionAOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/region/nearbyAOIs",
+    "searchRegionSOI":"http://deh.csie.ncku.edu.tw:8080/api/v1/region/nearbySOIs",
     
 ]
 

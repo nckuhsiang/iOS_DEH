@@ -24,6 +24,7 @@ struct TabViewElement: View {
     @State var selectSearchXOI = false
     @State private var cancellable: AnyCancellable?
     @State var group = Group(id: 0, name: "-111", leaderId: 0, info: "")
+    @State var region = Field(id: 0, name: "-111", info: "")
     var body: some View {
         VStack{
             HStack{
@@ -32,14 +33,28 @@ struct TabViewElement: View {
                         if(group.name != "-111"){
                             title = group.name
                         }
+                        if(region.name != "-111"){
+                            title = region.name
+                        }
                     }
                     .foregroundColor(Color.white)
                 Spacer()
                 //this will cause an warning but no idea about it
-                NavigationLink(destination: GroupList(group: $group)) {
-                    Image(image1).hidden(image1=="Empty")
+                if (image1 == "member_grouplist"){
+                    NavigationLink(destination: GroupList(group: $group)) {
+                        Image(image1)
+                    }
                 }
-                .disabled(image1=="Empty")
+                //remember to design a icon for member_regionlist date:0302
+                if (image1 == "member_regionlist"){
+                    NavigationLink(destination: BeginView(region: $region)) {
+                        Image("member_grouplist")
+                    }
+                }
+//                NavigationLink(destination: GroupList(group: $group)) {
+//                    Image(image1).hidden(image1=="Empty")
+//                }
+//                .disabled(image1=="Empty")
 
                 
                 Button(action: {
@@ -94,6 +109,7 @@ extension TabViewElement{
             "action": action,
             "user_id": "\(settingStorage.userID)",
             "group_id": "\(group.id)",
+            "region_id": "\(region.id)",
             "language": "中文",
         ]
         print(action)
@@ -129,6 +145,15 @@ extension TabViewElement{
                 .default(Text("Group My LOI")) { searchXOIs(action: "searchGroupMyLOI") },
                 .default(Text("Group My AOI")) { searchXOIs(action: "searchGroupMyAOI") },
                 .default(Text("Group My SOI")) { searchXOIs(action: "searchGroupMySOI") },
+                .cancel()
+            ])
+        }
+        else if(tabItemName == "region"){
+            return ActionSheet(title: Text("Select Search XOIs"), message: Text(""), buttons: [
+                .default(Text("Region POI")) { searchXOIs(action: "searchRegionPOI") },
+                .default(Text("Region LOI")) { searchXOIs(action: "searchRegionLOI") },
+                .default(Text("Region AOI")) { searchXOIs(action: "searchRegionAOI") },
+                .default(Text("Region SOI")) { searchXOIs(action: "searchRegionSOI") },
                 .cancel()
             ])
         }
