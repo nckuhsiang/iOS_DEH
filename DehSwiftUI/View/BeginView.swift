@@ -15,7 +15,7 @@ struct BeginView: View {
     @EnvironmentObject var settingStorage:SettingStorage
 //    @State var groupSelectedOver: Bool = false
     @State var searchText:String = ""
-    @State var selectOverState:Bool = false
+    @Binding var selectOverState:Bool
 //    @State var resAlertState:Bool = false
     @State var alertText:String = ""
     @Binding var region:Field
@@ -34,7 +34,7 @@ struct BeginView: View {
                     if(region.name.hasPrefix(searchText)) {
                         Button {
                             self.region = region
-//                            self.selectOverState = true
+                            self.selectOverState = true
                             self.presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text(region.name)

@@ -25,6 +25,8 @@ struct TabViewElement: View {
     @State private var cancellable: AnyCancellable?
     @State var group = Group(id: 0, name: "-111", leaderId: 0, info: "")
     @State var region = Field(id: 0, name: "-111", info: "")
+    @State var selectOverState:Bool = false
+    @State var exitRegionState:Bool = false
     var body: some View {
         VStack{
             HStack{
@@ -46,11 +48,55 @@ struct TabViewElement: View {
                     }
                 }
                 //remember to design a icon for member_regionlist date:0302
-                if (image1 == "member_regionlist"){
-                    NavigationLink(destination: BeginView(region: $region)) {
+                if (image1 == "member_regionlist" && selectOverState == false){
+                    NavigationLink(destination: BeginView(selectOverState: $selectOverState,region: $region)) {
                         Image("member_grouplist")
                     }
                 }
+                if (image1 == "member_regionlist" && selectOverState == true){
+                    Button{
+                        self.exitRegionState = true
+                        //                        print(exitRegionState)
+                    }
+                    label:{
+                        Image("cross_w")
+                            .resizable()
+                            .frame(width:20, height:20)
+                    }
+//                    .actionSheet(isPresented: $exitRegionState) {
+//                        actionSheetBuilder(tabItemName:tabItemName)
+//                    }
+                    
+                    .alert(title, isPresented: $exitRegionState) {
+                                
+                        Button("Confirm".localized, action: {
+                                    // Handle acknowledgement.
+                                    self.settingStorage.XOIs[tabItemName] = []
+                                    self.region = Field(id: 0, name: "-111", info: "")
+                                    self.title = "Region Interests".localized
+                                    self.selectOverState = false
+                                })
+                        Button("Cancel".localized, action: {})
+                                
+                            } message: {
+                                Text("Are you sure to exit this region?".localized)
+                            }
+//                    .alert(isPresented: $exitRegionState) { () -> Alert in
+//
+////                        return Alert(title: Text("yes"),dismissButton:.default(Text("OK".localized), action:{}))
+//
+//                        return Alert(title: Text("Join".localized),
+//                                    message: Text("Join".localized),
+//                                    primaryButton: .default(Text("Yes".localized),
+//                                    action: {
+//                                        self.settingStorage.XOIs[tabItemName] = []
+//                                        self.region = Field(id: 0, name: "-111", info: "")
+//                                            }),
+//                                    secondaryButton: .default(Text("No".localized), action: {}))
+//                            }
+                }
+                    
+//                }
 //                NavigationLink(destination: GroupList(group: $group)) {
 //                    Image(image1).hidden(image1=="Empty")
 //                }

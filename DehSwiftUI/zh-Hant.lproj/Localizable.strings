@@ -16,6 +16,7 @@
 "Account" = "帳號";
 "Password" = "密碼";
 "Login Success" = "登入成功";
+"Confirm" = "確認";
 "Cancel" = "取消";
 "Save" = "保存";
 "logout" = "登出";
@@ -132,4 +133,8 @@
 "Region LOI" = "場域景線";
 "Region AOI" = "場域景區";
 "Region SOI" = "場域主題故事";
-
+"Are you sure to exit this region?" = "確定退出此場域嗎？";
+"Region POI" = "場域景點";
+"Region LOI" = "場域景線";
+"Region AOI" = "場域景區";
+"Region SOI" = "場域主題故事";

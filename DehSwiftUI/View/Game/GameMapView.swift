@@ -43,13 +43,13 @@ struct GameMap: View {
             }
             .onAppear(){
                 gameVM.initial(session: session, userID: settingStorage.userID)
-                locationManager.startUpdate()
+//                locationManager.startUpdate()
                 print(gameVM.chestList)
                 
             }
-            .onDisappear(){
-                locationManager.stopUpdate()
-            }
+//            .onDisappear(){
+//                locationManager.stopUpdate()
+//            }
             .alert(isPresented: $gameVM.alertState) { () -> Alert in
                 return Alert(title: Text("game does not start".localized),
                              dismissButton:.default(Text("OK".localized), action: {

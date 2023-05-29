@@ -23,6 +23,11 @@ struct Setting: View {
     @State var loginTriggerAlert = false
     @EnvironmentObject var settingStorage:SettingStorage
     @State private var cancellable: AnyCancellable?
+    @State private var numberFormatter: NumberFormatter = {
+        var nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        return nf
+    }()
     var body: some View {
         Form{
             // toggle trigger warning 
@@ -32,17 +37,36 @@ struct Setting: View {
             Section(header: Text("Search Distance".localized)
                         .foregroundColor(.blue)){
                 HStack{
-                    Slider(value: $searchDistance,in: 0.0...20.0)
+                    Slider(value: $searchDistance,in: 0.0...2000.0, step: 50.0)
                     Spacer()
-                    Text("\(searchDistance, specifier: "%.2f") km")
+                    TextField("Distance", value: $searchDistance, formatter: numberFormatter)
+                        .frame(width: 45)
+                        .padding([.horizontal], 4)
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray))
+                        .multilineTextAlignment(.center)
+                    Text("km")
+
+//                    TextField(
+//                            "User name (email address)",
+//                            text: $searchDistance
+//                        )
+//                    Text("\(searchDistance, specifier: "%.2f") km")
                 }
             }
             
             Section(header: Text("Search Number".localized).foregroundColor(.blue)){
                 HStack{
-                    Slider(value: $searchNumber,in: 10.0...100.0,step:1)
+                    Slider(value: $searchNumber,in: 10.0...500.0,step:5.0)
                     Spacer()
-                    Text("\(searchNumber, specifier: "%.0f")")
+                    TextField("Number", value: $searchNumber, formatter: numberFormatter)
+                        .frame(width: 35)
+                        .padding([.horizontal], 4)
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray))
+//                        .padding([.horizontal], 20)
+                        .multilineTextAlignment(.center)
+                    Text("        ")
+                    
+//                    Text("\(searchNumber, specifier: "%.0f")")
                 }
             }
             if app == "deh" || app == "sdc" {

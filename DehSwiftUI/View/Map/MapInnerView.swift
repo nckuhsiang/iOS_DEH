@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 struct DEHMapInner: View {
     var Xoi:XOI
-    @ObservedObject var locationManager = LocationManager()
+    @StateObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
 //    @State var selection: Int? = nil
     @State var showingAlert = false

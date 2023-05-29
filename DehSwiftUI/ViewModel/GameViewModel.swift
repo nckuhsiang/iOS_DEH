@@ -14,9 +14,7 @@ class GameViewModel:ObservableObject {
     @Published var gameList:[gameListtuple] = []
     @Published var sessionList : [SessionModel] = []
     @Published var selectedSession : SessionModel?
-    
     @Published var selection:Int?
-    
     @Published var chestList:[ChestModel] = []
     @Published var min:Int = 0
     @Published var sec:Int = 0
@@ -25,7 +23,6 @@ class GameViewModel:ObservableObject {
     @Published private var cancellable: AnyCancellable?
     @Published private var cancellable2: AnyCancellable?
     @Published private var cancellable3: AnyCancellable?
-
     
     func getGameList(userID:String) {
         let url = privateGetGroupList
@@ -68,15 +65,12 @@ class GameViewModel:ObservableObject {
                 if let value = values.value{
                     self.sessionList = value
                 }
-                
             })
     }
     func initial(session:SessionModel,userID:String){
         getGameData(gameID: session.gameID)
         getChests(session: session)
         updateScore(userID: userID, gameID: session.gameID)
-        
-        
     }
     func getChests(session:SessionModel){
         let url = getChestList
