@@ -23,6 +23,19 @@ class GameViewModel:ObservableObject {
     @Published private var cancellable: AnyCancellable?
     @Published private var cancellable2: AnyCancellable?
     @Published private var cancellable3: AnyCancellable?
+    @Published private var startGameCancellable: AnyCancellable?
+    
+    func startGame(session: SessionModel) {
+        let url = GameStartUrl
+        let parameters:[String:String] = [
+            "room_id": "\(session.id)",
+        ]
+        let publisher:DataResponsePublisher<String> = NetworkConnector().getDataPublisherDecodable(url: url, para: parameters)
+        self.startGameCancellable = publisher
+            .sink(receiveValue: {(values) in
+                print(values.debugDescription)
+                })
+    }
     
     func getGameList(userID:String) {
         let url = privateGetGroupList

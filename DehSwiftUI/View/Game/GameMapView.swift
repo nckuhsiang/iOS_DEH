@@ -14,10 +14,11 @@ struct GameMap: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var locationManager = LocationManager()
     @EnvironmentObject var settingStorage:SettingStorage
-    @StateObject var gameVM:GameViewModel
+    @State var gameVM:GameViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var group:Group
     @State var session:SessionModel
+    @State private var startGameCancellable: AnyCancellable?
 
 //    @State var selection: Int? = nil
     @State var alertState = false
@@ -53,7 +54,7 @@ struct GameMap: View {
             .alert(isPresented: $gameVM.alertState) { () -> Alert in
                 return Alert(title: Text("game does not start".localized),
                              dismissButton:.default(Text("OK".localized), action: {
-                    self.presentationMode.wrappedValue.dismiss()
+//                    self.presentationMode.wrappedValue.dismiss()
                 }))
             }
             VStack {
@@ -73,6 +74,16 @@ struct GameMap: View {
                     }
                 Spacer()
                 VStack(alignment: .leading,spacing: 10){
+                    Button {
+                        gameVM.startGame(session: session)
+                        
+                    } label: {
+                        Text("Start Game")
+                            .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
+                            .font(.largeTitle)
+                            .background(Color.yellow)
+                    }
+
 //                    Button(action: {}, label: {
 //                        Image("add")
 //                    })
@@ -86,6 +97,22 @@ struct GameMap: View {
             
         }
         
+//        override func viewDidLoad() {
+//            super.viewDidLoad();
+//
+//            let myButton = UIButton()
+//
+//            // When user touch myButton, we're going to call loadData method
+//            myButton.addTarget(self, action: #selector(self.loadData), forControlEvents: .TouchUpInside)
+//
+//            // Load the data
+//            self.loadData();
+//        }
+//
+//        func loadData() {
+//            // code to load data from network, and refresh the interface
+//            tableView.reloadData()
+//        }
     }
 }
 
